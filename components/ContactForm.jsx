@@ -1,162 +1,208 @@
 import React, { useState } from 'react';
-import { X } from 'lucide-react';
+import { X, Mail, Phone } from 'lucide-react';
+
+const BLUE = '#3B60E4';
+const BLUE_DEEP = '#2F4FC9';
+const SLATE = '#3D4654';
+const MUTED = '#6B7280';
+const GREEN = '#1E8E5A';
+
+// Netlify needs the payload url-encoded, not JSON.
+const encode = (data) =>
+  Object.keys(data)
+    .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
+    .join('&');
 
 export default function ContactForm({ onClose }) {
-  const [formData, setFormData] = useState({
-    type: 'partnership',
-    email: '',
-    message: ''
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [form, setForm] = useState({ type: 'Partnership', email: '', message: '' });
+  const [state, setState] = useState('idle'); // idle | sending | done | error
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+  const change = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+
+  const submit = async (e) => {
+    e.preventDefault();
+    setState('sending');
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'seco-contact', ...form })
+      });
+      setState(res.ok ? 'done' : 'error');
+    } catch {
+      setState('error');
+    }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setSubmitted(true);
-      setLoading(false);
-    }, 1000);
+  const field = {
+    width: '100%',
+    padding: '13px 15px',
+    borderRadius: 10,
+    border: '1px solid #DCE3F7',
+    color: SLATE,
+    fontSize: 15,
+    backgroundColor: '#fff'
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div
+      className="fixed inset-0 flex items-center justify-center z-50 p-4"
+      style={{ backgroundColor: 'rgba(20,28,40,0.55)' }}
+      onClick={onClose}
+    >
       <div
-        className="bg-white rounded-lg max-w-md w-full p-8 shadow-lg relative"
+        className="bg-white rounded-2xl max-w-lg w-full p-10 relative"
+        style={{ maxHeight: '92vh', overflowY: 'auto' }}
+        onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 text-gray-400 hover:text-gray-600"
+          className="absolute top-6 right-6"
+          style={{ color: MUTED }}
+          aria-label="Close"
         >
-          <X size={24} />
+          <X size={22} />
         </button>
 
-        {submitted ? (
-          <div className="text-center">
+        {state === 'done' ? (
+          <div className="text-center py-6">
             <div
-              className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
+              className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6"
               style={{ backgroundColor: '#E1F4EE' }}
             >
-              <span className="text-3xl">✓</span>
+              <span style={{ color: GREEN, fontSize: 26 }}>✓</span>
             </div>
-            <h2 className="text-2xl font-bold mb-4" style={{ color: '#3D4654' }}>
-              Thanks for reaching out.
+            <h2 className="font-bold mb-3" style={{ color: SLATE, fontSize: 22 }}>
+              Thanks — we'll come back to you.
             </h2>
-            <p style={{ color: '#6B7280', marginBottom: '24px' }}>
-              We'll come back to you within two business days.
+            <p style={{ color: MUTED, fontSize: 15, lineHeight: 1.7 }}>
+              Within two business days.
             </p>
             <button
               onClick={onClose}
-              className="px-6 py-2 rounded font-semibold text-white"
-              style={{ backgroundColor: '#3B60E4' }}
+              className="mt-8 px-7 py-3 rounded-full text-white text-sm font-semibold"
+              style={{ background: `linear-gradient(90deg, ${BLUE} 0%, ${BLUE_DEEP} 100%)` }}
             >
               Close
             </button>
           </div>
         ) : (
-          <div>
-            <h2 className="text-2xl font-bold mb-6" style={{ color: '#3D4654' }}>
+          <>
+            <h2 className="font-bold mb-2" style={{ color: SLATE, fontSize: 24, letterSpacing: '-0.02em' }}>
               Let's talk.
             </h2>
+            <p className="mb-8" style={{ color: MUTED, fontSize: 15, lineHeight: 1.7 }}>
+              Three fields. We'll come back to you within two business days.
+            </p>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              name="seco-contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              onSubmit={submit}
+              className="space-y-5"
+            >
+              <input type="hidden" name="form-name" value="seco-contact" />
+              <p className="hidden">
+                <label>
+                  Leave blank: <input name="bot-field" onChange={change} />
+                </label>
+              </p>
+
               <div>
-                <label
-                  className="block text-sm font-semibold mb-2"
-                  style={{ color: '#3D4654' }}
-                >
+                <label className="block font-semibold mb-2" style={{ color: SLATE, fontSize: 13 }}>
                   I'm reaching out about
                 </label>
-                <select
-                  name="type"
-                  value={formData.type}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded border"
-                  style={{
-                    borderColor: '#DCE3F7',
-                    color: '#3D4654'
-                  }}
-                >
-                  <option value="partnership">Partnership</option>
-                  <option value="investment">Investment</option>
-                  <option value="press">Press</option>
-                  <option value="other">Other</option>
+                <select name="type" value={form.type} onChange={change} style={field}>
+                  <option>Partnership</option>
+                  <option>Investment</option>
+                  <option>Press</option>
+                  <option>Other</option>
                 </select>
               </div>
 
               <div>
-                <label
-                  className="block text-sm font-semibold mb-2"
-                  style={{ color: '#3D4654' }}
-                >
+                <label className="block font-semibold mb-2" style={{ color: SLATE, fontSize: 13 }}>
                   Your email
                 </label>
                 <input
                   type="email"
                   name="email"
-                  value={formData.email}
-                  onChange={handleChange}
                   required
+                  value={form.email}
+                  onChange={change}
                   placeholder="you@company.com"
-                  className="w-full px-4 py-3 rounded border"
-                  style={{
-                    borderColor: '#DCE3F7',
-                    color: '#3D4654'
-                  }}
+                  style={field}
                 />
               </div>
 
               <div>
-                <label
-                  className="block text-sm font-semibold mb-2"
-                  style={{ color: '#3D4654' }}
-                >
+                <label className="block font-semibold mb-2" style={{ color: SLATE, fontSize: 13 }}>
                   Anything else
                 </label>
                 <textarea
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us more..."
                   rows={4}
-                  className="w-full px-4 py-3 rounded border resize-none"
-                  style={{
-                    borderColor: '#DCE3F7',
-                    color: '#3D4654'
-                  }}
+                  value={form.message}
+                  onChange={change}
+                  placeholder="Optional."
+                  style={{ ...field, resize: 'none' }}
                 />
               </div>
 
+              {state === 'error' && (
+                <p style={{ color: '#B4232B', fontSize: 14 }}>
+                  Something went wrong. Email{' '}
+                  <a href="mailto:joe@seco.bio" style={{ textDecoration: 'underline' }}>
+                    joe@seco.bio
+                  </a>{' '}
+                  directly and we'll pick it up.
+                </p>
+              )}
+
               <button
                 type="submit"
-                disabled={loading}
-                className="w-full py-3 rounded font-semibold text-white transition-opacity"
+                disabled={state === 'sending'}
+                className="w-full py-3.5 rounded-full text-white font-semibold"
                 style={{
-                  backgroundColor: '#3B60E4',
-                  opacity: loading ? 0.7 : 1
+                  background: `linear-gradient(90deg, ${BLUE} 0%, ${BLUE_DEEP} 100%)`,
+                  opacity: state === 'sending' ? 0.65 : 1,
+                  fontSize: 15
                 }}
               >
-                {loading ? 'Sending...' : 'Send'}
+                {state === 'sending' ? 'Sending…' : 'Send'}
               </button>
-
-              <p
-                className="text-xs text-center"
-                style={{ color: '#6B7280' }}
-              >
-                We'll respond within two business days.
-              </p>
             </form>
-          </div>
+
+            {/* Direct line, for people who won't fill in a form */}
+            <div className="mt-8 pt-7" style={{ borderTop: '1px solid #E4E8F2' }}>
+              <p className="font-bold mb-1" style={{ color: SLATE, fontSize: 15 }}>
+                Joe Collura
+              </p>
+              <p className="mb-4" style={{ color: MUTED, fontSize: 13 }}>
+                CEO &amp; Founder, Seco Bio
+              </p>
+              <div className="flex flex-col sm:flex-row gap-x-7 gap-y-2">
+                <a
+                  href="mailto:joe@seco.bio"
+                  className="inline-flex items-center gap-2"
+                  style={{ color: BLUE, fontSize: 14 }}
+                >
+                  <Mail size={15} />
+                  joe@seco.bio
+                </a>
+                <a
+                  href="tel:+14437228885"
+                  className="inline-flex items-center gap-2"
+                  style={{ color: BLUE, fontSize: 14 }}
+                >
+                  <Phone size={15} />
+                  443-722-8885
+                </a>
+              </div>
+            </div>
+          </>
         )}
       </div>
     </div>

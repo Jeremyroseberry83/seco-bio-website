@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import { Menu, X, Mail } from 'lucide-react';
+import { Menu, X, Mail, Phone, Linkedin } from 'lucide-react';
 import HomePage from '../components/HomePage';
 import TechnologyPage from '../components/TechnologyPage';
 import PlatformPage from '../components/PlatformPage';
@@ -201,8 +201,29 @@ export default function Site() {
           </div>
           <div>
             <h4 className="font-bold mb-3 text-sm">Contact</h4>
-            <a href="mailto:joe@seco.bio" className="text-sm opacity-75 hover:opacity-100">
-              joe@seco.bio
+            <p className="text-sm font-semibold" style={{ marginBottom: 2 }}>Joe Collura</p>
+            <p className="text-sm opacity-70" style={{ marginBottom: 14 }}>CEO &amp; Founder</p>
+            <a
+              href="mailto:joe@seco.bio"
+              className="text-sm opacity-80 hover:opacity-100 flex items-center gap-2"
+              style={{ marginBottom: 8 }}
+            >
+              <Mail size={14} /> joe@seco.bio
+            </a>
+            <a
+              href="tel:+14437228885"
+              className="text-sm opacity-80 hover:opacity-100 flex items-center gap-2"
+              style={{ marginBottom: 8 }}
+            >
+              <Phone size={14} /> 443-722-8885
+            </a>
+            <a
+              href="https://www.linkedin.com/in/jvcollura/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm opacity-80 hover:opacity-100 flex items-center gap-2"
+            >
+              <Linkedin size={14} /> LinkedIn
             </a>
           </div>
         </div>

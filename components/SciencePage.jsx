@@ -33,14 +33,18 @@ export default function SciencePage({ onContactClick }) {
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
           <a
-            href="#"
+            href="https://www.nature.com/nmat/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full text-white text-sm font-semibold"
             style={{ background: `linear-gradient(90deg, ${BLUE} 0%, ${BLUE_DEEP} 100%)` }}
           >
             Read the paper <ExternalLink size={15} />
           </a>
           <a
-            href="#"
+            href="/documents/seco-nature-materials-2024.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full text-sm font-semibold"
             style={{ border: `1.5px solid ${BLUE}`, color: BLUE }}
           >
@@ -137,7 +141,9 @@ export default function SciencePage({ onContactClick }) {
               </p>
             </div>
             <a
-              href="#"
+              href="/documents/seco-nature-materials-2024.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white text-sm font-semibold flex-shrink-0"
               style={{ background: `linear-gradient(90deg, ${BLUE} 0%, ${BLUE_DEEP} 100%)` }}
             >
