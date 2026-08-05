@@ -51,7 +51,7 @@ export function PageHero({ eyebrow, title, subtitle, image, stats, tone = 'blue'
           src={image}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover" loading="lazy"
         />
       )}
       <div className="absolute inset-0" style={{ background: wash }} />
@@ -156,7 +156,7 @@ export function SplitFeature({ eyebrow, title, children, image, flip, quote, dar
             className="rounded-2xl overflow-hidden"
             style={{ aspectRatio: ratio, backgroundColor: '#E9EDF6' }}
           >
-            <img src={image} alt="" className="w-full h-full object-cover" />
+            <img src={image} alt="" className="w-full h-full object-cover" loading="lazy" />
           </div>
           {quote && (
             <div
@@ -279,7 +279,7 @@ export function StatBand({ image, stats, tone = 'blue' }) {
   const accent = tone === 'green' ? GREEN_LIGHT : BLUE_LIGHT;
   return (
     <section className="relative overflow-hidden" style={{ backgroundColor: INK }}>
-      <img src={image} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" />
+      <img src={image} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
       <div className="absolute inset-0" style={{ backgroundColor: 'rgba(46,66,89,0.72)' }} />
       <div className="relative max-w-6xl mx-auto px-6 py-24">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-8">
@@ -342,7 +342,7 @@ export function CircleGrid({ eyebrow, title, intro, items, dark }) {
                 className="rounded-full overflow-hidden mx-auto mb-5"
                 style={{ width: '100%', maxWidth: 190, aspectRatio: '1 / 1', backgroundColor: '#E9EDF6' }}
               >
-                <img src={it.image} alt="" className="w-full h-full object-cover" />
+                <img src={it.image} alt="" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <p className="font-bold" style={{ color: heading, fontSize: '15px' }}>
                 {it.label}

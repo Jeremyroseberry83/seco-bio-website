@@ -197,7 +197,7 @@ export default function HomePage({ onContactClick }) {
                       objectFit: 'contain',
                       filter: 'grayscale(100%)',
                       opacity: 0.72
-                    }}
+                    }} loading="lazy"
                   />
                 </div>
                 <div
@@ -298,7 +298,7 @@ export default function HomePage({ onContactClick }) {
                   alt=""
                   aria-hidden="true"
                   className="absolute inset-0 w-full h-full object-cover"
-                  style={{ opacity: 0.17 }}
+                  style={{ opacity: 0.17 }} loading="lazy"
                 />
                 <div
                   className="absolute inset-0"
@@ -338,7 +338,7 @@ export default function HomePage({ onContactClick }) {
             <img
               src="/images/stills/robotics.jpg"
               alt="Automated formulation screening"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover" loading="lazy"
             />
           </div>
 
@@ -435,7 +435,7 @@ export default function HomePage({ onContactClick }) {
             <img
               src="/images/stills/microscopy.jpg"
               alt="Protected cells under magnification"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover" loading="lazy"
             />
           </div>
         </div>
@@ -634,7 +634,7 @@ export default function HomePage({ onContactClick }) {
                   className="rounded-xl overflow-hidden mb-5"
                   style={{ aspectRatio: '4 / 3', backgroundColor: INK }}
                 >
-                  <img src={img} alt={title} className="w-full h-full object-cover" />
+                  <img src={img} alt={title} className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <h4 className="font-bold mb-2" style={{ color: SLATE, fontSize: '17px' }}>
                   {title}

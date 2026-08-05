@@ -24,7 +24,7 @@ function Person({ name, title, bio, photo, accent }) {
         className="rounded-2xl overflow-hidden mb-6"
         style={{ aspectRatio: '1 / 1', backgroundColor: '#E9EDF6' }}
       >
-        <img src={photo} alt={name} className="w-full h-full object-cover" />
+        <img src={photo} alt={name} className="w-full h-full object-cover" loading="lazy" />
       </div>
       <h3 className="font-bold mb-1" style={{ color: SLATE, fontSize: '19px' }}>
         {name}
@@ -57,7 +57,7 @@ export default function AboutPage({ onContactClick }) {
             <img
               src="/images/stills/lab-blue.jpg"
               alt="Automated laboratory systems"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover" loading="lazy"
             />
           </div>
           <div>
@@ -233,7 +233,7 @@ export default function AboutPage({ onContactClick }) {
                       objectFit: 'contain',
                       filter: 'grayscale(100%)',
                       opacity: 0.72
-                    }}
+                    }} loading="lazy"
                   />
                 </div>
                 <div style={{ color: SLATE, fontWeight: 700, fontSize: '14px', marginBottom: 5 }}>

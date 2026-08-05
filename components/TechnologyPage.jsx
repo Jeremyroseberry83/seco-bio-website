@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import {
   PageHero, Accent, Eyebrow, SplitFeature, NumberStrip, HighlightGrid, StatBand,
-  SLATE, MUTED, BLUE, BLUE_DEEP, GREEN, INK
+  SLATE, MUTED, BLUE, BLUE_DEEP, GREEN, GREEN_DEEP, INK
 } from './ui';
 
 export default function TechnologyPage({ onContactClick }) {
@@ -128,7 +128,7 @@ export default function TechnologyPage({ onContactClick }) {
                     <td className="py-5 px-6">
                       <span
                         className="px-3 py-1.5 rounded-full font-semibold"
-                        style={{ backgroundColor: '#E1F4EE', color: GREEN, fontSize: '13px' }}
+                        style={{ backgroundColor: '#E1F4EE', color: GREEN_DEEP, fontSize: '13px' }}
                       >
                         {row[2]}
                       </span>
