@@ -286,12 +286,20 @@ export default function HomePage({ onContactClick }) {
       <section className="py-28 px-6" style={{ backgroundColor: '#F7F8FA' }}>
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div
-            className="rounded-2xl overflow-hidden"
+            className="rounded-2xl overflow-hidden relative flex items-center justify-center"
             style={{
               aspectRatio: '4 / 3',
               background: `linear-gradient(140deg, ${BLUE} 0%, ${BLUE_DEEP} 60%, ${INK} 100%)`
             }}
-          />
+          >
+            {/* Placeholder texture until lab photography lands. */}
+            <img
+              src="/images/seco-mark-white-lg.png"
+              alt=""
+              aria-hidden="true"
+              style={{ height: '46%', width: 'auto', opacity: 0.09 }}
+            />
+          </div>
 
           <div>
             <Eyebrow>How it works</Eyebrow>
@@ -380,12 +388,19 @@ export default function HomePage({ onContactClick }) {
           </div>
 
           <div
-            className="order-1 md:order-2 rounded-2xl overflow-hidden"
+            className="order-1 md:order-2 rounded-2xl overflow-hidden relative flex items-center justify-center"
             style={{
               aspectRatio: '3 / 4',
               background: `linear-gradient(160deg, ${GREEN} 0%, ${GREEN_DEEP} 60%, ${INK} 100%)`
             }}
-          />
+          >
+            <img
+              src="/images/seco-mark-white-lg.png"
+              alt=""
+              aria-hidden="true"
+              style={{ height: '38%', width: 'auto', opacity: 0.09 }}
+            />
+          </div>
         </div>
       </section>
 
@@ -549,9 +564,18 @@ export default function HomePage({ onContactClick }) {
 
       {/* ---------------- CLOSING BAND ---------------- */}
       <section
-        className="py-32 px-6 text-center"
+        className="py-32 px-6 text-center relative overflow-hidden"
         style={{ background: `linear-gradient(125deg, ${INK} 0%, ${BLUE_DEEP} 40%, ${BLUE} 100%)` }}
       >
+        {/* Oversized mark bleeding off the right edge. Depth, not branding. */}
+        <img
+          src="/images/seco-mark-white-lg.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute pointer-events-none hidden md:block"
+          style={{ height: '155%', width: 'auto', right: '-4%', top: '-28%', opacity: 0.06 }}
+        />
+        <div className="relative">
         <h2
           className="text-white font-bold mb-6"
           style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.03em' }}
@@ -580,6 +604,7 @@ export default function HomePage({ onContactClick }) {
           >
             I'm an investor
           </button>
+          </div>
         </div>
       </section>
     </div>
