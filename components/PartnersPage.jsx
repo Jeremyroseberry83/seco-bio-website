@@ -1,18 +1,17 @@
 import React from 'react';
+import { PageHero, Accent } from './ui';
 import { ArrowRight } from 'lucide-react';
 
 export default function PartnersPage({ onContactClick }) {
   return (
     <div>
-      {/* Hero */}
-      <section className="py-16 md:py-24 px-6 max-w-6xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-8" style={{ color: '#3D4654' }}>
-          Two ways in.
-        </h1>
-        <p className="text-lg" style={{ color: '#6B7280' }}>
-          Whether you're a brand, manufacturer, or investor.
-        </p>
-      </section>
+      <PageHero
+        eyebrow="Partners"
+        image="/images/stills/consumer.jpg"
+        tone="green"
+        title={<>Two ways in. <Accent>One conversation to start.</Accent></>}
+        subtitle="Whether you make a living product or you're looking at where this industry goes next, it begins with an NDA and a technical call."
+      />
 
       {/* For Brands & Manufacturers */}
       <section className="py-16 md:py-24 px-6" style={{ backgroundColor: '#EEF2FE' }}>

@@ -1,17 +1,20 @@
 import React from 'react';
+import { PageHero, Accent } from './ui';
 
 export default function TechnologyPage({ onContactClick }) {
   return (
     <div>
-      {/* Hero */}
-      <section className="py-16 md:py-24 px-6 max-w-6xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-8" style={{ color: '#3D4654' }}>
-          What we do, in detail.
-        </h1>
-        <p className="text-lg" style={{ color: '#6B7280' }}>
-          The technical foundation behind the platform.
-        </p>
-      </section>
+      <PageHero
+        eyebrow="Technology"
+        image="/images/science/bacteria.jpg"
+        title={<>Living products die on the way to you. <Accent>We changed that.</Accent></>}
+        subtitle="Bacteria have to survive drying, processing, storage, and digestion. Most of them don't. Here is what kills them, and what we do about it."
+        stats={[
+          { value: '10,000×', label: 'More surviving cells' },
+          { value: '6½ mo', label: 'At body temperature' },
+          { value: '2,080', label: 'Formulations tested' }
+        ]}
+      />
 
       {/* What Kills Living Cells */}
       <section className="py-16 md:py-24 px-6" style={{ backgroundColor: '#F9FAFB' }}>

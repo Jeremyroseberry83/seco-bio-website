@@ -1,17 +1,15 @@
 import React from 'react';
+import { PageHero, Accent } from './ui';
 
 export default function PlatformPage({ onContactClick }) {
   return (
     <div>
-      {/* Hero */}
-      <section className="py-16 md:py-24 px-6 max-w-6xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-8" style={{ color: '#3D4654' }}>
-          A formulation engine, not a one-off service.
-        </h1>
-        <p className="text-lg" style={{ color: '#6B7280' }}>
-          How we build, scale, and keep improving.
-        </p>
-      </section>
+      <PageHero
+        eyebrow="Platform"
+        image="/images/stills/robotics.jpg"
+        title={<>A formulation engine, <Accent>not a one-off service.</Accent></>}
+        subtitle="Robots run the experiments. Models learn what works. Every strain we solve makes the next one faster."
+      />
 
       {/* The Loop Expanded */}
       <section className="py-16 md:py-24 px-6" style={{ backgroundColor: '#EEF2FE' }}>

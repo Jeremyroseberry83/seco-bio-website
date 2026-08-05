@@ -281,16 +281,45 @@ export default function HomePage({ onContactClick }) {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-x-12 gap-y-14">
-            <StatBadge
-              value="7 of 13"
-              label="probiotic products tested contained the number of living cells printed on the label"
-            />
-            <StatBadge value="1 in 50" label="cells in the average product was still alive" />
-            <StatBadge
-              value="360×"
-              label="more bacteria loaded at the factory than the label promises, to compensate"
-            />
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { v: '7 of 13', l: 'probiotic products tested contained the number of living cells printed on the label', img: '/images/science/probiotic.jpg' },
+              { v: '1 in 50', l: 'cells in the average product was still alive', img: '/images/science/cell.jpg' },
+              { v: '360×', l: 'more bacteria loaded at the factory than the label promises, to compensate', img: '/images/science/bacteria.jpg' }
+            ].map((s) => (
+              <div
+                key={s.v}
+                className="relative rounded-2xl overflow-hidden p-9"
+                style={{ backgroundColor: '#F4F6FA', minHeight: 260 }}
+              >
+                {/* Imagery sits far back — texture, not illustration. */}
+                <img
+                  src={s.img}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ opacity: 0.17 }}
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{ background: 'linear-gradient(180deg, rgba(244,246,250,0.55) 0%, rgba(244,246,250,0.88) 100%)' }}
+                />
+                <div className="relative">
+                  <div
+                    className="font-bold mb-4"
+                    style={{
+                      color: BLUE_DEEP,
+                      fontSize: 'clamp(2rem, 3.4vw, 2.7rem)',
+                      fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
+                      letterSpacing: '-0.02em'
+                    }}
+                  >
+                    {s.v}
+                  </div>
+                  <p style={{ color: SLATE, fontSize: '15px', lineHeight: 1.65 }}>{s.l}</p>
+                </div>
+              </div>
+            ))}
           </div>
 
           <p className="mt-14" style={{ color: MUTED, fontSize: '14px' }}>

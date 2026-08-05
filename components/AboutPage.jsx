@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail } from 'lucide-react';
+import { PageHero, Accent } from './ui';
 
 const BLUE = '#3B60E4';
 const BLUE_DEEP = '#2F4FC9';
@@ -39,24 +40,12 @@ function Person({ name, title, bio, photo, accent }) {
 export default function AboutPage({ onContactClick }) {
   return (
     <div>
-      {/* Hero */}
-      <section className="pt-24 pb-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <Eyebrow>About</Eyebrow>
-          <h1
-            className="font-bold"
-            style={{
-              color: SLATE,
-              fontSize: 'clamp(2.2rem, 4.5vw, 3.6rem)',
-              lineHeight: 1.06,
-              letterSpacing: '-0.03em',
-              maxWidth: '18ch'
-            }}
-          >
-            Eight years of science. Six months as a company.
-          </h1>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="About"
+        image="/images/stills/lab-blue.jpg"
+        title={<>Eight years of science. <Accent>Six months as a company.</Accent></>}
+        subtitle="Research funded by NASA and DARPA, carried out at MIT, and published in Nature Materials. Seco Bio exists to bring it to the industries that need it now."
+      />
 
       {/* Origin */}
       <section className="py-24 px-6" style={{ backgroundColor: '#F7F8FA' }}>
@@ -196,8 +185,9 @@ export default function AboutPage({ onContactClick }) {
                 maxWidth: '38ch'
               }}
             >
-              Two of the executives who built Nestlé Health Science's acquisition strategy, and the
-              chief executive of one of the companies they acquired.
+              Two of the executives who <Accent>built Nestlé Health Science's acquisition
+              strategy</Accent>, and the <Accent>chief executive of one of the companies they
+              acquired</Accent>.
             </p>
           </div>
         </div>

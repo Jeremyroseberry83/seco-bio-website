@@ -23,7 +23,7 @@ export default function Site() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const overHero = currentPage === 'home' && !scrolled;
+  const overHero = !scrolled;
 
   const navItems = [
     { name: 'Technology', id: 'technology' },
@@ -154,7 +154,7 @@ export default function Site() {
         )}
       </nav>
 
-      <main style={{ paddingTop: currentPage === 'home' ? 0 : 76 }}>{renderPage()}</main>
+      <main style={{ paddingTop: 0 }}>{renderPage()}</main>
 
       {currentPage !== 'home' && (
         <button

@@ -1,18 +1,21 @@
 import React from 'react';
+import { PageHero, Accent } from './ui';
 import { FileText, ExternalLink } from 'lucide-react';
 
 export default function SciencePage({ onContactClick }) {
   return (
     <div>
-      {/* Hero */}
-      <section className="py-16 md:py-24 px-6 max-w-6xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-8" style={{ color: '#3D4654' }}>
-          Don't take our word for it.
-        </h1>
-        <p className="text-lg" style={{ color: '#6B7280' }}>
-          This is published, peer-reviewed science.
-        </p>
-      </section>
+      <PageHero
+        eyebrow="Science &amp; evidence"
+        image="/images/science/cell.jpg"
+        title={<>Don't take our word for it. <Accent>Read the paper.</Accent></>}
+        subtitle="Published in Nature Materials in 2024, with full methods and data. Funded by NASA and DARPA, carried out at MIT. Anyone can check it."
+        stats={[
+          { value: '1', label: 'Peer-reviewed paper' },
+          { value: '2,080', label: 'Formulations screened' },
+          { value: '8 yrs', label: 'Of research' }
+        ]}
+      />
 
       {/* The Paper */}
       <section className="py-16 md:py-24 px-6" style={{ backgroundColor: '#EEF2FE' }}>
