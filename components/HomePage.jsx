@@ -7,7 +7,8 @@ const GREEN = '#1E8E5A';
 const GREEN_DEEP = '#176E46';
 const SLATE = '#3D4654';
 const MUTED = '#6B7280';
-const INK = '#22272F';
+const INK = '#2E4259'; // warm slate-navy: reads clinical without going severe
+const BLUE_LIGHT = '#9DB2FF'; // legible tint of brand blue on dark grounds
 
 function Eyebrow({ children, color = BLUE }) {
   return (
@@ -220,20 +221,36 @@ export default function HomePage({ onContactClick }) {
       </section>
 
       {/* ---------------- THE ONE SENTENCE ---------------- */}
-      <section className="py-24 px-6" style={{ backgroundColor: '#F7F8FA' }}>
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Dark ground so this reads as the anchor statement. Key phrases carry
+          a lighter tint of the brand blue — dark enough on white to be
+          unreadable, so it only appears here. */}
+      <section
+        className="py-32 px-6 relative overflow-hidden"
+        style={{ backgroundColor: INK }}
+      >
+        <img
+          src="/images/seco-mark-white-lg.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute pointer-events-none hidden md:block"
+          style={{ height: '150%', width: 'auto', left: '-6%', top: '-25%', opacity: 0.045 }}
+        />
+
+        <div className="max-w-4xl mx-auto text-center relative">
           <h2
-            className="font-bold"
+            className="font-bold text-white"
             style={{
-              color: SLATE,
               fontSize: 'clamp(1.6rem, 3vw, 2.5rem)',
-              lineHeight: 1.28,
+              lineHeight: 1.32,
               letterSpacing: '-0.02em'
             }}
           >
-            Seco Bio uses AI and robotics to keep living organisms alive — making the
-            probiotics people already buy actually work, and putting the ones that never
-            survived a pill on the shelf for the first time.
+            Seco Bio uses AI and robotics to keep{' '}
+            <span style={{ color: BLUE_LIGHT }}>living organisms alive</span> — making the
+            probiotics people already buy{' '}
+            <span style={{ color: BLUE_LIGHT }}>actually work</span>, and putting the ones that{' '}
+            <span style={{ color: BLUE_LIGHT }}>never survived a pill</span> on the shelf for the
+            first time.
           </h2>
         </div>
       </section>

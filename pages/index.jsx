@@ -172,7 +172,7 @@ export default function Site() {
       <footer
         className="py-16 px-6"
         style={{
-          background: 'linear-gradient(125deg, #22272F 0%, #2F4FC9 55%, #3B60E4 100%)',
+          background: 'linear-gradient(125deg, #2E4259 0%, #2F4FC9 55%, #3B60E4 100%)',
           color: 'white'
         }}
       >
