@@ -74,7 +74,7 @@ export default function HomePage({ onContactClick }) {
         <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: INK }}>
           <video
             className="w-full h-full object-cover"
-            src="/videos/seco-video.mp4"
+            src="/videos/secobio.mp4"
             poster="/images/hero-poster.jpg"
             autoPlay
             muted

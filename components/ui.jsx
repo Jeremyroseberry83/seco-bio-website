@@ -37,7 +37,7 @@ export function Eyebrow({ children, color = BLUE, className = '' }) {
  * The wash is what makes a stock-looking frame read as brand rather than
  * decoration, and it guarantees text contrast regardless of the photo.
  */
-export function PageHero({ eyebrow, title, subtitle, image, stats, tone = 'blue' }) {
+export function PageHero({ eyebrow, title, subtitle, image, video, videoOpacity = 0.2, stats, tone = 'blue' }) {
   const wash =
     tone === 'green'
       ? `linear-gradient(180deg, rgba(23,110,70,0.93) 0%, rgba(23,110,70,0.88) 100%)`
@@ -46,15 +46,46 @@ export function PageHero({ eyebrow, title, subtitle, image, stats, tone = 'blue'
 
   return (
     <section className="relative overflow-hidden" style={{ backgroundColor: INK }}>
-      {image && (
-        <img
-          src={image}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover" loading="lazy"
-        />
+      {/* Video takes precedence over a still. It sits at low opacity against the
+          brand ground so the type stays the subject, not the footage.
+          Hero media is never lazy-loaded — it's the first thing painted. */}
+      {video ? (
+        <>
+          <video
+            src={video}
+            poster={image}
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ opacity: videoOpacity }}
+          />
+          {/* Lighter scrim than the still path — the footage is already dim. */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                tone === 'green'
+                  ? 'linear-gradient(180deg, rgba(23,110,70,0.55) 0%, rgba(23,110,70,0.42) 100%)'
+                  : 'linear-gradient(180deg, rgba(46,66,89,0.58) 0%, rgba(46,66,89,0.44) 100%)'
+            }}
+          />
+        </>
+      ) : (
+        <>
+          {image && (
+            <img
+              src={image}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          )}
+          <div className="absolute inset-0" style={{ background: wash }} />
+        </>
       )}
-      <div className="absolute inset-0" style={{ background: wash }} />
 
       <div
         className="relative max-w-4xl mx-auto px-6 text-center"

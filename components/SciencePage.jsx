@@ -10,6 +10,8 @@ export default function SciencePage({ onContactClick }) {
     <div>
       <PageHero
         eyebrow="Science &amp; evidence"
+        video="/videos/science-header.mp4"
+        videoOpacity={0.2}
         image="/images/science/cell.jpg"
         title={<>Don't take our word for it. <Accent>Read the paper.</Accent></>}
         subtitle="Published in Nature Materials in 2024 with full methods and data. Funded by NASA and DARPA, carried out at MIT. Anyone can check it."

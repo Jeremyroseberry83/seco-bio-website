@@ -126,14 +126,11 @@ export default function PartnersPage({ onContactClick }) {
         style={{ background: `linear-gradient(125deg, ${INK} 0%, ${GREEN_DEEP} 55%, ${GREEN} 100%)` }}
       >
         <h2
-          className="text-white font-bold mb-6"
+          className="text-white font-bold mb-12"
           style={{ fontSize: 'clamp(1.9rem, 3.6vw, 2.8rem)', letterSpacing: '-0.03em' }}
         >
           Which describes you?
         </h2>
-        <p className="text-white mb-10 mx-auto" style={{ maxWidth: '42ch', fontSize: '17px', opacity: 0.9, lineHeight: 1.7 }}>
-          Both doors lead to the same short form. We'll know which one you came through.
-        </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             onClick={onContactClick}
