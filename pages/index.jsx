@@ -14,13 +14,16 @@ export default function Site() {
   const [currentPage, setCurrentPage] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
-  const [stickyNav, setStickyNav] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setStickyNav(window.scrollY > 100);
+    const handleScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const overHero = currentPage === 'home' && !scrolled;
 
   const navItems = [
     { name: 'Technology', id: 'technology' },
@@ -60,17 +63,17 @@ export default function Site() {
       </Head>
 
       <nav
-        className={
-          stickyNav
-            ? 'fixed top-0 left-0 right-0 bg-white shadow-sm z-50 transition-all duration-300'
-            : 'relative transition-all duration-300'
-        }
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        style={{
+          backgroundColor: overHero ? 'transparent' : '#FFFFFF',
+          boxShadow: overHero ? 'none' : '0 1px 3px rgba(0,0,0,0.06)'
+        }}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <button
             onClick={() => handleNavClick('home')}
-            className="text-xl font-bold tracking-tight"
-            style={{ color: '#3D4654' }}
+            className="text-xl font-bold"
+            style={{ color: overHero ? '#FFFFFF' : '#3D4654', letterSpacing: '0.06em' }}
           >
             SECO BIO
           </button>
@@ -81,7 +84,13 @@ export default function Site() {
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
                 className="text-sm font-medium transition-colors"
-                style={{ color: currentPage === item.id ? '#3B60E4' : '#6B7280' }}
+                style={{
+                  color: overHero
+                    ? 'rgba(255,255,255,0.92)'
+                    : currentPage === item.id
+                    ? '#3B60E4'
+                    : '#6B7280'
+                }}
               >
                 {item.name}
               </button>
@@ -92,8 +101,8 @@ export default function Site() {
             <Translate />
             <button
               onClick={openContact}
-              className="px-4 py-2 text-sm font-medium text-white rounded"
-              style={{ backgroundColor: '#3B60E4' }}
+              className="px-6 py-2.5 text-sm font-semibold text-white rounded-full"
+              style={{ background: 'linear-gradient(90deg, #3B60E4 0%, #2F4FC9 100%)' }}
             >
               Get in touch
             </button>
@@ -102,7 +111,7 @@ export default function Site() {
           <button
             className="md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            style={{ color: '#3D4654' }}
+            style={{ color: overHero ? '#FFFFFF' : '#3D4654' }}
             aria-label="Menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -125,8 +134,8 @@ export default function Site() {
               <Translate />
               <button
                 onClick={() => { openContact(); setMobileMenuOpen(false); }}
-                className="px-4 py-2 text-sm font-medium text-white rounded w-full"
-                style={{ backgroundColor: '#3B60E4' }}
+                className="px-4 py-2.5 text-sm font-semibold text-white rounded-full w-full"
+                style={{ background: 'linear-gradient(90deg, #3B60E4 0%, #2F4FC9 100%)' }}
               >
                 Get in touch
               </button>
@@ -135,13 +144,13 @@ export default function Site() {
         )}
       </nav>
 
-      <main className={stickyNav ? 'pt-16' : ''}>{renderPage()}</main>
+      <main style={{ paddingTop: currentPage === 'home' ? 0 : 76 }}>{renderPage()}</main>
 
       {currentPage !== 'home' && (
         <button
           onClick={openContact}
           className="fixed bottom-8 right-8 p-4 rounded-full text-white shadow-lg z-40"
-          style={{ backgroundColor: '#3B60E4' }}
+          style={{ background: 'linear-gradient(135deg, #3B60E4 0%, #2F4FC9 100%)' }}
           aria-label="Get in touch"
         >
           <Mail size={24} />
@@ -150,7 +159,13 @@ export default function Site() {
 
       {showContactModal && <ContactForm onClose={() => setShowContactModal(false)} />}
 
-      <footer className="py-12 px-6" style={{ backgroundColor: '#3D4A5B', color: 'white' }}>
+      <footer
+        className="py-16 px-6"
+        style={{
+          background: 'linear-gradient(125deg, #22272F 0%, #2F4FC9 55%, #3B60E4 100%)',
+          color: 'white'
+        }}
+      >
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
           <div>
             <h3 className="font-bold mb-4">SECO BIO</h3>
