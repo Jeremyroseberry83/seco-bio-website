@@ -66,104 +66,154 @@ export default function HomePage({ onContactClick }) {
   return (
     <div>
       {/* ---------------- HERO ---------------- */}
-      <section className="relative w-full" style={{ height: '92vh', minHeight: 560 }}>
+      {/* Per spec: full viewport, film plays on load silent, edge to edge.
+          Overlay is bottom-left, small and quiet, fading in at ~1.5s so the
+          footage owns the first beat. */}
+      <section className="relative w-full" style={{ height: '100vh', minHeight: 560 }}>
         <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: INK }}>
           <video
             className="w-full h-full object-cover"
             src="/videos/seco-video.mp4"
+            poster="/images/hero-poster.jpg"
             autoPlay
             muted
             loop
             playsInline
+            preload="auto"
           />
+          {/* Light scrim only at the lower left, where the type sits.
+              The rest of the frame stays clean. */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(180deg, rgba(15,20,28,0.55) 0%, rgba(15,20,28,0.30) 45%, rgba(15,20,28,0.60) 100%)'
+                'linear-gradient(to top, rgba(12,16,24,0.72) 0%, rgba(12,16,24,0.34) 26%, rgba(12,16,24,0) 55%)'
             }}
           />
         </div>
 
         <div
-          className="relative h-full flex flex-col items-center justify-center text-center px-6"
-          style={{ paddingBottom: 'clamp(40px, 8vw, 120px)' }}
+          className="relative h-full flex flex-col justify-end items-start text-left px-6 md:px-14"
+          style={{ paddingBottom: 'clamp(120px, 17vw, 230px)' }}
         >
-          <h1
-            className="text-white font-bold mb-7"
-            style={{
-              fontSize: 'clamp(2.6rem, 6vw, 5rem)',
-              lineHeight: 1.02,
-              letterSpacing: '-0.03em',
-              maxWidth: '16ch'
-            }}
-          >
-            Keeping the living alive.
-          </h1>
-
-          <p
-            className="text-white mb-3"
-            style={{ fontSize: 'clamp(1.05rem, 1.7vw, 1.35rem)', maxWidth: '52ch', opacity: 0.94 }}
-          >
-            Bacteria that survive the factory, the shelf, and the journey to you.
-          </p>
-          <p
-            className="text-white mb-11"
-            style={{ fontSize: 'clamp(1.05rem, 1.7vw, 1.35rem)', maxWidth: '52ch', opacity: 0.78 }}
-          >
-            Published science. Eight years in the making.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-white text-sm font-semibold transition-transform hover:-translate-y-0.5"
-              style={{ color: SLATE }}
+          <div className="hero-reveal" style={{ maxWidth: 620 }}>
+            <h1
+              className="text-white font-bold mb-4"
+              style={{
+                fontSize: 'clamp(1.95rem, 3.6vw, 3.1rem)',
+                lineHeight: 1.06,
+                letterSpacing: '-0.028em'
+              }}
             >
-              <Play size={16} fill={SLATE} />
-              Watch the film
-            </button>
-            <button
-              onClick={onContactClick}
-              className="px-8 py-3.5 rounded-full text-sm font-semibold text-white border transition-colors hover:bg-white/10"
-              style={{ borderColor: 'rgba(255,255,255,0.55)' }}
+              Keeping the living alive.
+            </h1>
+
+            <p
+              className="text-white mb-8"
+              style={{ fontSize: 'clamp(0.98rem, 1.25vw, 1.13rem)', lineHeight: 1.6, opacity: 0.9 }}
             >
-              Get in touch
-            </button>
+              Bacteria that survive the factory, the shelf, and the journey to you.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button
+                className="inline-flex items-center justify-center gap-2.5 px-7 py-3 rounded-full bg-white text-sm font-semibold transition-transform hover:-translate-y-0.5"
+                style={{ color: SLATE }}
+              >
+                <Play size={15} fill={SLATE} />
+                Watch the film (2 min)
+              </button>
+              <button
+                onClick={onContactClick}
+                className="px-7 py-3 rounded-full text-sm font-semibold text-white border transition-colors hover:bg-white/10"
+                style={{ borderColor: 'rgba(255,255,255,0.5)' }}
+              >
+                Get in touch
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Curved bottom edge — the Nuritas signature */}
+        {/* Scroll cue, bottom centre */}
+        <div
+          className="hero-reveal absolute left-1/2 pointer-events-none"
+          style={{ bottom: 'clamp(74px, 12vw, 168px)', transform: 'translateX(-50%)' }}
+        >
+          <div className="scroll-cue" style={{ width: 22, height: 36, borderRadius: 11, border: '1.5px solid rgba(255,255,255,0.5)', position: 'relative' }}>
+            <span
+              style={{
+                position: 'absolute', left: '50%', top: 8, width: 3, height: 7,
+                borderRadius: 2, background: 'rgba(255,255,255,0.85)', transform: 'translateX(-50%)'
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Curved bottom edge */}
         <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
           <svg
             viewBox="0 0 1440 200"
             preserveAspectRatio="none"
             style={{ display: 'block', width: '100%', height: 'clamp(70px, 13vw, 200px)' }}
           >
-            {/* Deep elliptical sweep. Control point well below the baseline
-                produces the wide arc rather than a shallow dip. */}
             <path d="M0,200 L0,8 C360,150 1080,150 1440,8 L1440,200 Z" fill="#FFFFFF" />
           </svg>
         </div>
       </section>
 
       {/* ---------------- CREDIBILITY BAR ---------------- */}
-      <section className="pt-10 pb-20 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <Eyebrow color={GREEN}>Funded, researched, and published by</Eyebrow>
-          <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-8 mt-10">
-            {['NASA', 'DARPA', 'MIT', 'Nature Materials'].map((name) => (
-              <span
-                key={name}
-                className="font-bold"
-                style={{
-                  color: SLATE,
-                  fontSize: 'clamp(1.15rem, 2vw, 1.6rem)',
-                  letterSpacing: '0.02em',
-                  opacity: 0.72
-                }}
+      {/* Marks used with permission. Heights are tuned per logo rather than
+          shared: a circular mark reads far heavier than a wide wordmark at the
+          same pixel height, so NASA sits smaller than DARPA and MIT. */}
+      <section className="pt-6 pb-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <p
+            className="text-center text-xs font-bold uppercase mb-14"
+            style={{ color: MUTED, letterSpacing: '0.24em' }}
+          >
+            Eight years of research behind it
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-14">
+            {[
+              { name: 'NASA', file: '/images/logos/nasa.png', h: 46, role: 'Research funding' },
+              { name: 'DARPA', file: '/images/logos/darpa.png', h: 40, role: 'Research funding' },
+              { name: 'MIT', file: '/images/logos/mit.png', h: 30, role: 'Where the work was done' },
+              { name: 'Nature Materials', file: '/images/logos/nature.png', h: 40, role: 'Peer-reviewed, 2024' }
+            ].map((org, i) => (
+              <div
+                key={org.name}
+                className="px-6 flex flex-col items-center text-center"
+                style={{ borderLeft: i % 4 === 0 ? 'none' : '1px solid #E4E8F2' }}
               >
-                {name}
-              </span>
+                <div className="flex items-center justify-center" style={{ height: 56, marginBottom: 16 }}>
+                  <img
+                    src={org.file}
+                    alt={org.name}
+                    style={{
+                      height: org.h,
+                      width: 'auto',
+                      objectFit: 'contain',
+                      filter: 'grayscale(100%)',
+                      opacity: 0.72
+                    }}
+                  />
+                </div>
+                <div
+                  style={{
+                    color: SLATE,
+                    fontWeight: 700,
+                    fontSize: '13px',
+                    letterSpacing: '0.02em',
+                    marginBottom: 5
+                  }}
+                >
+                  {org.name}
+                </div>
+                <div style={{ color: MUTED, fontSize: '12px', letterSpacing: '0.04em', lineHeight: 1.5 }}>
+                  {org.role}
+                </div>
+              </div>
             ))}
           </div>
         </div>

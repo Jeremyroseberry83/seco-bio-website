@@ -72,10 +72,20 @@ export default function Site() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <button
             onClick={() => handleNavClick('home')}
-            className="text-xl font-bold"
-            style={{ color: overHero ? '#FFFFFF' : '#3D4654', letterSpacing: '0.06em' }}
+            className="flex items-center gap-3"
+            aria-label="Seco Bio home"
           >
-            SECO BIO
+            <img
+              src={overHero ? '/images/seco-mark-white.png' : '/images/seco-mark.png'}
+              alt="Seco Bio"
+              style={{ height: 34, width: 'auto', display: 'block' }}
+            />
+            <span
+              className="text-lg font-bold"
+              style={{ color: overHero ? '#FFFFFF' : '#2E3A8C', letterSpacing: '0.08em' }}
+            >
+              SECO BIO
+            </span>
           </button>
 
           <div className="hidden md:flex items-center gap-8">
@@ -168,7 +178,11 @@ export default function Site() {
       >
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
           <div>
-            <h3 className="font-bold mb-4">SECO BIO</h3>
+            <img
+              src="/images/seco-lockup-white.png"
+              alt="Seco Bio"
+              style={{ height: 74, width: 'auto', display: 'block', marginBottom: 18 }}
+            />
             <p className="text-sm opacity-75">Protecting what matters.</p>
           </div>
           <div>
