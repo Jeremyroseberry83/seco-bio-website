@@ -1,5 +1,9 @@
 import React from 'react';
-import { PageHero, Accent } from './ui';
+import { ArrowRight } from 'lucide-react';
+import {
+  PageHero, Accent, Eyebrow, SplitFeature, NumberStrip, HighlightGrid, StatementBlock,
+  SLATE, MUTED, BLUE, BLUE_DEEP, INK
+} from './ui';
 
 export default function PlatformPage({ onContactClick }) {
   return (
@@ -11,287 +15,109 @@ export default function PlatformPage({ onContactClick }) {
         subtitle="Robots run the experiments. Models learn what works. Every strain we solve makes the next one faster."
       />
 
-      {/* The Loop Expanded */}
-      <section className="py-16 md:py-24 px-6" style={{ backgroundColor: '#EEF2FE' }}>
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12" style={{ color: '#3D4654' }}>
-            The loop, expanded.
-          </h2>
-
-          <div className="space-y-8">
-            {[
-              {
-                num: '01',
-                title: 'You tell us what you need',
-                details: [
-                  'The organism (strain name, source)',
-                  'The format (tablets, capsules, powder)',
-                  'The claim and shelf life you\'re targeting',
-                  'Your markets and regulatory requirements',
-                  'Volume and manufacturing constraints'
-                ],
-                timeline: '[CONFIRM TIMELINE]'
-              },
-              {
-                num: '02',
-                title: 'We find the formula',
-                details: [
-                  'AI models predict promising formulations',
-                  'Robots test formulations in parallel',
-                  'Validation on your specific strain',
-                  'Iteration until we match your shelf-life target',
-                  'Full stability data under your storage conditions'
-                ],
-                timeline: '[CONFIRM TIMELINE]'
-              },
-              {
-                num: '03',
-                title: 'We prove it on your line',
-                details: [
-                  'Technology transfer to your facility',
-                  'Scaled-up batch testing on your equipment',
-                  'Manufacturing process validation',
-                  'Stability confirmation at commercial scale',
-                  'Documentation for regulatory filing (if needed)'
-                ],
-                timeline: '[CONFIRM TIMELINE]'
-              },
-              {
-                num: '04',
-                title: 'You launch',
-                details: [
-                  'Licensed per strain and per product',
-                  'You own and sell the product',
-                  'We provide ongoing technical support',
-                  'Continuous improvement through field data',
-                  'No time limits on license'
-                ],
-                timeline: '[CONFIRM TIMELINE]'
-              }
-            ].map((step, idx) => (
-              <div
-                key={idx}
-                className="p-8 rounded border-l-4"
-                style={{
-                  backgroundColor: idx % 2 === 0 ? 'white' : '#F9FAFB',
-                  borderColor: '#3B60E4'
-                }}
-              >
-                <div className="flex items-start gap-6">
-                  <div
-                    className="text-4xl font-bold flex-shrink-0"
-                    style={{ color: '#3B60E4' }}
-                  >
-                    {step.num}
-                  </div>
-                  <div className="flex-grow">
-                    <h3 className="text-2xl font-bold mb-4" style={{ color: '#3D4654' }}>
-                      {step.title}
-                    </h3>
-                    <ul className="space-y-2 mb-4">
-                      {step.details.map((detail, i) => (
-                        <li
-                          key={i}
-                          className="flex gap-3"
-                          style={{ color: '#6B7280' }}
-                        >
-                          <span style={{ color: '#3B60E4' }}>•</span>
-                          <span>{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <p
-                      className="text-sm font-semibold"
-                      style={{ color: '#3B60E4' }}
-                    >
-                      Timeline: {step.timeline}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why It Compounds */}
-      <section className="py-16 md:py-24 px-6 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12" style={{ color: '#3D4654' }}>
-          Why it compounds.
-        </h2>
-
-        <div className="grid md:grid-cols-2 gap-12">
-          <div>
-            <h3 className="text-xl font-bold mb-4" style={{ color: '#3D4654' }}>
-              Every strain solved becomes an asset.
-            </h3>
-            <p style={{ color: '#6B7280', lineHeight: '1.8' }}>
-              Partners get the formulation and the stability data. We keep what the platform learned — the underlying dataset mapping which materials protect which organisms.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-4" style={{ color: '#3D4654' }}>
-              The platform doesn't get used up.
-            </h3>
-            <p style={{ color: '#6B7280', lineHeight: '1.8' }}>
-              As we solve more strains, the AI gets better at predicting what will work next. Timelines shrink. Cost per formulation drops. Both partners win.
-            </p>
-          </div>
-        </div>
-
-        {/* Compounding Illustration */}
-        <div className="mt-12 p-8 rounded" style={{ backgroundColor: '#E1F4EE' }}>
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div
-                className="text-4xl font-bold mb-2"
-                style={{ color: '#1E8E5A', fontFamily: 'monospace' }}
-              >
-                24-36 weeks
-              </div>
-              <p style={{ color: '#6B7280', fontSize: '14px' }}>
-                Strain 1: Full development cycle
-              </p>
-            </div>
-            <div>
-              <div
-                className="text-4xl font-bold mb-2"
-                style={{ color: '#1E8E5A', fontFamily: 'monospace' }}
-              >
-                18-24 weeks
-              </div>
-              <p style={{ color: '#6B7280', fontSize: '14px' }}>
-                Strain 5: AI models trained, faster iteration
-              </p>
-            </div>
-            <div>
-              <div
-                className="text-4xl font-bold mb-2"
-                style={{ color: '#1E8E5A', fontFamily: 'monospace' }}
-              >
-                12-18 weeks
-              </div>
-              <p style={{ color: '#6B7280', fontSize: '14px' }}>
-                Strain 10: Predictive capability deployed
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Where It's Headed */}
-      <section
-        className="py-16 md:py-24 px-6"
-        style={{ backgroundColor: '#F9FAFB' }}
+      {/* The loop */}
+      <SplitFeature
+        eyebrow="The loop"
+        title={<>Millions of combinations. <Accent tone="dark">No lab does that by hand.</Accent></>}
+        image="/images/stills/lab-blue.jpg"
+        quote="What took a research team years takes weeks — and every run makes the next strain faster to solve."
       >
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12" style={{ color: '#3D4654' }}>
-            Where it's headed.
-          </h2>
-
-          <div
-            className="p-8 rounded border-l-4"
-            style={{
-              backgroundColor: 'white',
-              borderColor: '#3B60E4'
-            }}
-          >
-            <p
-              className="text-lg font-semibold mb-4"
-              style={{ color: '#3D4654' }}
-            >
-              Industry timelines for a new stabilized live product run 5–7 years.
-            </p>
-            <p
-              className="text-lg font-semibold mb-6"
-              style={{ color: '#3B60E4' }}
-            >
-              Our target is 12–18 months.
-            </p>
-            <p style={{ color: '#6B7280', lineHeight: '1.8' }}>
-              That capability is in development. We're building the computational and robotic infrastructure to compress formulation discovery from years to months. Full AI-native formulation and automated validation are roadmap items for 2027–28.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Deal Structure */}
-      <section className="py-16 md:py-24 px-6 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12" style={{ color: '#3D4654' }}>
-          How deals are structured.
-        </h2>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          <div
-            className="p-8 rounded"
-            style={{ backgroundColor: '#EEF2FE' }}
-          >
-            <h3 className="text-xl font-bold mb-4" style={{ color: '#3D4654' }}>
-              Standard licensing
-            </h3>
-            <ul className="space-y-3">
-              {[
-                'Licensed per strain and format',
-                'Development milestones tied to progress',
-                'Royalties on net sales (if applicable)',
-                'Exclusive within your category'
-              ].map((item, idx) => (
-                <li key={idx} className="flex gap-3" style={{ color: '#6B7280' }}>
-                  <span style={{ color: '#3B60E4' }}>✓</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div
-            className="p-8 rounded"
-            style={{ backgroundColor: '#E1F4EE' }}
-          >
-            <h3 className="text-xl font-bold mb-4" style={{ color: '#3D4654' }}>
-              Joint development
-            </h3>
-            <ul className="space-y-3">
-              {[
-                'For proprietary strains you own',
-                'Shared IP ownership if applicable',
-                'Co-commercialization rights',
-                'Custom terms case-by-case'
-              ].map((item, idx) => (
-                <li key={idx} className="flex gap-3" style={{ color: '#6B7280' }}>
-                  <span style={{ color: '#1E8E5A' }}>✓</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <p className="mt-8 text-center" style={{ color: '#6B7280' }}>
-          No terms published. Each deal is unique.{' '}
-          <a href="mailto:joe@seco.bio" style={{ color: '#3B60E4', textDecoration: 'underline' }}>
-            Get in touch to discuss your situation.
-          </a>
+        <p className="mb-5">
+          Every organism needs a different protective formula, and the combinations run into the
+          millions. Automated systems build and test thousands of formulations in parallel, then read
+          the results without a human counting anything.
         </p>
-      </section>
+        <p>
+          Every experiment feeds a dataset that maps which materials protect which organisms. Partners
+          get the formulation and the proof. We keep what the platform learned.
+        </p>
+      </SplitFeature>
+
+      <NumberStrip
+        items={[
+          { title: 'You tell us what you need', body: 'The organism, the format, the shelf life you\u2019re targeting, your markets and manufacturing constraints.' },
+          { title: 'We find the formula', body: 'Parallel testing until we have the protective system for that specific strain, with full stability data.' },
+          { title: 'We prove it on your line', body: 'Scaled up and transferred into your process, on your equipment, at commercial volume.' },
+          { title: 'You launch', body: 'Licensed per strain and per product. You sell it. We keep it working.' }
+        ]}
+      />
+
+      {/* Why it compounds */}
+      <StatementBlock
+        lines={[
+          'A service gets used up.',
+          'A platform gets better.',
+          'Every strain solved makes the next one faster.'
+        ]}
+        title="Why it compounds"
+        subtitle="Partners get the formulation and the stability data. Seco keeps the underlying dataset."
+        cards={[
+          {
+            eyebrow: 'Protected',
+            lead: 'Not a one-off.',
+            body: 'Every strain solved becomes protected intellectual property and a product a partner can license.'
+          },
+          {
+            eyebrow: 'Cumulative',
+            lead: 'Not linear.',
+            body: 'The more strains we solve, the better the system gets at predicting the next one before a single experiment runs.'
+          },
+          {
+            eyebrow: 'Defensible',
+            lead: 'Not replicable.',
+            body: 'The dataset mapping materials to organisms is the asset. It cannot be reverse-engineered from a finished product.'
+          }
+        ]}
+      />
+
+      {/* Timelines — flagged as direction, per spec */}
+      <SplitFeature
+        flip
+        eyebrow="Where it's headed"
+        title={<>Industry runs five to seven years. <Accent tone="dark">We're targeting twelve to eighteen months.</Accent></>}
+        image="/images/science/probiotic.jpg"
+        ratio="1 / 1"
+      >
+        <p className="mb-5">
+          That capability is in development. We're building the computational and robotic
+          infrastructure to compress formulation discovery from years to months.
+        </p>
+        <p style={{ fontSize: '15px', opacity: 0.85 }}>
+          Full AI-native formulation and automated validation are roadmap items. Robotic
+          high-throughput screening is running today.
+        </p>
+      </SplitFeature>
+
+      {/* Deal structure */}
+      <HighlightGrid
+        eyebrow="How deals are structured"
+        title="Licensed per strain. Terms set case by case."
+        intro="No terms published. Every program is scoped to the organism, the format, and the markets involved."
+        cards={[
+          { title: 'Standard licensing', body: 'Licensed per strain and format, with development milestones tied to progress and exclusivity within your category.' },
+          { title: 'Joint development', body: 'For proprietary strains you own. Shared IP where applicable, co-commercialization rights, custom terms.' },
+          { title: 'How it starts', body: 'An NDA and a technical call. Bring the organism and the target; we\u2019ll tell you what\u2019s realistic.' }
+        ]}
+      />
 
       {/* CTA */}
       <section
-        className="py-16 md:py-24 px-6 text-center"
-        style={{ backgroundColor: '#3D4A5B', color: 'white' }}
+        className="py-28 px-6 text-center"
+        style={{ background: `linear-gradient(125deg, ${INK} 0%, ${BLUE_DEEP} 40%, ${BLUE} 100%)` }}
       >
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6">
-            Ready to talk about your strain?
-          </h2>
-          <a
-            href="mailto:joe@seco.bio"
-            className="inline-block px-8 py-3 rounded font-semibold text-white transition-colors"
-            style={{ backgroundColor: '#3B60E4' }}
-          >
-            Explore a partnership
-          </a>
-        </div>
+        <h2
+          className="text-white font-bold mb-6"
+          style={{ fontSize: 'clamp(1.9rem, 3.6vw, 2.8rem)', letterSpacing: '-0.03em' }}
+        >
+          Ready to talk about your strain?
+        </h2>
+        <button
+          onClick={onContactClick}
+          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-sm font-semibold"
+          style={{ color: BLUE_DEEP }}
+        >
+          Start a program <ArrowRight size={16} />
+        </button>
       </section>
     </div>
   );
