@@ -303,18 +303,13 @@ export default function HomePage({ onContactClick }) {
       <section className="py-28 px-6" style={{ backgroundColor: '#F7F8FA' }}>
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div
-            className="rounded-2xl overflow-hidden relative flex items-center justify-center"
-            style={{
-              aspectRatio: '4 / 3',
-              background: `linear-gradient(140deg, ${BLUE} 0%, ${BLUE_DEEP} 60%, ${INK} 100%)`
-            }}
+            className="rounded-2xl overflow-hidden relative"
+            style={{ aspectRatio: '4 / 3', backgroundColor: INK }}
           >
-            {/* Placeholder texture until lab photography lands. */}
             <img
-              src="/images/seco-mark-white-lg.png"
-              alt=""
-              aria-hidden="true"
-              style={{ height: '46%', width: 'auto', opacity: 0.09 }}
+              src="/images/stills/robotics.jpg"
+              alt="Automated formulation screening"
+              className="w-full h-full object-cover"
             />
           </div>
 
@@ -405,17 +400,13 @@ export default function HomePage({ onContactClick }) {
           </div>
 
           <div
-            className="order-1 md:order-2 rounded-2xl overflow-hidden relative flex items-center justify-center"
-            style={{
-              aspectRatio: '3 / 4',
-              background: `linear-gradient(160deg, ${GREEN} 0%, ${GREEN_DEEP} 60%, ${INK} 100%)`
-            }}
+            className="order-1 md:order-2 rounded-2xl overflow-hidden relative"
+            style={{ aspectRatio: '3 / 4', backgroundColor: INK }}
           >
             <img
-              src="/images/seco-mark-white-lg.png"
-              alt=""
-              aria-hidden="true"
-              style={{ height: '38%', width: 'auto', opacity: 0.09 }}
+              src="/images/stills/microscopy.jpg"
+              alt="Protected cells under magnification"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
@@ -556,19 +547,20 @@ export default function HomePage({ onContactClick }) {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-5 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              ['People', 'Supplements and live medicines'],
-              ['Animals', 'Pet and livestock health'],
-              ['Farming', 'Seed and soil treatments'],
-              ['Defense', 'Biologics in the field, without refrigeration'],
-              ['Medicine', 'Living therapies in pill form']
-            ].map(([title, body]) => (
+              ['People', 'Supplements and live medicines', '/images/stills/people.jpg'],
+              ['Animals', 'Pet and livestock health', '/images/stills/animals.jpg'],
+              ['Farming', 'Seed and soil treatments', '/images/stills/formats.jpg'],
+              ['Early life', 'Infant and maternal health', '/images/stills/earlylife.jpg']
+            ].map(([title, body, img]) => (
               <div key={title}>
                 <div
-                  className="w-11 h-11 rounded-full mb-6"
-                  style={{ background: `linear-gradient(135deg, ${GREEN} 0%, ${GREEN_DEEP} 100%)` }}
-                />
+                  className="rounded-xl overflow-hidden mb-5"
+                  style={{ aspectRatio: '4 / 3', backgroundColor: INK }}
+                >
+                  <img src={img} alt={title} className="w-full h-full object-cover" />
+                </div>
                 <h4 className="font-bold mb-2" style={{ color: SLATE, fontSize: '17px' }}>
                   {title}
                 </h4>

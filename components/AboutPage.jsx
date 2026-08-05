@@ -1,223 +1,288 @@
 import React from 'react';
 import { Mail } from 'lucide-react';
 
+const BLUE = '#3B60E4';
+const BLUE_DEEP = '#2F4FC9';
+const GREEN = '#1E8E5A';
+const SLATE = '#3D4654';
+const MUTED = '#6B7280';
+const INK = '#2E4259';
+
+function Eyebrow({ children, color = BLUE }) {
+  return (
+    <p className="text-xs font-bold uppercase mb-4" style={{ color, letterSpacing: '0.22em' }}>
+      {children}
+    </p>
+  );
+}
+
+function Person({ name, title, bio, photo, accent }) {
+  return (
+    <div>
+      <div
+        className="rounded-2xl overflow-hidden mb-6"
+        style={{ aspectRatio: '1 / 1', backgroundColor: '#E9EDF6' }}
+      >
+        <img src={photo} alt={name} className="w-full h-full object-cover" />
+      </div>
+      <h3 className="font-bold mb-1" style={{ color: SLATE, fontSize: '19px' }}>
+        {name}
+      </h3>
+      <p className="font-semibold mb-4" style={{ color: accent, fontSize: '13px' }}>
+        {title}
+      </p>
+      <p style={{ color: MUTED, fontSize: '15px', lineHeight: 1.7 }}>{bio}</p>
+    </div>
+  );
+}
+
 export default function AboutPage({ onContactClick }) {
   return (
     <div>
       {/* Hero */}
-      <section className="py-16 md:py-24 px-6 max-w-6xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-8" style={{ color: '#3D4654' }}>
-          Eight years of science. Six months as a company.
-        </h1>
+      <section className="pt-24 pb-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <Eyebrow>About</Eyebrow>
+          <h1
+            className="font-bold"
+            style={{
+              color: SLATE,
+              fontSize: 'clamp(2.2rem, 4.5vw, 3.6rem)',
+              lineHeight: 1.06,
+              letterSpacing: '-0.03em',
+              maxWidth: '18ch'
+            }}
+          >
+            Eight years of science. Six months as a company.
+          </h1>
+        </div>
       </section>
 
-      {/* Story */}
-      <section className="py-16 md:py-24 px-6" style={{ backgroundColor: '#EEF2FE' }}>
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12" style={{ color: '#3D4654' }}>
-            Where this came from.
-          </h2>
-
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4" style={{ color: '#3D4654' }}>
-                2017–2024: Research at MIT
-              </h3>
-              <p style={{ color: '#6B7280', lineHeight: '1.8' }}>
-                NASA and DARPA funded the original research to keep bacteria alive for soldiers in the field and astronauts on long missions. The work happened at MIT under Prof. Giovanni Traverso, with Miguel Jimenez leading the development of strain-specific protective formulations. Results published in <em>Nature Materials</em>, 2024.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold mb-4" style={{ color: '#3D4654' }}>
-                2024–Present: Seco Bio
-              </h3>
-              <p style={{ color: '#6B7280', lineHeight: '1.8' }}>
-                The research is now the platform. Seco Bio exists to commercialize the technology for the industries that need it now: probiotics, live medicines, agricultural biologics, and beyond. We're building the robotic and AI infrastructure to take formulation discovery from years to months.
-              </p>
-            </div>
+      {/* Origin */}
+      <section className="py-24 px-6" style={{ backgroundColor: '#F7F8FA' }}>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          <div
+            className="rounded-2xl overflow-hidden"
+            style={{ aspectRatio: '4 / 3', backgroundColor: INK }}
+          >
+            <img
+              src="/images/stills/lab-blue.jpg"
+              alt="Automated laboratory systems"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div>
+            <Eyebrow>Where this came from</Eyebrow>
+            <h2
+              className="font-bold mb-7"
+              style={{
+                color: SLATE,
+                fontSize: 'clamp(1.7rem, 3vw, 2.5rem)',
+                lineHeight: 1.12,
+                letterSpacing: '-0.025em'
+              }}
+            >
+              Built to keep bacteria alive where nothing else could.
+            </h2>
+            <p className="mb-6" style={{ color: MUTED, fontSize: '17px', lineHeight: 1.75 }}>
+              From 2017 to 2024, NASA and DARPA funded the research at MIT — work aimed at keeping
+              bacteria alive for soldiers in the field and astronauts on long missions. It published
+              in <em>Nature Materials</em> in 2024.
+            </p>
+            <p style={{ color: MUTED, fontSize: '17px', lineHeight: 1.75 }}>
+              Seco Bio exists to bring it to the industries that need it now.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Team */}
-      <section className="py-16 md:py-24 px-6 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12" style={{ color: '#3D4654' }}>
-          The team.
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {[
-            {
-              name: 'Joe Collura',
-              title: 'Cofounder & CEO',
-              bio: 'Built and commercialized MIT technology; launched medicines in neurology and oncology. Business and partnership lead.'
-            },
-            {
-              name: 'Miguel Jimenez, PhD',
-              title: 'Cofounder & Inventor',
-              bio: 'Led the original research and its publication in Nature Materials. Professor at Boston University. Scientific vision.'
-            },
-            {
-              name: 'Giovanni Traverso, MD, PhD',
-              title: 'Cofounder & Inventor',
-              bio: 'MIT professor, practising physician, founder of four biotech companies. Strategic oversight and clinical validation.'
-            }
-          ].map((member, idx) => (
-            <div
-              key={idx}
-              className="p-8 rounded border-l-4"
+      {/* Founders */}
+      <section className="py-28 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-2xl mb-16">
+            <Eyebrow>The team</Eyebrow>
+            <h2
+              className="font-bold"
               style={{
-                backgroundColor: '#F9FAFB',
-                borderColor: '#3B60E4'
+                color: SLATE,
+                fontSize: 'clamp(1.8rem, 3.2vw, 2.7rem)',
+                lineHeight: 1.1,
+                letterSpacing: '-0.025em'
               }}
             >
-              <div
-                className="w-16 h-16 rounded-full bg-gray-300 mb-4"
-                style={{ backgroundColor: '#DCE3F7' }}
-              />
-              <h3 className="text-lg font-bold mb-1" style={{ color: '#3D4654' }}>
-                {member.name}
-              </h3>
-              <p
-                className="text-sm font-semibold mb-4"
-                style={{ color: '#3B60E4' }}
-              >
-                {member.title}
-              </p>
-              <p style={{ color: '#6B7280', fontSize: '14px', lineHeight: '1.6' }}>
-                {member.bio}
-              </p>
-            </div>
-          ))}
-        </div>
+              The people who invented it.
+            </h2>
+          </div>
 
-        <p
-          className="text-center text-lg font-semibold mb-12"
-          style={{ color: '#3D4654' }}
-        >
-          Two of the executives who built Nestlé Health Science's acquisition strategy, and the chief executive of one of the companies they acquired.
-        </p>
+          <div className="grid md:grid-cols-3 gap-12">
+            <Person
+              name="Joe Collura"
+              title="Cofounder &amp; CEO"
+              accent={BLUE}
+              photo="/images/team/joe.jpg"
+              bio="Built and commercialized MIT technology; launched medicines in neurology and oncology."
+            />
+            <Person
+              name="Miguel Jimenez, PhD"
+              title="Cofounder &amp; Inventor"
+              accent={BLUE}
+              photo="/images/team/miguel.jpg"
+              bio="Led the original research and its publication in Nature Materials. Professor at Boston University."
+            />
+            <Person
+              name="Giovanni Traverso, MD, PhD"
+              title="Cofounder &amp; Inventor"
+              accent={BLUE}
+              photo="/images/team/giovanni.jpg"
+              bio="MIT professor, practising physician, and founder of four biotech companies."
+            />
+          </div>
+        </div>
       </section>
 
       {/* Advisors */}
-      <section
-        className="py-16 md:py-24 px-6"
-        style={{ backgroundColor: '#E1F4EE' }}
-      >
+      <section className="py-28 px-6" style={{ backgroundColor: '#F7F8FA' }}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12" style={{ color: '#3D4654' }}>
-            Advisors.
-          </h2>
+          <div className="max-w-2xl mb-16">
+            <Eyebrow color={GREEN}>Advisors</Eyebrow>
+            <h2
+              className="font-bold"
+              style={{
+                color: SLATE,
+                fontSize: 'clamp(1.8rem, 3.2vw, 2.7rem)',
+                lineHeight: 1.1,
+                letterSpacing: '-0.025em'
+              }}
+            >
+              The people who have bought companies like this one.
+            </h2>
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-12 mb-16">
+            <Person
+              name="Martin Hendrix, PhD"
+              title="Former Head of Global BD &amp; M&amp;A, Nestlé Health Science"
+              accent={GREEN}
+              photo="/images/team/hendrix.jpg"
+              bio="Built the company's M&amp;A function from 2012 and led its venture investment strategy. Board seats at Prometheus Biosciences, Evelo, Enterome, and Kaleido."
+            />
+            <Person
+              name="Dan Stroud"
+              title="Founding CFO, Nestlé Health Science"
+              accent={GREEN}
+              photo="/images/team/stroud.jpg"
+              bio="Former CFO of Nestlé USA. Thirty-four years at Nestlé, leading financial strategy for its major acquisitions. Senior Advisor, New Mountain Capital."
+            />
+            <Person
+              name="Peter Luther, MBA"
+              title="Former President &amp; CEO, Atrium Innovations"
+              accent={GREEN}
+              photo="/images/team/luther.jpg"
+              bio="Led the consumer health group behind Garden of Life and Pure Encapsulations."
+            />
+          </div>
+
+          {/* The line that does the work — only lands as a group statement. */}
+          <div
+            className="rounded-2xl p-10 md:p-14 text-center"
+            style={{ backgroundColor: INK }}
+          >
+            <p
+              className="text-white font-bold mx-auto"
+              style={{
+                fontSize: 'clamp(1.15rem, 2.1vw, 1.7rem)',
+                lineHeight: 1.4,
+                letterSpacing: '-0.015em',
+                maxWidth: '38ch'
+              }}
+            >
+              Two of the executives who built Nestlé Health Science's acquisition strategy, and the
+              chief executive of one of the companies they acquired.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Funders */}
+      <section className="py-28 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="max-w-2xl mb-16">
+            <Eyebrow>Research funding &amp; affiliations</Eyebrow>
+            <h2
+              className="font-bold"
+              style={{
+                color: SLATE,
+                fontSize: 'clamp(1.8rem, 3.2vw, 2.7rem)',
+                lineHeight: 1.1,
+                letterSpacing: '-0.025em'
+              }}
+            >
+              Where the work was funded and done.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-14">
             {[
-              {
-                name: 'Martin Hendrix, PhD',
-                title: 'Former Head of Global Business Development & M&A, Nestlé Health Science',
-                bio: 'Built the company\'s M&A function from 2012 and led its venture investment strategy, including partnership with Flagship Pioneering. Board seats at Prometheus Biosciences, Evelo, Enterome, and Kaleido.'
-              },
-              {
-                name: 'Dan Stroud',
-                title: 'CFO, Nestlé Health Science (retired)',
-                bio: 'Founding CFO of Nestlé Health Science, and former CFO of Nestlé USA. Thirty-four years at Nestlé, leading financial strategy for major acquisitions. Senior Advisor, New Mountain Capital.'
-              },
-              {
-                name: 'Peter Luther, MBA',
-                title: 'Former CEO, Atrium Innovations',
-                bio: 'Former President & CEO of Atrium Innovations, the consumer health group behind Garden of Life and Pure Encapsulations. Deep expertise in brand scaling and M&A strategy.'
-              }
-            ].map((member, idx) => (
+              { name: 'NASA', file: '/images/logos/nasa.png', h: 52, role: 'Original research funding' },
+              { name: 'DARPA', file: '/images/logos/darpa.png', h: 44, role: 'Research funding' },
+              { name: 'MIT', file: '/images/logos/mit.png', h: 34, role: 'Research institution' },
+              { name: 'Nature Materials', file: '/images/logos/nature.png', h: 44, role: 'Published 2024' }
+            ].map((org, i) => (
               <div
-                key={idx}
-                className="p-8 rounded border-l-4"
-                style={{
-                  backgroundColor: 'white',
-                  borderColor: '#1E8E5A'
-                }}
+                key={org.name}
+                className="px-6 flex flex-col items-center text-center"
+                style={{ borderLeft: i % 4 === 0 ? 'none' : '1px solid #E4E8F2' }}
               >
-                <div
-                  className="w-16 h-16 rounded-full bg-gray-300 mb-4"
-                  style={{ backgroundColor: '#BFE3CF' }}
-                />
-                <h3 className="text-lg font-bold mb-1" style={{ color: '#3D4654' }}>
-                  {member.name}
-                </h3>
-                <p
-                  className="text-sm font-semibold mb-4"
-                  style={{ color: '#1E8E5A' }}
-                >
-                  {member.title}
-                </p>
-                <p style={{ color: '#6B7280', fontSize: '14px', lineHeight: '1.6' }}>
-                  {member.bio}
-                </p>
+                <div className="flex items-center justify-center" style={{ height: 60, marginBottom: 18 }}>
+                  <img
+                    src={org.file}
+                    alt={org.name}
+                    style={{
+                      height: org.h,
+                      width: 'auto',
+                      objectFit: 'contain',
+                      filter: 'grayscale(100%)',
+                      opacity: 0.72
+                    }}
+                  />
+                </div>
+                <div style={{ color: SLATE, fontWeight: 700, fontSize: '14px', marginBottom: 5 }}>
+                  {org.name}
+                </div>
+                <div style={{ color: MUTED, fontSize: '12px', letterSpacing: '0.04em', lineHeight: 1.5 }}>
+                  {org.role}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Funding & Affiliations */}
-      <section className="py-16 md:py-24 px-6 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12" style={{ color: '#3D4654' }}>
-          Research funding & affiliations.
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-8 text-center">
-          {[
-            {
-              name: 'NASA',
-              desc: 'Original research funding for astrobiology applications'
-            },
-            {
-              name: 'DARPA',
-              desc: 'Defense Advanced Research Projects Agency funding'
-            },
-            {
-              name: 'MIT',
-              desc: 'Research institution and ongoing academic collaboration'
-            }
-          ].map((org, idx) => (
-            <div key={idx}>
-              <div
-                className="text-5xl font-bold mb-4"
-                style={{ color: '#3B60E4' }}
-              >
-                {org.name.charAt(0)}
-              </div>
-              <h3 className="text-xl font-bold mb-2" style={{ color: '#3D4654' }}>
-                {org.name}
-              </h3>
-              <p style={{ color: '#6B7280', fontSize: '14px' }}>
-                {org.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Contact */}
+      {/* CTA */}
       <section
-        className="py-16 md:py-24 px-6 text-center"
-        style={{ backgroundColor: '#F9FAFB' }}
+        className="py-28 px-6 text-center"
+        style={{ background: `linear-gradient(125deg, ${INK} 0%, ${BLUE_DEEP} 40%, ${BLUE} 100%)` }}
       >
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6" style={{ color: '#3D4654' }}>
-            Questions?
-          </h2>
-          <p style={{ color: '#6B7280', marginBottom: '24px' }}>
-            Reach out to Joe directly. He responds to every inquiry.
-          </p>
-          <a
-            href="mailto:joe@seco.bio"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded font-semibold text-white"
-            style={{ backgroundColor: '#3B60E4' }}
-          >
-            <Mail size={18} />
-            <span>joe@seco.bio</span>
-          </a>
-        </div>
+        <h2
+          className="text-white font-bold mb-6"
+          style={{ fontSize: 'clamp(1.9rem, 3.6vw, 2.8rem)', letterSpacing: '-0.03em' }}
+        >
+          Questions?
+        </h2>
+        <p
+          className="text-white mb-10 mx-auto"
+          style={{ maxWidth: '40ch', fontSize: '17px', opacity: 0.9, lineHeight: 1.7 }}
+        >
+          Reach out to Joe directly. He responds to every inquiry.
+        </p>
+        <button
+          onClick={onContactClick}
+          className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-white text-sm font-semibold"
+          style={{ color: BLUE_DEEP }}
+        >
+          <Mail size={17} />
+          Get in touch
+        </button>
       </section>
     </div>
   );
