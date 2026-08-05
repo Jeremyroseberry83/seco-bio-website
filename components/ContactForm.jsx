@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Mail, Phone } from 'lucide-react';
+import { X, Mail, Linkedin } from 'lucide-react';
 
 const BLUE = '#3B60E4';
 const BLUE_DEEP = '#2F4FC9';
@@ -183,22 +183,24 @@ export default function ContactForm({ onClose }) {
               <p className="mb-4" style={{ color: MUTED, fontSize: 13 }}>
                 CEO &amp; Founder, Seco Bio
               </p>
-              <div className="flex flex-col sm:flex-row gap-x-7 gap-y-2">
+              <div className="flex flex-col gap-3">
                 <a
                   href="mailto:joe@seco.bio"
-                  className="inline-flex items-center gap-2"
+                  className="inline-flex items-center gap-2.5"
                   style={{ color: BLUE, fontSize: 14 }}
                 >
-                  <Mail size={15} />
+                  <Mail size={15} strokeWidth={1.8} />
                   joe@seco.bio
                 </a>
                 <a
-                  href="tel:+14437228885"
-                  className="inline-flex items-center gap-2"
+                  href="https://www.linkedin.com/in/jvcollura/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5"
                   style={{ color: BLUE, fontSize: 14 }}
                 >
-                  <Phone size={15} />
-                  443-722-8885
+                  <Linkedin size={15} strokeWidth={1.8} />
+                  LinkedIn
                 </a>
               </div>
             </div>
