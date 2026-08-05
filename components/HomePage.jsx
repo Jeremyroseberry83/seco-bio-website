@@ -85,7 +85,10 @@ export default function HomePage({ onContactClick }) {
           />
         </div>
 
-        <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
+        <div
+          className="relative h-full flex flex-col items-center justify-center text-center px-6"
+          style={{ paddingBottom: 'clamp(40px, 8vw, 120px)' }}
+        >
           <h1
             className="text-white font-bold mb-7"
             style={{
@@ -132,11 +135,13 @@ export default function HomePage({ onContactClick }) {
         {/* Curved bottom edge — the Nuritas signature */}
         <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
           <svg
-            viewBox="0 0 1440 110"
+            viewBox="0 0 1440 200"
             preserveAspectRatio="none"
-            style={{ display: 'block', width: '100%', height: 110 }}
+            style={{ display: 'block', width: '100%', height: 'clamp(70px, 13vw, 200px)' }}
           >
-            <path d="M0,110 L0,54 Q720,110 1440,54 L1440,110 Z" fill="#FFFFFF" />
+            {/* Deep elliptical sweep. Control point well below the baseline
+                produces the wide arc rather than a shallow dip. */}
+            <path d="M0,200 L0,8 C360,150 1080,150 1440,8 L1440,200 Z" fill="#FFFFFF" />
           </svg>
         </div>
       </section>
