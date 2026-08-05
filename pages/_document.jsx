@@ -15,15 +15,6 @@ export default function Document() {
         <link rel="apple-touch-icon" href="/favicon.png" />
       </Head>
       <body>
-        {/* Build-time form detection for Netlify. Never visible; the real form
-            is the React modal, which POSTs to this same form-name. */}
-        <form name="seco-contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
-          <input type="text" name="form-name" value="seco-contact" readOnly />
-          <input type="text" name="bot-field" />
-          <input type="text" name="type" />
-          <input type="email" name="email" />
-          <textarea name="message" />
-        </form>
         <Main />
         <NextScript />
       </body>
