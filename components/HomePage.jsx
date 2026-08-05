@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, ArrowRight } from 'lucide-react';
+import { Play, ArrowRight, ClipboardList, FlaskConical, Factory, Rocket } from 'lucide-react';
 
 const BLUE = '#3B60E4';
 const BLUE_DEEP = '#2F4FC9';
@@ -511,6 +511,8 @@ export default function HomePage({ onContactClick }) {
       </section>
 
       {/* ---------------- PARTNERSHIP PROCESS ---------------- */}
+      {/* Chevron flow. One hue deepening across four steps reads as progression;
+          four different hues would read as four unrelated things. */}
       <section className="py-28 px-6" style={{ backgroundColor: '#F7F8FA' }}>
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mb-20">
@@ -528,25 +530,69 @@ export default function HomePage({ onContactClick }) {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-y-8 md:gap-y-0 md:gap-x-3">
             {[
-              ['01', 'You tell us what you need', 'The organism, the format, the shelf life, the markets.'],
-              ['02', 'We find the formula', 'Parallel testing until we have the protective system for that specific strain.'],
-              ['03', 'We prove it on your line', 'Scaled up, transferred into your process, on your equipment.'],
-              ['04', 'You launch', 'Licensed per strain and per product. You sell it. We keep it working.']
-            ].map(([num, title, body]) => (
-              <div key={num}>
+              {
+                n: '01',
+                Icon: ClipboardList,
+                shade: '#6B8BF0',
+                title: 'You tell us what you need',
+                body: 'The organism, the format, the shelf life, the markets.'
+              },
+              {
+                n: '02',
+                Icon: FlaskConical,
+                shade: '#4A6DE8',
+                title: 'We find the formula',
+                body: 'Parallel testing until we have the protective system for that specific strain.'
+              },
+              {
+                n: '03',
+                Icon: Factory,
+                shade: '#3355D8',
+                title: 'We prove it on your line',
+                body: 'Scaled up, transferred into your process, on your equipment.'
+              },
+              {
+                n: '04',
+                Icon: Rocket,
+                shade: '#2440B4',
+                title: 'You launch',
+                body: 'Licensed per strain and per product. You sell it. We keep it working.'
+              }
+            ].map(({ n, Icon, shade, title, body }, i, arr) => (
+              <div key={n} className="flex flex-col">
+                {/* Chevron. Last one squares off — the sequence ends. */}
                 <div
-                  className="font-bold mb-5"
-                  style={{ color: BLUE, fontSize: '15px', letterSpacing: '0.1em' }}
+                  className="process-chevron flex items-center gap-3 text-white"
+                  style={{
+                    backgroundColor: shade,
+                    padding: '18px 20px 18px 26px',
+                    clipPath:
+                      i === arr.length - 1
+                        ? 'polygon(0 0, 100% 0, 100% 100%, 0 100%, 14px 50%)'
+                        : 'polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%, 14px 50%)'
+                  }}
                 >
-                  {num}
+                  <Icon size={19} strokeWidth={1.9} />
+                  <span
+                    className="font-bold"
+                    style={{
+                      fontSize: '15px',
+                      letterSpacing: '0.1em',
+                      fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace'
+                    }}
+                  >
+                    {n}
+                  </span>
                 </div>
-                <div className="h-px w-full mb-6" style={{ backgroundColor: '#DCE3F7' }} />
-                <h4 className="font-bold mb-3" style={{ color: SLATE, fontSize: '17px' }}>
-                  {title}
-                </h4>
-                <p style={{ color: MUTED, fontSize: '15px', lineHeight: 1.7 }}>{body}</p>
+
+                <div className="pt-7 pr-4">
+                  <h4 className="font-bold mb-3" style={{ color: SLATE, fontSize: '17px', lineHeight: 1.3 }}>
+                    {title}
+                  </h4>
+                  <p style={{ color: MUTED, fontSize: '15px', lineHeight: 1.7 }}>{body}</p>
+                </div>
               </div>
             ))}
           </div>
