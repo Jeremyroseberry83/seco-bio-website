@@ -1,7 +1,7 @@
 import React from 'react';
 import { FileText, ExternalLink, ArrowRight } from 'lucide-react';
 import {
-  PageHero, Accent, Eyebrow, SplitFeature, HighlightGrid, StatBand,
+  PageHero, Accent, Eyebrow, SplitFeature, HighlightGrid, StatBand, DisplayHeading,
   SLATE, MUTED, BLUE, BLUE_DEEP, GREEN, INK
 } from './ui';
 
@@ -93,25 +93,71 @@ export default function SciencePage({ onContactClick }) {
       </section>
 
       {/* IP */}
-      <SplitFeature
-        flip
-        eyebrow="Intellectual property"
-        title={<>Patent-pending, <Accent tone="dark">filed by MIT.</Accent></>}
-        image="/images/photo/microscope-bench.jpg"
-      >
-        <p className="mb-5">
-          US patent application <strong style={{ color: SLATE }}>18/477,970</strong>, covering
-          strain-specific protective formulations and the manufacturing processes around them.
-        </p>
-        <p className="mb-6">
-          Beyond the filing, the platform's defensible assets are the formulation dataset, the
-          predictive models trained on it, and the scale-up protocols — none of which can be
-          reverse-engineered from a finished product.
-        </p>
-        <p style={{ fontSize: '14px', opacity: 0.8 }}>
-          Status: patent-pending. Assignee: MIT.
-        </p>
-      </SplitFeature>
+      <section className="py-28 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <DisplayHeading
+              eyebrow="Intellectual property"
+              light="Patent-pending,"
+              bold="filed by MIT."
+            />
+
+            <p
+              className="font-bold mb-7"
+              style={{ color: SLATE, fontSize: 'clamp(1.05rem, 1.5vw, 1.2rem)', lineHeight: 1.65 }}
+            >
+              US patent application 18/477,970, covering strain-specific protective formulations
+              and the manufacturing processes around them.
+            </p>
+
+            <p style={{ color: MUTED, fontSize: 17, lineHeight: 1.8, marginBottom: 32 }}>
+              Beyond the filing, the platform's defensible assets are the formulation dataset, the
+              predictive models trained on it, and the scale-up protocols — none of which can be
+              reverse-engineered from a finished product.
+            </p>
+
+            <div
+              className="flex flex-wrap gap-x-12 gap-y-4 pt-7"
+              style={{ borderTop: '1px solid #E4E8F2' }}
+            >
+              {[['Status', 'Patent-pending'], ['Assignee', 'MIT'], ['Application', '18/477,970']].map(
+                ([k, v]) => (
+                  <div key={k}>
+                    <div
+                      className="uppercase"
+                      style={{ color: MUTED, fontSize: 10.5, letterSpacing: '0.14em', marginBottom: 5 }}
+                    >
+                      {k}
+                    </div>
+                    <div
+                      className="font-bold"
+                      style={{
+                        color: SLATE,
+                        fontSize: 15,
+                        fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace'
+                      }}
+                    >
+                      {v}
+                    </div>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+
+          <div
+            className="rounded-2xl overflow-hidden"
+            style={{ aspectRatio: '4 / 3', backgroundColor: '#E9EDF6' }}
+          >
+            <img
+              src="/images/photo/microscope-bench.jpg"
+              alt=""
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* Publications index */}
       <section className="py-28 px-6" style={{ backgroundColor: '#F7F8FA' }}>

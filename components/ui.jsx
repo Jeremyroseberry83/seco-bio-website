@@ -471,3 +471,169 @@ export function StatementBlock({ lines, title, subtitle, cards, tone = 'blue' })
     </section>
   );
 }
+
+/**
+ * DisplayHeading — light top line, bold bottom line, short accent rule above.
+ * The weight contrast is what makes a long technical headline scan as two
+ * ideas rather than one dense block.
+ */
+export function DisplayHeading({ eyebrow, light, bold, tone = 'blue', align = 'left', dark }) {
+  const rule = tone === 'green' ? GREEN : BLUE;
+  const ink = dark ? '#FFFFFF' : '#0E1622';
+  const sub = dark ? 'rgba(255,255,255,0.62)' : MUTED;
+  return (
+    <div style={{ textAlign: align }}>
+      {eyebrow && (
+        <p
+          className="text-xs font-bold uppercase"
+          style={{ color: sub, letterSpacing: '0.16em', marginBottom: 22 }}
+        >
+          {eyebrow}
+        </p>
+      )}
+      <span
+        aria-hidden="true"
+        style={{
+          display: 'block',
+          width: 72,
+          height: 4,
+          borderRadius: 2,
+          backgroundColor: rule,
+          marginBottom: 30,
+          marginLeft: align === 'center' ? 'auto' : 0,
+          marginRight: align === 'center' ? 'auto' : 0
+        }}
+      />
+      <h2
+        style={{
+          color: ink,
+          fontSize: 'clamp(2.1rem, 4.6vw, 3.7rem)',
+          lineHeight: 1.04,
+          letterSpacing: '-0.035em',
+          marginBottom: 34
+        }}
+      >
+        <span style={{ fontWeight: 300, display: 'block' }}>{light}</span>
+        <span style={{ fontWeight: 800, display: 'block' }}>{bold}</span>
+      </h2>
+    </div>
+  );
+}
+
+/**
+ * ProcessTrack — tabbed stages over a progress rail.
+ * Turns a static four-step list into something the reader drives.
+ */
+export function ProcessTrack({ steps, tone = 'blue' }) {
+  const [active, setActive] = React.useState(0);
+  const accent = tone === 'green' ? GREEN : BLUE;
+  const deep = tone === 'green' ? GREEN_DEEP : BLUE_DEEP;
+  const pct = steps.length > 1 ? (active / (steps.length - 1)) * 100 : 0;
+
+  return (
+    <div>
+      {/* Pill selector */}
+      <div
+        className="inline-flex flex-wrap rounded-full p-1.5 mb-14"
+        style={{ border: '1px solid #E4E8F2', backgroundColor: '#FFFFFF' }}
+      >
+        {steps.map((s, i) => (
+          <button
+            key={s.label}
+            onClick={() => setActive(i)}
+            className="px-6 py-2.5 rounded-full text-sm font-semibold transition-colors"
+            style={{
+              background: i === active ? `linear-gradient(90deg, ${accent} 0%, ${deep} 100%)` : 'transparent',
+              color: i === active ? '#FFFFFF' : MUTED
+            }}
+          >
+            {s.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Rail */}
+      <div className="mb-12">
+        <div className="flex justify-between mb-4">
+          {steps.map((s, i) => (
+            <span
+              key={s.label}
+              className="uppercase"
+              style={{
+                fontSize: 11,
+                letterSpacing: '0.13em',
+                fontWeight: i === active ? 700 : 500,
+                color: i === active ? SLATE : '#A3ACBC',
+                flex: 1,
+                textAlign: i === 0 ? 'left' : i === steps.length - 1 ? 'right' : 'center'
+              }}
+            >
+              {s.stage}
+            </span>
+          ))}
+        </div>
+
+        <div style={{ position: 'relative', height: 6, borderRadius: 3, backgroundColor: '#EDF0F6' }}>
+          <div
+            style={{
+              position: 'absolute',
+              inset: '0 auto 0 0',
+              width: `${pct}%`,
+              borderRadius: 3,
+              background: `linear-gradient(90deg, ${accent} 0%, ${deep} 100%)`,
+              transition: 'width 420ms cubic-bezier(0.22,1,0.36,1)'
+            }}
+          />
+          <span
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: `${pct}%`,
+              width: 15,
+              height: 15,
+              borderRadius: '50%',
+              backgroundColor: deep,
+              border: '3px solid #FFFFFF',
+              boxShadow: '0 0 0 1px #E4E8F2',
+              transform: 'translate(-50%, -50%)',
+              transition: 'left 420ms cubic-bezier(0.22,1,0.36,1)'
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Detail */}
+      <div className="grid md:grid-cols-12 gap-x-12 gap-y-6 items-start">
+        <div className="md:col-span-3">
+          <div
+            style={{
+              color: accent,
+              fontSize: 13,
+              letterSpacing: '0.15em',
+              fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
+              marginBottom: 10
+            }}
+          >
+            {String(active + 1).padStart(2, '0')}
+          </div>
+          <h4 className="font-bold" style={{ color: SLATE, fontSize: 20, lineHeight: 1.25 }}>
+            {steps[active].label}
+          </h4>
+        </div>
+        <div className="md:col-span-9">
+          <p style={{ color: MUTED, fontSize: 17, lineHeight: 1.8 }}>{steps[active].body}</p>
+          {steps[active].detail && (
+            <ul className="mt-6 grid sm:grid-cols-2 gap-x-10 gap-y-3">
+              {steps[active].detail.map((d) => (
+                <li key={d} className="flex gap-3" style={{ color: MUTED, fontSize: 15, lineHeight: 1.65 }}>
+                  <span style={{ color: accent, flexShrink: 0 }}>›</span>
+                  <span>{d}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}

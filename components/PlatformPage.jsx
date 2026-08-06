@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import {
   PageHero, Accent, Eyebrow, SplitFeature, NumberStrip, HighlightGrid, StatementBlock,
+  DisplayHeading, ProcessTrack,
   SLATE, MUTED, BLUE, BLUE_DEEP, GREEN, INK
 } from './ui';
 
@@ -34,14 +35,64 @@ export default function PlatformPage({ onContactClick }) {
         </p>
       </SplitFeature>
 
-      <NumberStrip
-        items={[
-          { title: 'You tell us what you need', body: 'The organism, the format, the shelf life you\u2019re targeting, your markets and manufacturing constraints.' },
-          { title: 'We find the formula', body: 'Parallel testing until we have the protective system for that specific strain, with full stability data.' },
-          { title: 'We prove it on your line', body: 'Scaled up and transferred into your process, on your equipment, at commercial volume.' },
-          { title: 'You launch', body: 'Licensed per strain and per product. You sell it. We keep it working.' }
-        ]}
-      />
+      <section className="pb-28 px-6">
+        <div className="max-w-6xl mx-auto">
+          <DisplayHeading
+            eyebrow="How a program runs"
+            light="One strain."
+            bold="Four steps."
+          />
+          <ProcessTrack
+            steps={[
+              {
+                label: 'Define',
+                stage: 'Scope',
+                body: 'You tell us what you need. Everything downstream is scoped to this one conversation.',
+                detail: [
+                  'The organism — strain name and source',
+                  'The format — tablet, capsule, powder',
+                  'The shelf life and claim you\u2019re targeting',
+                  'Markets, volume, manufacturing constraints'
+                ]
+              },
+              {
+                label: 'Formulate',
+                stage: 'Discovery',
+                body: 'We find the formula. Robots build and test thousands of protective systems in parallel until one holds for your specific strain.',
+                detail: [
+                  'Parallel high-throughput screening',
+                  'Species-specific protective system',
+                  'Full stability data under your conditions',
+                  'Iteration until the shelf-life target is met'
+                ]
+              },
+              {
+                label: 'Prove',
+                stage: 'Transfer',
+                body: 'We prove it on your line. Scaled up and transferred into your process, on equipment you already own.',
+                detail: [
+                  'Technology transfer to your facility',
+                  'Scaled batch validation',
+                  'Confirmation at commercial volume',
+                  'Documentation for regulatory filing'
+                ]
+              },
+              {
+                label: 'Launch',
+                stage: 'Market',
+                body: 'You launch. Licensed per strain and per product. You sell it. We keep it working.',
+                detail: [
+                  'Licensed per strain and format',
+                  'You own and sell the product',
+                  'Ongoing technical support',
+                  'Continuous improvement from field data'
+                ]
+              }
+            ]}
+          />
+        </div>
+      </section>
+
 
       {/* Why it compounds */}
       <StatementBlock
