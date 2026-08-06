@@ -52,7 +52,6 @@ export function PageHero({ eyebrow, title, subtitle, image, video, videoOpacity 
       {video ? (
         <>
           <video
-            src={video}
             poster={image}
             autoPlay
             muted
@@ -61,7 +60,10 @@ export function PageHero({ eyebrow, title, subtitle, image, video, videoOpacity 
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ opacity: videoOpacity }}
-          />
+          >
+            <source src={video} type="video/mp4" />
+            <source src={video.replace(/\.mp4$/, '.mov')} type="video/quicktime" />
+          </video>
           {/* Lighter scrim than the still path — the footage is already dim. */}
           <div
             className="absolute inset-0"

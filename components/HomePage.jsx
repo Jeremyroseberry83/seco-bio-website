@@ -74,14 +74,20 @@ export default function HomePage({ onContactClick }) {
         <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: INK }}>
           <video
             className="w-full h-full object-cover"
-            src="/videos/secobio.mp4"
             poster="/images/hero-poster.jpg"
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
-          />
+          >
+            {/* MP4 first: it's the only format every browser plays.
+                MOV is a QuickTime container — Safari handles it, Chrome and
+                Firefox frequently don't. Listed second so it's a fallback,
+                not the primary. */}
+            <source src="/videos/secobio2.mp4" type="video/mp4" />
+            <source src="/videos/secobio.mov" type="video/quicktime" />
+          </video>
           {/* Light scrim only at the lower left, where the type sits.
               The rest of the frame stays clean. */}
           <div
