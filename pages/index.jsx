@@ -176,7 +176,8 @@ export default function Site() {
         className="py-16 px-6"
         style={{
           background: 'linear-gradient(120deg, #0D4429 0%, #125A39 55%, #176E46 100%)',
-          color: 'white'
+          color: 'white',
+          borderTop: '3px solid #1E8E5A'
         }}
       >
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">

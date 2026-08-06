@@ -146,6 +146,17 @@ export default function TechnologyPage({ onContactClick }) {
         className="py-28 px-6 text-center"
         style={{ backgroundColor: INK }}
       >
+        <span
+          aria-hidden="true"
+          style={{
+            display: 'block',
+            width: 46,
+            height: 3,
+            borderRadius: 2,
+            backgroundColor: GREEN,
+            margin: '0 auto 34px'
+          }}
+        />
         <h2
           className="text-white font-bold mb-6"
           style={{ fontSize: 'clamp(1.9rem, 3.6vw, 2.8rem)', letterSpacing: '-0.03em' }}

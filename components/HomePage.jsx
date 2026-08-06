@@ -668,6 +668,17 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
           style={{ height: '155%', width: 'auto', right: '-4%', top: '-28%', opacity: 0.06 }}
         />
         <div className="relative">
+        <span
+          aria-hidden="true"
+          style={{
+            display: 'block',
+            width: 46,
+            height: 3,
+            borderRadius: 2,
+            backgroundColor: GREEN,
+            margin: '0 auto 34px'
+          }}
+        />
         <h2
           className="text-white font-bold mb-6"
           style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.03em' }}
