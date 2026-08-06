@@ -64,6 +64,9 @@ function StatBadge({ value, label, tone = 'blue' }) {
 }
 
 export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
+  // The poster and the video's first frame rarely match exactly, so a hard
+  // swap reads as a glitch. Fading in hides the seam.
+  const [videoReady, setVideoReady] = React.useState(false);
   return (
     <div>
       {/* ---------------- HERO ---------------- */}
@@ -71,7 +74,15 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
           Overlay is bottom-left, small and quiet, fading in at ~1.5s so the
           footage owns the first beat. */}
       <section className="relative w-full" style={{ height: '100vh', minHeight: 560 }}>
-        <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: INK }}>
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={{
+            backgroundColor: INK,
+            backgroundImage: 'url(/images/hero-poster.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        >
           <video
             className="w-full h-full object-cover"
             poster="/images/hero-poster.jpg"
@@ -80,6 +91,12 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
             loop
             playsInline
             preload="auto"
+            onPlaying={() => setVideoReady(true)}
+            onLoadedData={(e) => { if (e.currentTarget.readyState >= 3) setVideoReady(true); }}
+            style={{
+              opacity: videoReady ? 1 : 0,
+              transition: 'opacity 700ms ease-in-out'
+            }}
           >
             {/* MP4 first: it's the only format every browser plays.
                 MOV is a QuickTime container — Safari handles it, Chrome and

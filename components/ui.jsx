@@ -43,6 +43,7 @@ export function Eyebrow({ children, color = BLUE, className = '' }) {
  * decoration, and it guarantees text contrast regardless of the photo.
  */
 export function PageHero({ eyebrow, title, subtitle, image, video, videoOpacity = 0.2, stats, tone = 'blue' }) {
+  const [videoReady, setVideoReady] = React.useState(false);
   const wash =
     tone === 'green'
       ? `linear-gradient(180deg, rgba(15,78,49,0.94) 0%, rgba(15,78,49,0.89) 100%)`
@@ -56,15 +57,28 @@ export function PageHero({ eyebrow, title, subtitle, image, video, videoOpacity 
           Hero media is never lazy-loaded — it's the first thing painted. */}
       {video ? (
         <>
+          {/* Still underneath, video fades in over it — no hard swap. */}
+          {image && (
+            <img
+              src={image}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          )}
           <video
-            poster={image}
             autoPlay
             muted
             loop
             playsInline
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ opacity: videoOpacity }}
+            onPlaying={() => setVideoReady(true)}
+            onLoadedData={(e) => { if (e.currentTarget.readyState >= 3) setVideoReady(true); }}
+            style={{
+              opacity: videoReady ? videoOpacity : 0,
+              transition: 'opacity 700ms ease-in-out'
+            }}
           >
             <source src={video} type="video/mp4" />
             <source src={video.replace(/\.mp4$/, '.mov')} type="video/quicktime" />
