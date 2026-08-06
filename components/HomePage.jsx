@@ -151,22 +151,15 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div>
               <button
                 onClick={onWatchFilm}
-                aria-label="Watch the Seco Bio film"
+                aria-label="Watch the Seco Bio promo video"
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-3 rounded-full bg-white text-sm font-semibold transition-transform hover:-translate-y-0.5"
                 style={{ color: SLATE }}
               >
                 <Play size={15} fill={SLATE} />
-                Watch the film (2 min)
-              </button>
-              <button
-                onClick={onContactClick}
-                className="px-7 py-3 rounded-full text-sm font-semibold text-white border transition-colors hover:bg-white/10"
-                style={{ borderColor: 'rgba(255,255,255,0.5)' }}
-              >
-                Get in touch
+                Watch Promo Video
               </button>
             </div>
           </div>
