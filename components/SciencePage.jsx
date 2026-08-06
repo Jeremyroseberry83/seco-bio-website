@@ -57,7 +57,7 @@ export default function SciencePage({ onContactClick }) {
 
       {/* Headline results */}
       <StatBand
-        image="/images/photo/microscope-macro.jpg"
+        image="/images/science/bacteria.jpg"
         stats={[
           { value: '10,000×', label: 'More surviving cells than the commercial version' },
           { value: '6½ mo', label: 'At body temperature, still viable' },
@@ -150,7 +150,7 @@ export default function SciencePage({ onContactClick }) {
             style={{ aspectRatio: '4 / 3', backgroundColor: '#E9EDF6' }}
           >
             <img
-              src="/images/photo/microscope-bench.jpg"
+              src="/images/photo/mitimage.jpg"
               alt=""
               className="w-full h-full object-cover"
               loading="lazy"
