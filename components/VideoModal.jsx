@@ -60,8 +60,8 @@ export default function VideoModal({ onClose }) {
           playsInline
           poster="/images/hero-poster.jpg"
         >
-          <source src="/videos/secobio2.mp4" type="video/mp4" />
-          <source src="/videos/secobio.mov" type="video/quicktime" />
+          {/* The full narrated film — separate from the muted hero loop. */}
+          <source src="/videos/secobiointro.mp4" type="video/mp4" />
         </video>
       </div>
     </div>
