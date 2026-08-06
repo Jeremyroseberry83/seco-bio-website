@@ -6,7 +6,7 @@ export const BLUE_DEEP = '#2F4FC9';
 export const BLUE_LIGHT = '#9DB2FF'; // legible tint for dark grounds only
 export const GREEN = '#1E8E5A';
 export const GREEN_DEEP = '#176E46';
-export const GREEN_LIGHT = '#6FD3A3';
+export const GREEN_LIGHT = '#8CE0B8'; // legible on the deepened green wash
 export const SLATE = '#3D4654';
 export const MUTED = '#6B7280';
 export const INK = '#2E4259';
@@ -15,9 +15,14 @@ export const INK = '#2E4259';
  * Accent — highlights a phrase inside a heading.
  * On dark grounds pass tone="light"; on white leave the default.
  */
-export function Accent({ children, tone = 'light' }) {
+export function Accent({ children, tone }) {
+  // Inherits --accent from the enclosing section so a green hero gets a green
+  // accent without every call site having to know. Explicit tone still wins.
+  const explicit = tone === 'dark' ? BLUE : tone === 'green' ? GREEN_LIGHT : null;
   return (
-    <span style={{ color: tone === 'light' ? BLUE_LIGHT : BLUE }}>{children}</span>
+    <span style={{ color: explicit || 'var(--accent, ' + BLUE_LIGHT + ')' }}>
+      {children}
+    </span>
   );
 }
 
@@ -40,7 +45,7 @@ export function Eyebrow({ children, color = BLUE, className = '' }) {
 export function PageHero({ eyebrow, title, subtitle, image, video, videoOpacity = 0.2, stats, tone = 'blue' }) {
   const wash =
     tone === 'green'
-      ? `linear-gradient(180deg, rgba(23,110,70,0.93) 0%, rgba(23,110,70,0.88) 100%)`
+      ? `linear-gradient(180deg, rgba(15,78,49,0.94) 0%, rgba(15,78,49,0.89) 100%)`
       : `linear-gradient(180deg, rgba(46,66,89,0.94) 0%, rgba(46,66,89,0.88) 100%)`;
   const accent = tone === 'green' ? GREEN_LIGHT : BLUE_LIGHT;
 
@@ -91,7 +96,11 @@ export function PageHero({ eyebrow, title, subtitle, image, video, videoOpacity 
 
       <div
         className="relative max-w-4xl mx-auto px-6 text-center"
-        style={{ paddingTop: 'clamp(110px, 14vw, 180px)', paddingBottom: 'clamp(90px, 12vw, 150px)' }}
+        style={{
+          paddingTop: 'clamp(110px, 14vw, 180px)',
+          paddingBottom: 'clamp(90px, 12vw, 150px)',
+          '--accent': accent
+        }}
       >
         {eyebrow && (
           <p
@@ -166,7 +175,10 @@ export function SplitFeature({ eyebrow, title, children, image, flip, quote, dar
   const heading = dark ? '#FFFFFF' : SLATE;
   const body = dark ? 'rgba(255,255,255,0.78)' : MUTED;
   return (
-    <section className="py-28 px-6" style={{ backgroundColor: bg }}>
+    <section
+      className="py-28 px-6"
+      style={{ backgroundColor: bg, '--accent': dark ? BLUE_LIGHT : BLUE }}
+    >
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div className={flip ? 'order-2' : 'order-2 md:order-1'}>
           {eyebrow && <Eyebrow color={dark ? BLUE_LIGHT : BLUE} className="mb-4">{eyebrow}</Eyebrow>}

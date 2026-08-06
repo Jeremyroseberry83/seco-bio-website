@@ -10,6 +10,7 @@ export default function PlatformPage({ onContactClick }) {
     <div>
       <PageHero
         eyebrow="Platform"
+        tone="green"
         image="/images/stills/robotics.jpg"
         title={<>A formulation engine, <Accent>not a one-off service.</Accent></>}
         subtitle="Robots run the experiments. Models learn what works. Every strain we solve makes the next one faster."
