@@ -116,11 +116,40 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
             </h1>
 
             <p
-              className="text-white mb-8"
+              className="text-white mb-7"
               style={{ fontSize: 'clamp(0.98rem, 1.25vw, 1.13rem)', lineHeight: 1.6, opacity: 0.9 }}
             >
-              Bacteria that survive the factory, the shelf, and the journey to you.
+              Live bacteria don't survive the shelf. We changed that.
             </p>
+
+            {/* Proof in the first screen. 10,000× is the most arresting fact
+                Seco has — burying it three sections down wasted it. */}
+            <div className="flex flex-wrap gap-x-9 gap-y-4 mb-8">
+              {[
+                ['10,000\u00D7', 'more cells survive'],
+                ['6\u00BD months', 'at body temperature'],
+                ['Nature Materials', 'peer-reviewed, 2024']
+              ].map(([v, l]) => (
+                <div key={l}>
+                  <div
+                    className="text-white font-bold"
+                    style={{
+                      fontSize: 'clamp(1rem, 1.5vw, 1.28rem)',
+                      fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
+                      lineHeight: 1.25
+                    }}
+                  >
+                    {v}
+                  </div>
+                  <div
+                    className="text-white"
+                    style={{ fontSize: 12.5, opacity: 0.74, letterSpacing: '0.03em' }}
+                  >
+                    {l}
+                  </div>
+                </div>
+              ))}
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
               <button
@@ -253,12 +282,11 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
               letterSpacing: '-0.02em'
             }}
           >
-            Seco Bio uses AI and robotics to keep{' '}
-            <span style={{ color: BLUE_LIGHT }}>living organisms alive</span> — making the
-            probiotics people already buy{' '}
-            <span style={{ color: BLUE_LIGHT }}>actually work</span>, and putting the ones that{' '}
-            <span style={{ color: BLUE_LIGHT }}>never survived a pill</span> on the shelf for the
-            first time.
+            Most probiotics are{' '}
+            <span style={{ color: BLUE_LIGHT }}>mostly dead</span> by the time you take them. We
+            make the living{' '}
+            <span style={{ color: BLUE_LIGHT }}>survive the shelf</span> — and put the strains that{' '}
+            <span style={{ color: BLUE_LIGHT }}>never could</span> on it for the first time.
           </h2>
         </div>
       </section>
@@ -514,6 +542,73 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
             >
               Get in touch <ArrowRight size={16} />
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- WHO'S BEHIND IT ---------------- */}
+      {/* The single strongest credential Seco has was buried on About, where
+          almost nobody lands. Faces + the Nestlé line, one click from detail. */}
+      <section className="py-28 px-6" style={{ backgroundColor: INK }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <Eyebrow color={BLUE_LIGHT}>Who's behind it</Eyebrow>
+              <h2
+                className="text-white font-bold mb-7"
+                style={{
+                  fontSize: 'clamp(1.7rem, 3vw, 2.5rem)',
+                  lineHeight: 1.12,
+                  letterSpacing: '-0.025em'
+                }}
+              >
+                Two of the executives who built{' '}
+                <span style={{ color: BLUE_LIGHT }}>
+                  Nestlé Health Science's acquisition strategy
+                </span>
+                , and the chief executive of one of the companies they acquired.
+              </h2>
+              <p
+                className="mb-9"
+                style={{ color: 'rgba(255,255,255,0.76)', fontSize: '17px', lineHeight: 1.78 }}
+              >
+                Alongside the MIT researchers who invented the technology and published it in
+                Nature Materials.
+              </p>
+              <button
+                onClick={() => onNavigate && onNavigate('about')}
+                className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-white text-sm font-semibold"
+                style={{ color: BLUE_DEEP }}
+              >
+                Meet the team <ArrowRight size={16} />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-3 gap-4">
+              {[
+                ['/images/team/hendrix.jpg', 'Martin Hendrix', 'Nestlé Health Science'],
+                ['/images/team/stroud.jpg', 'Dan Stroud', 'Nestlé Health Science'],
+                ['/images/team/luther.jpg', 'Peter Luther', 'Atrium Innovations'],
+                ['/images/team/joe.jpg', 'Joe Collura', 'Cofounder & CEO'],
+                ['/images/team/miguel.jpg', 'Miguel Jimenez', 'Cofounder & Inventor'],
+                ['/images/team/giovanni.jpg', 'Giovanni Traverso', 'Cofounder & Inventor']
+              ].map(([img, name, role]) => (
+                <div key={name}>
+                  <div
+                    className="rounded-xl overflow-hidden mb-3"
+                    style={{ aspectRatio: '1 / 1', backgroundColor: 'rgba(255,255,255,0.08)' }}
+                  >
+                    <img src={img} alt={name} className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                  <p className="text-white font-semibold" style={{ fontSize: 12.5, lineHeight: 1.3 }}>
+                    {name}
+                  </p>
+                  <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 11.5, lineHeight: 1.4 }}>
+                    {role}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

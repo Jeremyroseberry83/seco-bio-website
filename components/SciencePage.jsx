@@ -175,7 +175,7 @@ export default function SciencePage({ onContactClick }) {
           className="text-white font-bold mb-6"
           style={{ fontSize: 'clamp(1.9rem, 3.6vw, 2.8rem)', letterSpacing: '-0.03em' }}
         >
-          Questions about the science?
+          Want the methods behind a specific claim?
         </h2>
         <button
           onClick={onContactClick}

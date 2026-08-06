@@ -296,13 +296,13 @@ export default function AboutPage({ onContactClick }) {
           className="text-white font-bold mb-6"
           style={{ fontSize: 'clamp(1.9rem, 3.6vw, 2.8rem)', letterSpacing: '-0.03em' }}
         >
-          Questions?
+          Talk to the people who built it.
         </h2>
         <p
           className="text-white mb-10 mx-auto"
           style={{ maxWidth: '40ch', fontSize: '17px', opacity: 0.9, lineHeight: 1.7 }}
         >
-          Reach out to Joe directly. He responds to every inquiry.
+          Joe answers every inquiry himself. Partnership, investment, or press — start here.
         </p>
         <button
           onClick={onContactClick}

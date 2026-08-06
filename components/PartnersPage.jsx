@@ -19,16 +19,19 @@ export default function PartnersPage({ onContactClick }) {
       {/* For brands — the primary audience */}
       <SplitFeature
         eyebrow="For brands &amp; manufacturers"
-        title={<>Make your product <Accent tone="dark">deliver what the label promises.</Accent></>}
+        title={<>You already pay for die-off. <Accent tone="dark">You just pay for it upstream.</Accent></>}
         image="/images/stills/formats.jpg"
-        quote="Bring us a strain and a target. We formulate the protection, prove it at scale, and hand it to your manufacturing line."
+        quote="A program is scoped to one strain and one format. We formulate, prove it at your scale, and transfer it to your line."
       >
         <p className="mb-6">
-          If you sell something alive, you already know what it costs: overfilling to cover die-off,
-          shelf life you can't fully predict, and a claim you can't verify at the moment of
-          consumption.
+          Overfilling is a tax. You buy more organism than you sell, you carry shelf life you
+          can't fully predict, and you make a claim you can't verify at the moment of consumption.
+          Every unit absorbs the cost.
         </p>
-        <p>A program with Seco targets all three.</p>
+        <p>
+          A program with Seco removes the guesswork from all three — without changing your strain,
+          your ingredients, or your line.
+        </p>
       </SplitFeature>
 
       {/* What we need / what you get */}
@@ -80,7 +83,7 @@ export default function PartnersPage({ onContactClick }) {
             className="font-bold"
             style={{ color: SLATE, fontSize: 'clamp(1.8rem, 3.2vw, 2.7rem)', lineHeight: 1.1, letterSpacing: '-0.025em' }}
           >
-            Four steps, one strain at a time.
+            What the first ninety days look like.
           </h2>
         </div>
       </section>
@@ -111,7 +114,7 @@ export default function PartnersPage({ onContactClick }) {
       <HighlightGrid
         tone="green"
         eyebrow="For investors"
-        title="Back a platform, not a product."
+        title="Every strain solved is an asset that doesn't depreciate."
         intro="Seco Bio is not conducting a public offering. We speak with a small number of aligned investors, by introduction, under NDA."
         cards={[
           { title: 'Formulation engine', body: 'AI-driven discovery that gets faster with every strain solved. The platform doesn\u2019t get used up.' },

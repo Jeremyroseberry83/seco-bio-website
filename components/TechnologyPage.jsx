@@ -11,8 +11,8 @@ export default function TechnologyPage({ onContactClick }) {
       <PageHero
         eyebrow="Technology"
         image="/images/science/bacteria.jpg"
-        title={<>Living products die on the way to you. <Accent>We changed that.</Accent></>}
-        subtitle="Bacteria have to survive drying, processing, storage, and digestion. Most of them don't. Here is what kills them, and what we do about it."
+        title={<>Four ways a living product dies. <Accent>And what stops each one.</Accent></>}
+        subtitle="Drying, processing, storage, digestion. Each stage takes a share of the population. This is the mechanism, and the evidence that it holds."
       />
 
       {/* Four stages — image + copy, then the numbered strip */}
@@ -171,7 +171,7 @@ export default function TechnologyPage({ onContactClick }) {
           className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-sm font-semibold"
           style={{ color: BLUE_DEEP }}
         >
-          Explore a partnership <ArrowRight size={16} />
+          Bring us a strain <ArrowRight size={16} />
         </button>
       </section>
     </div>

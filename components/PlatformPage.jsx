@@ -129,7 +129,7 @@ export default function PlatformPage({ onContactClick }) {
           className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-sm font-semibold"
           style={{ color: BLUE_DEEP }}
         >
-          Start a program <ArrowRight size={16} />
+          Bring us a strain <ArrowRight size={16} />
         </button>
       </section>
     </div>
