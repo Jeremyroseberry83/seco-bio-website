@@ -103,7 +103,7 @@ export default function PlatformPage({ onContactClick }) {
       {/* CTA */}
       <section
         className="py-28 px-6 text-center"
-        style={{ background: `linear-gradient(125deg, ${INK} 0%, ${BLUE_DEEP} 40%, ${BLUE} 100%)` }}
+        style={{ backgroundColor: INK }}
       >
         <h2
           className="text-white font-bold mb-6"

@@ -8,12 +8,14 @@ import SciencePage from '../components/SciencePage';
 import PartnersPage from '../components/PartnersPage';
 import AboutPage from '../components/AboutPage';
 import ContactForm from '../components/ContactForm';
+import VideoModal from '../components/VideoModal';
 import Translate from '../components/Translate';
 
 export default function Site() {
   const [currentPage, setCurrentPage] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -48,7 +50,7 @@ export default function Site() {
       case 'science':    return <SciencePage onContactClick={openContact} />;
       case 'partners':   return <PartnersPage onContactClick={openContact} />;
       case 'about':      return <AboutPage onContactClick={openContact} />;
-      default:           return <HomePage onContactClick={openContact} />;
+      default:           return <HomePage onContactClick={openContact} onWatchFilm={() => setShowVideo(true)} onNavigate={handleNavClick} />;
     }
   };
 
@@ -168,11 +170,12 @@ export default function Site() {
       )}
 
       {showContactModal && <ContactForm onClose={() => setShowContactModal(false)} />}
+      {showVideo && <VideoModal onClose={() => setShowVideo(false)} />}
 
       <footer
         className="py-16 px-6"
         style={{
-          background: 'linear-gradient(125deg, #2E4259 0%, #2F4FC9 55%, #3B60E4 100%)',
+          background: 'linear-gradient(120deg, #0D4429 0%, #125A39 55%, #176E46 100%)',
           color: 'white'
         }}
       >

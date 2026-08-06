@@ -63,7 +63,7 @@ function StatBadge({ value, label, tone = 'blue' }) {
   );
 }
 
-export default function HomePage({ onContactClick }) {
+export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
   return (
     <div>
       {/* ---------------- HERO ---------------- */}
@@ -124,6 +124,8 @@ export default function HomePage({ onContactClick }) {
 
             <div className="flex flex-col sm:flex-row gap-3">
               <button
+                onClick={onWatchFilm}
+                aria-label="Watch the Seco Bio film"
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-3 rounded-full bg-white text-sm font-semibold transition-transform hover:-translate-y-0.5"
                 style={{ color: SLATE }}
               >
@@ -304,11 +306,11 @@ export default function HomePage({ onContactClick }) {
                   alt=""
                   aria-hidden="true"
                   className="absolute inset-0 w-full h-full object-cover"
-                  style={{ opacity: 0.17 }} loading="lazy"
+                  style={{ opacity: 0.42 }} loading="lazy"
                 />
                 <div
                   className="absolute inset-0"
-                  style={{ background: 'linear-gradient(180deg, rgba(244,246,250,0.55) 0%, rgba(244,246,250,0.88) 100%)' }}
+                  style={{ background: 'linear-gradient(180deg, rgba(247,249,252,0.35) 0%, rgba(247,249,252,0.72) 100%)' }}
                 />
                 <div className="relative">
                   <div
@@ -393,7 +395,7 @@ export default function HomePage({ onContactClick }) {
               ))}
             </div>
 
-            <PillButton onClick={onContactClick}>
+            <PillButton onClick={() => onNavigate && onNavigate('science')}>
               How it works in detail <ArrowRight size={16} />
             </PillButton>
           </div>
@@ -655,7 +657,7 @@ export default function HomePage({ onContactClick }) {
       {/* ---------------- CLOSING BAND ---------------- */}
       <section
         className="py-32 px-6 text-center relative overflow-hidden"
-        style={{ background: `linear-gradient(125deg, ${INK} 0%, ${BLUE_DEEP} 40%, ${BLUE} 100%)` }}
+        style={{ backgroundColor: INK }}
       >
         {/* Oversized mark bleeding off the right edge. Depth, not branding. */}
         <img

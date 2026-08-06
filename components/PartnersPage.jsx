@@ -123,7 +123,7 @@ export default function PartnersPage({ onContactClick }) {
       {/* Closing */}
       <section
         className="py-28 px-6 text-center"
-        style={{ background: `linear-gradient(125deg, ${INK} 0%, ${GREEN_DEEP} 55%, ${GREEN} 100%)` }}
+        style={{ backgroundColor: INK }}
       >
         <h2
           className="text-white font-bold mb-12"
@@ -135,7 +135,7 @@ export default function PartnersPage({ onContactClick }) {
           <button
             onClick={onContactClick}
             className="px-8 py-3.5 rounded-full bg-white text-sm font-semibold"
-            style={{ color: GREEN_DEEP }}
+            style={{ color: INK }}
           >
             I'm a potential partner
           </button>
