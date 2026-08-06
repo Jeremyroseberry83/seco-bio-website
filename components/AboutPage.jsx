@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail } from 'lucide-react';
+import { Mail, Linkedin } from 'lucide-react';
 import { PageHero, Accent } from './ui';
 
 const BLUE = '#3B60E4';
@@ -17,7 +17,7 @@ function Eyebrow({ children, color = BLUE }) {
   );
 }
 
-function Person({ name, title, bio, photo, accent }) {
+function Person({ name, title, bio, photo, accent, linkedin }) {
   return (
     <div>
       <div
@@ -26,9 +26,31 @@ function Person({ name, title, bio, photo, accent }) {
       >
         <img src={photo} alt={name} className="w-full h-full object-cover" loading="lazy" />
       </div>
-      <h3 className="font-bold mb-1" style={{ color: SLATE, fontSize: '19px' }}>
-        {name}
-      </h3>
+
+      <div className="flex items-center gap-2.5 mb-1">
+        <h3 className="font-bold" style={{ color: SLATE, fontSize: '19px' }}>
+          {name}
+        </h3>
+        {linkedin && (
+          <a
+            href={linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${name} on LinkedIn`}
+            className="inline-flex items-center justify-center rounded-full transition-colors"
+            style={{
+              width: 24,
+              height: 24,
+              color: accent,
+              backgroundColor: 'rgba(0,0,0,0.04)',
+              flexShrink: 0
+            }}
+          >
+            <Linkedin size={13} strokeWidth={2} />
+          </a>
+        )}
+      </div>
+
       <p className="font-semibold mb-4" style={{ color: accent, fontSize: '13px' }}>
         {title}
       </p>
@@ -106,6 +128,7 @@ export default function AboutPage({ onContactClick }) {
           <div className="grid md:grid-cols-3 gap-12">
             <Person
               name="Joe Collura"
+              linkedin="https://www.linkedin.com/in/jvcollura/"
               title="Cofounder &amp; CEO"
               accent={BLUE}
               photo="/images/team/joe.jpg"
@@ -113,6 +136,7 @@ export default function AboutPage({ onContactClick }) {
             />
             <Person
               name="Miguel Jimenez, PhD"
+              linkedin="https://www.linkedin.com/in/miguel-jimenez/"
               title="Cofounder &amp; Inventor"
               accent={BLUE}
               photo="/images/team/miguel.jpg"
@@ -120,6 +144,7 @@ export default function AboutPage({ onContactClick }) {
             />
             <Person
               name="Giovanni Traverso, MD, PhD"
+              linkedin="https://www.linkedin.com/in/giovanni-traverso-84386742/"
               title="Cofounder &amp; Inventor"
               accent={BLUE}
               photo="/images/team/giovanni.jpg"
@@ -150,6 +175,7 @@ export default function AboutPage({ onContactClick }) {
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             <Person
               name="Martin Hendrix, PhD"
+              linkedin="https://www.linkedin.com/in/martin-hendrix-17b963b/"
               title="Former Head of Global BD &amp; M&amp;A, Nestlé Health Science"
               accent={GREEN}
               photo="/images/team/hendrix.jpg"
@@ -157,6 +183,7 @@ export default function AboutPage({ onContactClick }) {
             />
             <Person
               name="Dan Stroud"
+              linkedin="https://www.linkedin.com/in/danstroud1/"
               title="Founding CFO, Nestlé Health Science"
               accent={GREEN}
               photo="/images/team/stroud.jpg"
@@ -164,6 +191,7 @@ export default function AboutPage({ onContactClick }) {
             />
             <Person
               name="Peter Luther, MBA"
+              linkedin="https://www.linkedin.com/in/peterluther/"
               title="Former President &amp; CEO, Atrium Innovations"
               accent={GREEN}
               photo="/images/team/luther.jpg"
