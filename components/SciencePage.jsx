@@ -35,7 +35,7 @@ export default function SciencePage({ onContactClick }) {
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
           <a
-            href="https://www.nature.com/nmat/"
+            href="https://www.nature.com/articles/s41563-024-01937-6"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full text-white text-sm font-semibold"
