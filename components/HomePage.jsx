@@ -441,8 +441,8 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
             style={{ aspectRatio: '3 / 4', backgroundColor: INK }}
           >
             <img
-              src="/images/stills/microscopy.jpg"
-              alt="Protected cells under magnification"
+              src="/images/photo/microscope-bench.jpg"
+              alt="Laboratory microscope and sample preparation"
               className="w-full h-full object-cover" loading="lazy"
             />
           </div>
@@ -632,8 +632,8 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              ['People', 'Supplements and live medicines', '/images/stills/people.jpg'],
-              ['Animals', 'Pet and livestock health', '/images/stills/animals.jpg'],
+              ['People', 'Supplements and live medicines', '/images/photo/family.jpg'],
+              ['Animals', 'Pet and livestock health', '/images/photo/pets-feeding.jpg'],
               ['Farming', 'Seed and soil treatments', '/images/stills/formats.jpg'],
               ['Early life', 'Infant and maternal health', '/images/stills/earlylife.jpg']
             ].map(([title, body, img]) => (

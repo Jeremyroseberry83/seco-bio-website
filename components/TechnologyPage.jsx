@@ -19,7 +19,7 @@ export default function TechnologyPage({ onContactClick }) {
       <SplitFeature
         eyebrow="What kills living cells"
         title={<>Four stages. <Accent tone="dark">Every one takes a share.</Accent></>}
-        image="/images/stills/formats.jpg"
+        image="/images/photo/nutrition.jpg"
         quote="Protection has to survive all four. A formulation that handles drying but fails in gastric acid delivers nothing at the moment of consumption."
       >
         <p className="mb-5">
@@ -76,7 +76,7 @@ export default function TechnologyPage({ onContactClick }) {
 
       {/* Survival results */}
       <StatBand
-        image="/images/stills/robotics.jpg"
+        image="/images/photo/microscope-macro.jpg"
         stats={[
           { value: '10,000×', label: 'More surviving cells than the commercial version of the same organism' },
           { value: '6½ mo', label: 'At body temperature, and still alive' },

@@ -10,7 +10,7 @@ export default function PartnersPage({ onContactClick }) {
     <div>
       <PageHero
         eyebrow="Partners"
-        image="/images/stills/consumer.jpg"
+        image="/images/photo/wellness.jpg"
         tone="green"
         title={<>Two ways in. <Accent>One conversation to start.</Accent></>}
         subtitle="Whether you make a living product or you're looking at where this industry goes next, it begins with an NDA and a technical call."
@@ -102,8 +102,8 @@ export default function PartnersPage({ onContactClick }) {
         items={[
           { image: '/images/stills/formats.jpg', label: 'Capsules & tablets' },
           { image: '/images/science/probiotic.jpg', label: 'Powders & sachets' },
-          { image: '/images/stills/animals.jpg', label: 'Pet & livestock' },
-          { image: '/images/stills/people.jpg', label: 'Functional foods' }
+          { image: '/images/photo/pets-feeding.jpg', label: 'Pet & livestock' },
+          { image: '/images/photo/nutrition.jpg', label: 'Functional foods' }
         ]}
       />
 

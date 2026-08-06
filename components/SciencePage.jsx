@@ -21,7 +21,7 @@ export default function SciencePage({ onContactClick }) {
       <SplitFeature
         eyebrow="The publication"
         title={<>Synthetic extremophiles via <Accent tone="dark">species-specific formulations.</Accent></>}
-        image="/images/stills/microscopy.jpg"
+        image="/images/photo/scientist.jpg"
         ratio="4 / 3"
       >
         <p className="mb-6">
@@ -57,7 +57,7 @@ export default function SciencePage({ onContactClick }) {
 
       {/* Headline results */}
       <StatBand
-        image="/images/science/bacteria.jpg"
+        image="/images/photo/microscope-macro.jpg"
         stats={[
           { value: '10,000×', label: 'More surviving cells than the commercial version' },
           { value: '6½ mo', label: 'At body temperature, still viable' },
@@ -97,7 +97,7 @@ export default function SciencePage({ onContactClick }) {
         flip
         eyebrow="Intellectual property"
         title={<>Patent-pending, <Accent tone="dark">filed by MIT.</Accent></>}
-        image="/images/stills/lab-blue.jpg"
+        image="/images/photo/microscope-bench.jpg"
       >
         <p className="mb-5">
           US patent application <strong style={{ color: SLATE }}>18/477,970</strong>, covering

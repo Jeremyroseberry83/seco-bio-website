@@ -55,8 +55,8 @@ export default function AboutPage({ onContactClick }) {
             style={{ aspectRatio: '4 / 3', backgroundColor: INK }}
           >
             <img
-              src="/images/stills/lab-blue.jpg"
-              alt="Automated laboratory systems"
+              src="/images/photo/scientist.jpg"
+              alt="Research in progress"
               className="w-full h-full object-cover" loading="lazy"
             />
           </div>
