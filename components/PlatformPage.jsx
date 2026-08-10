@@ -123,21 +123,25 @@ export default function PlatformPage({ onContactClick }) {
         ]}
       />
 
-      {/* Timelines — flagged as direction, per spec */}
+      {/* Timelines — the moat */}
       <SplitFeature
         flip
-        eyebrow="Where it's headed"
-        title={<>Industry runs five to seven years. <Accent tone="dark">We're targeting twelve to eighteen months.</Accent></>}
+        eyebrow="The competitive edge"
+        title={<>Industry: 5–7 years. <Accent tone="dark">Seco: 12–18 months.</Accent></>}
         image="/images/science/probiotic.jpg"
         ratio="1 / 1"
       >
         <p className="mb-5">
-          That capability is in development. We're building the computational and robotic
-          infrastructure to compress formulation discovery from years to months.
+          Every partner engagement runs the same closed loop. Every loop trains the AI/ML database. 
+          The moat compounds with every program.
+        </p>
+        <p className="mb-5" style={{ fontSize: '15px' }}>
+          Partners get the formulation and the proof. Seco keeps the underlying dataset mapping 
+          materials to organisms—the asset that gets better, faster, more defensible with every strain solved.
         </p>
         <p style={{ fontSize: '15px', opacity: 0.85 }}>
-          Full AI-native formulation and automated validation are roadmap items. Robotic
-          high-throughput screening is running today.
+          Robotic high-throughput screening is running today. Full AI-native formulation and 
+          automated validation compress the timeline further.
         </p>
       </SplitFeature>
 

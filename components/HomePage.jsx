@@ -75,20 +75,19 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
           footage owns the first beat. */}
       <section className="relative w-full" style={{ height: '100vh', minHeight: 560 }}>
         <div
-          className="absolute inset-0 overflow-hidden"
+          className="absolute inset-0 overflow-hidden cursor-pointer"
           style={{
             backgroundColor: INK,
             backgroundImage: 'url(/images/hero-poster.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
+          onClick={onWatchFilm}
         >
           <video
             className="w-full h-full object-cover"
             poster="/images/hero-poster.jpg"
-            autoPlay
             muted
-            loop
             playsInline
             preload="auto"
             onPlaying={() => setVideoReady(true)}
@@ -168,15 +167,20 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
               ))}
             </div>
 
-            <div>
+            <div className="flex flex-wrap gap-4">
               <button
-                onClick={onWatchFilm}
-                aria-label="Watch the Seco Bio promo video"
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-3 rounded-full bg-white text-sm font-semibold transition-transform hover:-translate-y-0.5"
+                onClick={() => window.location.hash = '#platform'}
+                className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-white text-sm font-semibold transition-transform hover:-translate-y-0.5"
                 style={{ color: SLATE }}
               >
-                <Play size={15} fill={SLATE} />
-                Watch Promo Video
+                Learn more about the platform
+              </button>
+              <button
+                onClick={onContactClick}
+                className="inline-flex items-center justify-center px-7 py-3 rounded-full border-2 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                style={{ borderColor: 'rgba(255,255,255,0.5)' }}
+              >
+                Talk to us
               </button>
             </div>
           </div>

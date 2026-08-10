@@ -110,16 +110,16 @@ export default function PartnersPage({ onContactClick }) {
         ]}
       />
 
-      {/* For investors — deliberately understated per spec */}
+      {/* For capital partners — institutional framing */}
       <HighlightGrid
         tone="green"
-        eyebrow="For investors"
-        title="Every strain solved is an asset that doesn't depreciate."
-        intro="Seco Bio is not conducting a public offering. We speak with a small number of aligned investors, by introduction, under NDA."
+        eyebrow="For capital partners"
+        title="Every strain solved is protected IP that compounds."
+        intro="Capital partners scaling the platform from strategic to institutional growth capital. We work with investors aligned to the long-term platform opportunity. Speak with us by introduction, under NDA."
         cards={[
           { title: 'Formulation engine', body: 'AI-driven discovery that gets faster with every strain solved. The platform doesn\u2019t get used up.' },
-          { title: 'Compounding IP', body: 'Every strain solved becomes protected intellectual property a partner can license.' },
-          { title: 'Defensible dataset', body: 'The mapping of materials to organisms is the asset, and it can\u2019t be reverse-engineered.' }
+          { title: 'Platform IP', body: 'Every strain solved becomes protected intellectual property that compounds and can be licensed.' },
+          { title: 'Defensible moat', body: 'The dataset mapping materials to organisms cannot be reverse-engineered from a finished product.' }
         ]}
       />
 
@@ -143,7 +143,7 @@ export default function PartnersPage({ onContactClick }) {
           className="text-white font-bold mb-12"
           style={{ fontSize: 'clamp(1.9rem, 3.6vw, 2.8rem)', letterSpacing: '-0.03em' }}
         >
-          Which describes you?
+          For business and capital partners.
         </h2>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
