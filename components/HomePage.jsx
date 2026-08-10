@@ -130,7 +130,7 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
                 letterSpacing: '-0.028em'
               }}
             >
-              Keeping the living alive.
+              Keeping the <span style={{ color: '#1E8E5A' }}>living</span> alive.
             </h1>
 
             <p
@@ -192,9 +192,9 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
                 onClick={onWatchFilm}
                 aria-label="Watch the Seco Bio promo video"
                 className="inline-flex items-center justify-center gap-2.5 px-6 py-2.5 rounded-full text-xs font-semibold transition-opacity hover:opacity-100"
-                style={{ color: 'rgba(30, 142, 90, 0.85)', fontSize: '13px' }}
+                style={{ color: 'rgba(255,255,255,0.85)', fontSize: '13px' }}
               >
-                <Play size={14} fill="rgba(30, 142, 90, 0.85)" />
+                <Play size={14} fill="rgba(255,255,255,0.85)" />
                 Watch Seco promo video
               </button>
             </div>
