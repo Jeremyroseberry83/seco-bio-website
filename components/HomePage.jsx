@@ -191,10 +191,10 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
               <button
                 onClick={onWatchFilm}
                 aria-label="Watch the Seco Bio promo video"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-2.5 rounded-full text-xs font-semibold transition-opacity hover:opacity-80"
-                style={{ color: MUTED, fontSize: '13px' }}
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-2.5 rounded-full text-xs font-semibold transition-opacity hover:opacity-100"
+                style={{ color: 'rgba(30, 142, 90, 0.85)', fontSize: '13px' }}
               >
-                <Play size={14} fill={MUTED} />
+                <Play size={14} fill="rgba(30, 142, 90, 0.85)" />
                 Watch Seco promo video
               </button>
             </div>
