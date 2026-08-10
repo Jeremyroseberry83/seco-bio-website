@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import { Menu, X, Mail, Linkedin } from 'lucide-react';
+import { Menu, X, Mail, Linkedin, Globe } from 'lucide-react';
 import HomePage from '../components/HomePage';
-import TechnologyPage from '../components/TechnologyPage';
-import PlatformPage from '../components/PlatformPage';
-import SciencePage from '../components/SciencePage';
+import PlatformSciencePage from '../components/PlatformSciencePage';
 import PartnersPage from '../components/PartnersPage';
 import AboutPage from '../components/AboutPage';
 import ContactForm from '../components/ContactForm';
@@ -28,10 +26,8 @@ export default function Site() {
   const overHero = !scrolled;
 
   const navItems = [
-    { name: 'Technology', id: 'technology' },
-    { name: 'Platform', id: 'platform' },
-    { name: 'Science', id: 'science' },
-    { name: 'Partners', id: 'partners' },
+    { name: 'Platform & Science', id: 'platform-science' },
+    { name: 'For Partners', id: 'partners' },
     { name: 'About', id: 'about' }
   ];
 
@@ -45,9 +41,7 @@ export default function Site() {
 
   const renderPage = () => {
     switch (currentPage) {
-      case 'technology': return <TechnologyPage onContactClick={openContact} />;
-      case 'platform':   return <PlatformPage onContactClick={openContact} />;
-      case 'science':    return <SciencePage onContactClick={openContact} />;
+      case 'platform-science': return <PlatformSciencePage onContactClick={openContact} />;
       case 'partners':   return <PartnersPage onContactClick={openContact} />;
       case 'about':      return <AboutPage onContactClick={openContact} />;
       default:           return <HomePage onContactClick={openContact} onWatchFilm={() => setShowVideo(true)} onNavigate={handleNavClick} />;
@@ -72,6 +66,7 @@ export default function Site() {
         }}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-3">
           <button
             onClick={() => handleNavClick('home')}
             className="flex items-center gap-3"
@@ -82,13 +77,28 @@ export default function Site() {
               alt="Seco Bio"
               style={{ height: 34, width: 'auto', display: 'block' }}
             />
-            <span
-              className="text-lg font-bold"
-              style={{ color: overHero ? '#FFFFFF' : '#2E3A8C', letterSpacing: '0.08em' }}
-            >
-              SECO BIO
-            </span>
+            <div>
+              <div
+                className="text-lg font-bold"
+                style={{ color: overHero ? '#FFFFFF' : '#2E3A8C', letterSpacing: '0.08em', lineHeight: 1 }}
+              >
+                SECO BIO
+              </div>
+              <div
+                style={{ 
+                  fontSize: '9px', 
+                  fontWeight: 600, 
+                  letterSpacing: '1.2px',
+                  textTransform: 'uppercase',
+                  color: overHero ? 'rgba(255,255,255,0.8)' : '#3D4654',
+                  lineHeight: 1
+                }}
+              >
+                Protecting What Matters
+              </div>
+            </div>
           </button>
+        </div>
 
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
