@@ -87,7 +87,9 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
           <video
             className="w-full h-full object-cover"
             poster="/images/hero-poster.jpg"
+            autoPlay
             muted
+            loop
             playsInline
             preload="auto"
             onPlaying={() => setVideoReady(true)}
@@ -169,7 +171,7 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
 
             <div className="flex flex-wrap gap-4">
               <button
-                onClick={() => window.location.hash = '#platform'}
+                onClick={() => onNavigate('platform')}
                 className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-white text-sm font-semibold transition-transform hover:-translate-y-0.5"
                 style={{ color: SLATE }}
               >
