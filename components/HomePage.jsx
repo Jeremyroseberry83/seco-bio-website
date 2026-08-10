@@ -185,6 +185,19 @@ export default function HomePage({ onContactClick, onWatchFilm, onNavigate }) {
                 Talk to us
               </button>
             </div>
+
+            {/* Promo video link — secondary, below main CTAs */}
+            <div className="mt-8">
+              <button
+                onClick={onWatchFilm}
+                aria-label="Watch the Seco Bio promo video"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-2.5 rounded-full text-xs font-semibold transition-opacity hover:opacity-80"
+                style={{ color: MUTED, fontSize: '13px' }}
+              >
+                <Play size={14} fill={MUTED} />
+                Watch Seco promo video
+              </button>
+            </div>
           </div>
         </div>
 
