@@ -12,12 +12,12 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
   const [videoReady, setVideoReady] = React.useState(false);
 
   React.useEffect(() => {
-    // Auto-open the promo video 5s after landing on Home, once per browser session.
+    // Auto-open the promo video 2s after landing on Home, once per browser session.
     if (sessionStorage.getItem('secoIntroPlayed')) return;
     const timer = setTimeout(() => {
       sessionStorage.setItem('secoIntroPlayed', '1');
       onWatchFilm && onWatchFilm();
-    }, 5000);
+    }, 2000);
     return () => clearTimeout(timer);
   }, [onWatchFilm]);
 
