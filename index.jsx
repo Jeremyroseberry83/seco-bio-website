@@ -89,7 +89,7 @@ export default function Site() {
             <div>
               <div
                 className="text-lg font-bold"
-                style={{ color: overHero ? '#FFFFFF' : '#2E3A8C', letterSpacing: '0.08em', lineHeight: 1 }}
+                style={{ color: overHero ? '#FFFFFF' : '#3B60E4', letterSpacing: '0.08em', lineHeight: 1 }}
               >
                 SECO BIO
               </div>
