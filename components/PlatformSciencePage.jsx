@@ -62,7 +62,33 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 2. THE GAP */}
+      {/* 2. THE PROBLEM */}
+      <section style={{ padding: '4rem 1.5rem', backgroundColor: BG }}>
+        <div className="max-w-6xl mx-auto">
+          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>The Problem</h3>
+          <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1rem', lineHeight: 1.2 }}>Living products <span style={{ color: BLUE, fontStyle: 'italic' }}>die</span> on the way to you.</h2>
+          <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '0.5rem' }}>Probiotics are alive. That's the entire point of them — and it's also the problem. Bacteria have to survive being dried, pressed into tablets, sealed in bottles, shipped through heat, and stored for months before anyone opens the package.</p>
+          <p style={{ fontSize: '22px', fontWeight: 700, color: SLATE, marginBottom: '2.5rem' }}>Most of them don't.</p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
+            {[
+              { label: 'Matched the label', value: '7 of 13', caption: 'probiotic products tested contained the number of living cells printed on the label' },
+              { label: 'Alive on arrival', value: '1 in 50', caption: 'cells in the average product was still alive when the consumer opened it' },
+              { label: 'Overfilled to compensate', value: '360×', caption: 'more bacteria loaded at the factory than the label promises, to compensate for the die-off' }
+            ].map(({ label, value, caption }) => (
+              <div key={label} style={{ backgroundColor: 'white', borderRadius: '12px', borderTop: `4px solid ${BLUE}`, padding: '1.5rem' }}>
+                <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.5px', textTransform: 'uppercase', color: BLUE, marginBottom: '0.75rem' }}>{label}</div>
+                <div style={{ fontSize: '32px', fontWeight: 700, color: SLATE, marginBottom: '0.5rem' }}>{value}</div>
+                <div style={{ fontSize: '13px', color: MUTED, lineHeight: 1.6 }}>{caption}</div>
+              </div>
+            ))}
+          </div>
+
+          <p style={{ fontSize: '13px', color: MUTED, fontStyle: 'italic' }}>These findings come from peer-reviewed research published in <em>Nature Materials</em> — see the full results below.</p>
+        </div>
+      </section>
+
+      {/* 3. THE GAP */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto">
           <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: GREEN, marginBottom: '1rem' }}>The Gap</h3>
@@ -94,7 +120,50 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 3. THE TECHNOLOGY */}
+      {/* 4. PLATFORM & SCIENCE — Predict / Prove / Scale */}
+      <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_INK_BG }}>
+        <div className="max-w-6xl mx-auto">
+          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_BLUE_ACCENT, marginBottom: '1rem' }}>Platform & Science</h3>
+          <h2 style={{ fontSize: '36px', fontWeight: 700, color: 'white', marginBottom: '1rem', lineHeight: 1.2 }}>Predict the winning formula <span style={{ color: LIGHT_BLUE_ACCENT, fontStyle: 'italic' }}>before</span> a single cell enters the lab.</h2>
+          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.8)', lineHeight: 1.8, marginBottom: '2rem' }}>AI-native formulation. Autonomous wet-lab. Every strain we solve trains the platform — and the platform gets faster with every loop.</p>
+
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '1.5rem', backgroundColor: 'white', padding: '1rem 1.5rem', borderRadius: '10px', marginBottom: '2rem' }}>
+            <div>
+              <div style={{ fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', color: MUTED, marginBottom: '4px' }}>Industry</div>
+              <div style={{ fontSize: '20px', fontWeight: 700, color: '#C13B3B', textDecoration: 'line-through' }}>5–7 years</div>
+            </div>
+            <div style={{ fontSize: '22px', color: BLUE, fontWeight: 700 }}>→</div>
+            <div>
+              <div style={{ fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', color: MUTED, marginBottom: '4px' }}>Seco</div>
+              <div style={{ fontSize: '20px', fontWeight: 700, color: BLUE }}>12–18 months</div>
+            </div>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
+            {[
+              { num: '01', label: 'Predict', title: 'AI-native formulation', body: 'AI models forecast the optimal protective ingredients — sugars, proteins, lipids — for any live bioproduct, before a single wet-lab experiment is run.' },
+              { num: '02', label: 'Prove', title: 'Autonomous wet-lab', body: 'Closed-loop robotics run hundreds of formulation trials in parallel — validating shelf-stability in days, not years.' },
+              { num: '03', label: 'Scale', title: 'Kilogram-scale PoC in months', body: 'Every candidate moves from concept to kilogram-scale commercial proof-of-concept in months, then licensed per strain.' }
+            ].map(({ num, label, title, body }) => (
+              <div key={num} style={{ backgroundColor: 'white', borderRadius: '12px', borderTop: `4px solid ${BLUE}`, padding: '1.5rem' }}>
+                <div style={{ fontSize: '13px', fontWeight: 700, color: BLUE, marginBottom: '0.25rem' }}>{num}</div>
+                <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.5px', textTransform: 'uppercase', color: BLUE, marginBottom: '0.5rem' }}>{label}</div>
+                <div style={{ fontSize: '15px', fontWeight: 700, color: SLATE, marginBottom: '0.5rem' }}>{title}</div>
+                <div style={{ fontSize: '13px', color: MUTED, lineHeight: 1.6 }}>{body}</div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '10px', padding: '1.5rem', marginBottom: '1.5rem' }}>
+            <div style={{ fontSize: '15px', fontWeight: 700, color: 'white', marginBottom: '0.5rem' }}>Partner launches. Seco keeps the data.</div>
+            <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7 }}>Every customer engagement runs the same closed loop — and every loop trains the AI/ML database. The moat compounds with every program.</p>
+          </div>
+
+          <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, fontStyle: 'italic' }}>Formulations are built exclusively from ingredients already broadly accepted for food and dietary-supplement use across major global frameworks — including the US (FDA GRAS), the EU (EFSA), Canada, Japan, and equivalent regimes. Partners retain product-level regulatory ownership in their markets.</p>
+        </div>
+      </section>
+
+      {/* 5. THE TECHNOLOGY */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto">
           <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>The Technology</h3>
@@ -154,7 +223,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 4. THE PLATFORM */}
+      {/* 6. THE PLATFORM */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_GREEN_BG }}>
         <div className="max-w-6xl mx-auto" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
           <div>
@@ -199,7 +268,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 5. BEYOND THE SHELF */}
+      {/* 7. BEYOND THE SHELF */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_INK_BG }}>
         <div className="max-w-6xl mx-auto">
           <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_BLUE_ACCENT, marginBottom: '1rem' }}>Beyond the Shelf</h3>
@@ -225,86 +294,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 6. STRAIN DEVELOPMENT */}
-      <section style={{ padding: '4rem 1.5rem', backgroundColor: BG }}>
-        <div className="max-w-6xl mx-auto">
-          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>Strain Development</h3>
-          <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1rem', lineHeight: 1.2 }}>Enhance the standard. <span style={{ color: BLUE, fontStyle: 'italic' }}>Unlock the novel.</span></h2>
-          <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2.5rem', fontStyle: 'italic' }}>Two parallel wedges from a single platform: near-term licensing revenue + category-defining novel IP.</p>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
-            <div style={{ backgroundColor: BLUE_BG_LIGHT, borderRadius: '12px', borderTop: `4px solid ${BLUE}`, padding: '2rem', display: 'flex', flexDirection: 'column' }}>
-              <h4 style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '0.5rem' }}>Enhance</h4>
-              <p style={{ fontSize: '15px', fontWeight: 700, fontStyle: 'italic', color: SLATE, marginBottom: '1.25rem' }}>Industry standard, made better</p>
-              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1.5rem' }}>
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: '22px', fontWeight: 700, fontStyle: 'italic', color: SLATE }}>L. plantarum</div>
-                  <div style={{ fontSize: '13px', color: MUTED, fontStyle: 'italic' }}>One of the most widely used commercial probiotic strains</div>
-                </div>
-                <div style={{ width: 100, height: 100, borderRadius: '8px', overflow: 'hidden', flexShrink: 0 }}>
-                  <img src="/images/probiotic.jpg" alt="Commercial probiotic capsules" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
-              </div>
-              <div style={{ display: 'flex', gap: '2rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
-                <div>
-                  <div style={{ fontSize: '32px', fontWeight: 700, color: PINK }}>20×</div>
-                  <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.5px', textTransform: 'uppercase', color: MUTED, marginBottom: '0.5rem' }}>
-                    Industry Overfill <span style={{ color: PINK, textDecoration: 'underline' }}>Problem</span>
-                  </div>
-                  <div style={{ fontSize: '13px', color: MUTED }}>Typical overage above label claim to compensate for die-off, variable shelf life.</div>
-                </div>
-                <div>
-                  <div style={{ fontSize: '32px', fontWeight: 700, color: GREEN }}>17×</div>
-                  <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.5px', textTransform: 'uppercase', color: MUTED, marginBottom: '0.5rem' }}>
-                    Seco COGS Reduction <span style={{ color: GREEN, textDecoration: 'underline' }}>Solution</span>
-                  </div>
-                  <div style={{ fontSize: '13px', color: MUTED }}>Stable potency, drastically lower overage. Same strain, superior economics.</div>
-                </div>
-              </div>
-              <div style={{ marginTop: 'auto', backgroundColor: BLUE, color: 'white', borderRadius: '8px', padding: '12px 16px', fontSize: '14px', fontWeight: 700, textAlign: 'center' }}>
-                Enhancement wedge → immediate licensing traction
-              </div>
-            </div>
-
-            <div style={{ backgroundColor: GREEN_BG_LIGHT, borderRadius: '12px', borderTop: `4px solid ${GREEN}`, padding: '2rem', display: 'flex', flexDirection: 'column' }}>
-              <h4 style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: GREEN, marginBottom: '0.5rem' }}>Unlock</h4>
-              <p style={{ fontSize: '15px', fontWeight: 700, fontStyle: 'italic', color: SLATE, marginBottom: '1.25rem' }}>First-in-class, novel IP</p>
-              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1.5rem' }}>
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: '22px', fontWeight: 700, fontStyle: 'italic', color: SLATE }}>Akkermansia muciniphila</div>
-                  <div style={{ fontSize: '13px', color: MUTED }}>GLP-1 adjacent · improves insulin sensitivity & metabolic health</div>
-                </div>
-                <div style={{ width: 100, height: 100, borderRadius: '8px', overflow: 'hidden', flexShrink: 0 }}>
-                  <img src="/images/science/cell.jpg" alt="Novel probiotic strain" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '0.75rem', marginBottom: '1.5rem' }}>
-                <div style={{ backgroundColor: 'white', borderRadius: '8px', padding: '1rem' }}>
-                  <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.5px', textTransform: 'uppercase', color: MUTED, marginBottom: '0.5rem' }}>Today's Market</div>
-                  <div style={{ fontSize: '14px', fontWeight: 700, color: SLATE }}>Pasteurized only</div>
-                  <div style={{ fontSize: '12px', color: MUTED, fontStyle: 'italic', marginBottom: '0.5rem' }}>(dead bacteria)</div>
-                  <div style={{ fontSize: '12px', color: MUTED }}><strong>Danone</strong> acquired the leading pasteurized player (2025). <strong>IFF</strong> has live fermentation but no dry format.</div>
-                </div>
-                <div style={{ backgroundColor: GREEN, color: 'white', borderRadius: '8px', padding: '1rem' }}>
-                  <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.5px', textTransform: 'uppercase', opacity: 0.85, marginBottom: '0.5rem' }}>Seco</div>
-                  <div style={{ fontSize: '14px', fontWeight: 700, marginBottom: '0.5rem' }}>First shelf-stable, <span style={{ fontStyle: 'italic' }}>live Akkermansia</span></div>
-                  <div style={{ fontSize: '12px', opacity: 0.9 }}><strong>Owned NGP</strong><br />Seco Proprietary IP Generation</div>
-                </div>
-              </div>
-              <div style={{ marginTop: 'auto', backgroundColor: GREEN, color: 'white', borderRadius: '8px', padding: '12px 16px', fontSize: '14px', fontWeight: 700, textAlign: 'center' }}>
-                Novel category → first-mover IP & strategic acquisition target
-              </div>
-            </div>
-          </div>
-
-          <div style={{ marginTop: '2rem', backgroundColor: INK, color: 'white', borderRadius: '10px', padding: '1.5rem 2rem', textAlign: 'center' }}>
-            <strong>Two wedges. One platform.</strong>{' '}
-            <span style={{ fontStyle: 'italic', opacity: 0.85 }}>Near-term licensing revenue from enhancement + category-defining IP from the novel.</span>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. INTELLECTUAL PROPERTY */}
+      {/* 8. INTELLECTUAL PROPERTY */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
           <div>
@@ -335,7 +325,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 8. WHAT KILLS LIVING CELLS */}
+      {/* 9. WHAT KILLS LIVING CELLS */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_GREEN_BG }}>
         <div className="max-w-6xl mx-auto" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
           <div>
