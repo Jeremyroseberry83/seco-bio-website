@@ -83,25 +83,6 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
         </div>
       </section>
 
-      {/* TEAM */}
-      <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
-        <div className="max-w-6xl mx-auto">
-          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: MUTED, marginBottom: '3rem', textAlign: 'center' }}>Meet the Team</h3>
-          <div className="grid md:grid-cols-3" style={{ gap: '2rem' }}>
-            {[{ name: 'Joe Collura', role: 'Cofounder & CEO', org: 'Seco Bio', photo: '/images/team/joe.jpg' }, { name: 'Miguel Jimenez, PhD', role: 'Cofounder & Inventor', org: 'Boston University', photo: '/images/team/miguel.jpg' }, { name: 'Giovanni Traverso, MD, PhD', role: 'Cofounder & Inventor', org: 'MIT', photo: '/images/team/giovanni.jpg' }, { name: 'Peter Luther', role: 'Executive Advisor', org: 'Atrium Innovations', photo: '/images/team/luther.jpg' }, { name: 'Martin Hendrix', role: 'Executive Advisor', org: 'Nestlé Health Science', photo: '/images/team/hendrix.jpg' }, { name: 'Dan Stroud', role: 'Executive Advisor', org: 'Nestlé Health Science', photo: '/images/team/stroud.jpg' }].map(({ name, role, org, photo }) => (
-              <div key={name} style={{ textAlign: 'center' }}>
-                <div style={{ width: '100%', aspectRatio: '1', backgroundColor: '#E8E8E8', borderRadius: '8px', marginBottom: '1rem', overflow: 'hidden' }}>
-                  <img src={photo} alt={name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
-                <h4 style={{ fontSize: '15px', fontWeight: 600, color: SLATE, marginBottom: '0.5rem' }}>{name}</h4>
-                <p style={{ fontSize: '12px', color: BLUE, fontWeight: 600, marginBottom: '0.5rem', textTransform: 'uppercase' }}>{role}</p>
-                <p style={{ fontSize: '12px', color: MUTED }}>{org}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 }
