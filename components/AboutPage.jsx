@@ -158,7 +158,7 @@ export default function AboutPage({ onContactClick }) {
       <section className="py-28 px-6" style={{ backgroundColor: '#F7F8FA' }}>
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mb-16">
-            <Eyebrow color={GREEN}>Advisors</Eyebrow>
+            <Eyebrow color={GREEN}>Executive Advisory Board</Eyebrow>
             <h2
               className="font-bold"
               style={{
@@ -270,6 +270,80 @@ export default function AboutPage({ onContactClick }) {
                 <div style={{ color: MUTED, fontSize: '12px', letterSpacing: '0.04em', lineHeight: 1.5 }}>
                   {org.role}
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Where We Focus */}
+      <section className="py-28 px-6" style={{ backgroundColor: '#F7F8FA' }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-2xl mb-16">
+            <Eyebrow>Where we focus</Eyebrow>
+            <h2
+              className="font-bold"
+              style={{
+                color: SLATE,
+                fontSize: 'clamp(1.8rem, 3.2vw, 2.7rem)',
+                lineHeight: 1.1,
+                letterSpacing: '-0.025em'
+              }}
+            >
+              Probiotics today. Broader living products tomorrow.
+            </h2>
+            <p className="mt-5" style={{ color: MUTED, fontSize: '16px', lineHeight: 1.7 }}>
+              Our core focus is human, early life, and animal probiotics. The platform reaches
+              everywhere living products need to arrive alive.
+            </p>
+          </div>
+
+          <div
+            className="text-xs font-bold uppercase mb-6 pb-2"
+            style={{ color: BLUE, letterSpacing: '0.16em', borderBottom: '1px solid #E4E8F2' }}
+          >
+            Core focus
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
+            {[
+              { label: 'H', title: 'Human Probiotics', body: 'Supplements and live bioproducts' },
+              { label: 'E', title: 'Early Life', body: 'Infant & maternal health' },
+              { label: 'A', title: 'Animal Probiotics', body: 'Pet & livestock health' }
+            ].map(({ label, title, body }) => (
+              <div key={title} className="rounded-xl p-8 text-center" style={{ backgroundColor: 'white', borderTop: `3px solid ${BLUE}` }}>
+                <div
+                  className="mx-auto mb-4 flex items-center justify-center rounded-full font-bold"
+                  style={{ width: 40, height: 40, backgroundColor: '#EEF2FE', color: BLUE, fontSize: '14px' }}
+                >
+                  {label}
+                </div>
+                <h4 className="font-bold mb-2" style={{ color: SLATE, fontSize: '16px' }}>{title}</h4>
+                <p style={{ color: MUTED, fontSize: '13px' }}>{body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div
+            className="text-xs font-bold uppercase mb-6 pb-2"
+            style={{ color: MUTED, letterSpacing: '0.16em', borderBottom: '1px solid #E4E8F2' }}
+          >
+            Prospective expansion
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { label: 'P', title: 'Pharmaceuticals & Medical Devices' },
+              { label: 'G', title: 'Agriculture' },
+              { label: 'I', title: 'Industrial' },
+              { label: 'S', title: 'Space Exploration' }
+            ].map(({ label, title }) => (
+              <div key={title} className="rounded-lg p-5 text-center" style={{ backgroundColor: 'white', border: '1px solid #E4E8F2' }}>
+                <div
+                  className="mx-auto mb-3 flex items-center justify-center rounded-full font-bold"
+                  style={{ width: 32, height: 32, backgroundColor: '#F7F8FA', color: MUTED, fontSize: '12px' }}
+                >
+                  {label}
+                </div>
+                <h4 style={{ color: SLATE, fontSize: '13px' }}>{title}</h4>
               </div>
             ))}
           </div>
