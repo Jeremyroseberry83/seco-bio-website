@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 import {
-  PageHero, Accent, Eyebrow, SplitFeature, NumberStrip, CircleGrid, HighlightGrid,
+  PageHero, Accent, Eyebrow, SplitFeature, NumberStrip, CircleGrid, HighlightGrid, DisplayHeading,
   SLATE, MUTED, BLUE, BLUE_DEEP, GREEN, GREEN_DEEP, INK
 } from './ui';
 
@@ -13,10 +13,56 @@ export default function PartnersPage({ onContactClick }) {
         image="/images/photo/wellness.jpg"
         tone="green"
         title={<>Two ways in. <Accent>One conversation to start.</Accent></>}
-        subtitle="Whether you make a living product or you're looking at where this industry goes next, it begins with an NDA and a technical call."
+        subtitle="Whether you make a living product or you're looking at where this industry goes next, it begins with an NDA and a technical call — with partners in the US and internationally."
       />
 
-      {/* For brands — the primary audience */}
+      {/* Two-panel positioning — Business vs Capital, per Joe's proposed flow */}
+      <section className="pt-24 pb-4 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+          <div
+            className="rounded-2xl p-10"
+            style={{ backgroundColor: '#EEF2FE', borderTop: `4px solid ${BLUE}` }}
+          >
+            <Eyebrow className="mb-3">Business Partners</Eyebrow>
+            <h3 className="font-bold mb-4" style={{ color: SLATE, fontSize: '19px' }}>
+              Brands, manufacturers, and ingredient partners
+            </h3>
+            <p style={{ color: MUTED, fontSize: '15px', lineHeight: 1.7, marginBottom: 20 }}>
+              Bring us a strain and a target. We formulate the protection and license it to you —
+              so your product delivers what the label promises. Built to scale with you, not
+              around you.
+            </p>
+            <div
+              className="text-sm font-semibold px-4 py-3 rounded-md"
+              style={{ backgroundColor: 'white', color: SLATE, borderLeft: `3px solid ${BLUE}` }}
+            >
+              Licensed by Strain · Field · Formula
+            </div>
+          </div>
+
+          <div
+            className="rounded-2xl p-10"
+            style={{ backgroundColor: '#E1F4EE', borderTop: `4px solid ${GREEN}` }}
+          >
+            <Eyebrow color={GREEN_DEEP} className="mb-3">Capital Partners</Eyebrow>
+            <h3 className="font-bold mb-4" style={{ color: SLATE, fontSize: '19px' }}>
+              Partners scaling the platform with us
+            </h3>
+            <p style={{ color: MUTED, fontSize: '15px', lineHeight: 1.7, marginBottom: 20 }}>
+              Every strain solved becomes protected IP that compounds. We work with capital
+              partners aligned to the long-term platform opportunity.
+            </p>
+            <div
+              className="text-sm font-semibold px-4 py-3 rounded-md"
+              style={{ backgroundColor: 'white', color: SLATE, borderLeft: `3px solid ${GREEN}` }}
+            >
+              Platform IP · Vertical expansion · Global portfolio
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* For brands — the primary audience, deeper detail */}
       <SplitFeature
         eyebrow="For brands &amp; manufacturers"
         title={<>You already pay for die-off. <Accent tone="dark">You just pay for it upstream.</Accent></>}
@@ -122,6 +168,85 @@ export default function PartnersPage({ onContactClick }) {
           { title: 'Defensible moat', body: 'The dataset mapping materials to organisms cannot be reverse-engineered from a finished product.' }
         ]}
       />
+
+      {/* Strain Development — the two licensing wedges */}
+      <section className="pt-28 pb-4 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-2xl mb-14">
+            <DisplayHeading
+              eyebrow="Strain development"
+              light="Enhance the standard."
+              bold="Unlock the novel."
+            />
+            <p style={{ color: MUTED, fontSize: '16px', lineHeight: 1.7 }}>
+              Two parallel wedges from a single platform: near-term licensing revenue, plus
+              category-defining novel IP.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="rounded-2xl p-10 flex flex-col" style={{ backgroundColor: '#EEF2FE', borderTop: `4px solid ${BLUE}` }}>
+              <Eyebrow className="mb-2">Enhance</Eyebrow>
+              <p className="italic font-bold mb-5" style={{ color: SLATE, fontSize: '15px' }}>Industry standard, made better</p>
+              <div className="flex gap-4 items-center mb-6">
+                <div>
+                  <div className="italic font-bold" style={{ color: SLATE, fontSize: '22px' }}>L. plantarum</div>
+                  <div className="italic" style={{ color: MUTED, fontSize: '13px' }}>One of the most widely used commercial probiotic strains</div>
+                </div>
+              </div>
+              <div className="flex gap-8 flex-wrap mb-6">
+                <div>
+                  <div className="font-bold" style={{ color: '#D1226B', fontSize: '32px' }}>20×</div>
+                  <div className="uppercase font-bold" style={{ color: MUTED, fontSize: '11px', letterSpacing: '0.5px', marginBottom: 6 }}>
+                    Industry overfill <span style={{ color: '#D1226B', textDecoration: 'underline' }}>problem</span>
+                  </div>
+                  <div style={{ color: MUTED, fontSize: '13px' }}>Typical overage above label claim to compensate for die-off, variable shelf life.</div>
+                </div>
+                <div>
+                  <div className="font-bold" style={{ color: GREEN_DEEP, fontSize: '32px' }}>17×</div>
+                  <div className="uppercase font-bold" style={{ color: MUTED, fontSize: '11px', letterSpacing: '0.5px', marginBottom: 6 }}>
+                    Seco COGS reduction <span style={{ color: GREEN_DEEP, textDecoration: 'underline' }}>solution</span>
+                  </div>
+                  <div style={{ color: MUTED, fontSize: '13px' }}>Stable potency, drastically lower overage — same strain, superior economics.</div>
+                </div>
+              </div>
+              <div className="mt-auto font-bold text-center py-3 px-4 rounded-md text-white text-sm" style={{ backgroundColor: BLUE }}>
+                Enhancement wedge → immediate licensing traction
+              </div>
+            </div>
+
+            <div className="rounded-2xl p-10 flex flex-col" style={{ backgroundColor: '#E1F4EE', borderTop: `4px solid ${GREEN}` }}>
+              <Eyebrow color={GREEN_DEEP} className="mb-2">Unlock</Eyebrow>
+              <p className="italic font-bold mb-5" style={{ color: SLATE, fontSize: '15px' }}>First-in-class, novel IP</p>
+              <div className="mb-6">
+                <div className="italic font-bold" style={{ color: SLATE, fontSize: '22px' }}>Akkermansia muciniphila</div>
+                <div style={{ color: MUTED, fontSize: '13px' }}>GLP-1 adjacent · improves insulin sensitivity & metabolic health</div>
+              </div>
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                <div className="rounded-md p-4" style={{ backgroundColor: 'white' }}>
+                  <div className="uppercase font-bold" style={{ color: MUTED, fontSize: '10px', letterSpacing: '0.5px', marginBottom: 6 }}>Today's market</div>
+                  <div className="font-bold" style={{ color: SLATE, fontSize: '14px' }}>Pasteurized only</div>
+                  <div className="italic" style={{ color: MUTED, fontSize: '12px', marginBottom: 6 }}>(dead bacteria)</div>
+                  <div style={{ color: MUTED, fontSize: '12px' }}><strong>Danone</strong> acquired the leading pasteurized player (2025). <strong>IFF</strong> has live fermentation but no dry format.</div>
+                </div>
+                <div className="rounded-md p-4 text-white" style={{ backgroundColor: GREEN_DEEP }}>
+                  <div className="uppercase font-bold" style={{ fontSize: '10px', letterSpacing: '0.5px', opacity: 0.85, marginBottom: 6 }}>Seco</div>
+                  <div className="font-bold" style={{ fontSize: '14px', marginBottom: 6 }}>First shelf-stable, <span className="italic">live Akkermansia</span></div>
+                  <div style={{ fontSize: '12px', opacity: 0.9 }}><strong>Owned NGP</strong><br />Seco Proprietary IP Generation</div>
+                </div>
+              </div>
+              <div className="mt-auto font-bold text-center py-3 px-4 rounded-md text-white text-sm" style={{ backgroundColor: GREEN_DEEP }}>
+                Novel category → first-mover IP & strategic acquisition target
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 rounded-xl p-6 text-center" style={{ backgroundColor: INK, color: 'white' }}>
+            <strong>Two wedges. One platform.</strong>{' '}
+            <span className="italic" style={{ opacity: 0.85 }}>Near-term licensing revenue from enhancement + category-defining IP from the novel.</span>
+          </div>
+        </div>
+      </section>
 
       {/* Closing */}
       <section
