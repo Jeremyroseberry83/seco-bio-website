@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 import {
-  PageHero, Accent, Eyebrow, SplitFeature, NumberStrip, CircleGrid, HighlightGrid, DisplayHeading,
+  PageHero, Accent, Eyebrow, SplitFeature, NumberStrip, CircleGrid, HighlightGrid,
   SLATE, MUTED, BLUE, BLUE_DEEP, GREEN, GREEN_DEEP, INK
 } from './ui';
 
@@ -62,7 +62,16 @@ export default function PartnersPage({ onContactClick }) {
         </div>
       </section>
 
-      {/* For brands — the primary audience, deeper detail */}
+      {/* FOR BUSINESS PARTNERS — track divider */}
+      <div className="max-w-6xl mx-auto px-6 pt-20 pb-4">
+        <div
+          className="inline-flex items-center px-5 py-2 rounded-full"
+          style={{ backgroundColor: BLUE, color: 'white' }}
+        >
+          <span className="text-xs font-bold uppercase" style={{ letterSpacing: '0.16em' }}>For Business Partners</span>
+        </div>
+      </div>
+
       <SplitFeature
         eyebrow="For brands &amp; manufacturers"
         title={<>You already pay for die-off. <Accent tone="dark">You just pay for it upstream.</Accent></>}
@@ -156,7 +165,43 @@ export default function PartnersPage({ onContactClick }) {
         ]}
       />
 
-      {/* For capital partners — institutional framing */}
+      {/* Enhance wedge — closes out the business track */}
+      <section className="pb-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="rounded-2xl p-10 flex flex-col md:flex-row md:items-center gap-8" style={{ backgroundColor: '#EEF2FE', borderTop: `4px solid ${BLUE}` }}>
+            <div className="flex-1">
+              <Eyebrow className="mb-2">Enhance the standard</Eyebrow>
+              <div className="italic font-bold mb-1" style={{ color: SLATE, fontSize: '22px' }}>L. plantarum</div>
+              <p className="italic" style={{ color: MUTED, fontSize: '13px', marginBottom: 14 }}>One of the most widely used commercial probiotic strains</p>
+              <p style={{ color: MUTED, fontSize: '14px', lineHeight: 1.6 }}>
+                Stable potency and drastically lower overage — the same strain your partners already
+                trust, with the economics a protected formulation makes possible.
+              </p>
+            </div>
+            <div className="flex gap-8 flex-shrink-0">
+              <div>
+                <div className="font-bold" style={{ color: '#D1226B', fontSize: '32px' }}>20×</div>
+                <div className="uppercase font-bold" style={{ color: MUTED, fontSize: '10px', letterSpacing: '0.5px' }}>Industry overfill</div>
+              </div>
+              <div>
+                <div className="font-bold" style={{ color: GREEN_DEEP, fontSize: '32px' }}>17×</div>
+                <div className="uppercase font-bold" style={{ color: MUTED, fontSize: '10px', letterSpacing: '0.5px' }}>Seco COGS reduction</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOR CAPITAL PARTNERS — track divider */}
+      <div className="max-w-6xl mx-auto px-6 pt-4 pb-4">
+        <div
+          className="inline-flex items-center px-5 py-2 rounded-full"
+          style={{ backgroundColor: GREEN_DEEP, color: 'white' }}
+        >
+          <span className="text-xs font-bold uppercase" style={{ letterSpacing: '0.16em' }}>For Capital Partners</span>
+        </div>
+      </div>
+
       <HighlightGrid
         tone="green"
         eyebrow="For capital partners"
@@ -169,81 +214,50 @@ export default function PartnersPage({ onContactClick }) {
         ]}
       />
 
-      {/* Strain Development — the two licensing wedges */}
-      <section className="pt-28 pb-4 px-6">
+      {/* Unlock wedge — novel IP, acquisition-target framing */}
+      <section className="pt-4 pb-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="max-w-2xl mb-14">
-            <DisplayHeading
-              eyebrow="Strain development"
-              light="Enhance the standard."
-              bold="Unlock the novel."
-            />
-            <p style={{ color: MUTED, fontSize: '16px', lineHeight: 1.7 }}>
-              Two parallel wedges from a single platform: near-term licensing revenue, plus
-              category-defining novel IP.
+          <div className="rounded-2xl p-10" style={{ backgroundColor: '#E1F4EE', borderTop: `4px solid ${GREEN}` }}>
+            <Eyebrow color={GREEN_DEEP} className="mb-2">Unlock the novel</Eyebrow>
+            <div className="italic font-bold mb-1" style={{ color: SLATE, fontSize: '22px' }}>Akkermansia muciniphila</div>
+            <p style={{ color: MUTED, fontSize: '13px', marginBottom: 20 }}>GLP-1 adjacent · improves insulin sensitivity & metabolic health</p>
+            <div className="grid grid-cols-2 gap-3 mb-6">
+              <div className="rounded-md p-4" style={{ backgroundColor: 'white' }}>
+                <div className="uppercase font-bold" style={{ color: MUTED, fontSize: '10px', letterSpacing: '0.5px', marginBottom: 6 }}>Today's market</div>
+                <div className="font-bold" style={{ color: SLATE, fontSize: '14px' }}>Pasteurized only</div>
+                <div className="italic" style={{ color: MUTED, fontSize: '12px', marginBottom: 6 }}>(dead bacteria)</div>
+                <div style={{ color: MUTED, fontSize: '12px' }}><strong>Danone</strong> acquired the leading pasteurized player (2025). <strong>IFF</strong> has live fermentation but no dry format.</div>
+              </div>
+              <div className="rounded-md p-4 text-white" style={{ backgroundColor: GREEN_DEEP }}>
+                <div className="uppercase font-bold" style={{ fontSize: '10px', letterSpacing: '0.5px', opacity: 0.85, marginBottom: 6 }}>Seco</div>
+                <div className="font-bold" style={{ fontSize: '14px', marginBottom: 6 }}>First shelf-stable, <span className="italic">live Akkermansia</span></div>
+                <div style={{ fontSize: '12px', opacity: 0.9 }}><strong>Owned NGP</strong><br />Seco Proprietary IP Generation</div>
+              </div>
+            </div>
+            <div className="font-bold text-center py-3 px-4 rounded-md text-white text-sm" style={{ backgroundColor: GREEN_DEEP }}>
+              Novel category → first-mover IP & strategic acquisition target
+            </div>
+          </div>
+
+          {/* Capital partnership — plain-language positioning, no deal terms published */}
+          <div className="mt-8 rounded-2xl p-10" style={{ backgroundColor: INK, color: 'white' }}>
+            <Eyebrow color="#8CE0B8" className="mb-3">What a capital partnership looks like</Eyebrow>
+            <p style={{ fontSize: '16px', lineHeight: 1.75, opacity: 0.9, marginBottom: 16 }}>
+              Seco raises capital through a single-purpose vehicle aligned to the platform's growth
+              — one structure, one point of contact — rather than a traditional round with
+              fragmented terms. Capital partners get exposure to the platform's compounding IP as
+              it scales toward a strategic exit.
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-2xl p-10 flex flex-col" style={{ backgroundColor: '#EEF2FE', borderTop: `4px solid ${BLUE}` }}>
-              <Eyebrow className="mb-2">Enhance</Eyebrow>
-              <p className="italic font-bold mb-5" style={{ color: SLATE, fontSize: '15px' }}>Industry standard, made better</p>
-              <div className="flex gap-4 items-center mb-6">
-                <div>
-                  <div className="italic font-bold" style={{ color: SLATE, fontSize: '22px' }}>L. plantarum</div>
-                  <div className="italic" style={{ color: MUTED, fontSize: '13px' }}>One of the most widely used commercial probiotic strains</div>
-                </div>
-              </div>
-              <div className="flex gap-8 flex-wrap mb-6">
-                <div>
-                  <div className="font-bold" style={{ color: '#D1226B', fontSize: '32px' }}>20×</div>
-                  <div className="uppercase font-bold" style={{ color: MUTED, fontSize: '11px', letterSpacing: '0.5px', marginBottom: 6 }}>
-                    Industry overfill <span style={{ color: '#D1226B', textDecoration: 'underline' }}>problem</span>
-                  </div>
-                  <div style={{ color: MUTED, fontSize: '13px' }}>Typical overage above label claim to compensate for die-off, variable shelf life.</div>
-                </div>
-                <div>
-                  <div className="font-bold" style={{ color: GREEN_DEEP, fontSize: '32px' }}>17×</div>
-                  <div className="uppercase font-bold" style={{ color: MUTED, fontSize: '11px', letterSpacing: '0.5px', marginBottom: 6 }}>
-                    Seco COGS reduction <span style={{ color: GREEN_DEEP, textDecoration: 'underline' }}>solution</span>
-                  </div>
-                  <div style={{ color: MUTED, fontSize: '13px' }}>Stable potency, drastically lower overage — same strain, superior economics.</div>
-                </div>
-              </div>
-              <div className="mt-auto font-bold text-center py-3 px-4 rounded-md text-white text-sm" style={{ backgroundColor: BLUE }}>
-                Enhancement wedge → immediate licensing traction
-              </div>
-            </div>
-
-            <div className="rounded-2xl p-10 flex flex-col" style={{ backgroundColor: '#E1F4EE', borderTop: `4px solid ${GREEN}` }}>
-              <Eyebrow color={GREEN_DEEP} className="mb-2">Unlock</Eyebrow>
-              <p className="italic font-bold mb-5" style={{ color: SLATE, fontSize: '15px' }}>First-in-class, novel IP</p>
-              <div className="mb-6">
-                <div className="italic font-bold" style={{ color: SLATE, fontSize: '22px' }}>Akkermansia muciniphila</div>
-                <div style={{ color: MUTED, fontSize: '13px' }}>GLP-1 adjacent · improves insulin sensitivity & metabolic health</div>
-              </div>
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="rounded-md p-4" style={{ backgroundColor: 'white' }}>
-                  <div className="uppercase font-bold" style={{ color: MUTED, fontSize: '10px', letterSpacing: '0.5px', marginBottom: 6 }}>Today's market</div>
-                  <div className="font-bold" style={{ color: SLATE, fontSize: '14px' }}>Pasteurized only</div>
-                  <div className="italic" style={{ color: MUTED, fontSize: '12px', marginBottom: 6 }}>(dead bacteria)</div>
-                  <div style={{ color: MUTED, fontSize: '12px' }}><strong>Danone</strong> acquired the leading pasteurized player (2025). <strong>IFF</strong> has live fermentation but no dry format.</div>
-                </div>
-                <div className="rounded-md p-4 text-white" style={{ backgroundColor: GREEN_DEEP }}>
-                  <div className="uppercase font-bold" style={{ fontSize: '10px', letterSpacing: '0.5px', opacity: 0.85, marginBottom: 6 }}>Seco</div>
-                  <div className="font-bold" style={{ fontSize: '14px', marginBottom: 6 }}>First shelf-stable, <span className="italic">live Akkermansia</span></div>
-                  <div style={{ fontSize: '12px', opacity: 0.9 }}><strong>Owned NGP</strong><br />Seco Proprietary IP Generation</div>
-                </div>
-              </div>
-              <div className="mt-auto font-bold text-center py-3 px-4 rounded-md text-white text-sm" style={{ backgroundColor: GREEN_DEEP }}>
-                Novel category → first-mover IP & strategic acquisition target
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-6 rounded-xl p-6 text-center" style={{ backgroundColor: INK, color: 'white' }}>
-            <strong>Two wedges. One platform.</strong>{' '}
-            <span className="italic" style={{ opacity: 0.85 }}>Near-term licensing revenue from enhancement + category-defining IP from the novel.</span>
+            <p style={{ fontSize: '14px', lineHeight: 1.7, opacity: 0.7, marginBottom: 24 }}>
+              Full structure, terms, and return scenarios are available on request, under NDA.
+            </p>
+            <a
+              href="mailto:info@seco.bio?subject=SPV%20Deck%20Request"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-semibold"
+              style={{ backgroundColor: 'white', color: INK }}
+            >
+              Request the SPV deck <ArrowRight size={15} />
+            </a>
           </div>
         </div>
       </section>
