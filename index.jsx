@@ -13,6 +13,7 @@ export default function Site() {
   const [currentPage, setCurrentPage] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
+  const [contactContext, setContactContext] = useState(null);
   const [showVideo, setShowVideo] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState('');
@@ -39,7 +40,11 @@ export default function Site() {
     window.scrollTo(0, 0);
   };
 
-  const openContact = () => setShowContactModal(true);
+  const openContact = (type, message) => {
+    // Guard against onClick={openContact} passing the DOM click event as `type`.
+    setContactContext(typeof type === 'string' ? { type, message: message || '' } : null);
+    setShowContactModal(true);
+  };
 
   const handleNewsletterSubmit = (e) => {
     e.preventDefault();
@@ -188,7 +193,13 @@ export default function Site() {
         </button>
       )}
 
-      {showContactModal && <ContactForm onClose={() => setShowContactModal(false)} />}
+      {showContactModal && (
+        <ContactForm
+          onClose={() => setShowContactModal(false)}
+          initialType={contactContext?.type}
+          initialMessage={contactContext?.message}
+        />
+      )}
       {showVideo && <VideoModal onClose={() => setShowVideo(false)} />}
 
       <footer

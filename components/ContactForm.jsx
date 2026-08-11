@@ -13,8 +13,12 @@ const encode = (data) =>
     .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
     .join('&');
 
-export default function ContactForm({ onClose }) {
-  const [form, setForm] = useState({ type: 'Partnership', email: '', message: '' });
+export default function ContactForm({ onClose, initialType, initialMessage }) {
+  const [form, setForm] = useState({
+    type: initialType || 'Partnership',
+    email: '',
+    message: initialMessage || ''
+  });
   const [state, setState] = useState('idle'); // idle | sending | done | error
 
   const change = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));

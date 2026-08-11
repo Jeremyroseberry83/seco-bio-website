@@ -75,7 +75,7 @@ export default function HomePage({ onContactClick, onNavigate }) {
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto">
           <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: MUTED, marginBottom: '3rem', textAlign: 'center' }}>Meet the Team</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
+          <div className="grid md:grid-cols-3" style={{ gap: '2rem' }}>
             {[{ name: 'Joe Collura', role: 'Cofounder & CEO', org: 'Seco Bio', photo: '/images/team/joe.jpg' }, { name: 'Miguel Jimenez, PhD', role: 'Cofounder & Inventor', org: 'Boston University', photo: '/images/team/miguel.jpg' }, { name: 'Giovanni Traverso, MD, PhD', role: 'Cofounder & Inventor', org: 'MIT', photo: '/images/team/giovanni.jpg' }, { name: 'Peter Luther', role: 'Executive Advisor', org: 'Atrium Innovations', photo: '/images/team/luther.jpg' }, { name: 'Martin Hendrix', role: 'Executive Advisor', org: 'Nestlé Health Science', photo: '/images/team/hendrix.jpg' }, { name: 'Dan Stroud', role: 'Executive Advisor', org: 'Nestlé Health Science', photo: '/images/team/stroud.jpg' }].map(({ name, role, org, photo }) => (
               <div key={name} style={{ textAlign: 'center' }}>
                 <div style={{ width: '100%', aspectRatio: '1', backgroundColor: '#E8E8E8', borderRadius: '8px', marginBottom: '1rem', overflow: 'hidden' }}>

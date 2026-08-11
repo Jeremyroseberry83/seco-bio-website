@@ -251,13 +251,13 @@ export default function PartnersPage({ onContactClick }) {
             <p style={{ fontSize: '14px', lineHeight: 1.7, opacity: 0.7, marginBottom: 24 }}>
               Full structure, terms, and return scenarios are available on request, under NDA.
             </p>
-            <a
-              href="mailto:info@seco.bio?subject=SPV%20Deck%20Request"
+            <button
+              onClick={() => onContactClick('Investment', 'Requesting the SPV deck.')}
               className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-semibold"
-              style={{ backgroundColor: 'white', color: INK }}
+              style={{ backgroundColor: 'white', color: INK, border: 'none', cursor: 'pointer' }}
             >
               Request the SPV deck <ArrowRight size={15} />
-            </a>
+            </button>
           </div>
         </div>
       </section>
