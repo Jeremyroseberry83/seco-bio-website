@@ -88,7 +88,33 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 3. THE GAP */}
+      {/* 3. BEYOND THE SHELF */}
+      <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_INK_BG }}>
+        <div className="max-w-6xl mx-auto">
+          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_BLUE_ACCENT, marginBottom: '1rem' }}>Beyond the Shelf</h3>
+          <h2 style={{ fontSize: '36px', fontWeight: 700, color: 'white', marginBottom: '1rem', lineHeight: 1.2 }}>Anything alive that has to survive a journey.</h2>
+          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.85)', lineHeight: 1.8, marginBottom: '3rem' }}>Probiotics are where we start, because the need is immediate and the market is large. The same protection applies anywhere a living organism has to survive being processed, stored, and transported.</p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '2rem' }}>
+            {[
+              { title: 'People', desc: 'Supplements and live medicines', img: '/images/family.jpg' },
+              { title: 'Animals', desc: 'Pet and livestock health', img: '/images/pets-feeding.jpg' },
+              { title: 'Farming', desc: 'Seed and soil treatments', img: '/images/nutrition.jpg' },
+              { title: 'Early life', desc: 'Infant and maternal health', img: '/images/earlylife.jpg' }
+            ].map(({ title, desc, img }) => (
+              <div key={title}>
+                <div style={{ aspectRatio: '1', backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: '8px', marginBottom: '1rem', overflow: 'hidden' }}>
+                  <img src={img} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <h4 style={{ fontSize: '16px', fontWeight: 600, color: 'white', marginBottom: '0.5rem' }}>{title}</h4>
+                <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. THE GAP */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto">
           <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: GREEN, marginBottom: '1rem' }}>The Gap</h3>
@@ -120,7 +146,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 4. PLATFORM & SCIENCE — Predict / Prove / Scale */}
+      {/* 5. PLATFORM & SCIENCE — Predict / Prove / Scale */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_INK_BG }}>
         <div className="max-w-6xl mx-auto">
           <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_BLUE_ACCENT, marginBottom: '1rem' }}>Platform & Science</h3>
@@ -163,7 +189,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 5. THE TECHNOLOGY */}
+      {/* 6. THE TECHNOLOGY */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto">
           <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>The Technology</h3>
@@ -223,7 +249,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 6. THE PLATFORM */}
+      {/* 7. THE PLATFORM */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_GREEN_BG }}>
         <div className="max-w-6xl mx-auto" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
           <div>
@@ -264,32 +290,6 @@ export default function PlatformSciencePage({ onContactClick }) {
           </div>
           <div style={{ aspectRatio: '1', backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
             <img src="/images/microscope-bench.jpg" alt="Microscope" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          </div>
-        </div>
-      </section>
-
-      {/* 7. BEYOND THE SHELF */}
-      <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_INK_BG }}>
-        <div className="max-w-6xl mx-auto">
-          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_BLUE_ACCENT, marginBottom: '1rem' }}>Beyond the Shelf</h3>
-          <h2 style={{ fontSize: '36px', fontWeight: 700, color: 'white', marginBottom: '1rem', lineHeight: 1.2 }}>Anything alive that has to survive a journey.</h2>
-          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.85)', lineHeight: 1.8, marginBottom: '3rem' }}>Probiotics are where we start, because the need is immediate and the market is large. The same protection applies anywhere a living organism has to survive being processed, stored, and transported.</p>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '2rem' }}>
-            {[
-              { title: 'People', desc: 'Supplements and live medicines', img: '/images/family.jpg' },
-              { title: 'Animals', desc: 'Pet and livestock health', img: '/images/pets-feeding.jpg' },
-              { title: 'Farming', desc: 'Seed and soil treatments', img: '/images/nutrition.jpg' },
-              { title: 'Early life', desc: 'Infant and maternal health', img: '/images/earlylife.jpg' }
-            ].map(({ title, desc, img }) => (
-              <div key={title}>
-                <div style={{ aspectRatio: '1', backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: '8px', marginBottom: '1rem', overflow: 'hidden' }}>
-                  <img src={img} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
-                <h4 style={{ fontSize: '16px', fontWeight: 600, color: 'white', marginBottom: '0.5rem' }}>{title}</h4>
-                <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>{desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
