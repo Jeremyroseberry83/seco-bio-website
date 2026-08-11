@@ -1,4 +1,5 @@
 import React from 'react';
+import { Play } from 'lucide-react';
 
 const BLUE = '#3B60E4';
 const GREEN = '#1E8E5A';
@@ -7,8 +8,18 @@ const MUTED = '#6B7280';
 const INK = '#2E4259';
 const BG = '#FAFBFD';
 
-export default function HomePage({ onContactClick, onNavigate }) {
+export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
   const [videoReady, setVideoReady] = React.useState(false);
+
+  React.useEffect(() => {
+    // Auto-open the promo video 5s after landing on Home, once per browser session.
+    if (sessionStorage.getItem('secoIntroPlayed')) return;
+    const timer = setTimeout(() => {
+      sessionStorage.setItem('secoIntroPlayed', '1');
+      onWatchFilm && onWatchFilm();
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [onWatchFilm]);
 
   return (
     <div>
@@ -21,7 +32,7 @@ export default function HomePage({ onContactClick, onNavigate }) {
         <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '0 1.5rem 8vh' }}>
           <div style={{ maxWidth: 720 }}>
             <h1 style={{ fontSize: 'clamp(32px, 5.5vw, 56px)', fontWeight: 700, color: 'white', lineHeight: 1.15, letterSpacing: '-0.01em', textShadow: '0 2px 24px rgba(0,0,0,0.35)' }}>
-              Keeping the <span style={{ color: '#8FADFF', fontStyle: 'italic' }}>living</span> alive.
+              Keeping the <span style={{ color: GREEN, fontStyle: 'italic' }}>living</span> alive.
             </h1>
             <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.9)', lineHeight: 1.7, marginTop: '1.25rem', maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', textShadow: '0 1px 12px rgba(0,0,0,0.35)' }}>
               Live bacteria don't survive the shelf. Our platform makes them survive it — and puts strains that never could on it for the first time.
@@ -34,10 +45,11 @@ export default function HomePage({ onContactClick, onNavigate }) {
                 Learn more about the platform
               </button>
               <button
-                onClick={onContactClick}
-                style={{ padding: '14px 28px', borderRadius: '999px', border: '1.5px solid rgba(255,255,255,0.7)', background: 'transparent', color: 'white', fontSize: '15px', fontWeight: 600, cursor: 'pointer' }}
+                onClick={onWatchFilm}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '14px 28px', borderRadius: '999px', border: '1.5px solid rgba(255,255,255,0.7)', background: 'transparent', color: 'white', fontSize: '15px', fontWeight: 600, cursor: 'pointer' }}
               >
-                Talk to us
+                <Play size={16} fill="white" />
+                Play Seco Promo Video
               </button>
             </div>
           </div>
