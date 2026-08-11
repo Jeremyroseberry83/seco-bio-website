@@ -2,8 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
 
 /**
- * VideoModal — plays the full film with sound.
- * Autoplay-with-audio is only permitted because the user clicked to get here.
+ * VideoModal — plays the full film.
+ * Starts muted so it can autoplay reliably even when opened automatically
+ * (not just on a user click) — visitors can unmute via the video controls.
  */
 export default function VideoModal({ onClose }) {
   const videoRef = useRef(null);
@@ -39,11 +40,12 @@ export default function VideoModal({ onClose }) {
     >
       <button
         onClick={onClose}
-        aria-label="Close video"
-        className="absolute top-5 right-5 sm:top-7 sm:right-7 p-2 rounded-full transition-opacity hover:opacity-70"
-        style={{ color: '#fff', backgroundColor: 'rgba(255,255,255,0.12)' }}
+        aria-label="Skip video"
+        className="absolute top-5 right-5 sm:top-7 sm:right-7 inline-flex items-center gap-2 pl-4 pr-3 py-2.5 rounded-full font-semibold transition-opacity hover:opacity-80"
+        style={{ color: '#fff', backgroundColor: 'rgba(255,255,255,0.16)', fontSize: 14 }}
       >
-        <X size={22} />
+        Skip
+        <X size={18} />
       </button>
 
       <div
@@ -57,6 +59,7 @@ export default function VideoModal({ onClose }) {
           style={{ aspectRatio: '16 / 9', backgroundColor: '#000', display: 'block' }}
           controls
           autoPlay
+          muted
           playsInline
           poster="/images/hero-poster.jpg"
         >
