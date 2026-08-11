@@ -77,7 +77,7 @@ export default function AboutPage({ onContactClick }) {
             style={{ aspectRatio: '4 / 3', backgroundColor: INK }}
           >
             <img
-              src="/images/photo/space-1.jpg"
+              src="/images/space-1.jpg"
               alt="Research funded for long-duration missions"
               className="w-full h-full object-cover" loading="lazy"
             />
