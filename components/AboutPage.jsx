@@ -113,6 +113,30 @@ export default function AboutPage({ onContactClick }) {
         </div>
       </section>
 
+      {/* The line that does the work — only lands as a group statement. */}
+      <section className="pb-16 px-6" style={{ backgroundColor: 'white' }}>
+        <div className="max-w-6xl mx-auto">
+          <div
+            className="rounded-2xl p-10 md:p-14 text-center"
+            style={{ backgroundColor: INK }}
+          >
+            <p
+              className="text-white font-bold mx-auto"
+              style={{
+                fontSize: 'clamp(1.15rem, 2.1vw, 1.7rem)',
+                lineHeight: 1.4,
+                letterSpacing: '-0.015em',
+                maxWidth: '38ch'
+              }}
+            >
+              Two of the executives who <Accent>built Nestlé Health Science's acquisition
+              strategy</Accent>, and the <Accent>chief executive of one of the companies they
+              acquired</Accent>.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Founders */}
       <section className="py-28 px-6">
         <div className="max-w-6xl mx-auto">
@@ -204,29 +228,8 @@ export default function AboutPage({ onContactClick }) {
               bio="Led the consumer health group behind Garden of Life and Pure Encapsulations."
             />
           </div>
-
-          {/* The line that does the work — only lands as a group statement. */}
-          <div
-            className="rounded-2xl p-10 md:p-14 text-center"
-            style={{ backgroundColor: INK }}
-          >
-            <p
-              className="text-white font-bold mx-auto"
-              style={{
-                fontSize: 'clamp(1.15rem, 2.1vw, 1.7rem)',
-                lineHeight: 1.4,
-                letterSpacing: '-0.015em',
-                maxWidth: '38ch'
-              }}
-            >
-              Two of the executives who <Accent>built Nestlé Health Science's acquisition
-              strategy</Accent>, and the <Accent>chief executive of one of the companies they
-              acquired</Accent>.
-            </p>
-          </div>
         </div>
       </section>
-
 
       {/* Where We Focus */}
       <section className="py-28 px-6" style={{ backgroundColor: '#F7F8FA' }}>
@@ -258,19 +261,18 @@ export default function AboutPage({ onContactClick }) {
           </div>
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             {[
-              { label: 'H', title: 'Human Probiotics', body: 'Supplements and live bioproducts' },
-              { label: 'E', title: 'Early Life', body: 'Infant & maternal health' },
-              { label: 'A', title: 'Animal Probiotics', body: 'Pet & livestock health' }
-            ].map(({ label, title, body }) => (
-              <div key={title} className="rounded-xl p-8 text-center" style={{ backgroundColor: 'white', borderTop: `3px solid ${BLUE}` }}>
-                <div
-                  className="mx-auto mb-4 flex items-center justify-center rounded-full font-bold"
-                  style={{ width: 40, height: 40, backgroundColor: '#EEF2FE', color: BLUE, fontSize: '14px' }}
-                >
-                  {label}
+              { title: 'Human Probiotics', body: 'Supplements and live bioproducts', img: '/images/family.jpg' },
+              { title: 'Early Life', body: 'Infant & maternal health', img: '/images/earlylife.jpg' },
+              { title: 'Animal Probiotics', body: 'Pet & livestock health', img: '/images/pets-feeding.jpg' }
+            ].map(({ title, body, img }) => (
+              <div key={title} className="rounded-xl overflow-hidden text-center" style={{ backgroundColor: 'white', borderTop: `3px solid ${BLUE}` }}>
+                <div style={{ aspectRatio: '4 / 3', overflow: 'hidden' }}>
+                  <img src={img} alt={title} className="w-full h-full object-cover" loading="lazy" />
                 </div>
-                <h4 className="font-bold mb-2" style={{ color: SLATE, fontSize: '16px' }}>{title}</h4>
-                <p style={{ color: MUTED, fontSize: '13px' }}>{body}</p>
+                <div className="p-6">
+                  <h4 className="font-bold mb-2" style={{ color: SLATE, fontSize: '16px' }}>{title}</h4>
+                  <p style={{ color: MUTED, fontSize: '13px' }}>{body}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -283,19 +285,18 @@ export default function AboutPage({ onContactClick }) {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { label: 'P', title: 'Pharmaceuticals & Medical Devices' },
-              { label: 'G', title: 'Agriculture' },
-              { label: 'I', title: 'Industrial' },
-              { label: 'S', title: 'Space Exploration' }
-            ].map(({ label, title }) => (
-              <div key={title} className="rounded-lg p-5 text-center" style={{ backgroundColor: 'white', border: '1px solid #E4E8F2' }}>
-                <div
-                  className="mx-auto mb-3 flex items-center justify-center rounded-full font-bold"
-                  style={{ width: 32, height: 32, backgroundColor: '#F7F8FA', color: MUTED, fontSize: '12px' }}
-                >
-                  {label}
+              { title: 'Pharmaceuticals & Medical Devices', img: '/images/scientist.jpg' },
+              { title: 'Agriculture', img: '/images/nutrition.jpg' },
+              { title: 'Industrial', img: '/images/robotics.jpg' },
+              { title: 'Space Exploration', img: '/images/space-1.jpg' }
+            ].map(({ title, img }) => (
+              <div key={title} className="rounded-lg overflow-hidden text-center" style={{ backgroundColor: 'white', border: '1px solid #E4E8F2' }}>
+                <div style={{ aspectRatio: '1', overflow: 'hidden' }}>
+                  <img src={img} alt={title} className="w-full h-full object-cover" loading="lazy" />
                 </div>
-                <h4 style={{ color: SLATE, fontSize: '13px' }}>{title}</h4>
+                <div className="p-4">
+                  <h4 style={{ color: SLATE, fontSize: '13px' }}>{title}</h4>
+                </div>
               </div>
             ))}
           </div>
