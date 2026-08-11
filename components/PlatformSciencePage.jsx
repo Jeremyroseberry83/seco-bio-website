@@ -57,9 +57,14 @@ export default function PlatformSciencePage({ onContactClick }) {
                 </div>
               </div>
             </div>
-            <a href="https://www.nature.com/articles/s41563-024-01856-4" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', backgroundColor: BLUE, color: 'white', padding: '12px 24px', borderRadius: '24px', textDecoration: 'none', fontSize: '14px', fontWeight: 600 }}>
-              Read the research in Nature Materials →
-            </a>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+              <a href="https://www.nature.com/articles/s41563-024-01937-6" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', backgroundColor: BLUE, color: 'white', padding: '12px 24px', borderRadius: '24px', textDecoration: 'none', fontSize: '14px', fontWeight: 600 }}>
+                Read the research in Nature Materials →
+              </a>
+              <a href="/papers/Nature-Materials-Seco.pdf" download style={{ display: 'inline-block', backgroundColor: 'white', color: BLUE, border: `2px solid ${BLUE}`, padding: '10px 24px', borderRadius: '24px', textDecoration: 'none', fontSize: '14px', fontWeight: 600 }}>
+                Download the paper (PDF)
+              </a>
+            </div>
           </div>
           <div style={{ aspectRatio: '1', backgroundColor: '#E8E8E8', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
             <img src="/images/microscope-bench.jpg" alt="Microscope" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
