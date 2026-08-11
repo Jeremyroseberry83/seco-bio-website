@@ -15,6 +15,8 @@ export default function Site() {
   const [showContactModal, setShowContactModal] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
@@ -38,6 +40,13 @@ export default function Site() {
   };
 
   const openContact = () => setShowContactModal(true);
+
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    // No email service is connected yet — this just confirms the signup locally.
+    setNewsletterSubscribed(true);
+    setNewsletterEmail('');
+  };
 
   const renderPage = () => {
     switch (currentPage) {
@@ -190,7 +199,20 @@ export default function Site() {
           borderTop: '3px solid #1E8E5A'
         }}
       >
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+        {/* STAY INSPIRED — newsletter signup */}
+        <div
+          className="max-w-7xl mx-auto"
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '2.5rem',
+            paddingBottom: '3rem',
+            marginBottom: '3rem',
+            borderBottom: '1px solid rgba(255,255,255,0.2)'
+          }}
+        >
           <div>
             <img
               src="/images/seco-lockup-white.png"
@@ -199,6 +221,63 @@ export default function Site() {
             />
             <p className="text-sm opacity-75">Protecting what matters.</p>
           </div>
+
+          <div style={{ textAlign: 'center', flex: '1 1 320px', maxWidth: 460 }}>
+            <h3 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>Stay Inspired</h3>
+            <p style={{ fontSize: 14, opacity: 0.85, marginBottom: 20 }}>
+              Get regular insights and updates from Seco Bio
+            </p>
+
+            {newsletterSubscribed ? (
+              <p style={{ fontSize: 14, fontWeight: 600 }}>Thanks — you're on the list.</p>
+            ) : (
+              <form
+                onSubmit={handleNewsletterSubmit}
+                style={{ display: 'flex', justifyContent: 'center' }}
+              >
+                <input
+                  type="email"
+                  required
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  placeholder="Your email"
+                  style={{
+                    flex: '1 1 auto',
+                    minWidth: 0,
+                    padding: '12px 20px',
+                    borderRadius: '24px 0 0 24px',
+                    border: 'none',
+                    outline: 'none',
+                    fontSize: 14,
+                    color: '#3D4654'
+                  }}
+                />
+                <button
+                  type="submit"
+                  style={{
+                    flexShrink: 0,
+                    padding: '12px 28px',
+                    borderRadius: '0 24px 24px 0',
+                    border: 'none',
+                    backgroundColor: '#0D2A1B',
+                    color: 'white',
+                    fontSize: 14,
+                    fontWeight: 600,
+                    cursor: 'pointer'
+                  }}
+                >
+                  Subscribe
+                </button>
+              </form>
+            )}
+
+            <p style={{ fontSize: 11, opacity: 0.6, marginTop: 14 }}>
+              By providing your details, you agree to be contacted by Seco Bio. You may unsubscribe at any time.
+            </p>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
           <div>
             <h4 className="font-bold mb-3 text-sm">Pages</h4>
             <div className="flex flex-col gap-2 text-sm items-start">

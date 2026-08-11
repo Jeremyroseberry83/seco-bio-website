@@ -5,7 +5,13 @@ const GREEN = '#1E8E5A';
 const SLATE = '#3D4654';
 const MUTED = '#6B7280';
 const INK = '#2E4259';
-const BG = '#FAFBFD';
+
+// Dark, bold section backgrounds — 85-90% opacity of the site's darker brand colors,
+// used to break up the all-white page with alternating color blocks.
+const DARK_GREEN_BG = 'rgba(13, 68, 41, 0.88)';   // matches the footer's dark green gradient stop
+const DARK_INK_BG = 'rgba(46, 66, 89, 0.9)';      // matches INK, deepened for a bold block
+const LIGHT_GREEN_ACCENT = '#7FE3A8';             // eyebrow/accent tint legible on DARK_GREEN_BG
+const LIGHT_BLUE_ACCENT = '#8FADFF';              // eyebrow/accent tint legible on DARK_INK_BG
 
 export default function PlatformSciencePage({ onContactClick }) {
   const [selectedPartner, setSelectedPartner] = useState(null);
@@ -73,12 +79,12 @@ export default function PlatformSciencePage({ onContactClick }) {
       </section>
 
       {/* BEYOND THE SHELF */}
-      <section style={{ padding: '4rem 1.5rem', backgroundColor: BG }}>
+      <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_GREEN_BG }}>
         <div className="max-w-6xl mx-auto">
-          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: GREEN, marginBottom: '1rem' }}>Beyond the Shelf</h3>
-          <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1rem', lineHeight: 1.2 }}>Anything alive that has to survive a journey.</h2>
-          <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '3rem' }}>Probiotics are where we start, because the need is immediate and the market is large. The same protection applies anywhere a living organism has to survive being processed, stored, and transported.</p>
-          
+          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_GREEN_ACCENT, marginBottom: '1rem' }}>Beyond the Shelf</h3>
+          <h2 style={{ fontSize: '36px', fontWeight: 700, color: 'white', marginBottom: '1rem', lineHeight: 1.2 }}>Anything alive that has to survive a journey.</h2>
+          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.85)', lineHeight: 1.8, marginBottom: '3rem' }}>Probiotics are where we start, because the need is immediate and the market is large. The same protection applies anywhere a living organism has to survive being processed, stored, and transported.</p>
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '2rem' }}>
             {[
               { title: 'People', desc: 'Supplements and live medicines', img: '/images/family.jpg' },
@@ -87,11 +93,11 @@ export default function PlatformSciencePage({ onContactClick }) {
               { title: 'Early life', desc: 'Infant and maternal health', img: '/images/earlylife.jpg' }
             ].map(({ title, desc, img }) => (
               <div key={title}>
-                <div style={{ aspectRatio: '1', backgroundColor: '#E8E8E8', borderRadius: '8px', marginBottom: '1rem', overflow: 'hidden' }}>
+                <div style={{ aspectRatio: '1', backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: '8px', marginBottom: '1rem', overflow: 'hidden' }}>
                   <img src={img} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
-                <h4 style={{ fontSize: '16px', fontWeight: 600, color: SLATE, marginBottom: '0.5rem' }}>{title}</h4>
-                <p style={{ fontSize: '14px', color: MUTED }}>{desc}</p>
+                <h4 style={{ fontSize: '16px', fontWeight: 600, color: 'white', marginBottom: '0.5rem' }}>{title}</h4>
+                <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>{desc}</p>
               </div>
             ))}
           </div>
@@ -130,15 +136,15 @@ export default function PlatformSciencePage({ onContactClick }) {
       </section>
 
       {/* WHAT KILLS LIVING CELLS */}
-      <section style={{ padding: '4rem 1.5rem', backgroundColor: BG }}>
+      <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_INK_BG }}>
         <div className="max-w-6xl mx-auto" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
           <div>
-            <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>What Kills Living Cells</h3>
-            <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1.5rem', lineHeight: 1.2 }}>Four stages. <span style={{ color: BLUE }}>Every one takes a share.</span></h2>
-            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '1.5rem' }}>A living product has to get from a fermenter to a person's gut without dying on the way. Between those two points sit four distinct kinds of stress, and each one kills a share of the population.</p>
-            <p style={{ fontSize: '14px', color: MUTED, lineHeight: 1.8, fontStyle: 'italic' }}>Protection has to survive all four. A formulation that handles drying but fails in gastric acid delivers nothing at the moment of consumption.</p>
+            <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_BLUE_ACCENT, marginBottom: '1rem' }}>What Kills Living Cells</h3>
+            <h2 style={{ fontSize: '36px', fontWeight: 700, color: 'white', marginBottom: '1.5rem', lineHeight: 1.2 }}>Four stages. <span style={{ color: LIGHT_BLUE_ACCENT }}>Every one takes a share.</span></h2>
+            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.85)', lineHeight: 1.8, marginBottom: '1.5rem' }}>A living product has to get from a fermenter to a person's gut without dying on the way. Between those two points sit four distinct kinds of stress, and each one kills a share of the population.</p>
+            <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, fontStyle: 'italic' }}>Protection has to survive all four. A formulation that handles drying but fails in gastric acid delivers nothing at the moment of consumption.</p>
           </div>
-          <div style={{ aspectRatio: '1', backgroundColor: '#E8E8E8', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+          <div style={{ aspectRatio: '1', backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
             <img src="/images/Probitic.avif" alt="Product" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
         </div>
