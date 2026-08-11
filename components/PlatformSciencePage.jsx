@@ -171,36 +171,6 @@ export default function PlatformSciencePage({ onContactClick }) {
 
         <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)' }}>Include your company, your role, and what you would like to discuss.</p>
       </section>
-
-      {/* FOOTER - GREEN ONLY */}
-      <footer style={{ backgroundColor: GREEN, color: 'white', padding: '4rem 1.5rem 1.5rem' }}>
-        <div className="max-w-6xl mx-auto">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginBottom: '2rem', paddingBottom: '2rem', borderBottom: '1px solid rgba(255,255,255,0.2)' }}>
-            <div>
-              <div style={{ fontSize: '14px', fontWeight: 700, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <div style={{ width: 40, height: 40, backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px' }}>⬜</div>
-                SECO BIO
-              </div>
-              <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.9)' }}>Protecting what matters.</p>
-            </div>
-            <div>
-              <h4 style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', marginBottom: '1rem', letterSpacing: '0.5px' }}>Pages</h4>
-              <a href="/" style={{ fontSize: '13px', color: 'rgba(255,255,255,0.9)', textDecoration: 'none', display: 'block', marginBottom: '0.5rem' }}>Home</a>
-              <a href="#platform" style={{ fontSize: '13px', color: 'rgba(255,255,255,0.9)', textDecoration: 'none', display: 'block', marginBottom: '0.5rem' }}>Platform & Science</a>
-              <a href="#partners" style={{ fontSize: '13px', color: 'rgba(255,255,255,0.9)', textDecoration: 'none', display: 'block' }}>For Partners</a>
-            </div>
-            <div>
-              <h4 style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', marginBottom: '1rem', letterSpacing: '0.5px' }}>Contact</h4>
-              <a href="mailto:joe@seco.bio" style={{ fontSize: '13px', color: 'rgba(255,255,255,0.9)', textDecoration: 'none', display: 'block', marginBottom: '0.5rem' }}>Joe Collura</a>
-              <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.7)', margin: 0 }}>CEO & Founder, Seco Bio</p>
-              <a href="mailto:joe@seco.bio" style={{ fontSize: '13px', color: 'rgba(255,255,255,0.9)', textDecoration: 'none', display: 'block', marginTop: '0.5rem' }}>joe@seco.bio</a>
-            </div>
-          </div>
-          <div style={{ textAlign: 'center', fontSize: '12px', color: 'rgba(255,255,255,0.8)' }}>
-            © 2026 Seco Bio. Privacy · Terms
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
