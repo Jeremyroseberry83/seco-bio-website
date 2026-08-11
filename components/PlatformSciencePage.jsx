@@ -41,7 +41,28 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 1. THE GAP */}
+      {/* 1. WHERE THIS CAME FROM */}
+      <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
+        <div className="max-w-6xl mx-auto" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
+          <div style={{ aspectRatio: '4/3', borderRadius: '16px', overflow: 'hidden', background: 'linear-gradient(135deg, #171B33 0%, #2E4259 100%)' }}>
+            <img src="/images/space-1.jpg" alt="Research funded for long-duration space and defense missions" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </div>
+          <div>
+            <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>Where This Came From</h3>
+            <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1.5rem', lineHeight: 1.2 }}>Built to keep bacteria alive where <span style={{ color: BLUE, fontStyle: 'italic' }}>nothing else</span> could.</h2>
+            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '1.5rem' }}>From 2017 to 2024, NASA and DARPA funded research at MIT aimed at keeping bacteria alive for soldiers in the field and astronauts on long missions. The findings were published in <em>Nature Materials</em> in 2024.</p>
+            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2rem' }}>Seco Bio exists to bring it to the industries that need it now.</p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap', paddingTop: '1.5rem', borderTop: '1px solid #DCE3F7' }}>
+              <img src="/images/logos/nasa.png" alt="NASA" style={{ height: 32, width: 'auto' }} />
+              <img src="/images/logos/darpa.png" alt="DARPA" style={{ height: 28, width: 'auto' }} />
+              <img src="/images/logos/mit.png" alt="MIT" style={{ height: 24, width: 'auto' }} />
+              <img src="/images/logos/nature.png" alt="Nature Materials" style={{ height: 30, width: 'auto' }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. THE GAP */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto">
           <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: GREEN, marginBottom: '1rem' }}>The Gap</h3>
@@ -73,7 +94,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 2. THE TECHNOLOGY */}
+      {/* 3. THE TECHNOLOGY */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto">
           <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>The Technology</h3>
@@ -133,7 +154,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 3. THE PLATFORM */}
+      {/* 4. THE PLATFORM */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_GREEN_BG }}>
         <div className="max-w-6xl mx-auto" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
           <div>
@@ -178,7 +199,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 4. BEYOND THE SHELF */}
+      {/* 5. BEYOND THE SHELF */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_INK_BG }}>
         <div className="max-w-6xl mx-auto">
           <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_BLUE_ACCENT, marginBottom: '1rem' }}>Beyond the Shelf</h3>
@@ -204,7 +225,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 5. STRAIN DEVELOPMENT */}
+      {/* 6. STRAIN DEVELOPMENT */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: BG }}>
         <div className="max-w-6xl mx-auto">
           <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>Strain Development</h3>
@@ -283,7 +304,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 6. INTELLECTUAL PROPERTY */}
+      {/* 7. INTELLECTUAL PROPERTY */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
           <div>
@@ -314,7 +335,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 7. WHAT KILLS LIVING CELLS */}
+      {/* 8. WHAT KILLS LIVING CELLS */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_GREEN_BG }}>
         <div className="max-w-6xl mx-auto" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
           <div>
