@@ -17,11 +17,13 @@ export default function PlatformSciencePage({ onContactClick }) {
 
   return (
     <div>
-      {/* HERO */}
-      <section style={{ padding: '4rem 1.5rem', backgroundColor: BG }}>
-        <div className="max-w-6xl mx-auto">
-          <h1 style={{ fontSize: '42px', fontWeight: 700, color: SLATE, marginBottom: '1rem', lineHeight: 1.1 }}>Platform & Science</h1>
-          <p style={{ fontSize: '18px', color: MUTED, lineHeight: 1.8 }}>Learn how our platform works and the science behind protecting living organisms.</p>
+      {/* HERO WITH IMAGE */}
+      <section style={{ padding: '0', backgroundColor: 'white', minHeight: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundImage: 'url(/images/Science_page_header.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
+        <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.35)' }} />
+        <div className="max-w-6xl mx-auto" style={{ position: 'relative', zIndex: 1, textAlign: 'center', color: 'white', padding: '4rem 1.5rem' }}>
+          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.9)', marginBottom: '1rem' }}>Science & Evidence</h3>
+          <h1 style={{ fontSize: '48px', fontWeight: 700, marginBottom: '1rem', lineHeight: 1.1 }}>Our peer-reviewed <span style={{ color: GREEN }}>publications.</span></h1>
+          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.95)', lineHeight: 1.8 }}>Every ingredient we develop is backed by rigorous science. Browse our growing library of peer-reviewed research across clinical trials, AI discovery, and nutritional interventions.</p>
         </div>
       </section>
 
@@ -162,17 +164,16 @@ export default function PlatformSciencePage({ onContactClick }) {
           </div>
         </div>
 
-        <div style={{ marginBottom: '0.5rem' }}><a href="mailto:info@seco.bio" style={{ fontSize: '18px', fontWeight: 600, color: 'white', textDecoration: 'underline' }}>info@seco.bio</a></div>
         <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)' }}>Include your company, your role, and what you would like to discuss.</p>
       </section>
 
-      {/* FOOTER */}
-      <footer style={{ backgroundColor: GREEN, color: 'white', padding: '3rem 1.5rem' }}>
+      {/* FOOTER - GREEN ONLY */}
+      <footer style={{ backgroundColor: GREEN, color: 'white', padding: '4rem 1.5rem 1.5rem' }}>
         <div className="max-w-6xl mx-auto">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginBottom: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginBottom: '2rem', paddingBottom: '2rem', borderBottom: '1px solid rgba(255,255,255,0.2)' }}>
             <div>
-              <div style={{ fontSize: '16px', fontWeight: 700, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <div style={{ width: 30, height: 30, backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: '4px' }} />
+              <div style={{ fontSize: '14px', fontWeight: 700, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <div style={{ width: 40, height: 40, backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px' }}>⬜</div>
                 SECO BIO
               </div>
               <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.9)' }}>Protecting what matters.</p>
@@ -185,11 +186,13 @@ export default function PlatformSciencePage({ onContactClick }) {
             </div>
             <div>
               <h4 style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', marginBottom: '1rem', letterSpacing: '0.5px' }}>Contact</h4>
-              <a href="mailto:info@seco.bio" style={{ fontSize: '13px', color: 'rgba(255,255,255,0.9)', textDecoration: 'none' }}>info@seco.bio</a>
+              <a href="mailto:joe@seco.bio" style={{ fontSize: '13px', color: 'rgba(255,255,255,0.9)', textDecoration: 'none', display: 'block', marginBottom: '0.5rem' }}>Joe Collura</a>
+              <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.7)', margin: 0 }}>CEO & Founder, Seco Bio</p>
+              <a href="mailto:joe@seco.bio" style={{ fontSize: '13px', color: 'rgba(255,255,255,0.9)', textDecoration: 'none', display: 'block', marginTop: '0.5rem' }}>joe@seco.bio</a>
             </div>
           </div>
-          <div style={{ paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.2)', textAlign: 'center', fontSize: '12px', color: 'rgba(255,255,255,0.8)' }}>
-            © 2026 Seco Bio, Inc. Cambridge, Massachusetts
+          <div style={{ textAlign: 'center', fontSize: '12px', color: 'rgba(255,255,255,0.8)' }}>
+            © 2026 Seco Bio. Privacy · Terms
           </div>
         </div>
       </footer>
