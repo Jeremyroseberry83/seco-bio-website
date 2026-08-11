@@ -19,7 +19,7 @@ export default function PlatformSciencePage({ onContactClick }) {
     <div>
       {/* HERO WITH IMAGE */}
       <section style={{ padding: '0', backgroundColor: 'white', minHeight: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundImage: 'url(/images/lab-blue.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
-        <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.55)' }} />
+        <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.65)' }} />
         <div className="max-w-6xl mx-auto" style={{ position: 'relative', zIndex: 1, textAlign: 'center', color: 'white', padding: '4rem 1.5rem' }}>
           <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.9)', marginBottom: '1rem' }}>Science & Evidence</h3>
           <h1 style={{ fontSize: '48px', fontWeight: 700, marginBottom: '1rem', lineHeight: 1.1 }}>Our peer-reviewed <span style={{ color: GREEN }}>publications.</span></h1>
