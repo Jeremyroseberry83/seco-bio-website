@@ -69,16 +69,16 @@ export default function AboutPage({ onContactClick }) {
         subtitle="Research funded by NASA and DARPA, carried out at MIT, and published in Nature Materials. Seco Bio exists to bring it to the industries that need it now."
       />
 
-      {/* Origin */}
-      <section className="py-24 px-6" style={{ backgroundColor: '#F7F8FA' }}>
+      {/* Origin — matches the "Where This Came From" block on Platform & Science */}
+      <section className="py-24 px-6" style={{ backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div
             className="rounded-2xl overflow-hidden"
-            style={{ aspectRatio: '4 / 3', backgroundColor: INK }}
+            style={{ aspectRatio: '4 / 3', background: 'linear-gradient(135deg, #171B33 0%, #2E4259 100%)' }}
           >
             <img
               src="/images/space-1.jpg"
-              alt="Research funded for long-duration missions"
+              alt="Research funded for long-duration space and defense missions"
               className="w-full h-full object-cover" loading="lazy"
             />
           </div>
@@ -96,13 +96,19 @@ export default function AboutPage({ onContactClick }) {
               Built to keep bacteria alive where nothing else could.
             </h2>
             <p className="mb-6" style={{ color: MUTED, fontSize: '17px', lineHeight: 1.75 }}>
-              From 2017 to 2024, NASA and DARPA funded the research at MIT — work aimed at keeping
-              bacteria alive for soldiers in the field and astronauts on long missions. It published
-              in <em>Nature Materials</em> in 2024.
+              From 2017 to 2024, NASA and DARPA funded research at MIT aimed at keeping bacteria
+              alive for soldiers in the field and astronauts on long missions. The findings were
+              published in <em>Nature Materials</em> in 2024.
             </p>
-            <p style={{ color: MUTED, fontSize: '17px', lineHeight: 1.75 }}>
+            <p className="mb-8" style={{ color: MUTED, fontSize: '17px', lineHeight: 1.75 }}>
               Seco Bio exists to bring it to the industries that need it now.
             </p>
+            <div className="flex flex-wrap items-center gap-8 pt-6" style={{ borderTop: '1px solid #E4E8F2' }}>
+              <img src="/images/logos/nasa.png" alt="NASA" style={{ height: 32, width: 'auto' }} />
+              <img src="/images/logos/darpa.png" alt="DARPA" style={{ height: 28, width: 'auto' }} />
+              <img src="/images/logos/mit.png" alt="MIT" style={{ height: 24, width: 'auto' }} />
+              <img src="/images/logos/nature.png" alt="Nature Materials" style={{ height: 30, width: 'auto' }} />
+            </div>
           </div>
         </div>
       </section>
@@ -221,60 +227,6 @@ export default function AboutPage({ onContactClick }) {
         </div>
       </section>
 
-      {/* Funders */}
-      <section className="py-28 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="max-w-2xl mb-16">
-            <Eyebrow>Research funding &amp; affiliations</Eyebrow>
-            <h2
-              className="font-bold"
-              style={{
-                color: SLATE,
-                fontSize: 'clamp(1.8rem, 3.2vw, 2.7rem)',
-                lineHeight: 1.1,
-                letterSpacing: '-0.025em'
-              }}
-            >
-              Where the work was funded and done.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-14">
-            {[
-              { name: 'NASA', file: '/images/logos/nasa.png', h: 52, role: 'Original research funding' },
-              { name: 'DARPA', file: '/images/logos/darpa.png', h: 44, role: 'Research funding' },
-              { name: 'MIT', file: '/images/logos/mit.png', h: 34, role: 'Research institution' },
-              { name: 'Nature Materials', file: '/images/logos/nature.png', h: 44, role: 'Published 2024' }
-            ].map((org, i) => (
-              <div
-                key={org.name}
-                className="px-6 flex flex-col items-center text-center"
-                style={{ borderLeft: i % 4 === 0 ? 'none' : '1px solid #E4E8F2' }}
-              >
-                <div className="flex items-center justify-center" style={{ height: 60, marginBottom: 18 }}>
-                  <img
-                    src={org.file}
-                    alt={org.name}
-                    style={{
-                      height: org.h,
-                      width: 'auto',
-                      objectFit: 'contain',
-                      filter: 'grayscale(100%)',
-                      opacity: 0.72
-                    }} loading="lazy"
-                  />
-                </div>
-                <div style={{ color: SLATE, fontWeight: 700, fontSize: '14px', marginBottom: 5 }}>
-                  {org.name}
-                </div>
-                <div style={{ color: MUTED, fontSize: '12px', letterSpacing: '0.04em', lineHeight: 1.5 }}>
-                  {org.role}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Where We Focus */}
       <section className="py-28 px-6" style={{ backgroundColor: '#F7F8FA' }}>
