@@ -223,49 +223,36 @@ export default function Site() {
       {showVideo && <VideoModal onClose={() => setShowVideo(false)} />}
 
       <footer
-        className="py-16 px-6"
+        className="py-10 px-6"
         style={{
           background: 'linear-gradient(120deg, #0D4429 0%, #125A39 55%, #176E46 100%)',
           color: 'white',
           borderTop: '3px solid #1E8E5A'
         }}
       >
-        {/* STAY INSPIRED — newsletter signup */}
-        <div
-          className="max-w-7xl mx-auto"
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '2.5rem',
-            paddingBottom: '3rem',
-            marginBottom: '3rem',
-            borderBottom: '1px solid rgba(255,255,255,0.2)'
-          }}
-        >
-          <div style={{ textAlign: 'center' }}>
-            <img
-              src="/images/seco-lockup-white.png"
-              alt="Seco Bio"
-              style={{ height: 74, width: 'auto', display: 'block', margin: '0 auto 18px' }}
-            />
-            <p className="text-sm opacity-75">Protecting what matters.</p>
-          </div>
-
-          <div style={{ textAlign: 'center', flex: '1 1 320px', maxWidth: 460 }}>
-            <h3 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>Stay Inspired</h3>
-            <p style={{ fontSize: 14, opacity: 0.85, marginBottom: 20 }}>
-              Get regular insights and updates from Seco Bio
-            </p>
+        <div className="max-w-7xl mx-auto">
+          {/* Compact newsletter strip */}
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '1.5rem',
+              paddingBottom: '1.5rem',
+              marginBottom: '1.5rem',
+              borderBottom: '1px solid rgba(255,255,255,0.2)'
+            }}
+          >
+            <div>
+              <div style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Stay Inspired</div>
+              <p style={{ fontSize: 13, opacity: 0.75 }}>Get regular insights and updates from Seco Bio</p>
+            </div>
 
             {newsletterSubscribed ? (
-              <p style={{ fontSize: 14, fontWeight: 600 }}>Thanks — you're on the list.</p>
+              <p style={{ fontSize: 14, fontWeight: 600, flexShrink: 0 }}>Thanks — you're on the list.</p>
             ) : (
-              <form
-                onSubmit={handleNewsletterSubmit}
-                style={{ display: 'flex', justifyContent: 'center' }}
-              >
+              <form onSubmit={handleNewsletterSubmit} style={{ display: 'flex', flexShrink: 0 }}>
                 <input
                   type="email"
                   required
@@ -273,13 +260,12 @@ export default function Site() {
                   onChange={(e) => setNewsletterEmail(e.target.value)}
                   placeholder="Your email"
                   style={{
-                    flex: '1 1 auto',
-                    minWidth: 0,
-                    padding: '12px 20px',
-                    borderRadius: '24px 0 0 24px',
+                    width: 200,
+                    padding: '9px 16px',
+                    borderRadius: '20px 0 0 20px',
                     border: 'none',
                     outline: 'none',
-                    fontSize: 14,
+                    fontSize: 13,
                     color: '#3D4654'
                   }}
                 />
@@ -287,12 +273,12 @@ export default function Site() {
                   type="submit"
                   style={{
                     flexShrink: 0,
-                    padding: '12px 28px',
-                    borderRadius: '0 24px 24px 0',
+                    padding: '9px 20px',
+                    borderRadius: '0 20px 20px 0',
                     border: 'none',
                     backgroundColor: '#0D2A1B',
                     color: 'white',
-                    fontSize: 14,
+                    fontSize: 13,
                     fontWeight: 600,
                     cursor: 'pointer'
                   }}
@@ -301,71 +287,66 @@ export default function Site() {
                 </button>
               </form>
             )}
-
-            <p style={{ fontSize: 11, opacity: 0.6, marginTop: 14 }}>
-              By providing your details, you agree to be contacted by Seco Bio. You may unsubscribe at any time.
-            </p>
           </div>
-        </div>
 
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
-          <div>
-            <h4
-              className="font-bold mb-3 text-sm"
-              style={{ textTransform: 'uppercase', letterSpacing: '0.5px', paddingBottom: 8, borderBottom: '1px solid rgba(255,255,255,0.3)' }}
-            >
-              Resources
-            </h4>
-            <div className="flex flex-col gap-2 text-sm items-start">
+          {/* Logo · nav links · contact — single row */}
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '1.5rem',
+              paddingBottom: '1.25rem',
+              marginBottom: '1.25rem',
+              borderBottom: '1px solid rgba(255,255,255,0.2)'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <img src="/images/seco-mark-white.png" alt="" style={{ height: 26, width: 'auto' }} />
+              <div>
+                <div style={{ fontWeight: 700, fontSize: 14, letterSpacing: '0.5px' }}>SECO BIO</div>
+                <div style={{ fontSize: 12, opacity: 0.65 }}>Protecting what matters.</div>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className="opacity-75 hover:opacity-100 text-left"
+                  className="opacity-75 hover:opacity-100 transition-opacity"
+                  style={{ fontSize: 13 }}
                 >
                   {item.name}
                 </button>
               ))}
             </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', fontSize: 13 }}>
+              <span style={{ opacity: 0.65 }}>Joe Collura</span>
+              <a
+                href="mailto:joe@seco.bio"
+                className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity"
+              >
+                <Mail size={14} strokeWidth={1.8} />
+                joe@seco.bio
+              </a>
+              <a
+                href="https://www.linkedin.com/in/jvcollura/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity"
+              >
+                <Linkedin size={14} strokeWidth={1.8} />
+                LinkedIn
+              </a>
+            </div>
           </div>
-          <div style={{ textAlign: 'right' }}>
-            <h4
-              className="font-bold mb-4 text-sm"
-              style={{ textTransform: 'uppercase', letterSpacing: '0.5px', paddingBottom: 8, borderBottom: '1px solid rgba(255,255,255,0.3)' }}
-            >
-              Contact
-            </h4>
 
-            <p className="font-semibold" style={{ fontSize: 15, marginBottom: 3 }}>
-              Joe Collura
-            </p>
-            <p style={{ fontSize: 13, opacity: 0.65, lineHeight: 1.5, marginBottom: 18 }}>
-              CEO &amp; Founder, Seco Bio
-            </p>
-
-            <a
-              href="mailto:joe@seco.bio"
-              className="flex items-center gap-2.5 opacity-80 hover:opacity-100 transition-opacity"
-              style={{ fontSize: 14, marginBottom: 11, justifyContent: 'flex-end' }}
-            >
-              <Mail size={15} strokeWidth={1.8} style={{ flexShrink: 0 }} />
-              joe@seco.bio
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/jvcollura/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2.5 opacity-80 hover:opacity-100 transition-opacity"
-              style={{ fontSize: 14, justifyContent: 'flex-end' }}
-            >
-              <Linkedin size={15} strokeWidth={1.8} style={{ flexShrink: 0 }} />
-              LinkedIn
-            </a>
+          <div className="text-xs text-center" style={{ opacity: 0.5 }}>
+            © 2026 Seco Bio. Privacy · Terms
           </div>
-        </div>
-        <div className="max-w-7xl mx-auto mt-12 pt-6 border-t opacity-50 text-xs text-center">
-          © 2026 Seco Bio. Privacy · Terms
         </div>
       </footer>
     </div>
