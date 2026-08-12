@@ -49,7 +49,7 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
                 onClick={() => onNavigate && onNavigate('partners')}
                 style={{ padding: '14px 28px', borderRadius: '999px', border: '1.5px solid rgba(255,255,255,0.7)', background: 'transparent', color: 'white', fontSize: '15px', fontWeight: 600, cursor: 'pointer' }}
               >
-                Licensing Your Strain
+                Protect Your Strain
               </button>
             </div>
           </div>
