@@ -66,7 +66,7 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
           <div>
             <h3 style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: GREEN, marginBottom: '1rem' }}>Seco Bio</h3>
             <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, lineHeight: 1.2, marginBottom: '1.5rem' }}>This is published science,<br /><span style={{ color: GREEN, fontStyle: 'italic' }}>not a pitch.</span></h2>
-            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2rem' }}>Some of nature's most potent bacteria never make it into a product, because they die before they reach you. Seco Bio's platform keeps them alive — from manufacturing to the moment they're used — so the strongest strains in medicine, probiotics, animal health, and food can finally deliver on what they were always capable of.</p>
+            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2rem' }}>Some of nature's most potent bacteria never make it into a product, because they die before they reach you. <strong style={{ color: SLATE, fontWeight: 700 }}>Seco Bio's platform keeps them alive</strong> — from manufacturing to the moment they're used — so the strongest strains in medicine, probiotics, animal health, and food can finally deliver the health to you that they were always capable of.</p>
 
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
               <button
