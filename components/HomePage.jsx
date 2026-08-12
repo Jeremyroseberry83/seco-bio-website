@@ -79,7 +79,7 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
                 onClick={() => onNavigate && onNavigate('partners')}
                 style={{ padding: '13px 26px', borderRadius: '999px', border: `1.5px solid rgba(30,142,90,0.35)`, background: 'transparent', color: GREEN_DEEP, fontSize: '15px', fontWeight: 600, cursor: 'pointer' }}
               >
-                Partners
+                Investor Partners
               </button>
             </div>
 
