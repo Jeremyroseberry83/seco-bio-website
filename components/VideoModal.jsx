@@ -61,7 +61,7 @@ export default function VideoModal({ onClose }) {
           autoPlay
           muted
           playsInline
-          poster="/images/hero-poster.jpg"
+          poster="/images/video-poster.jpg"
         >
           {/* The full narrated film — separate from the muted hero loop. */}
           <source src="/videos/secobiointro.mp4" type="video/mp4" />
