@@ -42,22 +42,61 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 1. WHERE THIS CAME FROM */}
+      {/* 1. THE TECHNOLOGY */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div style={{ aspectRatio: '4/3', borderRadius: '16px', overflow: 'hidden', background: 'linear-gradient(135deg, #171B33 0%, #2E4259 100%)' }}>
-            <img src="/images/space-1.jpg" alt="Research funded for long-duration space and defense missions" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <div className="max-w-6xl mx-auto">
+          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>The Technology</h3>
+          <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1rem', lineHeight: 1.2 }}>A protective coat of safe ingredients <span style={{ color: BLUE, fontStyle: 'italic' }}>wrapped around every living cell.</span></h2>
+          <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2.5rem', fontStyle: 'italic' }}>No genetic modification — only safe, GRAS / FDA-approved ingredients shield the bacterium from manufacturing to consumption.</p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', marginBottom: '2rem' }}>
+            <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', minHeight: '340px' }}>
+              <img src="/images/science/bacteria.jpg" alt="Live probiotic cell" style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }} />
+              <div style={{ position: 'absolute', top: '8%', right: '5%', backgroundColor: 'white', border: `2px solid ${BLUE}`, borderRadius: '8px', padding: '10px 16px', maxWidth: 200 }}>
+                <div style={{ fontSize: '12px', fontWeight: 700, color: BLUE }}>LIVE CELL</div>
+                <div style={{ fontSize: '12px', color: SLATE }}>The probiotic bacterium</div>
+              </div>
+              <div style={{ position: 'absolute', bottom: '6%', left: '5%', backgroundColor: 'white', border: `2px solid ${BLUE}`, borderRadius: '8px', padding: '10px 16px', maxWidth: 220 }}>
+                <div style={{ fontSize: '12px', fontWeight: 700, color: BLUE }}>SAFE COATING</div>
+                <div style={{ fontSize: '12px', color: SLATE }}>Proprietary GRAS / FDA approved ingredients</div>
+              </div>
+            </div>
+
+            <div style={{ backgroundColor: BLUE_BG_LIGHT, borderRadius: '12px', borderTop: `4px solid ${BLUE}`, padding: '2rem' }}>
+              <h4 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1.5rem' }}>How It Works</h4>
+              <div style={{ backgroundColor: 'rgba(59,96,228,0.15)', border: `1px solid ${BLUE}`, borderRadius: '999px', padding: '14px 10px', textAlign: 'center' }}>
+                <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.5px', color: BLUE, marginBottom: '8px' }}>SAFE COATING</div>
+                <div style={{ backgroundColor: BLUE, color: 'white', borderRadius: '999px', padding: '10px 20px', fontSize: '13px', fontWeight: 700, display: 'inline-block' }}>LIVE CELL</div>
+              </div>
+              <p style={{ fontSize: '13px', color: MUTED, fontStyle: 'italic', textAlign: 'center', margin: '1rem 0 1.5rem' }}>Shields the cell through milling, drying, shelf life & digestion</p>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {[
+                  { title: 'No genetic modification', desc: 'The strain is never altered' },
+                  { title: 'GRAS / FDA-approved only', desc: 'Already-approved compounds — no new approvals' },
+                  { title: 'Keeps cells alive', desc: 'Viable to point of consumption' }
+                ].map(({ title, desc }) => (
+                  <div key={title} style={{ display: 'flex', gap: '0.75rem' }}>
+                    <div style={{ width: 26, height: 26, borderRadius: '50%', backgroundColor: GREEN, color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 700, flexShrink: 0 }}>✓</div>
+                    <div>
+                      <div style={{ fontSize: '14px', fontWeight: 700, color: SLATE }}>{title}</div>
+                      <div style={{ fontSize: '13px', color: MUTED }}>{desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <div>
-            <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>Where This Came From</h3>
-            <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1.5rem', lineHeight: 1.2 }}>Built to keep bacteria alive where <span style={{ color: BLUE, fontStyle: 'italic' }}>nothing else</span> could.</h2>
-            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '1.5rem' }}>From 2017 to 2024, NASA and DARPA funded research at MIT aimed at keeping bacteria alive for soldiers in the field and astronauts on long missions. The findings were published in <em>Nature Materials</em> in 2024.</p>
-            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2rem' }}>Seco Bio exists to bring it to the industries that need it now.</p>
-            <div className="flex flex-wrap items-center justify-center md:justify-start" style={{ gap: '2rem', paddingTop: '1.5rem', borderTop: '1px solid #DCE3F7' }}>
-              <img src="/images/logos/nasa.png" alt="NASA" style={{ height: 32, width: 'auto' }} />
-              <img src="/images/logos/darpa.png" alt="DARPA" style={{ height: 28, width: 'auto' }} />
-              <img src="/images/logos/mit.png" alt="MIT" style={{ height: 24, width: 'auto' }} />
-              <img src="/images/logos/nature.png" alt="Nature Materials" style={{ height: 30, width: 'auto' }} />
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', alignItems: 'stretch', justifyContent: 'center' }}>
+            <div style={{ flex: '1 1 300px', backgroundColor: PINK_BG, borderRadius: '10px', padding: '1.5rem' }}>
+              <h4 style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: PINK, marginBottom: '0.75rem' }}>Today's Industry Fix: Overfill</h4>
+              <p style={{ fontSize: '14px', color: SLATE, lineHeight: 1.7 }}>Brands load <strong>200%–36,000%+ above label</strong> to survive die-off — yet viability stays unpredictable and can <strong>miss the claim by end of shelf life.</strong></p>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '0 0 auto', fontSize: '28px', color: MUTED }}>→</div>
+            <div style={{ flex: '1 1 300px', backgroundColor: GREEN_BG_LIGHT, borderRadius: '10px', padding: '1.5rem' }}>
+              <h4 style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: GREEN, marginBottom: '0.75rem' }}>The Seco Coating</h4>
+              <p style={{ fontSize: '14px', color: SLATE, lineHeight: 1.7 }}>The cell stays alive on its own, so brands <strong>slash overfill, cut COGS (cost of goods sold),</strong> and <strong>meet the label claim at consumption.</strong></p>
             </div>
           </div>
         </div>
@@ -190,61 +229,22 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 6. THE TECHNOLOGY */}
+      {/* 6. WHERE THIS CAME FROM */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
-        <div className="max-w-6xl mx-auto">
-          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>The Technology</h3>
-          <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1rem', lineHeight: 1.2 }}>A protective coat of safe ingredients <span style={{ color: BLUE, fontStyle: 'italic' }}>wrapped around every living cell.</span></h2>
-          <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2.5rem', fontStyle: 'italic' }}>No genetic modification — only safe, GRAS / FDA-approved ingredients shield the bacterium from manufacturing to consumption.</p>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', marginBottom: '2rem' }}>
-            <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', minHeight: '340px' }}>
-              <img src="/images/science/bacteria.jpg" alt="Live probiotic cell" style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }} />
-              <div style={{ position: 'absolute', top: '8%', right: '5%', backgroundColor: 'white', border: `2px solid ${BLUE}`, borderRadius: '8px', padding: '10px 16px', maxWidth: 200 }}>
-                <div style={{ fontSize: '12px', fontWeight: 700, color: BLUE }}>LIVE CELL</div>
-                <div style={{ fontSize: '12px', color: SLATE }}>The probiotic bacterium</div>
-              </div>
-              <div style={{ position: 'absolute', bottom: '6%', left: '5%', backgroundColor: 'white', border: `2px solid ${BLUE}`, borderRadius: '8px', padding: '10px 16px', maxWidth: 220 }}>
-                <div style={{ fontSize: '12px', fontWeight: 700, color: BLUE }}>SAFE COATING</div>
-                <div style={{ fontSize: '12px', color: SLATE }}>Proprietary GRAS / FDA approved ingredients</div>
-              </div>
-            </div>
-
-            <div style={{ backgroundColor: BLUE_BG_LIGHT, borderRadius: '12px', borderTop: `4px solid ${BLUE}`, padding: '2rem' }}>
-              <h4 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1.5rem' }}>How It Works</h4>
-              <div style={{ backgroundColor: 'rgba(59,96,228,0.15)', border: `1px solid ${BLUE}`, borderRadius: '999px', padding: '14px 10px', textAlign: 'center' }}>
-                <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.5px', color: BLUE, marginBottom: '8px' }}>SAFE COATING</div>
-                <div style={{ backgroundColor: BLUE, color: 'white', borderRadius: '999px', padding: '10px 20px', fontSize: '13px', fontWeight: 700, display: 'inline-block' }}>LIVE CELL</div>
-              </div>
-              <p style={{ fontSize: '13px', color: MUTED, fontStyle: 'italic', textAlign: 'center', margin: '1rem 0 1.5rem' }}>Shields the cell through milling, drying, shelf life & digestion</p>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                {[
-                  { title: 'No genetic modification', desc: 'The strain is never altered' },
-                  { title: 'GRAS / FDA-approved only', desc: 'Already-approved compounds — no new approvals' },
-                  { title: 'Keeps cells alive', desc: 'Viable to point of consumption' }
-                ].map(({ title, desc }) => (
-                  <div key={title} style={{ display: 'flex', gap: '0.75rem' }}>
-                    <div style={{ width: 26, height: 26, borderRadius: '50%', backgroundColor: GREEN, color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 700, flexShrink: 0 }}>✓</div>
-                    <div>
-                      <div style={{ fontSize: '14px', fontWeight: 700, color: SLATE }}>{title}</div>
-                      <div style={{ fontSize: '13px', color: MUTED }}>{desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div style={{ aspectRatio: '4/3', borderRadius: '16px', overflow: 'hidden', background: 'linear-gradient(135deg, #171B33 0%, #2E4259 100%)' }}>
+            <img src="/images/space-1.jpg" alt="Research funded for long-duration space and defense missions" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
-
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', alignItems: 'stretch', justifyContent: 'center' }}>
-            <div style={{ flex: '1 1 300px', backgroundColor: PINK_BG, borderRadius: '10px', padding: '1.5rem' }}>
-              <h4 style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: PINK, marginBottom: '0.75rem' }}>Today's Industry Fix: Overfill</h4>
-              <p style={{ fontSize: '14px', color: SLATE, lineHeight: 1.7 }}>Brands load <strong>200%–36,000%+ above label</strong> to survive die-off — yet viability stays unpredictable and can <strong>miss the claim by end of shelf life.</strong></p>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '0 0 auto', fontSize: '28px', color: MUTED }}>→</div>
-            <div style={{ flex: '1 1 300px', backgroundColor: GREEN_BG_LIGHT, borderRadius: '10px', padding: '1.5rem' }}>
-              <h4 style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: GREEN, marginBottom: '0.75rem' }}>The Seco Coating</h4>
-              <p style={{ fontSize: '14px', color: SLATE, lineHeight: 1.7 }}>The cell stays alive on its own, so brands <strong>slash overfill, cut COGS (cost of goods sold),</strong> and <strong>meet the label claim at consumption.</strong></p>
+          <div>
+            <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>Where This Came From</h3>
+            <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1.5rem', lineHeight: 1.2 }}>Built to keep bacteria alive where <span style={{ color: BLUE, fontStyle: 'italic' }}>nothing else</span> could.</h2>
+            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '1.5rem' }}>From 2017 to 2024, NASA and DARPA funded research at MIT aimed at keeping bacteria alive for soldiers in the field and astronauts on long missions. The findings were published in <em>Nature Materials</em> in 2024.</p>
+            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2rem' }}>Seco Bio exists to bring it to the industries that need it now.</p>
+            <div className="flex flex-wrap items-center justify-center md:justify-start" style={{ gap: '2rem', paddingTop: '1.5rem', borderTop: '1px solid #DCE3F7' }}>
+              <img src="/images/logos/nasa.png" alt="NASA" style={{ height: 32, width: 'auto' }} />
+              <img src="/images/logos/darpa.png" alt="DARPA" style={{ height: 28, width: 'auto' }} />
+              <img src="/images/logos/mit.png" alt="MIT" style={{ height: 24, width: 'auto' }} />
+              <img src="/images/logos/nature.png" alt="Nature Materials" style={{ height: 30, width: 'auto' }} />
             </div>
           </div>
         </div>

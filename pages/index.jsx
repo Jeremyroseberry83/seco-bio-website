@@ -307,37 +307,29 @@ export default function Site() {
               </div>
             </div>
 
-            <div className="flex flex-wrap justify-center md:justify-start" style={{ gap: '1.5rem' }}>
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item.id)}
-                  className="opacity-75 hover:opacity-100 transition-opacity"
-                  style={{ fontSize: 13 }}
+            <div className="flex flex-col items-center" style={{ gap: 8, fontSize: 13, textAlign: 'center' }}>
+              <div>
+                <div style={{ fontWeight: 700 }}>Joe Collura</div>
+                <div style={{ opacity: 0.65, fontSize: 12 }}>CEO / Founder</div>
+              </div>
+              <div className="flex flex-wrap items-center justify-center" style={{ gap: '1.25rem' }}>
+                <a
+                  href="mailto:joe@seco.bio"
+                  className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity"
                 >
-                  {item.name}
-                </button>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center md:justify-start" style={{ gap: '1.25rem', fontSize: 13 }}>
-              <span style={{ opacity: 0.65 }}>Joe Collura</span>
-              <a
-                href="mailto:joe@seco.bio"
-                className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity"
-              >
-                <Mail size={14} strokeWidth={1.8} />
-                joe@seco.bio
-              </a>
-              <a
-                href="https://www.linkedin.com/in/jvcollura/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity"
-              >
-                <Linkedin size={14} strokeWidth={1.8} />
-                LinkedIn
-              </a>
+                  <Mail size={14} strokeWidth={1.8} />
+                  joe@seco.bio
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/jvcollura/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity"
+                >
+                  <Linkedin size={14} strokeWidth={1.8} />
+                  LinkedIn
+                </a>
+              </div>
             </div>
           </div>
 

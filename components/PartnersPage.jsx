@@ -7,6 +7,7 @@ import {
 
 export default function PartnersPage({ onContactClick }) {
   const requestDeck = () => onContactClick('Investment', 'Requesting the Investment Deck.');
+  const exploreLicensing = () => onContactClick('Partnership', 'Exploring licensing my strain.');
 
   return (
     <div>
@@ -62,11 +63,18 @@ export default function PartnersPage({ onContactClick }) {
               around you.
             </p>
             <div
-              className="text-sm font-semibold px-4 py-3 rounded-md"
+              className="text-sm font-semibold px-4 py-3 rounded-md mb-3"
               style={{ backgroundColor: 'white', color: SLATE, borderLeft: `3px solid ${BLUE}` }}
             >
               Licensed by Strain · Field · Formula
             </div>
+            <button
+              onClick={exploreLicensing}
+              className="inline-flex items-center gap-2 text-sm font-semibold"
+              style={{ color: BLUE, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+            >
+              Explore Licensing Your Strain <ArrowRight size={14} />
+            </button>
           </div>
         </div>
       </section>
