@@ -29,6 +29,15 @@ export default function VideoModal({ onClose }) {
     };
   }, [onClose]);
 
+  useEffect(() => {
+    // Hold on the poster for a beat before playing, instead of cutting
+    // straight to video the instant the modal appears.
+    const timer = setTimeout(() => {
+      videoRef.current?.play().catch(() => {});
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div
       className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-8 modal-fade-in"
@@ -58,7 +67,6 @@ export default function VideoModal({ onClose }) {
           className="w-full rounded-xl"
           style={{ aspectRatio: '16 / 9', backgroundColor: '#000', display: 'block' }}
           controls
-          autoPlay
           muted
           playsInline
           poster="/images/video-poster.jpg"
