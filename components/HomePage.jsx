@@ -46,11 +46,10 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
                 Learn more about the platform
               </button>
               <button
-                onClick={onWatchFilm}
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '14px 28px', borderRadius: '999px', border: '1.5px solid rgba(255,255,255,0.7)', background: 'transparent', color: 'white', fontSize: '15px', fontWeight: 600, cursor: 'pointer' }}
+                onClick={() => onNavigate && onNavigate('partners')}
+                style={{ padding: '14px 28px', borderRadius: '999px', border: '1.5px solid rgba(255,255,255,0.7)', background: 'transparent', color: 'white', fontSize: '15px', fontWeight: 600, cursor: 'pointer' }}
               >
-                <Play size={16} fill="white" />
-                Play Seco Promo Video
+                Licensing Your Strain
               </button>
             </div>
           </div>
