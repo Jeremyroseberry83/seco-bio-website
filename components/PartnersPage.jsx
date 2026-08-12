@@ -6,6 +6,8 @@ import {
 } from './ui';
 
 export default function PartnersPage({ onContactClick }) {
+  const requestDeck = () => onContactClick('Investment', 'Requesting the Investment Deck.');
+
   return (
     <div>
       <PageHero
@@ -32,11 +34,18 @@ export default function PartnersPage({ onContactClick }) {
               partners aligned to the long-term platform opportunity.
             </p>
             <div
-              className="text-sm font-semibold px-4 py-3 rounded-md"
+              className="text-sm font-semibold px-4 py-3 rounded-md mb-3"
               style={{ backgroundColor: 'white', color: SLATE, borderLeft: `3px solid ${GREEN}` }}
             >
               Platform IP · Vertical expansion · Global portfolio
             </div>
+            <button
+              onClick={requestDeck}
+              className="inline-flex items-center gap-2 text-sm font-semibold"
+              style={{ color: GREEN_DEEP, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+            >
+              Request the Investment Deck <ArrowRight size={14} />
+            </button>
           </div>
 
           <div
@@ -111,22 +120,22 @@ export default function PartnersPage({ onContactClick }) {
 
           {/* Capital partnership — plain-language positioning, no deal terms published */}
           <div className="mt-8 rounded-2xl p-10" style={{ backgroundColor: INK, color: 'white' }}>
-            <Eyebrow color="#8CE0B8" className="mb-3">What a capital partnership looks like</Eyebrow>
+            <Eyebrow color="#8CE0B8" className="mb-3">How to invest</Eyebrow>
             <p style={{ fontSize: '16px', lineHeight: 1.75, opacity: 0.9, marginBottom: 16 }}>
-              Seco raises capital through a single-purpose vehicle aligned to the platform's growth
-              — one structure, one point of contact — rather than a traditional round with
-              fragmented terms. Capital partners get exposure to the platform's compounding IP as
-              it scales toward a strategic exit.
+              Seco is raising through a dedicated investment vehicle built around the platform's
+              growth — one structure, one point of contact, no fragmented terms. Capital partners
+              get exposure to the platform's compounding IP as it scales toward a strategic exit.
             </p>
             <p style={{ fontSize: '14px', lineHeight: 1.7, opacity: 0.7, marginBottom: 24 }}>
-              Full structure, terms, and return scenarios are available on request, under NDA.
+              Full structure, terms, and return scenarios are available in the Investment Deck, on
+              request, under NDA.
             </p>
             <button
-              onClick={() => onContactClick('Investment', 'Requesting the SPV deck.')}
+              onClick={requestDeck}
               className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-semibold"
               style={{ backgroundColor: 'white', color: INK, border: 'none', cursor: 'pointer' }}
             >
-              Request the SPV deck <ArrowRight size={15} />
+              Request the Investment Deck <ArrowRight size={15} />
             </button>
           </div>
         </div>
