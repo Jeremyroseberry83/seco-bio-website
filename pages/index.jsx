@@ -126,7 +126,8 @@ export default function Site() {
 
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => {
-              const isActive = !overHero && currentPage === item.id;
+              const isActive = currentPage === item.id;
+              const activeUnderline = overHero ? 'rgba(255,255,255,0.95)' : '#3B60E4';
               const hoverColor = overHero ? 'rgba(255,255,255,0.7)' : '#3B60E4';
               return (
               <button
@@ -135,14 +136,12 @@ export default function Site() {
                 className="text-sm font-semibold transition-colors"
                 style={{
                   color: overHero
-                    ? 'rgba(255,255,255,0.92)'
-                    : currentPage === item.id
-                    ? '#3B60E4'
-                    : '#6B7280',
+                    ? isActive ? '#FFFFFF' : 'rgba(255,255,255,0.75)'
+                    : isActive ? '#3B60E4' : '#6B7280',
                   textTransform: 'uppercase',
                   letterSpacing: '0.5px',
                   paddingBottom: '4px',
-                  borderBottom: `2px solid ${isActive ? '#3B60E4' : 'transparent'}`,
+                  borderBottom: `2px solid ${isActive ? activeUnderline : 'transparent'}`,
                   transition: 'color 0.2s, border-color 0.2s'
                 }}
                 onMouseOver={(e) => { if (!isActive) e.currentTarget.style.borderBottomColor = hoverColor; }}
