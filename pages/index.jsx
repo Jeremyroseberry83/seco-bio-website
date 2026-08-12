@@ -70,17 +70,17 @@ export default function Site() {
           name="description"
           content="Seco Bio uses AI and robotics to keep living organisms alive, making probiotics deliver what the label promises."
         />
-        <link rel="canonical" href="https://secobio.com" />
+        <link rel="canonical" href="https://seco.bio" />
 
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Seco Bio" />
-        <meta property="og:url" content="https://secobio.com" />
+        <meta property="og:url" content="https://seco.bio" />
         <meta property="og:title" content="Seco Bio — Keeping the living alive" />
         <meta
           property="og:description"
           content="Seco Bio uses AI and robotics to keep living organisms alive, making probiotics deliver what the label promises."
         />
-        <meta property="og:image" content="https://secobio.com/images/hero-poster.jpg" />
+        <meta property="og:image" content="https://seco.bio/images/hero-poster.jpg" />
         <meta property="og:image:width" content="1920" />
         <meta property="og:image:height" content="1080" />
 
@@ -90,7 +90,7 @@ export default function Site() {
           name="twitter:description"
           content="Seco Bio uses AI and robotics to keep living organisms alive, making probiotics deliver what the label promises."
         />
-        <meta name="twitter:image" content="https://secobio.com/images/hero-poster.jpg" />
+        <meta name="twitter:image" content="https://seco.bio/images/hero-poster.jpg" />
       </Head>
 
       <nav
