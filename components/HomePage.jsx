@@ -71,7 +71,7 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
             style={{ cursor: 'pointer', border: '2px solid rgba(59,96,228,0.2)', borderTop: `3px solid ${BLUE}`, borderRadius: '12px', padding: '2rem' }}
           >
             <h3 style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: BLUE, marginBottom: '0.75rem' }}>Business Partners</h3>
-            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.7 }}>Brands, manufacturers, and ingredient partners bringing us a strain to protect.</p>
+            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.7 }}>Brands, manufacturers, and ingredient partners bringing us a strain to protect — licensed back to you once it's solved.</p>
           </div>
           <div
             onClick={() => onNavigate && onNavigate('partners')}
