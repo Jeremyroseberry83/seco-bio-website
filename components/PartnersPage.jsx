@@ -58,7 +58,7 @@ export default function PartnersPage({ onContactClick }) {
               Brands, manufacturers, and ingredient partners
             </h3>
             <p style={{ color: MUTED, fontSize: '15px', lineHeight: 1.7, marginBottom: 20 }}>
-              We formulate the protection and license it to you — so your product delivers what
+              We formulate the protection and license it to you — your product delivers what
               the label promises. Built to scale with you, not around you.
             </p>
             <div
