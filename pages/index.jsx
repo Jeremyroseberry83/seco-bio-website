@@ -83,7 +83,7 @@ export default function Site() {
         <div className="flex items-center gap-3">
           <button
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-3"
+            className="flex items-center gap-3 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
             aria-label="Seco Bio home"
           >
             <div style={{ position: 'relative', height: 34, width: 28, flexShrink: 0 }}>
