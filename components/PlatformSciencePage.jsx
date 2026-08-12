@@ -80,10 +80,10 @@ export default function PlatformSciencePage({ onNavigate }) {
         </div>
       </section>
 
-      {/* 2. THE GAP */}
+      {/* 2. THE PROBLEM */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto">
-          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: GREEN, marginBottom: '1rem' }}>The Gap</h3>
+          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: GREEN, marginBottom: '1rem' }}>The Problem</h3>
           <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1rem', lineHeight: 1.2 }}>Today's probiotics reach a tiny fraction of what actually lives in a healthy gut.</h2>
           <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2.5rem', fontStyle: 'italic' }}>The bacteria linked to long-term gut health go far beyond the handful of strains that survive today's manufacturing process.</p>
 
@@ -198,10 +198,10 @@ export default function PlatformSciencePage({ onNavigate }) {
         </div>
       </section>
 
-      {/* 5. THE PROBLEM */}
+      {/* 5. THE GAP */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: BG }}>
         <div className="max-w-6xl mx-auto">
-          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>The Problem</h3>
+          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>The Gap</h3>
           <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1rem', lineHeight: 1.2 }}>Living products <span style={{ color: BLUE, fontStyle: 'italic' }}>die</span> on the way to you.</h2>
           <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '0.5rem' }}>Probiotics are alive. That's the entire point of them — and it's also the problem. Bacteria have to survive being dried, pressed into tablets, sealed in bottles, shipped through heat, and stored for months before anyone opens the package.</p>
           <p style={{ fontSize: '22px', fontWeight: 700, color: SLATE, marginBottom: '2.5rem' }}>Most of them don't.</p>
