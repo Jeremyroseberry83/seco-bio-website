@@ -252,7 +252,7 @@ export default function Site() {
             {newsletterSubscribed ? (
               <p style={{ fontSize: 14, fontWeight: 600, flexShrink: 0 }}>Thanks — you're on the list.</p>
             ) : (
-              <form onSubmit={handleNewsletterSubmit} style={{ display: 'flex', flexShrink: 0 }}>
+              <form onSubmit={handleNewsletterSubmit} style={{ display: 'flex', width: '100%', maxWidth: 320 }}>
                 <input
                   type="email"
                   required
@@ -260,7 +260,8 @@ export default function Site() {
                   onChange={(e) => setNewsletterEmail(e.target.value)}
                   placeholder="Your email"
                   style={{
-                    width: 200,
+                    flex: '1 1 100px',
+                    minWidth: 0,
                     padding: '9px 16px',
                     borderRadius: '20px 0 0 20px',
                     border: 'none',
@@ -323,7 +324,7 @@ export default function Site() {
               ))}
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', fontSize: 13 }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1.25rem', fontSize: 13 }}>
               <span style={{ opacity: 0.65 }}>Joe Collura</span>
               <a
                 href="mailto:joe@seco.bio"

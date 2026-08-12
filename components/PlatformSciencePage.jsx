@@ -43,7 +43,7 @@ export default function PlatformSciencePage({ onContactClick }) {
 
       {/* 1. WHERE THIS CAME FROM */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
-        <div className="max-w-6xl mx-auto" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div style={{ aspectRatio: '4/3', borderRadius: '16px', overflow: 'hidden', background: 'linear-gradient(135deg, #171B33 0%, #2E4259 100%)' }}>
             <img src="/images/space-1.jpg" alt="Research funded for long-duration space and defense missions" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
@@ -251,7 +251,7 @@ export default function PlatformSciencePage({ onContactClick }) {
 
       {/* 7. THE PLATFORM */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_GREEN_BG }}>
-        <div className="max-w-6xl mx-auto" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_GREEN_ACCENT, marginBottom: '1rem' }}>The Platform</h3>
             <h2 style={{ fontSize: '36px', fontWeight: 700, color: 'white', marginBottom: '1.5rem', lineHeight: 1.2 }}>This is published science, not a pitch.</h2>
@@ -296,7 +296,7 @@ export default function PlatformSciencePage({ onContactClick }) {
 
       {/* 8. INTELLECTUAL PROPERTY */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
-        <div className="max-w-6xl mx-auto" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>Intellectual Property</h3>
             <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1.5rem', lineHeight: 1.2 }}>Patent-pending, <span style={{ fontWeight: 700 }}>filed by MIT.</span></h2>
@@ -327,7 +327,7 @@ export default function PlatformSciencePage({ onContactClick }) {
 
       {/* 9. WHAT KILLS LIVING CELLS */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_GREEN_BG }}>
-        <div className="max-w-6xl mx-auto" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_GREEN_ACCENT, marginBottom: '1rem' }}>What Kills Living Cells</h3>
             <h2 style={{ fontSize: '36px', fontWeight: 700, color: 'white', marginBottom: '1.5rem', lineHeight: 1.2 }}>Four stages. <span style={{ color: LIGHT_GREEN_ACCENT }}>Every one takes a share.</span></h2>
