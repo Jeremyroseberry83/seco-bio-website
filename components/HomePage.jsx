@@ -85,7 +85,7 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
 
             <div style={{ borderTop: '1px solid #E4E8F2', paddingTop: '2rem' }}>
               <h4 style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: MUTED, marginBottom: '1.5rem' }}>Published Science and Eight Years of Research Behind It</h4>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1.5rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
                 {[
                   { icon: FileText, value: '1', label: 'Published Paper' },
                   { icon: Clock3, value: '8', label: 'Years of Research' },
