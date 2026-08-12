@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CountUp } from './ui';
 
 const BLUE = '#3B60E4';
@@ -22,14 +22,7 @@ const GRAY_BG_LIGHT = '#F3F4F6';
 const PINK = '#D1226B';
 const PINK_BG = '#FDECF2';
 
-export default function PlatformSciencePage({ onContactClick }) {
-  const [selectedPartner, setSelectedPartner] = useState(null);
-
-  const handlePartnerClick = (type) => {
-    setSelectedPartner(type);
-    if (onContactClick) onContactClick();
-  };
-
+export default function PlatformSciencePage({ onNavigate }) {
   return (
     <div>
       {/* HERO WITH IMAGE */}
@@ -320,32 +313,29 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* START A CONVERSATION */}
-      <section style={{ backgroundColor: INK, color: 'white', padding: '4rem 1.5rem', textAlign: 'center' }}>
-        <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginBottom: '1rem' }}>Start a Conversation</h3>
-        <h2 style={{ fontSize: '48px', fontWeight: 700, marginBottom: '1rem', lineHeight: 1.1 }}>For business and <span style={{ fontStyle: 'italic' }}>capital</span> partners.</h2>
-        <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.9)', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem' }}>Tell us what you are working on. We will write back.</p>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', maxWidth: '800px', margin: '0 auto 2rem' }}>
+      {/* WHERE DO YOU FIT IN */}
+      <section style={{ backgroundColor: 'white', padding: '4rem 1.5rem 5rem' }}>
+        <div className="max-w-4xl mx-auto text-center" style={{ marginBottom: '2.5rem' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, lineHeight: 1.2 }}>Where do you fit in?</h2>
+        </div>
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
           <div
-            onClick={() => handlePartnerClick('business')}
-            style={{ border: '2px solid rgba(59, 96, 228, 0.4)', padding: '2rem', borderRadius: '12px', borderTop: '3px solid #3B60E4', cursor: 'pointer', transition: 'all 0.3s' }}
-            onMouseOver={(e) => e.currentTarget.style.borderTopColor = BLUE}
+            onClick={() => onNavigate && onNavigate('partners')}
+            className="transition-colors"
+            style={{ cursor: 'pointer', border: '2px solid rgba(59,96,228,0.2)', borderTop: `3px solid ${BLUE}`, borderRadius: '12px', padding: '2rem' }}
           >
-            <h4 style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', color: 'white', marginBottom: '0.5rem' }}>Business Partners</h4>
-            <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.8)' }}>Brands, manufacturers, ingredient partners</p>
+            <h3 style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: BLUE, marginBottom: '0.75rem' }}>Business Partners</h3>
+            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.7 }}>Brands, manufacturers, and ingredient partners bringing us a strain to protect — licensed back to you once it's solved.</p>
           </div>
           <div
-            onClick={() => handlePartnerClick('capital')}
-            style={{ border: '2px solid rgba(30, 142, 90, 0.4)', padding: '2rem', borderRadius: '12px', borderTop: '3px solid #1E8E5A', cursor: 'pointer', transition: 'all 0.3s' }}
-            onMouseOver={(e) => e.currentTarget.style.borderTopColor = GREEN}
+            onClick={() => onNavigate && onNavigate('partners')}
+            className="transition-colors"
+            style={{ cursor: 'pointer', border: '2px solid rgba(30,142,90,0.2)', borderTop: `3px solid ${GREEN}`, borderRadius: '12px', padding: '2rem' }}
           >
-            <h4 style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', color: 'white', marginBottom: '0.5rem' }}>Capital Partners</h4>
-            <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.8)' }}>Partners scaling the platform with us</p>
+            <h3 style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: GREEN, marginBottom: '0.75rem' }}>Capital Partners</h3>
+            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.7 }}>Investors scaling the platform's compounding IP toward a strategic exit.</p>
           </div>
         </div>
-
-        <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)' }}>Include your company, your role, and what you would like to discuss.</p>
       </section>
     </div>
   );

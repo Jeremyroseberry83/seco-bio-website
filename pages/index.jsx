@@ -55,7 +55,7 @@ export default function Site() {
 
   const renderPage = () => {
     switch (currentPage) {
-      case 'platform-science': return <PlatformSciencePage onContactClick={openContact} />;
+      case 'platform-science': return <PlatformSciencePage onNavigate={handleNavClick} />;
       case 'partners':   return <PartnersPage onContactClick={openContact} />;
       case 'about':      return <AboutPage onContactClick={openContact} />;
       default:           return <HomePage onContactClick={openContact} onWatchFilm={() => setShowVideo(true)} onNavigate={handleNavClick} />;
