@@ -63,7 +63,7 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
       <section style={{ backgroundColor: BG, padding: '4rem 1.5rem' }}>
         <div className="max-w-6xl mx-auto">
           <h2 style={{ textAlign: 'center', fontSize: '24px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: MUTED, marginBottom: '3rem' }}>Eight Years of Research Behind It</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem' }}>
             {[{ name: 'NASA', desc: 'Research funding', logo: '/images/logos/nasa.png' }, { name: 'DARPA', desc: 'Research funding', logo: '/images/logos/darpa.png' }, { name: 'MIT', desc: 'Where the work was done', logo: '/images/logos/mit.png' }, { name: 'Nature Materials', desc: 'Peer-reviewed, 2024', logo: '/images/logos/nature.png' }].map(({ name, desc, logo }) => (
               <div key={name} style={{ textAlign: 'center' }}>
                 <div style={{ width: 100, height: 100, borderRadius: '50%', backgroundColor: '#E8E8E8', margin: '0 auto 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
@@ -73,12 +73,6 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
                 <p style={{ fontSize: '13px', color: MUTED }}>{desc}</p>
               </div>
             ))}
-          </div>
-          <div style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '8px' }}>
-            <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>Where This Came From</h3>
-            <h2 style={{ fontSize: '28px', fontWeight: 700, color: SLATE, marginBottom: '1.5rem', lineHeight: 1.2 }}>Built to keep bacteria alive where <span style={{ color: GREEN }}>nothing else</span> could.</h2>
-            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '1rem' }}>From 2017 to 2024, NASA and DARPA funded research at MIT aimed at keeping bacteria alive for soldiers in the field and astronauts on long missions. The findings were published in <em>Nature Materials</em> in 2024.</p>
-            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8 }}>Seco Bio exists to bring it to the industries that need it now.</p>
           </div>
         </div>
       </section>
