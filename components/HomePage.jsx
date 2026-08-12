@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, FileText, Clock3, Award } from 'lucide-react';
+import { Play, FileText, Clock3, Award, DollarSign } from 'lucide-react';
 
 const BLUE = '#3B60E4';
 const GREEN = '#1E8E5A';
@@ -65,7 +65,7 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div>
             <h3 style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: GREEN, marginBottom: '1rem' }}>Seco Bio</h3>
-            <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, lineHeight: 1.2, marginBottom: '1.5rem' }}>This is published science, <span style={{ color: GREEN, fontStyle: 'italic' }}>not a pitch.</span></h2>
+            <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, lineHeight: 1.2, marginBottom: '1.5rem' }}>This is published science,<br /><span style={{ color: GREEN, fontStyle: 'italic' }}>not a pitch.</span></h2>
             <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2rem' }}>Some of nature's most potent bacteria never make it into a product, because they die before they reach you. Seco Bio's platform keeps them alive — from manufacturing to the moment they're used — so the strongest strains in medicine, probiotics, animal health, and food can finally deliver on what they were always capable of.</p>
 
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
@@ -89,7 +89,8 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
                 {[
                   { icon: FileText, value: '1', label: 'Published Paper' },
                   { icon: Clock3, value: '8', label: 'Years of Research' },
-                  { icon: Award, value: '1', label: 'Patent Pending' }
+                  { icon: Award, value: '1', label: 'Patent Pending' },
+                  { icon: DollarSign, value: '$4M+', label: 'Invested to Date' }
                 ].map(({ icon: Icon, value, label }) => (
                   <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
                     <div style={{ width: 52, height: 52, borderRadius: '50%', flexShrink: 0, background: `linear-gradient(135deg, ${GREEN} 0%, ${GREEN_DEEP} 100%)`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
