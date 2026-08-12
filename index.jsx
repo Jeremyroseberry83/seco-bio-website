@@ -125,22 +125,33 @@ export default function Site() {
         </div>
 
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
+            {navItems.map((item) => {
+              const isActive = !overHero && currentPage === item.id;
+              const hoverColor = overHero ? 'rgba(255,255,255,0.7)' : '#3B60E4';
+              return (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className="text-sm font-medium transition-colors"
+                className="text-sm font-semibold transition-colors"
                 style={{
                   color: overHero
                     ? 'rgba(255,255,255,0.92)'
                     : currentPage === item.id
                     ? '#3B60E4'
-                    : '#6B7280'
+                    : '#6B7280',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px',
+                  paddingBottom: '4px',
+                  borderBottom: `2px solid ${isActive ? '#3B60E4' : 'transparent'}`,
+                  transition: 'color 0.2s, border-color 0.2s'
                 }}
+                onMouseOver={(e) => { if (!isActive) e.currentTarget.style.borderBottomColor = hoverColor; }}
+                onMouseOut={(e) => { if (!isActive) e.currentTarget.style.borderBottomColor = 'transparent'; }}
               >
                 {item.name}
               </button>
-            ))}
+              );
+            })}
           </div>
 
           <div className="hidden md:flex items-center gap-4">
