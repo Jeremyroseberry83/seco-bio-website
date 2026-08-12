@@ -104,29 +104,102 @@ export default function PartnersPage({ onContactClick }) {
       {/* Unlock wedge — novel IP, acquisition-target framing */}
       <section className="pt-4 pb-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="rounded-2xl p-10" style={{ backgroundColor: '#E1F4EE', borderTop: `4px solid ${GREEN}` }}>
-            <Eyebrow color={GREEN_DEEP} className="mb-2">Unlock the novel</Eyebrow>
-            <div className="italic font-bold mb-1" style={{ color: SLATE, fontSize: '22px' }}>Akkermansia muciniphila</div>
-            <p style={{ color: MUTED, fontSize: '13px', marginBottom: 20 }}>GLP-1 adjacent · improves insulin sensitivity & metabolic health</p>
-            <div className="grid grid-cols-2 gap-3 mb-6">
-              <div className="rounded-md p-4" style={{ backgroundColor: 'white' }}>
-                <div className="uppercase font-bold" style={{ color: MUTED, fontSize: '10px', letterSpacing: '0.5px', marginBottom: 6 }}>Today's market</div>
-                <div className="font-bold" style={{ color: SLATE, fontSize: '14px' }}>Pasteurized only</div>
-                <div className="italic" style={{ color: MUTED, fontSize: '12px', marginBottom: 6 }}>(dead bacteria)</div>
-                <div style={{ color: MUTED, fontSize: '12px' }}><strong>Danone</strong> acquired the leading pasteurized player (2025). <strong>IFF</strong> has live fermentation but no dry format.</div>
-              </div>
-              <div className="rounded-md p-4 text-white" style={{ backgroundColor: GREEN_DEEP }}>
-                <div className="uppercase font-bold" style={{ fontSize: '10px', letterSpacing: '0.5px', opacity: 0.85, marginBottom: 6 }}>Seco</div>
-                <div className="font-bold" style={{ fontSize: '14px', marginBottom: 6 }}>First shelf-stable, <span className="italic">live Akkermansia</span></div>
-                <div style={{ fontSize: '12px', opacity: 0.9 }}><strong>Owned NGP</strong><br />Seco Proprietary IP Generation</div>
-              </div>
+          <div className="rounded-2xl p-10 flex flex-col md:flex-row gap-8" style={{ backgroundColor: '#E1F4EE', borderTop: `4px solid ${GREEN}` }}>
+            <div className="rounded-xl overflow-hidden flex-shrink-0" style={{ width: '100%', maxWidth: 220, aspectRatio: '1 / 1' }}>
+              <img src="/images/science/probiotic.jpg" alt="Akkermansia muciniphila research" className="w-full h-full object-cover" loading="lazy" />
             </div>
-            <div className="font-bold text-center py-3 px-4 rounded-md text-white text-sm" style={{ backgroundColor: GREEN_DEEP }}>
-              Novel category → first-mover IP & strategic acquisition target
+            <div className="flex-1">
+              <Eyebrow color={GREEN_DEEP} className="mb-2">Unlock the novel</Eyebrow>
+              <div className="italic font-bold mb-1" style={{ color: SLATE, fontSize: '22px' }}>Akkermansia muciniphila</div>
+              <p style={{ color: MUTED, fontSize: '13px', marginBottom: 20 }}>GLP-1 adjacent · improves insulin sensitivity & metabolic health</p>
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                <div className="rounded-md p-4" style={{ backgroundColor: 'white' }}>
+                  <div className="uppercase font-bold" style={{ color: MUTED, fontSize: '10px', letterSpacing: '0.5px', marginBottom: 6 }}>Today's market</div>
+                  <div className="font-bold" style={{ color: SLATE, fontSize: '14px' }}>Pasteurized only</div>
+                  <div className="italic" style={{ color: MUTED, fontSize: '12px', marginBottom: 6 }}>(dead bacteria)</div>
+                  <div style={{ color: MUTED, fontSize: '12px' }}><strong>Danone</strong> acquired the leading pasteurized player (2025). <strong>IFF</strong> has live fermentation but no dry format.</div>
+                </div>
+                <div className="rounded-md p-4 text-white" style={{ backgroundColor: GREEN_DEEP }}>
+                  <div className="uppercase font-bold" style={{ fontSize: '10px', letterSpacing: '0.5px', opacity: 0.85, marginBottom: 6 }}>Seco</div>
+                  <div className="font-bold" style={{ fontSize: '14px', marginBottom: 6 }}>First shelf-stable, <span className="italic">live Akkermansia</span></div>
+                  <div style={{ fontSize: '12px', opacity: 0.9 }}><strong>Owned NGP</strong><br />Seco Proprietary IP Generation</div>
+                </div>
+              </div>
+              <div className="font-bold text-center py-3 px-4 rounded-md text-white text-sm" style={{ backgroundColor: GREEN_DEEP }}>
+                Novel category → first-mover IP & strategic acquisition target
+              </div>
             </div>
           </div>
 
-          {/* Capital partnership — plain-language positioning, no deal terms published */}
+          {/* Returns rest on precedent, not projection — exit scenarios + M&A comps */}
+          <div className="mt-8 rounded-2xl p-10" style={{ backgroundColor: 'white', border: '1px solid #E4E8F2' }}>
+            <h3 className="font-bold mb-8" style={{ color: SLATE, fontSize: '22px' }}>
+              The returns rest on <span className="italic" style={{ color: GREEN_DEEP }}>precedent, not projection.</span>
+            </h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <div className="uppercase font-bold mb-3" style={{ color: MUTED, fontSize: '11px', letterSpacing: '0.08em' }}>
+                  $10M "one &amp; done" · 3-year target exit
+                </div>
+                <div className="space-y-3">
+                  {[
+                    { label: 'Downside', desc: 'bilateral sale, no auction', multiple: '4.5×', amount: '$200M', bg: '#FBF3E4', fg: '#8A6D1D' },
+                    { label: 'Floor', desc: 'single strategic buyer', multiple: '11×', amount: '$500M', bg: '#F7F8FA', fg: SLATE, border: '#E4E8F2' },
+                    { label: 'Base', desc: 'competitive process · 3-yr target', multiple: '22×', amount: '$1B', bg: '#E1F4EE', fg: GREEN_DEEP, badge: 'BASE CASE' },
+                    { label: 'Upside', desc: 'category-defining auction', multiple: '45×', amount: '$2B+', bg: '#EEF2FE', fg: BLUE_DEEP }
+                  ].map((s) => (
+                    <div key={s.label} className="rounded-md p-4 flex items-center justify-between" style={{ backgroundColor: s.bg, border: s.border ? `1px solid ${s.border}` : 'none' }}>
+                      <div>
+                        {s.badge && (
+                          <div className="font-bold" style={{ color: s.fg, fontSize: '10px', marginBottom: 4 }}>◂ {s.badge}</div>
+                        )}
+                        <div className="font-bold" style={{ color: SLATE, fontSize: '15px' }}>{s.label}</div>
+                        <div style={{ color: MUTED, fontSize: '12px' }}>{s.desc}</div>
+                      </div>
+                      <div className="text-right">
+                        <span className="font-bold" style={{ color: s.fg, fontSize: '26px' }}>{s.multiple}</span>
+                        <span style={{ color: MUTED, fontSize: '13px', marginLeft: 4 }}>{s.amount}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-4" style={{ color: MUTED, fontSize: '12px', lineHeight: 1.6, fontStyle: 'italic' }}>
+                  Target: 3-year strategic exit at base (22×). Same dollars if it takes 5 — only the annual rate changes.
+                </p>
+              </div>
+              <div>
+                <div className="uppercase font-bold mb-3" style={{ color: MUTED, fontSize: '11px', letterSpacing: '0.08em' }}>
+                  Precedent — buyers are acquiring
+                </div>
+                <div className="space-y-2">
+                  {[
+                    { deal: 'Bountiful → Nestlé', desc: 'nutrition brands · 2021', value: '$5.75B', note: '3.1× rev' },
+                    { deal: 'Capsugel → Lonza', desc: 'delivery platform · 2017', value: '$5.5B', note: '15× EBITDA' },
+                    { deal: 'Chr. Hansen → Novozymes', desc: 'category ceiling · 2024', value: '$12.3B', note: '' },
+                    { deal: 'Feed Enzyme → Novonesis', desc: 'enzyme platform · 2025', value: '€1.5B', note: '~5× rev' },
+                    { deal: 'Seres VOWST → Nestlé*', desc: 'single live biotic · 2024', value: '~$525M', note: '' },
+                    { deal: 'Akkermansia → Danone*', desc: 'single strain · 2025', value: '~$250M', note: '' }
+                  ].map((p) => (
+                    <div key={p.deal} className="rounded-md p-3 flex items-center justify-between" style={{ backgroundColor: '#F7F8FA' }}>
+                      <div>
+                        <div className="font-bold" style={{ color: SLATE, fontSize: '13px' }}>{p.deal}</div>
+                        <div style={{ color: MUTED, fontSize: '11px' }}>{p.desc}</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-bold" style={{ color: BLUE_DEEP, fontSize: '14px' }}>{p.value}</div>
+                        {p.note && <div style={{ color: MUTED, fontSize: '11px' }}>{p.note}</div>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-4" style={{ color: MUTED, fontSize: '12px', lineHeight: 1.6, fontStyle: 'italic' }}>
+                  Our $500M–$2B range sits conservatively within these platform M&amp;A precedents. *Estimate / partial terms disclosed.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Capital partnership — plain-language positioning */}
           <div className="mt-8 rounded-2xl p-10" style={{ backgroundColor: INK, color: 'white' }}>
             <Eyebrow color="#8CE0B8" className="mb-3">How to invest</Eyebrow>
             <p style={{ fontSize: '16px', lineHeight: 1.75, opacity: 0.9, marginBottom: 16 }}>
@@ -135,7 +208,7 @@ export default function PartnersPage({ onContactClick }) {
               get exposure to the platform's compounding IP as it scales toward a strategic exit.
             </p>
             <p style={{ fontSize: '14px', lineHeight: 1.7, opacity: 0.7, marginBottom: 24 }}>
-              Full structure, terms, and return scenarios are available in the Investment Deck, on
+              Full structure, terms, and diligence materials are available in the Investment Deck, on
               request, under NDA.
             </p>
             <button
