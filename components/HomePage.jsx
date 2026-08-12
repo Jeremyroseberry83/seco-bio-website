@@ -1,8 +1,9 @@
 import React from 'react';
-import { Play } from 'lucide-react';
+import { Play, FileText, Clock3, Award } from 'lucide-react';
 
 const BLUE = '#3B60E4';
 const GREEN = '#1E8E5A';
+const GREEN_DEEP = '#176E46';
 const SLATE = '#3D4654';
 const MUTED = '#6B7280';
 const INK = '#2E4259';
@@ -84,20 +85,72 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
         </div>
       </section>
 
-      {/* EIGHT YEARS */}
-      <section style={{ backgroundColor: BG, padding: '4rem 1.5rem' }}>
-        <div className="max-w-6xl mx-auto">
-          <h2 style={{ textAlign: 'center', fontSize: '36px', fontWeight: 700, color: SLATE, lineHeight: 1.2, marginBottom: '3rem' }}>Published <span style={{ color: GREEN, fontStyle: 'italic' }}>science</span> and Eight Years of <span style={{ color: GREEN, fontStyle: 'italic' }}>Research</span> Behind It</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem' }}>
-            {[{ name: 'NASA', desc: 'Research funding', logo: '/images/logos/nasa.png' }, { name: 'DARPA', desc: 'Research funding', logo: '/images/logos/darpa.png' }, { name: 'MIT', desc: 'Where the work was done', logo: '/images/logos/mit.png' }, { name: 'Nature Materials', desc: 'Peer-reviewed, 2024', logo: '/images/logos/nature.png' }].map(({ name, desc, logo }) => (
-              <div key={name} style={{ textAlign: 'center' }}>
-                <div style={{ width: 100, height: 100, borderRadius: '50%', backgroundColor: '#E8E8E8', margin: '0 auto 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                  <img src={logo} alt={name} style={{ width: '60%', height: '60%', objectFit: 'contain' }} />
-                </div>
-                <h3 style={{ fontSize: '16px', fontWeight: 600, color: SLATE, marginBottom: '0.5rem' }}>{name}</h3>
-                <p style={{ fontSize: '13px', color: MUTED }}>{desc}</p>
+      {/* SECO BIO — People & Research */}
+      <section style={{ backgroundColor: 'white', padding: '5rem 1.5rem' }}>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <h3 style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: GREEN, marginBottom: '1rem' }}>Seco Bio</h3>
+            <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, lineHeight: 1.2, marginBottom: '1.5rem' }}>This is published science, <span style={{ color: GREEN, fontStyle: 'italic' }}>not a pitch.</span></h2>
+            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2rem' }}>Some of nature's most potent bacteria never make it into a product, because they die before they reach you. Seco Bio's platform keeps them alive — from manufacturing to the moment they're used — so the strongest strains in medicine, probiotics, animal health, and food can finally deliver on what they were always capable of.</p>
+
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
+              <button
+                onClick={() => onNavigate && onNavigate('about')}
+                style={{ padding: '13px 26px', borderRadius: '999px', border: 'none', background: `linear-gradient(90deg, ${GREEN} 0%, ${GREEN_DEEP} 100%)`, color: 'white', fontSize: '15px', fontWeight: 600, cursor: 'pointer' }}
+              >
+                Meet Our Team
+              </button>
+              <button
+                onClick={() => onNavigate && onNavigate('partners')}
+                style={{ padding: '13px 26px', borderRadius: '999px', border: `1.5px solid rgba(30,142,90,0.35)`, background: 'transparent', color: GREEN_DEEP, fontSize: '15px', fontWeight: 600, cursor: 'pointer' }}
+              >
+                Partners
+              </button>
+            </div>
+
+            <div style={{ borderTop: '1px solid #E4E8F2', paddingTop: '2rem' }}>
+              <h4 style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: MUTED, marginBottom: '1.5rem' }}>Published Science and Eight Years of Research Behind It</h4>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1.5rem' }}>
+                {[
+                  { icon: FileText, value: '1', label: 'Published Paper' },
+                  { icon: Clock3, value: '8', label: 'Years of Research' },
+                  { icon: Award, value: '1', label: 'Patent Pending' }
+                ].map(({ icon: Icon, value, label }) => (
+                  <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+                    <div style={{ width: 52, height: 52, borderRadius: '50%', flexShrink: 0, background: `linear-gradient(135deg, ${GREEN} 0%, ${GREEN_DEEP} 100%)`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Icon size={22} color="white" strokeWidth={2} />
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '22px', fontWeight: 700, color: SLATE, lineHeight: 1.1 }}>{value}</div>
+                      <div style={{ fontSize: '13px', color: MUTED }}>{label}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+          </div>
+
+          <div
+            onClick={onWatchFilm}
+            style={{
+              position: 'relative',
+              aspectRatio: '4 / 3',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              cursor: 'pointer',
+              backgroundImage: 'url(/images/Modern_Laboratory_Setup.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          >
+            <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '16px 26px', borderRadius: '999px', backgroundColor: 'rgba(23,45,35,0.88)' }}>
+                <div style={{ width: 30, height: 30, borderRadius: '50%', border: '1.5px solid white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Play size={13} color="white" fill="white" />
+                </div>
+                <span style={{ color: 'white', fontSize: '15px', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>See Our Story</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
