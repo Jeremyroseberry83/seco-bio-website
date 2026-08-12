@@ -59,6 +59,31 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
         </svg>
       </section>
 
+      {/* TWO PATHS */}
+      <section style={{ backgroundColor: 'white', padding: '4rem 1.5rem 0' }}>
+        <div className="max-w-4xl mx-auto text-center" style={{ marginBottom: '2.5rem' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, lineHeight: 1.2 }}>Where do you fit in?</h2>
+        </div>
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+          <div
+            onClick={() => onNavigate && onNavigate('partners')}
+            className="transition-colors"
+            style={{ cursor: 'pointer', border: '2px solid rgba(59,96,228,0.2)', borderTop: `3px solid ${BLUE}`, borderRadius: '12px', padding: '2rem' }}
+          >
+            <h3 style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: BLUE, marginBottom: '0.75rem' }}>Business Partners</h3>
+            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.7 }}>Brands, manufacturers, and ingredient partners bringing us a strain to protect.</p>
+          </div>
+          <div
+            onClick={() => onNavigate && onNavigate('partners')}
+            className="transition-colors"
+            style={{ cursor: 'pointer', border: '2px solid rgba(30,142,90,0.2)', borderTop: `3px solid ${GREEN}`, borderRadius: '12px', padding: '2rem' }}
+          >
+            <h3 style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: GREEN, marginBottom: '0.75rem' }}>Capital Partners</h3>
+            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.7 }}>Investors scaling the platform's compounding IP toward a strategic exit.</p>
+          </div>
+        </div>
+      </section>
+
       {/* EIGHT YEARS */}
       <section style={{ backgroundColor: BG, padding: '4rem 1.5rem' }}>
         <div className="max-w-6xl mx-auto">

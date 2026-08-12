@@ -17,14 +17,28 @@ function Eyebrow({ children, color = BLUE }) {
   );
 }
 
-function Person({ name, title, bio, photo, accent, linkedin }) {
+function Person({ name, title, bio, photo, accent, linkedin, category }) {
   return (
     <div>
       <div
-        className="rounded-2xl overflow-hidden mb-6"
+        className="relative rounded-2xl overflow-hidden mb-6"
         style={{ aspectRatio: '1 / 1', backgroundColor: '#E9EDF6' }}
       >
         <img src={photo} alt={name} className="w-full h-full object-cover" loading="lazy" />
+        {category && (
+          <span
+            className="absolute top-3 left-3 text-xs font-bold uppercase"
+            style={{
+              color: 'white',
+              backgroundColor: accent,
+              padding: '4px 10px',
+              borderRadius: '999px',
+              letterSpacing: '0.08em'
+            }}
+          >
+            {category}
+          </span>
+        )}
       </div>
 
       <div className="flex items-center gap-2.5 mb-1">
@@ -160,6 +174,7 @@ export default function AboutPage({ onContactClick }) {
               name="Joe Collura"
               linkedin="https://www.linkedin.com/in/jvcollura/"
               title="Cofounder &amp; CEO"
+              category="Founder"
               accent={BLUE}
               photo="/images/team/joe.jpg"
               bio="Built and commercialized MIT technology; launched medicines in neurology and oncology."
@@ -168,6 +183,7 @@ export default function AboutPage({ onContactClick }) {
               name="Miguel Jimenez, PhD"
               linkedin="https://www.linkedin.com/in/miguel-jimenez/"
               title="Cofounder &amp; Inventor"
+              category="Founder"
               accent={BLUE}
               photo="/images/team/miguel.jpg"
               bio="Led the original research and its publication in Nature Materials. Professor at Boston University."
@@ -176,6 +192,7 @@ export default function AboutPage({ onContactClick }) {
               name="Giovanni Traverso, MD, PhD"
               linkedin="https://www.linkedin.com/in/giovanni-traverso-84386742/"
               title="Cofounder &amp; Inventor"
+              category="Founder"
               accent={BLUE}
               photo="/images/team/giovanni.jpg"
               bio="MIT professor, practising physician, and founder of four biotech companies."
@@ -207,6 +224,7 @@ export default function AboutPage({ onContactClick }) {
               name="Martin Hendrix, PhD"
               linkedin="https://www.linkedin.com/in/martin-hendrix-17b963b/"
               title="Former Head of Global BD &amp; M&amp;A, Nestlé Health Science"
+              category="Advisor"
               accent={GREEN}
               photo="/images/team/hendrix.jpg"
               bio="Built the company's M&amp;A function from 2012 and led its venture investment strategy. Board seats at Prometheus Biosciences, Evelo, Enterome, and Kaleido."
@@ -215,6 +233,7 @@ export default function AboutPage({ onContactClick }) {
               name="Dan Stroud"
               linkedin="https://www.linkedin.com/in/danstroud1/"
               title="Founding CFO, Nestlé Health Science"
+              category="Advisor"
               accent={GREEN}
               photo="/images/team/stroud.jpg"
               bio="Former CFO of Nestlé USA. Thirty-four years at Nestlé, leading financial strategy for its major acquisitions. Senior Advisor, New Mountain Capital."
@@ -223,6 +242,7 @@ export default function AboutPage({ onContactClick }) {
               name="Peter Luther, MBA"
               linkedin="https://www.linkedin.com/in/peterluther/"
               title="Former President &amp; CEO, Atrium Innovations"
+              category="Advisor"
               accent={GREEN}
               photo="/images/team/luther.jpg"
               bio="Led the consumer health group behind Garden of Life and Pure Encapsulations."
