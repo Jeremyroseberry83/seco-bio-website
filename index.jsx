@@ -86,11 +86,21 @@ export default function Site() {
             className="flex items-center gap-3"
             aria-label="Seco Bio home"
           >
-            <img
-              src={overHero ? '/images/seco-mark-white.png' : '/images/seco-mark.png'}
-              alt="Seco Bio"
-              style={{ height: 34, width: 'auto', display: 'block' }}
-            />
+            <div style={{ position: 'relative', height: 34, width: 28, flexShrink: 0 }}>
+              {/* Both variants render from mount and crossfade via opacity — swapping
+                  the `src` directly caused a flicker while the other file loaded. */}
+              <img
+                src="/images/seco-mark-white.png"
+                alt="Seco Bio"
+                style={{ position: 'absolute', inset: 0, height: 34, width: 28, display: 'block', opacity: overHero ? 1 : 0, transition: 'opacity 250ms ease' }}
+              />
+              <img
+                src="/images/seco-mark.png"
+                alt=""
+                aria-hidden="true"
+                style={{ position: 'absolute', inset: 0, height: 34, width: 28, display: 'block', opacity: overHero ? 0 : 1, transition: 'opacity 250ms ease' }}
+              />
+            </div>
             <div>
               <div
                 className="text-lg font-bold"
