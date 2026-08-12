@@ -333,6 +333,44 @@ export function HighlightGrid({ eyebrow, title, intro, cards, tone = 'blue' }) {
   );
 }
 
+/** CountUp — animates a number from 0 to `end` once it scrolls into view. */
+export function CountUp({ end, duration = 1400, prefix = '', suffix = '', decimals = 0 }) {
+  const ref = React.useRef(null);
+  const [value, setValue] = React.useState(0);
+  const started = React.useRef(false);
+
+  React.useEffect(() => {
+    const node = ref.current;
+    if (!node) return undefined;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || started.current) return;
+        started.current = true;
+        const start = performance.now();
+        const tick = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          setValue(end * eased);
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        observer.disconnect();
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [end, duration]);
+
+  return (
+    <span ref={ref}>
+      {prefix}
+      {value.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}
+      {suffix}
+    </span>
+  );
+}
+
 /** StatBand — full-bleed image with oversized figures across it. */
 export function StatBand({ image, stats, tone = 'blue' }) {
   const accent = tone === 'green' ? GREEN_LIGHT : BLUE_LIGHT;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CountUp } from './ui';
 
 const BLUE = '#3B60E4';
 const GREEN = '#1E8E5A';
@@ -129,13 +130,13 @@ export default function PlatformSciencePage({ onContactClick }) {
             </div>
             <div style={{ backgroundColor: GREEN_BG_LIGHT, borderRadius: '12px', borderTop: `4px solid ${GREEN}`, padding: '2rem' }}>
               <h4 style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: GREEN, marginBottom: '1rem' }}>Inside a Healthy Gut</h4>
-              <div style={{ fontSize: '40px', fontWeight: 700, color: SLATE, marginBottom: '0.5rem' }}>~1,000 <span style={{ fontSize: '18px', fontWeight: 600, color: MUTED }}>species</span></div>
+              <div style={{ fontSize: '40px', fontWeight: 700, color: SLATE, marginBottom: '0.5rem' }}><CountUp end={1000} prefix="~" /> <span style={{ fontSize: '18px', fontWeight: 600, color: MUTED }}>species</span></div>
               <p style={{ fontSize: '14px', color: MUTED, lineHeight: 1.7 }}>Bacterial species found in a healthy human gut microbiome, per the NIH Human Microbiome Project.</p>
             </div>
           </div>
 
           <div style={{ backgroundColor: INK, color: 'white', borderRadius: '10px', padding: '1.5rem 2rem', textAlign: 'center', marginBottom: '2rem' }}>
-            <span style={{ fontSize: '28px', fontWeight: 700, color: LIGHT_GREEN_ACCENT, marginRight: '0.5rem' }}>~50×</span>
+            <span style={{ fontSize: '28px', fontWeight: 700, color: LIGHT_GREEN_ACCENT, marginRight: '0.5rem' }}><CountUp end={50} prefix="~" suffix="×" /></span>
             gap at the species level alone.
           </div>
 
@@ -260,21 +261,21 @@ export default function PlatformSciencePage({ onContactClick }) {
               <div style={{ display: 'flex', gap: '1rem' }}>
                 <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: GREEN, fontWeight: 700, flexShrink: 0 }}>✓</div>
                 <div>
-                  <div style={{ fontSize: '18px', fontWeight: 700, color: 'white', marginBottom: '0.25rem' }}>10,000×</div>
+                  <div style={{ fontSize: '18px', fontWeight: 700, color: 'white', marginBottom: '0.25rem' }}><CountUp end={10000} suffix="×" /></div>
                   <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>more surviving cells than an uncoated commercial strain</div>
                 </div>
               </div>
               <div style={{ display: 'flex', gap: '1rem' }}>
                 <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: GREEN, fontWeight: 700, flexShrink: 0 }}>✓</div>
                 <div>
-                  <div style={{ fontSize: '18px', fontWeight: 700, color: 'white', marginBottom: '0.25rem' }}>6½ months</div>
+                  <div style={{ fontSize: '18px', fontWeight: 700, color: 'white', marginBottom: '0.25rem' }}><CountUp end={6.5} decimals={1} suffix=" months" /></div>
                   <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>at body temperature, and still alive</div>
                 </div>
               </div>
               <div style={{ display: 'flex', gap: '1rem' }}>
                 <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: GREEN, fontWeight: 700, flexShrink: 0 }}>✓</div>
                 <div>
-                  <div style={{ fontSize: '18px', fontWeight: 700, color: 'white', marginBottom: '0.25rem' }}>2,080</div>
+                  <div style={{ fontSize: '18px', fontWeight: 700, color: 'white', marginBottom: '0.25rem' }}><CountUp end={2080} /></div>
                   <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>formulations tested to find what works</div>
                 </div>
               </div>

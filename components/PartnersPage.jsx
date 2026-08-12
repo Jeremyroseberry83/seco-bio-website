@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check, X } from 'lucide-react';
 import {
   PageHero, Accent, Eyebrow, SplitFeature, NumberStrip, CircleGrid, HighlightGrid,
   SLATE, MUTED, BLUE, BLUE_DEEP, GREEN, GREEN_DEEP, INK
@@ -158,14 +158,29 @@ export default function PartnersPage({ onContactClick }) {
         quote="A program is scoped to one strain and one format. We formulate, prove it at your scale, and transfer it to your line."
       >
         <p className="mb-6">
-          Overfilling is a tax. You buy more organism than you sell, you carry shelf life you
-          can't fully predict, and you make a claim you can't verify at the moment of consumption.
-          Every unit absorbs the cost.
+          Overfilling is a tax. Every unit absorbs the cost of what you can't control.
         </p>
-        <p>
-          A program with Seco removes the guesswork from all three — without changing your strain,
-          your ingredients, or your line.
-        </p>
+        <ul className="space-y-3 mb-6">
+          {[
+            'You buy more organism than you sell',
+            "You carry shelf life you can't fully predict",
+            "You make a claim you can't verify at the moment of consumption"
+          ].map((t) => (
+            <li key={t} className="flex gap-3 items-start">
+              <X size={16} style={{ color: '#D1226B', flexShrink: 0, marginTop: 3 }} />
+              <span>{t}</span>
+            </li>
+          ))}
+          {[
+            'A program with Seco removes the guesswork from all three',
+            "Without changing your strain, your ingredients, or your line"
+          ].map((t) => (
+            <li key={t} className="flex gap-3 items-start">
+              <Check size={16} style={{ color: GREEN_DEEP, flexShrink: 0, marginTop: 3 }} />
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
       </SplitFeature>
 
       {/* What we need / what you get */}
