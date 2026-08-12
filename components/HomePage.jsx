@@ -36,7 +36,7 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
               Keeping the <span style={{ color: GREEN, fontStyle: 'italic' }}>living</span> alive.
             </h1>
             <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.9)', lineHeight: 1.7, marginTop: '1.25rem', maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', textShadow: '0 1px 12px rgba(0,0,0,0.35)' }}>
-              Live bacteria don't survive the shelf. Our platform makes them survive it — and puts strains that never could on it for the first time.
+              Live bacteria don't survive the shelf. Our platform keeps them alive at full potency, so strains that could never survive on a shelf before finally can.
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '2rem' }}>
               <button
