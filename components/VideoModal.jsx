@@ -31,7 +31,7 @@ export default function VideoModal({ onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-8"
+      className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-8 modal-fade-in"
       style={{ backgroundColor: 'rgba(10,14,20,0.92)' }}
       onClick={onClose}
       role="dialog"

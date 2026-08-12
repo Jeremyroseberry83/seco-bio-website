@@ -112,10 +112,20 @@ body {
 }
 .scroll-cue span { animation: scrollCue 1.9s ease-in-out infinite; }
 
+/* Video modal: soft fade-in instead of popping in abruptly. */
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.modal-fade-in {
+  animation: modalFadeIn 1s ease forwards;
+}
+
 /* Respect users who ask for reduced motion. */
 @media (prefers-reduced-motion: reduce) {
   .hero-reveal { opacity: 1; animation: none; }
   .scroll-cue span { animation: none; }
+  .modal-fade-in { opacity: 1; animation: none; }
 }
 
 /* Process chevrons point right across a row on desktop. Stacked on mobile a
