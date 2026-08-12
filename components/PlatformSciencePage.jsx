@@ -206,9 +206,9 @@ export default function PlatformSciencePage({ onContactClick }) {
       </section>
 
       {/* 5. BEYOND THE SHELF */}
-      <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_INK_BG }}>
+      <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_GREEN_BG }}>
         <div className="max-w-6xl mx-auto">
-          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_BLUE_ACCENT, marginBottom: '1rem' }}>Beyond the Shelf</h3>
+          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_GREEN_ACCENT, marginBottom: '1rem' }}>Beyond the Shelf</h3>
           <h2 style={{ fontSize: '36px', fontWeight: 700, color: 'white', marginBottom: '1rem', lineHeight: 1.2 }}>Anything alive that has to survive a journey.</h2>
           <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.85)', lineHeight: 1.8, marginBottom: '3rem' }}>Probiotics are where we start, because the need is immediate and the market is large. The same protection applies anywhere a living organism has to survive being processed, stored, and transported.</p>
 
