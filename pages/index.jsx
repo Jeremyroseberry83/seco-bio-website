@@ -310,7 +310,12 @@ export default function Site() {
 
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
           <div>
-            <h4 className="font-bold mb-3 text-sm">Pages</h4>
+            <h4
+              className="font-bold mb-3 text-sm"
+              style={{ textTransform: 'uppercase', letterSpacing: '0.5px', paddingBottom: 8, borderBottom: '1px solid rgba(255,255,255,0.3)' }}
+            >
+              Resources
+            </h4>
             <div className="flex flex-col gap-2 text-sm items-start">
               {navItems.map((item) => (
                 <button
@@ -324,7 +329,12 @@ export default function Site() {
             </div>
           </div>
           <div style={{ textAlign: 'right' }}>
-            <h4 className="font-bold mb-4 text-sm">Contact</h4>
+            <h4
+              className="font-bold mb-4 text-sm"
+              style={{ textTransform: 'uppercase', letterSpacing: '0.5px', paddingBottom: 8, borderBottom: '1px solid rgba(255,255,255,0.3)' }}
+            >
+              Contact
+            </h4>
 
             <p className="font-semibold" style={{ fontSize: 15, marginBottom: 3 }}>
               Joe Collura
