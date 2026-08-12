@@ -62,7 +62,7 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
       {/* EIGHT YEARS */}
       <section style={{ backgroundColor: BG, padding: '4rem 1.5rem' }}>
         <div className="max-w-6xl mx-auto">
-          <h2 style={{ textAlign: 'center', fontSize: '24px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: MUTED, marginBottom: '3rem' }}>Published <span style={{ color: GREEN, fontWeight: 700 }}>science</span> and Eight Years of <span style={{ color: GREEN, fontWeight: 700 }}>Research</span> Behind It</h2>
+          <h2 style={{ textAlign: 'center', fontSize: '36px', fontWeight: 700, color: SLATE, lineHeight: 1.2, marginBottom: '3rem' }}>Published <span style={{ color: GREEN, fontStyle: 'italic' }}>science</span> and Eight Years of <span style={{ color: GREEN, fontStyle: 'italic' }}>Research</span> Behind It</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem' }}>
             {[{ name: 'NASA', desc: 'Research funding', logo: '/images/logos/nasa.png' }, { name: 'DARPA', desc: 'Research funding', logo: '/images/logos/darpa.png' }, { name: 'MIT', desc: 'Where the work was done', logo: '/images/logos/mit.png' }, { name: 'Nature Materials', desc: 'Peer-reviewed, 2024', logo: '/images/logos/nature.png' }].map(({ name, desc, logo }) => (
               <div key={name} style={{ textAlign: 'center' }}>

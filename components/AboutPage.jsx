@@ -103,7 +103,7 @@ export default function AboutPage({ onContactClick }) {
             <p className="mb-8" style={{ color: MUTED, fontSize: '17px', lineHeight: 1.75 }}>
               Seco Bio exists to bring it to the industries that need it now.
             </p>
-            <div className="flex flex-wrap items-center gap-8 pt-6" style={{ borderTop: '1px solid #E4E8F2' }}>
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-8 pt-6" style={{ borderTop: '1px solid #E4E8F2' }}>
               <img src="/images/logos/nasa.png" alt="NASA" style={{ height: 32, width: 'auto' }} />
               <img src="/images/logos/darpa.png" alt="DARPA" style={{ height: 28, width: 'auto' }} />
               <img src="/images/logos/mit.png" alt="MIT" style={{ height: 24, width: 'auto' }} />

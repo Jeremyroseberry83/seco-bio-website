@@ -52,7 +52,7 @@ export default function PlatformSciencePage({ onContactClick }) {
             <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1.5rem', lineHeight: 1.2 }}>Built to keep bacteria alive where <span style={{ color: BLUE, fontStyle: 'italic' }}>nothing else</span> could.</h2>
             <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '1.5rem' }}>From 2017 to 2024, NASA and DARPA funded research at MIT aimed at keeping bacteria alive for soldiers in the field and astronauts on long missions. The findings were published in <em>Nature Materials</em> in 2024.</p>
             <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2rem' }}>Seco Bio exists to bring it to the industries that need it now.</p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap', paddingTop: '1.5rem', borderTop: '1px solid #DCE3F7' }}>
+            <div className="flex flex-wrap items-center justify-center md:justify-start" style={{ gap: '2rem', paddingTop: '1.5rem', borderTop: '1px solid #DCE3F7' }}>
               <img src="/images/logos/nasa.png" alt="NASA" style={{ height: 32, width: 'auto' }} />
               <img src="/images/logos/darpa.png" alt="DARPA" style={{ height: 28, width: 'auto' }} />
               <img src="/images/logos/mit.png" alt="MIT" style={{ height: 24, width: 'auto' }} />

@@ -233,11 +233,9 @@ export default function Site() {
         <div className="max-w-7xl mx-auto">
           {/* Compact newsletter strip */}
           <div
+            className="flex flex-col md:flex-row items-center md:items-center justify-center md:justify-between text-center md:text-left"
             style={{
-              display: 'flex',
               flexWrap: 'wrap',
-              alignItems: 'center',
-              justifyContent: 'space-between',
               gap: '1.5rem',
               paddingBottom: '1.5rem',
               marginBottom: '1.5rem',
@@ -292,11 +290,9 @@ export default function Site() {
 
           {/* Logo · nav links · contact — single row */}
           <div
+            className="flex flex-col md:flex-row items-center md:items-center justify-center md:justify-between text-center md:text-left"
             style={{
-              display: 'flex',
               flexWrap: 'wrap',
-              alignItems: 'center',
-              justifyContent: 'space-between',
               gap: '1.5rem',
               paddingBottom: '1.25rem',
               marginBottom: '1.25rem',
@@ -311,7 +307,7 @@ export default function Site() {
               </div>
             </div>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <div className="flex flex-wrap justify-center md:justify-start" style={{ gap: '1.5rem' }}>
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -324,7 +320,7 @@ export default function Site() {
               ))}
             </div>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1.25rem', fontSize: 13 }}>
+            <div className="flex flex-wrap items-center justify-center md:justify-start" style={{ gap: '1.25rem', fontSize: 13 }}>
               <span style={{ opacity: 0.65 }}>Joe Collura</span>
               <a
                 href="mailto:joe@seco.bio"
