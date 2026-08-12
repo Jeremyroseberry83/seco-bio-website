@@ -244,11 +244,11 @@ export default function Site() {
             borderBottom: '1px solid rgba(255,255,255,0.2)'
           }}
         >
-          <div>
+          <div style={{ textAlign: 'center' }}>
             <img
               src="/images/seco-lockup-white.png"
               alt="Seco Bio"
-              style={{ height: 74, width: 'auto', display: 'block', marginBottom: 18 }}
+              style={{ height: 74, width: 'auto', display: 'block', margin: '0 auto 18px' }}
             />
             <p className="text-sm opacity-75">Protecting what matters.</p>
           </div>
@@ -323,7 +323,7 @@ export default function Site() {
               ))}
             </div>
           </div>
-          <div>
+          <div style={{ textAlign: 'right' }}>
             <h4 className="font-bold mb-4 text-sm">Contact</h4>
 
             <p className="font-semibold" style={{ fontSize: 15, marginBottom: 3 }}>
@@ -336,7 +336,7 @@ export default function Site() {
             <a
               href="mailto:joe@seco.bio"
               className="flex items-center gap-2.5 opacity-80 hover:opacity-100 transition-opacity"
-              style={{ fontSize: 14, marginBottom: 11 }}
+              style={{ fontSize: 14, marginBottom: 11, justifyContent: 'flex-end' }}
             >
               <Mail size={15} strokeWidth={1.8} style={{ flexShrink: 0 }} />
               joe@seco.bio
@@ -347,7 +347,7 @@ export default function Site() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2.5 opacity-80 hover:opacity-100 transition-opacity"
-              style={{ fontSize: 14 }}
+              style={{ fontSize: 14, justifyContent: 'flex-end' }}
             >
               <Linkedin size={15} strokeWidth={1.8} style={{ flexShrink: 0 }} />
               LinkedIn
