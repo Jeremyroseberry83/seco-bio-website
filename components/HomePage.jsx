@@ -113,7 +113,7 @@ export default function HomePage({ onContactClick, onNavigate, onWatchFilm }) {
               borderRadius: '20px',
               overflow: 'hidden',
               cursor: 'pointer',
-              backgroundImage: 'url(/images/Modern_Laboratory_Setup.png)',
+              backgroundImage: 'url(/images/home-story-thumbnail.jpg)',
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}
