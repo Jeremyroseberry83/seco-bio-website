@@ -216,6 +216,15 @@ export default function PartnersPage({ onContactClick }) {
             >
               Request the Investment Deck <ArrowRight size={15} />
             </button>
+            <p style={{ fontSize: '12px', lineHeight: 1.6, opacity: 0.55, marginTop: 24 }}>
+              This page does not constitute an offer to sell or a solicitation of an offer to buy
+              any security. Securities are offered only pursuant to Rule 506(b) of Regulation D
+              under the Securities Act of 1933, as amended, and only to accredited investors with
+              whom Seco Bio has a substantive, pre-existing relationship. Securities have not been
+              registered under the Securities Act or any state securities laws and may not be
+              offered or sold absent registration or an applicable exemption. Full offering terms
+              are furnished only in the Investment Deck, on request, to qualified investors.
+            </p>
           </div>
         </div>
       </section>

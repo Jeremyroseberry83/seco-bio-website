@@ -357,6 +357,9 @@ export default function Site() {
           <div className="text-xs text-center" style={{ opacity: 0.5 }}>
             © 2026 Seco Bio. Privacy · Terms
           </div>
+          <div className="text-xs text-center" style={{ opacity: 0.4, marginTop: 8, maxWidth: 640, marginLeft: 'auto', marginRight: 'auto' }}>
+            References to investors or investment on this site concern securities offered only under Rule 506(b) of Regulation D to accredited investors, and do not constitute an offer to sell or a solicitation of an offer to buy any security.
+          </div>
         </div>
       </footer>
     </div>
