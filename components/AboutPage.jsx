@@ -202,7 +202,7 @@ export default function AboutPage({ onContactClick }) {
       </section>
 
       {/* Advisors */}
-      <section className="py-28 px-6" style={{ backgroundColor: '#F7F8FA' }}>
+      <section className="pt-28 pb-12 px-6" style={{ backgroundColor: '#F7F8FA' }}>
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mb-16">
             <Eyebrow color={GREEN}>Executive Advisory Board</Eyebrow>
@@ -252,7 +252,7 @@ export default function AboutPage({ onContactClick }) {
       </section>
 
       {/* Where We Focus */}
-      <section className="py-28 px-6" style={{ backgroundColor: '#F7F8FA' }}>
+      <section className="pt-12 pb-28 px-6" style={{ backgroundColor: '#F7F8FA' }}>
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mb-16">
             <Eyebrow>Where we focus</Eyebrow>

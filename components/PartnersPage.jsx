@@ -58,9 +58,8 @@ export default function PartnersPage({ onContactClick }) {
               Brands, manufacturers, and ingredient partners
             </h3>
             <p style={{ color: MUTED, fontSize: '15px', lineHeight: 1.7, marginBottom: 20 }}>
-              Bring us a strain and a target. We formulate the protection and license it to you —
-              so your product delivers what the label promises. Built to scale with you, not
-              around you.
+              We formulate the protection and license it to you — so your product delivers what
+              the label promises. Built to scale with you, not around you.
             </p>
             <div
               className="text-sm font-semibold px-4 py-3 rounded-md mb-3"
@@ -91,7 +90,6 @@ export default function PartnersPage({ onContactClick }) {
 
       <HighlightGrid
         tone="green"
-        eyebrow="For capital partners"
         title="Every strain solved is protected IP that compounds."
         intro="Capital partners scaling the platform from strategic to institutional growth capital. We work with investors aligned to the long-term platform opportunity. Speak with us by introduction, under NDA."
         cards={[
@@ -106,7 +104,7 @@ export default function PartnersPage({ onContactClick }) {
         <div className="max-w-6xl mx-auto">
           <div className="rounded-2xl p-10 flex flex-col md:flex-row gap-8" style={{ backgroundColor: '#E1F4EE', borderTop: `4px solid ${GREEN}` }}>
             <div className="rounded-xl overflow-hidden flex-shrink-0" style={{ width: '100%', maxWidth: 220, aspectRatio: '1 / 1' }}>
-              <img src="/images/science/probiotic.jpg" alt="Akkermansia muciniphila research" className="w-full h-full object-cover" loading="lazy" />
+              <img src="/images/glp1-injector.jpg" alt="GLP-1 adjacent delivery format" className="w-full h-full object-cover" loading="lazy" />
             </div>
             <div className="flex-1">
               <Eyebrow color={GREEN_DEEP} className="mb-2">Unlock the novel</Eyebrow>

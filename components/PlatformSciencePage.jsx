@@ -43,32 +43,32 @@ export default function PlatformSciencePage({ onContactClick }) {
       </section>
 
       {/* 1. THE PLATFORM */}
-      <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_GREEN_BG }}>
+      <section style={{ padding: '4rem 1.5rem', backgroundColor: BG }}>
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_GREEN_ACCENT, marginBottom: '1rem' }}>The Platform</h3>
-            <h2 style={{ fontSize: '36px', fontWeight: 700, color: 'white', marginBottom: '1.5rem', lineHeight: 1.2 }}>This is published science, not a pitch.</h2>
-            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.85)', lineHeight: 1.8, marginBottom: '2rem' }}>The underlying research was funded by NASA and DARPA, carried out at MIT, and published in Nature Materials with full methods and data. Anyone can check it.</p>
+            <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: GREEN, marginBottom: '1rem' }}>The Platform</h3>
+            <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1.5rem', lineHeight: 1.2 }}>This is published science, not a pitch.</h2>
+            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2rem' }}>The underlying research was funded by NASA and DARPA, carried out at MIT, and published in Nature Materials with full methods and data. Anyone can check it.</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2rem' }}>
               <div style={{ display: 'flex', gap: '1rem' }}>
-                <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: GREEN, fontWeight: 700, flexShrink: 0 }}>✓</div>
+                <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: GREEN, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 700, flexShrink: 0 }}>✓</div>
                 <div>
-                  <div style={{ fontSize: '18px', fontWeight: 700, color: 'white', marginBottom: '0.25rem' }}><CountUp end={10000} suffix="×" /></div>
-                  <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>more surviving cells than an uncoated commercial strain</div>
+                  <div style={{ fontSize: '18px', fontWeight: 700, color: SLATE, marginBottom: '0.25rem' }}><CountUp end={10000} suffix="×" /></div>
+                  <div style={{ fontSize: '14px', color: MUTED }}>more surviving cells than an uncoated commercial strain</div>
                 </div>
               </div>
               <div style={{ display: 'flex', gap: '1rem' }}>
-                <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: GREEN, fontWeight: 700, flexShrink: 0 }}>✓</div>
+                <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: GREEN, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 700, flexShrink: 0 }}>✓</div>
                 <div>
-                  <div style={{ fontSize: '18px', fontWeight: 700, color: 'white', marginBottom: '0.25rem' }}><CountUp end={6.5} decimals={1} suffix=" months" /></div>
-                  <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>at body temperature, and still alive</div>
+                  <div style={{ fontSize: '18px', fontWeight: 700, color: SLATE, marginBottom: '0.25rem' }}><CountUp end={6.5} decimals={1} suffix=" months" /></div>
+                  <div style={{ fontSize: '14px', color: MUTED }}>at body temperature, and still alive</div>
                 </div>
               </div>
               <div style={{ display: 'flex', gap: '1rem' }}>
-                <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: GREEN, fontWeight: 700, flexShrink: 0 }}>✓</div>
+                <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: GREEN, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 700, flexShrink: 0 }}>✓</div>
                 <div>
-                  <div style={{ fontSize: '18px', fontWeight: 700, color: 'white', marginBottom: '0.25rem' }}><CountUp end={2080} /></div>
-                  <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>formulations tested to find what works</div>
+                  <div style={{ fontSize: '18px', fontWeight: 700, color: SLATE, marginBottom: '0.25rem' }}><CountUp end={2080} /></div>
+                  <div style={{ fontSize: '14px', color: MUTED }}>formulations tested to find what works</div>
                 </div>
               </div>
             </div>
@@ -81,7 +81,7 @@ export default function PlatformSciencePage({ onContactClick }) {
               </a>
             </div>
           </div>
-          <div style={{ aspectRatio: '1', backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+          <div style={{ aspectRatio: '1', backgroundColor: GRAY_BG_LIGHT, borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
             <img src="/images/microscope-bench.jpg" alt="Microscope" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
         </div>
