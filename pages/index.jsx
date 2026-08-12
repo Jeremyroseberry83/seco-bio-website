@@ -13,8 +13,11 @@ export default function Site() {
   const [currentPage, setCurrentPage] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
+  const [contactContext, setContactContext] = useState(null);
   const [showVideo, setShowVideo] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
@@ -37,7 +40,18 @@ export default function Site() {
     window.scrollTo(0, 0);
   };
 
-  const openContact = () => setShowContactModal(true);
+  const openContact = (type, message) => {
+    // Guard against onClick={openContact} passing the DOM click event as `type`.
+    setContactContext(typeof type === 'string' ? { type, message: message || '' } : null);
+    setShowContactModal(true);
+  };
+
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    // No email service is connected yet — this just confirms the signup locally.
+    setNewsletterSubscribed(true);
+    setNewsletterEmail('');
+  };
 
   const renderPage = () => {
     switch (currentPage) {
@@ -72,15 +86,25 @@ export default function Site() {
             className="flex items-center gap-3"
             aria-label="Seco Bio home"
           >
-            <img
-              src={overHero ? '/images/seco-mark-white.png' : '/images/seco-mark.png'}
-              alt="Seco Bio"
-              style={{ height: 34, width: 'auto', display: 'block' }}
-            />
+            <div style={{ position: 'relative', height: 34, width: 28, flexShrink: 0 }}>
+              {/* Both variants render from mount and crossfade via opacity — swapping
+                  the `src` directly caused a flicker while the other file loaded. */}
+              <img
+                src="/images/seco-mark-white.png"
+                alt="Seco Bio"
+                style={{ position: 'absolute', inset: 0, height: 34, width: 28, display: 'block', opacity: overHero ? 1 : 0, transition: 'opacity 250ms ease' }}
+              />
+              <img
+                src="/images/seco-mark.png"
+                alt=""
+                aria-hidden="true"
+                style={{ position: 'absolute', inset: 0, height: 34, width: 28, display: 'block', opacity: overHero ? 0 : 1, transition: 'opacity 250ms ease' }}
+              />
+            </div>
             <div>
               <div
                 className="text-lg font-bold"
-                style={{ color: overHero ? '#FFFFFF' : '#2E3A8C', letterSpacing: '0.08em', lineHeight: 1 }}
+                style={{ color: overHero ? '#FFFFFF' : '#3B60E4', letterSpacing: '0.08em', lineHeight: 1 }}
               >
                 SECO BIO
               </div>
@@ -101,22 +125,33 @@ export default function Site() {
         </div>
 
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
+            {navItems.map((item) => {
+              const isActive = !overHero && currentPage === item.id;
+              const hoverColor = overHero ? 'rgba(255,255,255,0.7)' : '#3B60E4';
+              return (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className="text-sm font-medium transition-colors"
+                className="text-sm font-semibold transition-colors"
                 style={{
                   color: overHero
                     ? 'rgba(255,255,255,0.92)'
                     : currentPage === item.id
                     ? '#3B60E4'
-                    : '#6B7280'
+                    : '#6B7280',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px',
+                  paddingBottom: '4px',
+                  borderBottom: `2px solid ${isActive ? '#3B60E4' : 'transparent'}`,
+                  transition: 'color 0.2s, border-color 0.2s'
                 }}
+                onMouseOver={(e) => { if (!isActive) e.currentTarget.style.borderBottomColor = hoverColor; }}
+                onMouseOut={(e) => { if (!isActive) e.currentTarget.style.borderBottomColor = 'transparent'; }}
               >
                 {item.name}
               </button>
-            ))}
+              );
+            })}
           </div>
 
           <div className="hidden md:flex items-center gap-4">
@@ -179,7 +214,13 @@ export default function Site() {
         </button>
       )}
 
-      {showContactModal && <ContactForm onClose={() => setShowContactModal(false)} />}
+      {showContactModal && (
+        <ContactForm
+          onClose={() => setShowContactModal(false)}
+          initialType={contactContext?.type}
+          initialMessage={contactContext?.message}
+        />
+      )}
       {showVideo && <VideoModal onClose={() => setShowVideo(false)} />}
 
       <footer
@@ -190,7 +231,20 @@ export default function Site() {
           borderTop: '3px solid #1E8E5A'
         }}
       >
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+        {/* STAY INSPIRED — newsletter signup */}
+        <div
+          className="max-w-7xl mx-auto"
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '2.5rem',
+            paddingBottom: '3rem',
+            marginBottom: '3rem',
+            borderBottom: '1px solid rgba(255,255,255,0.2)'
+          }}
+        >
           <div>
             <img
               src="/images/seco-lockup-white.png"
@@ -199,6 +253,63 @@ export default function Site() {
             />
             <p className="text-sm opacity-75">Protecting what matters.</p>
           </div>
+
+          <div style={{ textAlign: 'center', flex: '1 1 320px', maxWidth: 460 }}>
+            <h3 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>Stay Inspired</h3>
+            <p style={{ fontSize: 14, opacity: 0.85, marginBottom: 20 }}>
+              Get regular insights and updates from Seco Bio
+            </p>
+
+            {newsletterSubscribed ? (
+              <p style={{ fontSize: 14, fontWeight: 600 }}>Thanks — you're on the list.</p>
+            ) : (
+              <form
+                onSubmit={handleNewsletterSubmit}
+                style={{ display: 'flex', justifyContent: 'center' }}
+              >
+                <input
+                  type="email"
+                  required
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  placeholder="Your email"
+                  style={{
+                    flex: '1 1 auto',
+                    minWidth: 0,
+                    padding: '12px 20px',
+                    borderRadius: '24px 0 0 24px',
+                    border: 'none',
+                    outline: 'none',
+                    fontSize: 14,
+                    color: '#3D4654'
+                  }}
+                />
+                <button
+                  type="submit"
+                  style={{
+                    flexShrink: 0,
+                    padding: '12px 28px',
+                    borderRadius: '0 24px 24px 0',
+                    border: 'none',
+                    backgroundColor: '#0D2A1B',
+                    color: 'white',
+                    fontSize: 14,
+                    fontWeight: 600,
+                    cursor: 'pointer'
+                  }}
+                >
+                  Subscribe
+                </button>
+              </form>
+            )}
+
+            <p style={{ fontSize: 11, opacity: 0.6, marginTop: 14 }}>
+              By providing your details, you agree to be contacted by Seco Bio. You may unsubscribe at any time.
+            </p>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
           <div>
             <h4 className="font-bold mb-3 text-sm">Pages</h4>
             <div className="flex flex-col gap-2 text-sm items-start">
