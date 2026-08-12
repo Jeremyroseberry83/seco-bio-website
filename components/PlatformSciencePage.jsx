@@ -42,8 +42,85 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 1. THE TECHNOLOGY */}
+      {/* 1. THE PLATFORM */}
+      <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_GREEN_BG }}>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_GREEN_ACCENT, marginBottom: '1rem' }}>The Platform</h3>
+            <h2 style={{ fontSize: '36px', fontWeight: 700, color: 'white', marginBottom: '1.5rem', lineHeight: 1.2 }}>This is published science, not a pitch.</h2>
+            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.85)', lineHeight: 1.8, marginBottom: '2rem' }}>The underlying research was funded by NASA and DARPA, carried out at MIT, and published in Nature Materials with full methods and data. Anyone can check it.</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2rem' }}>
+              <div style={{ display: 'flex', gap: '1rem' }}>
+                <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: GREEN, fontWeight: 700, flexShrink: 0 }}>✓</div>
+                <div>
+                  <div style={{ fontSize: '18px', fontWeight: 700, color: 'white', marginBottom: '0.25rem' }}><CountUp end={10000} suffix="×" /></div>
+                  <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>more surviving cells than an uncoated commercial strain</div>
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: '1rem' }}>
+                <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: GREEN, fontWeight: 700, flexShrink: 0 }}>✓</div>
+                <div>
+                  <div style={{ fontSize: '18px', fontWeight: 700, color: 'white', marginBottom: '0.25rem' }}><CountUp end={6.5} decimals={1} suffix=" months" /></div>
+                  <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>at body temperature, and still alive</div>
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: '1rem' }}>
+                <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: GREEN, fontWeight: 700, flexShrink: 0 }}>✓</div>
+                <div>
+                  <div style={{ fontSize: '18px', fontWeight: 700, color: 'white', marginBottom: '0.25rem' }}><CountUp end={2080} /></div>
+                  <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>formulations tested to find what works</div>
+                </div>
+              </div>
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+              <a href="https://www.nature.com/articles/s41563-024-01937-6" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', backgroundColor: BLUE, color: 'white', padding: '12px 24px', borderRadius: '24px', textDecoration: 'none', fontSize: '14px', fontWeight: 600 }}>
+                Read the research in Nature Materials →
+              </a>
+              <a href="/papers/Nature-Materials-Seco.pdf" download style={{ display: 'inline-block', backgroundColor: 'white', color: BLUE, border: `2px solid ${BLUE}`, padding: '10px 24px', borderRadius: '24px', textDecoration: 'none', fontSize: '14px', fontWeight: 600 }}>
+                Download the paper (PDF)
+              </a>
+            </div>
+          </div>
+          <div style={{ aspectRatio: '1', backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+            <img src="/images/microscope-bench.jpg" alt="Microscope" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </div>
+        </div>
+      </section>
+
+      {/* 2. THE GAP */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
+        <div className="max-w-6xl mx-auto">
+          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: GREEN, marginBottom: '1rem' }}>The Gap</h3>
+          <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1rem', lineHeight: 1.2 }}>Today's probiotics reach a tiny fraction of what actually lives in a healthy gut.</h2>
+          <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2.5rem', fontStyle: 'italic' }}>The bacteria linked to long-term gut health go far beyond the handful of strains that survive today's manufacturing process.</p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
+            <div style={{ backgroundColor: GRAY_BG_LIGHT, borderRadius: '12px', borderTop: `4px solid ${MUTED}`, padding: '2rem' }}>
+              <h4 style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: MUTED, marginBottom: '1rem' }}>On the Shelf Today</h4>
+              <div style={{ fontSize: '40px', fontWeight: 700, color: SLATE, marginBottom: '0.5rem' }}>~10–20 <span style={{ fontSize: '18px', fontWeight: 600, color: MUTED }}>strains</span></div>
+              <p style={{ fontSize: '14px', color: MUTED, lineHeight: 1.7 }}>Commercially deployed live strains, dominated by just three genera: <em>Lactobacillus</em>, <em>Bifidobacterium</em>, <em>Saccharomyces</em>.</p>
+            </div>
+            <div style={{ backgroundColor: GREEN_BG_LIGHT, borderRadius: '12px', borderTop: `4px solid ${GREEN}`, padding: '2rem' }}>
+              <h4 style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: GREEN, marginBottom: '1rem' }}>Inside a Healthy Gut</h4>
+              <div style={{ fontSize: '40px', fontWeight: 700, color: SLATE, marginBottom: '0.5rem' }}><CountUp end={1000} prefix="~" /> <span style={{ fontSize: '18px', fontWeight: 600, color: MUTED }}>species</span></div>
+              <p style={{ fontSize: '14px', color: MUTED, lineHeight: 1.7 }}>Bacterial species found in a healthy human gut microbiome, per the NIH Human Microbiome Project.</p>
+            </div>
+          </div>
+
+          <div style={{ backgroundColor: INK, color: 'white', borderRadius: '10px', padding: '1.5rem 2rem', textAlign: 'center', marginBottom: '2rem' }}>
+            <span style={{ fontSize: '28px', fontWeight: 700, color: LIGHT_GREEN_ACCENT, marginRight: '0.5rem' }}><CountUp end={50} prefix="~" suffix="×" /></span>
+            gap at the species level alone.
+          </div>
+
+          <p style={{ fontSize: '16px', color: SLATE, lineHeight: 1.8 }}>
+            <strong>The bottleneck is delivery, not biology.</strong>{' '}
+            <span style={{ color: MUTED }}>Seco's ruggedization platform is built to unlock the species today's live, dry formats can't reach.</span>
+          </p>
+        </div>
+      </section>
+
+      {/* 3. THE TECHNOLOGY */}
+      <section style={{ padding: '4rem 1.5rem', backgroundColor: BG }}>
         <div className="max-w-6xl mx-auto">
           <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>The Technology</h3>
           <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1rem', lineHeight: 1.2 }}>A protective coat of safe ingredients <span style={{ color: BLUE, fontStyle: 'italic' }}>wrapped around every living cell.</span></h2>
@@ -102,7 +179,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 2. THE PROBLEM */}
+      {/* 4. THE PROBLEM */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: BG }}>
         <div className="max-w-6xl mx-auto">
           <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1rem' }}>The Problem</h3>
@@ -128,7 +205,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 3. BEYOND THE SHELF */}
+      {/* 5. BEYOND THE SHELF */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_INK_BG }}>
         <div className="max-w-6xl mx-auto">
           <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_BLUE_ACCENT, marginBottom: '1rem' }}>Beyond the Shelf</h3>
@@ -154,39 +231,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 4. THE GAP */}
-      <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
-        <div className="max-w-6xl mx-auto">
-          <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: GREEN, marginBottom: '1rem' }}>The Gap</h3>
-          <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1rem', lineHeight: 1.2 }}>Today's probiotics reach a tiny fraction of what actually lives in a healthy gut.</h2>
-          <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2.5rem', fontStyle: 'italic' }}>The bacteria linked to long-term gut health go far beyond the handful of strains that survive today's manufacturing process.</p>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
-            <div style={{ backgroundColor: GRAY_BG_LIGHT, borderRadius: '12px', borderTop: `4px solid ${MUTED}`, padding: '2rem' }}>
-              <h4 style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: MUTED, marginBottom: '1rem' }}>On the Shelf Today</h4>
-              <div style={{ fontSize: '40px', fontWeight: 700, color: SLATE, marginBottom: '0.5rem' }}>~10–20 <span style={{ fontSize: '18px', fontWeight: 600, color: MUTED }}>strains</span></div>
-              <p style={{ fontSize: '14px', color: MUTED, lineHeight: 1.7 }}>Commercially deployed live strains, dominated by just three genera: <em>Lactobacillus</em>, <em>Bifidobacterium</em>, <em>Saccharomyces</em>.</p>
-            </div>
-            <div style={{ backgroundColor: GREEN_BG_LIGHT, borderRadius: '12px', borderTop: `4px solid ${GREEN}`, padding: '2rem' }}>
-              <h4 style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: GREEN, marginBottom: '1rem' }}>Inside a Healthy Gut</h4>
-              <div style={{ fontSize: '40px', fontWeight: 700, color: SLATE, marginBottom: '0.5rem' }}><CountUp end={1000} prefix="~" /> <span style={{ fontSize: '18px', fontWeight: 600, color: MUTED }}>species</span></div>
-              <p style={{ fontSize: '14px', color: MUTED, lineHeight: 1.7 }}>Bacterial species found in a healthy human gut microbiome, per the NIH Human Microbiome Project.</p>
-            </div>
-          </div>
-
-          <div style={{ backgroundColor: INK, color: 'white', borderRadius: '10px', padding: '1.5rem 2rem', textAlign: 'center', marginBottom: '2rem' }}>
-            <span style={{ fontSize: '28px', fontWeight: 700, color: LIGHT_GREEN_ACCENT, marginRight: '0.5rem' }}><CountUp end={50} prefix="~" suffix="×" /></span>
-            gap at the species level alone.
-          </div>
-
-          <p style={{ fontSize: '16px', color: SLATE, lineHeight: 1.8 }}>
-            <strong>The bottleneck is delivery, not biology.</strong>{' '}
-            <span style={{ color: MUTED }}>Seco's ruggedization platform is built to unlock the species today's live, dry formats can't reach.</span>
-          </p>
-        </div>
-      </section>
-
-      {/* 5. PLATFORM & SCIENCE — Predict / Prove / Scale */}
+      {/* 6. PLATFORM & SCIENCE — Predict / Prove / Scale */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_INK_BG }}>
         <div className="max-w-6xl mx-auto">
           <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_BLUE_ACCENT, marginBottom: '1rem' }}>Platform & Science</h3>
@@ -229,7 +274,7 @@ export default function PlatformSciencePage({ onContactClick }) {
         </div>
       </section>
 
-      {/* 6. WHERE THIS CAME FROM */}
+      {/* 7. WHERE THIS CAME FROM */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div style={{ aspectRatio: '4/3', borderRadius: '16px', overflow: 'hidden', background: 'linear-gradient(135deg, #171B33 0%, #2E4259 100%)' }}>
@@ -246,51 +291,6 @@ export default function PlatformSciencePage({ onContactClick }) {
               <img src="/images/logos/mit.png" alt="MIT" style={{ height: 24, width: 'auto' }} />
               <img src="/images/logos/nature.png" alt="Nature Materials" style={{ height: 30, width: 'auto' }} />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. THE PLATFORM */}
-      <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_GREEN_BG }}>
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h3 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: LIGHT_GREEN_ACCENT, marginBottom: '1rem' }}>The Platform</h3>
-            <h2 style={{ fontSize: '36px', fontWeight: 700, color: 'white', marginBottom: '1.5rem', lineHeight: 1.2 }}>This is published science, not a pitch.</h2>
-            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.85)', lineHeight: 1.8, marginBottom: '2rem' }}>The underlying research was funded by NASA and DARPA, carried out at MIT, and published in Nature Materials with full methods and data. Anyone can check it.</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2rem' }}>
-              <div style={{ display: 'flex', gap: '1rem' }}>
-                <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: GREEN, fontWeight: 700, flexShrink: 0 }}>✓</div>
-                <div>
-                  <div style={{ fontSize: '18px', fontWeight: 700, color: 'white', marginBottom: '0.25rem' }}><CountUp end={10000} suffix="×" /></div>
-                  <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>more surviving cells than an uncoated commercial strain</div>
-                </div>
-              </div>
-              <div style={{ display: 'flex', gap: '1rem' }}>
-                <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: GREEN, fontWeight: 700, flexShrink: 0 }}>✓</div>
-                <div>
-                  <div style={{ fontSize: '18px', fontWeight: 700, color: 'white', marginBottom: '0.25rem' }}><CountUp end={6.5} decimals={1} suffix=" months" /></div>
-                  <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>at body temperature, and still alive</div>
-                </div>
-              </div>
-              <div style={{ display: 'flex', gap: '1rem' }}>
-                <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: GREEN, fontWeight: 700, flexShrink: 0 }}>✓</div>
-                <div>
-                  <div style={{ fontSize: '18px', fontWeight: 700, color: 'white', marginBottom: '0.25rem' }}><CountUp end={2080} /></div>
-                  <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>formulations tested to find what works</div>
-                </div>
-              </div>
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-              <a href="https://www.nature.com/articles/s41563-024-01937-6" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', backgroundColor: BLUE, color: 'white', padding: '12px 24px', borderRadius: '24px', textDecoration: 'none', fontSize: '14px', fontWeight: 600 }}>
-                Read the research in Nature Materials →
-              </a>
-              <a href="/papers/Nature-Materials-Seco.pdf" download style={{ display: 'inline-block', backgroundColor: 'white', color: BLUE, border: `2px solid ${BLUE}`, padding: '10px 24px', borderRadius: '24px', textDecoration: 'none', fontSize: '14px', fontWeight: 600 }}>
-                Download the paper (PDF)
-              </a>
-            </div>
-          </div>
-          <div style={{ aspectRatio: '1', backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-            <img src="/images/microscope-bench.jpg" alt="Microscope" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
         </div>
       </section>
