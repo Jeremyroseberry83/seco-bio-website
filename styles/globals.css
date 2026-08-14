@@ -67,21 +67,23 @@ a {
   display: none !important;
 }
 .translate-widget .goog-te-gadget-simple {
-  display: inline-flex !important;
-  align-items: center;
-  background: #f1f3fb !important;
-  border: 1px solid #dce3f7 !important;
-  border-radius: 999px !important;
-  padding: 7px 14px !important;
+  /* Invisible — our own wrapper (Translate.jsx) draws the pill now, so this
+     just needs to sit there and be clickable across its full area. */
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
   font-size: 0 !important;
 }
 .translate-widget .goog-te-gadget-icon {
   display: none !important;
 }
 .translate-widget .goog-te-gadget-simple a {
-  display: inline-flex !important;
-  align-items: center;
-  gap: 4px;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
   text-decoration: none !important;
 }
 .translate-widget .goog-te-gadget-simple a span {

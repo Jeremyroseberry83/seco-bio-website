@@ -31,31 +31,31 @@ export default function Translate() {
   }, []);
 
   return (
-    <div className="translate-widget" style={{ position: 'relative', display: 'inline-block' }}>
-      {/* Google's own gadget renders here, full-size and clickable. */}
-      <div id="google_translate_element" />
-      {/* This label paints on top of it purely for legibility — Google's own
-          "Select Language" text was too easy to miss. Clicks pass through
-          (pointerEvents: none) to the real widget underneath. */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: 6,
-          pointerEvents: 'none',
-          fontSize: 13,
-          fontWeight: 600,
-          color: '#3d4654',
-          fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif'
-        }}
-      >
-        <Languages size={14} strokeWidth={2} />
-        Translate
-      </div>
+    // The pill chrome lives here, on our own wrapper — not on Google's
+    // .goog-te-gadget-simple, which only exists once its script has loaded
+    // and previously left the button looking like bare unstyled text until
+    // (or unless) that happened.
+    <div
+      className="translate-widget"
+      style={{
+        position: 'relative',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 6,
+        background: '#f1f3fb',
+        border: '1px solid #dce3f7',
+        borderRadius: 999,
+        padding: '7px 14px',
+        fontSize: 13,
+        fontWeight: 600,
+        color: '#3d4654',
+        fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif'
+      }}
+    >
+      {/* Google's own gadget renders here, invisible but clickable, filling the pill. */}
+      <div id="google_translate_element" style={{ position: 'absolute', inset: 0 }} />
+      <Languages size={14} strokeWidth={2} style={{ pointerEvents: 'none' }} />
+      <span style={{ pointerEvents: 'none' }}>Translate</span>
     </div>
   );
 }
