@@ -121,36 +121,32 @@ export default function AboutPage({ onContactClick }) {
               <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: MUTED, marginBottom: '0.85rem' }}>
                 Backed &amp; Published By
               </div>
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5">
                 {['NASA', 'DARPA', 'MIT', 'Nature Materials'].map((name) => (
                   <div
                     key={name}
                     style={{
-                      border: `1.5px solid ${BLUE}`,
-                      borderRadius: '6px',
-                      padding: '9px 16px',
-                      fontSize: '13px',
-                      fontWeight: 800,
-                      letterSpacing: '0.04em',
-                      color: SLATE,
-                      fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace'
+                      backgroundColor: '#EEF2FE',
+                      borderRadius: '999px',
+                      padding: '8px 18px',
+                      fontSize: '14px',
+                      fontWeight: 700,
+                      color: BLUE
                     }}
                   >
                     {name}
                   </div>
                 ))}
               </div>
-              <p style={{ fontSize: '12px', color: MUTED, marginTop: '1rem', lineHeight: 1.6 }}>
-                Jimenez, M., L'Heureux, J., Kolaya, E. et al. "Synthetic extremophiles via
-                species-specific formulations improve microbial therapeutics." <em>Nature
-                Materials</em> (2024).{' '}
+              <p style={{ fontSize: '13px', color: MUTED, marginTop: '1rem', lineHeight: 1.6 }}>
+                Read the peer-reviewed study in{' '}
                 <a
                   href="https://doi.org/10.1038/s41563-024-01937-6"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: BLUE, textDecoration: 'underline' }}
                 >
-                  doi.org/10.1038/s41563-024-01937-6
+                  <em>Nature Materials</em> →
                 </a>
               </p>
             </div>
