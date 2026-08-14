@@ -80,10 +80,9 @@ export default function AboutPage({ onContactClick }) {
         eyebrow="About"
         image="/images/stills/lab-blue.jpg"
         title={<>Eight years of science. <Accent>Six months as a company.</Accent></>}
-        subtitle="Research funded by NASA and DARPA, carried out at MIT, and published in Nature Materials. Seco Bio exists to bring it to the industries that need it now."
       />
 
-      {/* Origin — matches the "Where This Came From" block on Platform & Science */}
+      {/* Origin */}
       <section className="py-24 px-6" style={{ backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div
@@ -117,36 +116,44 @@ export default function AboutPage({ onContactClick }) {
             <p className="mb-8" style={{ color: MUTED, fontSize: '17px', lineHeight: 1.75 }}>
               Seco Bio exists to bring it to the industries that need it now.
             </p>
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-8 pt-6" style={{ borderTop: '1px solid #E4E8F2' }}>
-              <img src="/images/logos/nasa.png" alt="NASA" style={{ height: 32, width: 'auto' }} />
-              <img src="/images/logos/darpa.png" alt="DARPA" style={{ height: 28, width: 'auto' }} />
-              <img src="/images/logos/mit.png" alt="MIT" style={{ height: 24, width: 'auto' }} />
-              <img src="/images/logos/nature.png" alt="Nature Materials" style={{ height: 30, width: 'auto' }} />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* The line that does the work — only lands as a group statement. */}
-      <section className="pb-16 px-6" style={{ backgroundColor: 'white' }}>
-        <div className="max-w-6xl mx-auto">
-          <div
-            className="rounded-2xl p-10 md:p-14 text-center"
-            style={{ backgroundColor: INK }}
-          >
-            <p
-              className="text-white font-bold mx-auto"
-              style={{
-                fontSize: 'clamp(1.15rem, 2.1vw, 1.7rem)',
-                lineHeight: 1.4,
-                letterSpacing: '-0.015em',
-                maxWidth: '38ch'
-              }}
-            >
-              Two of the executives who <Accent>built Nestlé Health Science's acquisition
-              strategy</Accent>, and the <Accent>chief executive of one of the companies they
-              acquired</Accent>.
-            </p>
+            <div style={{ paddingTop: '1.5rem', borderTop: '1px solid #E4E8F2' }}>
+              <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: MUTED, marginBottom: '0.85rem' }}>
+                Backed &amp; Published By
+              </div>
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
+                {['NASA', 'DARPA', 'MIT', 'Nature Materials'].map((name) => (
+                  <div
+                    key={name}
+                    style={{
+                      border: `1.5px solid ${BLUE}`,
+                      borderRadius: '6px',
+                      padding: '9px 16px',
+                      fontSize: '13px',
+                      fontWeight: 800,
+                      letterSpacing: '0.04em',
+                      color: SLATE,
+                      fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace'
+                    }}
+                  >
+                    {name}
+                  </div>
+                ))}
+              </div>
+              <p style={{ fontSize: '12px', color: MUTED, marginTop: '1rem', lineHeight: 1.6 }}>
+                Jimenez, M., L'Heureux, J., Kolaya, E. et al. "Synthetic extremophiles via
+                species-specific formulations improve microbial therapeutics." <em>Nature
+                Materials</em> (2024).{' '}
+                <a
+                  href="https://doi.org/10.1038/s41563-024-01937-6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: BLUE, textDecoration: 'underline' }}
+                >
+                  doi.org/10.1038/s41563-024-01937-6
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -155,7 +162,6 @@ export default function AboutPage({ onContactClick }) {
       <section className="py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mb-16">
-            <Eyebrow>The team</Eyebrow>
             <h2
               className="font-bold"
               style={{
@@ -165,7 +171,7 @@ export default function AboutPage({ onContactClick }) {
                 letterSpacing: '-0.025em'
               }}
             >
-              The people who invented it.
+              Founders
             </h2>
           </div>
 
@@ -201,11 +207,10 @@ export default function AboutPage({ onContactClick }) {
         </div>
       </section>
 
-      {/* Advisors */}
+      {/* Executive Advisory Board */}
       <section className="pt-28 pb-12 px-6" style={{ backgroundColor: '#F7F8FA' }}>
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mb-16">
-            <Eyebrow color={GREEN}>Executive Advisory Board</Eyebrow>
             <h2
               className="font-bold"
               style={{
@@ -215,7 +220,7 @@ export default function AboutPage({ onContactClick }) {
                 letterSpacing: '-0.025em'
               }}
             >
-              The people who have bought companies like this one.
+              Executive Advisory Board
             </h2>
           </div>
 
@@ -268,8 +273,7 @@ export default function AboutPage({ onContactClick }) {
               Probiotics today. Broader living products tomorrow.
             </h2>
             <p className="mt-5" style={{ color: MUTED, fontSize: '16px', lineHeight: 1.7 }}>
-              Our core focus is human, early life, and animal probiotics. The platform reaches
-              everywhere living products need to arrive alive.
+              Our core focus is human, early life, and animal probiotics.
             </p>
           </div>
 
@@ -306,8 +310,8 @@ export default function AboutPage({ onContactClick }) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { title: 'Pharmaceuticals & Medical Devices', img: '/images/scientist.jpg' },
-              { title: 'Agriculture', img: '/images/nutrition.jpg' },
-              { title: 'Industrial', img: '/images/robotics.jpg' },
+              { title: 'Agriculture', img: '/images/agriculture-crops.jpg' },
+              { title: 'Industrial', img: '/images/industrial-green.jpg' },
               { title: 'Space Exploration', img: '/images/space-1.jpg' }
             ].map(({ title, img }) => (
               <div key={title} className="rounded-lg overflow-hidden text-center" style={{ backgroundColor: 'white', border: '1px solid #E4E8F2' }}>
@@ -349,7 +353,7 @@ export default function AboutPage({ onContactClick }) {
           className="text-white mb-10 mx-auto"
           style={{ maxWidth: '40ch', fontSize: '17px', opacity: 0.9, lineHeight: 1.7 }}
         >
-          Joe answers every inquiry himself. Partnership, investment, or press — start here.
+          Partnership, investment, or press — start here.
         </p>
         <button
           onClick={onContactClick}

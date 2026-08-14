@@ -1,13 +1,13 @@
 import React from 'react';
-import { ArrowRight, Check, X } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import {
-  PageHero, Accent, Eyebrow, SplitFeature, NumberStrip, CircleGrid, HighlightGrid,
-  SLATE, MUTED, BLUE, BLUE_DEEP, GREEN, GREEN_DEEP, INK
+  PageHero, Accent, Eyebrow,
+  SLATE, MUTED, BLUE, GREEN, GREEN_DEEP, INK
 } from './ui';
 
 export default function PartnersPage({ onContactClick }) {
-  const requestDeck = () => onContactClick('Investment', 'Requesting the Investment Deck.');
-  const exploreLicensing = () => onContactClick('Partnership', 'Exploring licensing my strain.');
+  const connectCapital = () => onContactClick('Partnership', 'Interested in connecting as a capital partner.');
+  const connectBusiness = () => onContactClick('Partnership', 'Interested in exploring licensing opportunities.');
 
   return (
     <div>
@@ -20,7 +20,7 @@ export default function PartnersPage({ onContactClick }) {
       />
 
       {/* Two-panel positioning — Capital vs Business, leading with capital per updated flow */}
-      <section className="pt-24 pb-4 px-6">
+      <section className="pt-24 pb-16 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
           <div
             className="rounded-2xl p-10"
@@ -30,22 +30,15 @@ export default function PartnersPage({ onContactClick }) {
             <h3 className="font-bold mb-4" style={{ color: SLATE, fontSize: '19px' }}>
               Partners scaling the platform with us
             </h3>
-            <p style={{ color: MUTED, fontSize: '15px', lineHeight: 1.7, marginBottom: 20 }}>
-              Every strain solved becomes protected IP that compounds. We work with capital
-              partners aligned to the long-term platform opportunity.
+            <p style={{ color: MUTED, fontSize: '15px', lineHeight: 1.7, marginBottom: 24 }}>
+              We work with capital partners aligned to the long-term platform opportunity.
             </p>
-            <div
-              className="text-sm font-semibold px-4 py-3 rounded-md mb-3"
-              style={{ backgroundColor: 'white', color: SLATE, borderLeft: `3px solid ${GREEN}` }}
-            >
-              Platform IP · Vertical expansion · Global portfolio
-            </div>
             <button
-              onClick={requestDeck}
+              onClick={connectCapital}
               className="inline-flex items-center gap-2 text-sm font-semibold"
               style={{ color: GREEN_DEEP, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
             >
-              Request the Investment Deck <ArrowRight size={14} />
+              Connect With Us to Learn More <ArrowRight size={14} />
             </button>
           </div>
 
@@ -57,7 +50,7 @@ export default function PartnersPage({ onContactClick }) {
             <h3 className="font-bold mb-4" style={{ color: SLATE, fontSize: '19px' }}>
               Brands, manufacturers, and ingredient partners
             </h3>
-            <p style={{ color: MUTED, fontSize: '15px', lineHeight: 1.7, marginBottom: 20 }}>
+            <p style={{ color: MUTED, fontSize: '15px', lineHeight: 1.7, marginBottom: 24 }}>
               We formulate protection and license it to you — your product delivers what the
               label promises. Built to scale with you, not around you.
             </p>
@@ -68,163 +61,12 @@ export default function PartnersPage({ onContactClick }) {
               Licensed by Strain · Field · Formula
             </div>
             <button
-              onClick={exploreLicensing}
+              onClick={connectBusiness}
               className="inline-flex items-center gap-2 text-sm font-semibold"
               style={{ color: BLUE, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
             >
-              Explore Licensing Your Strain <ArrowRight size={14} />
+              Connect With Us to Explore Opportunities <ArrowRight size={14} />
             </button>
-          </div>
-        </div>
-      </section>
-
-      {/* FOR CAPITAL PARTNERS — track divider */}
-      <div className="max-w-6xl mx-auto px-6 pt-20 pb-4">
-        <div
-          className="inline-flex items-center px-5 py-2 rounded-full"
-          style={{ backgroundColor: GREEN_DEEP, color: 'white' }}
-        >
-          <span className="text-xs font-bold uppercase" style={{ letterSpacing: '0.16em' }}>For Capital Partners</span>
-        </div>
-      </div>
-
-      <HighlightGrid
-        tone="green"
-        title="Every strain solved is protected IP that compounds."
-        intro="Capital partners scaling the platform from strategic to institutional growth capital. We work with investors aligned to the long-term platform opportunity. Speak with us by introduction, under NDA."
-        cards={[
-          { title: 'Formulation engine', body: 'AI-driven discovery that gets faster with every strain solved. The platform doesn\u2019t get used up.' },
-          { title: 'Platform IP', body: 'Every strain solved becomes protected intellectual property that compounds and can be licensed.' },
-          { title: 'Defensible moat', body: 'The dataset mapping materials to organisms cannot be reverse-engineered from a finished product.' }
-        ]}
-      />
-
-      {/* Unlock wedge — novel IP, acquisition-target framing */}
-      <section className="pt-4 pb-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="rounded-2xl p-10 flex flex-col md:flex-row gap-8" style={{ backgroundColor: '#E1F4EE', borderTop: `4px solid ${GREEN}` }}>
-            <div className="rounded-xl overflow-hidden flex-shrink-0" style={{ width: '100%', maxWidth: 220, aspectRatio: '1 / 1' }}>
-              <img src="/images/glp1-injector.jpg" alt="GLP-1 adjacent delivery format" className="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div className="flex-1">
-              <Eyebrow color={GREEN_DEEP} className="mb-2">Unlock the novel</Eyebrow>
-              <div className="italic font-bold mb-1" style={{ color: SLATE, fontSize: '22px' }}>Akkermansia muciniphila</div>
-              <p style={{ color: MUTED, fontSize: '13px', marginBottom: 20 }}>GLP-1 adjacent · improves insulin sensitivity & metabolic health</p>
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="rounded-md p-4" style={{ backgroundColor: 'white' }}>
-                  <div className="uppercase font-bold" style={{ color: MUTED, fontSize: '10px', letterSpacing: '0.5px', marginBottom: 6 }}>Today's market</div>
-                  <div className="font-bold" style={{ color: SLATE, fontSize: '14px' }}>Pasteurized only</div>
-                  <div className="italic" style={{ color: MUTED, fontSize: '12px', marginBottom: 6 }}>(dead bacteria)</div>
-                  <div style={{ color: MUTED, fontSize: '12px' }}><strong>Danone</strong> acquired the leading pasteurized player (2025). <strong>IFF</strong> has live fermentation but no dry format.</div>
-                </div>
-                <div className="rounded-md p-4 text-white" style={{ backgroundColor: GREEN_DEEP }}>
-                  <div className="uppercase font-bold" style={{ fontSize: '10px', letterSpacing: '0.5px', opacity: 0.85, marginBottom: 6 }}>Seco</div>
-                  <div className="font-bold" style={{ fontSize: '14px', marginBottom: 6 }}>First shelf-stable, <span className="italic">live Akkermansia</span></div>
-                  <div style={{ fontSize: '12px', opacity: 0.9 }}><strong>Owned NGP</strong><br />Seco Proprietary IP Generation</div>
-                </div>
-              </div>
-              <div className="font-bold text-center py-3 px-4 rounded-md text-white text-sm" style={{ backgroundColor: GREEN_DEEP }}>
-                Novel category → first-mover IP & strategic acquisition target
-              </div>
-            </div>
-          </div>
-
-          {/* Returns rest on precedent, not projection — exit scenarios + M&A comps */}
-          <div className="mt-8 rounded-2xl p-10" style={{ backgroundColor: 'white', border: '1px solid #E4E8F2' }}>
-            <h3 className="font-bold mb-8" style={{ color: SLATE, fontSize: '22px' }}>
-              The returns rest on <span className="italic" style={{ color: GREEN_DEEP }}>precedent, not projection.</span>
-            </h3>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <div className="uppercase font-bold mb-3" style={{ color: MUTED, fontSize: '11px', letterSpacing: '0.08em' }}>
-                  $10M "one &amp; done" · 3-year target exit
-                </div>
-                <div className="space-y-3">
-                  {[
-                    { label: 'Downside', desc: 'bilateral sale, no auction', multiple: '4.5×', amount: '$200M', bg: '#FBF3E4', fg: '#8A6D1D' },
-                    { label: 'Floor', desc: 'single strategic buyer', multiple: '11×', amount: '$500M', bg: '#F7F8FA', fg: SLATE, border: '#E4E8F2' },
-                    { label: 'Base', desc: 'competitive process · 3-yr target', multiple: '22×', amount: '$1B', bg: '#E1F4EE', fg: GREEN_DEEP, badge: 'BASE CASE' },
-                    { label: 'Upside', desc: 'category-defining auction', multiple: '45×', amount: '$2B+', bg: '#EEF2FE', fg: BLUE_DEEP }
-                  ].map((s) => (
-                    <div key={s.label} className="rounded-md p-4 flex items-center justify-between" style={{ backgroundColor: s.bg, border: s.border ? `1px solid ${s.border}` : 'none' }}>
-                      <div>
-                        {s.badge && (
-                          <div className="font-bold" style={{ color: s.fg, fontSize: '10px', marginBottom: 4 }}>◂ {s.badge}</div>
-                        )}
-                        <div className="font-bold" style={{ color: SLATE, fontSize: '15px' }}>{s.label}</div>
-                        <div style={{ color: MUTED, fontSize: '12px' }}>{s.desc}</div>
-                      </div>
-                      <div className="text-right">
-                        <span className="font-bold" style={{ color: s.fg, fontSize: '26px' }}>{s.multiple}</span>
-                        <span style={{ color: MUTED, fontSize: '13px', marginLeft: 4 }}>{s.amount}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <p className="mt-4" style={{ color: MUTED, fontSize: '12px', lineHeight: 1.6, fontStyle: 'italic' }}>
-                  Target: 3-year strategic exit at base (22×). Same dollars if it takes 5 — only the annual rate changes.
-                </p>
-              </div>
-              <div>
-                <div className="uppercase font-bold mb-3" style={{ color: MUTED, fontSize: '11px', letterSpacing: '0.08em' }}>
-                  Precedent — buyers are acquiring
-                </div>
-                <div className="space-y-2">
-                  {[
-                    { deal: 'Bountiful → Nestlé', desc: 'nutrition brands · 2021', value: '$5.75B', note: '3.1× rev' },
-                    { deal: 'Capsugel → Lonza', desc: 'delivery platform · 2017', value: '$5.5B', note: '15× EBITDA' },
-                    { deal: 'Chr. Hansen → Novozymes', desc: 'category ceiling · 2024', value: '$12.3B', note: '' },
-                    { deal: 'Feed Enzyme → Novonesis', desc: 'enzyme platform · 2025', value: '€1.5B', note: '~5× rev' },
-                    { deal: 'Seres VOWST → Nestlé*', desc: 'single live biotic · 2024', value: '~$525M', note: '' },
-                    { deal: 'Akkermansia → Danone*', desc: 'single strain · 2025', value: '~$250M', note: '' }
-                  ].map((p) => (
-                    <div key={p.deal} className="rounded-md p-3 flex items-center justify-between" style={{ backgroundColor: '#F7F8FA' }}>
-                      <div>
-                        <div className="font-bold" style={{ color: SLATE, fontSize: '13px' }}>{p.deal}</div>
-                        <div style={{ color: MUTED, fontSize: '11px' }}>{p.desc}</div>
-                      </div>
-                      <div className="text-right">
-                        <div className="font-bold" style={{ color: BLUE_DEEP, fontSize: '14px' }}>{p.value}</div>
-                        {p.note && <div style={{ color: MUTED, fontSize: '11px' }}>{p.note}</div>}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <p className="mt-4" style={{ color: MUTED, fontSize: '12px', lineHeight: 1.6, fontStyle: 'italic' }}>
-                  Our $500M–$2B range sits conservatively within these platform M&amp;A precedents. *Estimate / partial terms disclosed.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Capital partnership — plain-language positioning */}
-          <div className="mt-8 rounded-2xl p-10" style={{ backgroundColor: INK, color: 'white' }}>
-            <Eyebrow color="#8CE0B8" className="mb-3">How to invest</Eyebrow>
-            <p style={{ fontSize: '16px', lineHeight: 1.75, opacity: 0.9, marginBottom: 16 }}>
-              Seco is raising through a dedicated investment vehicle built around the platform's
-              growth — one structure, one point of contact, no fragmented terms. Capital partners
-              get exposure to the platform's compounding IP as it scales toward a strategic exit.
-            </p>
-            <p style={{ fontSize: '14px', lineHeight: 1.7, opacity: 0.7, marginBottom: 24 }}>
-              Full structure, terms, and diligence materials are available in the Investment Deck, on
-              request, under NDA.
-            </p>
-            <button
-              onClick={requestDeck}
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-semibold"
-              style={{ backgroundColor: 'white', color: INK, border: 'none', cursor: 'pointer' }}
-            >
-              Request the Investment Deck <ArrowRight size={15} />
-            </button>
-            <p style={{ fontSize: '12px', lineHeight: 1.6, opacity: 0.55, marginTop: 24 }}>
-              This page does not constitute an offer to sell or a solicitation of an offer to buy
-              any security. Securities are offered only pursuant to Rule 506(b) of Regulation D
-              under the Securities Act of 1933, as amended, and only to accredited investors with
-              whom Seco Bio has a substantive, pre-existing relationship. Securities have not been
-              registered under the Securities Act or any state securities laws and may not be
-              offered or sold absent registration or an applicable exemption. Full offering terms
-              are furnished only in the Investment Deck, on request, to qualified investors.
-            </p>
           </div>
         </div>
       </section>
@@ -239,136 +81,81 @@ export default function PartnersPage({ onContactClick }) {
         </div>
       </div>
 
-      <SplitFeature
-        eyebrow="For brands &amp; manufacturers"
-        title={<>You already pay for die-off. <Accent tone="dark">You just pay for it upstream.</Accent></>}
-        image="/images/stills/formats.jpg"
-        quote="A program is scoped to one strain and one format. We formulate, prove it at your scale, and transfer it to your line."
-      >
-        <p className="mb-6">
-          Overfilling is a tax. Every unit absorbs the cost of what you can't control.
-        </p>
-        <ul className="space-y-3 mb-6">
-          {[
-            'You buy more organism than you sell',
-            "You carry shelf life you can't fully predict",
-            "You make a claim you can't verify at the moment of consumption"
-          ].map((t) => (
-            <li key={t} className="flex gap-3 items-start">
-              <X size={16} style={{ color: '#D1226B', flexShrink: 0, marginTop: 3 }} />
-              <span>{t}</span>
-            </li>
-          ))}
-          {[
-            'A program with Seco removes the guesswork from all three',
-            "Without changing your strain, your ingredients, or your line"
-          ].map((t) => (
-            <li key={t} className="flex gap-3 items-start">
-              <Check size={16} style={{ color: GREEN_DEEP, flexShrink: 0, marginTop: 3 }} />
-              <span>{t}</span>
-            </li>
-          ))}
-        </ul>
-      </SplitFeature>
-
-      {/* What we need / what you get */}
-      <section className="pb-28 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
-          <div className="rounded-2xl p-10" style={{ backgroundColor: '#F7F8FA' }}>
-            <Eyebrow className="mb-6">What we need from you</Eyebrow>
-            <ul className="space-y-4">
-              {[
-                'The organism — strain name and source',
-                'The format — tablets, capsules, powder',
-                'The claim and shelf life you\u2019re targeting',
-                'Your markets and regulatory requirements',
-                'Volume and manufacturing constraints'
-              ].map((t) => (
-                <li key={t} className="flex gap-3" style={{ color: SLATE, fontSize: '16px', lineHeight: 1.6 }}>
-                  <span style={{ color: BLUE, flexShrink: 0 }}>›</span>
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="rounded-2xl p-10" style={{ backgroundColor: '#E1F4EE' }}>
-            <Eyebrow color={GREEN_DEEP} className="mb-6">What you get back</Eyebrow>
-            <ul className="space-y-4">
-              {[
-                'A protective formulation built for your strain',
-                'A transfer package for your line',
-                'Stability data under your storage conditions',
-                'A license to sell it in your markets',
-                'Documentation for regulatory filings'
-              ].map((t) => (
-                <li key={t} className="flex gap-3" style={{ color: SLATE, fontSize: '16px', lineHeight: 1.6 }}>
-                  <Check size={17} style={{ color: GREEN_DEEP, flexShrink: 0, marginTop: 3 }} />
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* How a program runs */}
-      <section className="pb-6 px-6">
-        <div className="max-w-6xl mx-auto max-w-2xl mb-12">
-          <Eyebrow className="mb-4">How a program runs</Eyebrow>
-          <h2
-            className="font-bold"
-            style={{ color: SLATE, fontSize: 'clamp(1.8rem, 3.2vw, 2.7rem)', lineHeight: 1.1, letterSpacing: '-0.025em' }}
-          >
-            What the first ninety days look like.
-          </h2>
-        </div>
-      </section>
-
-      <NumberStrip
-        items={[
-          { title: 'You tell us what you need', body: 'The organism, the format, the shelf life, the markets.' },
-          { title: 'We find the formula', body: 'Parallel testing until we have the protective system for that specific strain.' },
-          { title: 'We prove it on your line', body: 'Scaled up, transferred into your process, on your equipment.' },
-          { title: 'You launch', body: 'Licensed per strain and per product. You sell it. We keep it working.' }
-        ]}
-      />
-
-      {/* Formats */}
-      <CircleGrid
-        eyebrow="Formats"
-        title="It runs in the formats you already make."
-        intro="Protection is formulation-level, not equipment-level. If you can manufacture it today, you can manufacture the protected version on the same line."
-        items={[
-          { image: '/images/stills/formats.jpg', label: 'Capsules & tablets' },
-          { image: '/images/science/probiotic.jpg', label: 'Powders & sachets' },
-          { image: '/images/photo/pets-feeding.jpg', label: 'Pet & livestock' },
-          { image: '/images/photo/nutrition.jpg', label: 'Functional foods' }
-        ]}
-      />
-
-      {/* Enhance wedge — closes out the business track */}
-      <section className="pb-24 px-6">
+      {/* Redesigned: caption promoted to centerpiece, X/check list split into
+          plain-text cards, blue swapped for green, dead-space band closed. */}
+      <section className="pt-4 pb-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="rounded-2xl p-10 flex flex-col md:flex-row md:items-center gap-8" style={{ backgroundColor: '#EEF2FE', borderTop: `4px solid ${BLUE}` }}>
-            <div className="flex-1">
-              <Eyebrow className="mb-2">Enhance the standard</Eyebrow>
-              <div className="italic font-bold mb-1" style={{ color: SLATE, fontSize: '22px' }}>L. plantarum</div>
-              <p className="italic" style={{ color: MUTED, fontSize: '13px', marginBottom: 14 }}>One of the most widely used commercial probiotic strains</p>
-              <p style={{ color: MUTED, fontSize: '14px', lineHeight: 1.6 }}>
-                Stable potency and drastically lower overage — the same strain your partners already
-                trust, with the economics a protected formulation makes possible.
-              </p>
+          <Eyebrow color={GREEN_DEEP} className="mb-3">For brands &amp; manufacturers</Eyebrow>
+          <h2
+            className="font-bold mb-10"
+            style={{ color: SLATE, fontSize: 'clamp(1.7rem, 3vw, 2.5rem)', lineHeight: 1.12, letterSpacing: '-0.025em' }}
+          >
+            You already pay for die-off. <span style={{ color: GREEN, fontStyle: 'italic' }}>You just pay for it upstream.</span>
+          </h2>
+
+          <p style={{ color: MUTED, fontSize: '15px', marginBottom: 24 }}>
+            Overfilling is a tax. Every unit absorbs the cost of what you can't control.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-5 mb-12">
+            {[
+              'You buy more organism than you sell',
+              "You carry shelf life you can't fully predict",
+              "You make a claim you can't verify"
+            ].map((t) => (
+              <div key={t} className="rounded-xl p-6" style={{ backgroundColor: '#F7F8FA', border: '1px solid #E4E8F2' }}>
+                <p style={{ color: SLATE, fontSize: '15px', lineHeight: 1.6, fontWeight: 600 }}>{t}</p>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ borderTop: '1px solid #E4E8F2', borderBottom: '1px solid #E4E8F2', padding: '2.5rem 0', textAlign: 'center', marginBottom: 40 }}>
+            <p
+              className="font-bold mx-auto mb-4"
+              style={{ color: SLATE, fontSize: 'clamp(1.3rem, 2.4vw, 1.8rem)', lineHeight: 1.3, maxWidth: '32ch' }}
+            >
+              A program is scoped to one strain and one format. We formulate it, prove it at your scale, and transfer it to your line.
+            </p>
+            <p style={{ color: MUTED, fontSize: '15px' }}>
+              Without changing your strain, your ingredients, or your line.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="rounded-2xl p-10" style={{ border: '1px solid #E4E8F2' }}>
+              <Eyebrow className="mb-6">What we need from you</Eyebrow>
+              <ul className="space-y-4">
+                {[
+                  'The organism — strain name and source',
+                  'The format — tablets, capsules, powder',
+                  'The claim and shelf life you’re targeting',
+                  'Your markets and regulatory requirements',
+                  'Volume and manufacturing constraints'
+                ].map((t) => (
+                  <li key={t} className="flex gap-3" style={{ color: MUTED, fontSize: '15px', lineHeight: 1.6 }}>
+                    <span style={{ color: MUTED, flexShrink: 0 }}>›</span>
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="flex gap-8 flex-shrink-0">
-              <div>
-                <div className="font-bold" style={{ color: '#D1226B', fontSize: '32px' }}>20×</div>
-                <div className="uppercase font-bold" style={{ color: MUTED, fontSize: '10px', letterSpacing: '0.5px' }}>Industry overfill</div>
-              </div>
-              <div>
-                <div className="font-bold" style={{ color: GREEN_DEEP, fontSize: '32px' }}>17×</div>
-                <div className="uppercase font-bold" style={{ color: MUTED, fontSize: '10px', letterSpacing: '0.5px' }}>Seco COGS reduction</div>
-              </div>
+
+            <div className="rounded-2xl p-10" style={{ backgroundColor: '#E1F4EE' }}>
+              <Eyebrow color={GREEN_DEEP} className="mb-6">What you get back</Eyebrow>
+              <ul className="space-y-4">
+                {[
+                  'A protective formulation built for your strain',
+                  'A transfer package for your line',
+                  'Stability data under your storage conditions',
+                  'A license to sell it in your markets',
+                  'Documentation for regulatory filings'
+                ].map((t) => (
+                  <li key={t} className="flex gap-3" style={{ color: SLATE, fontSize: '16px', lineHeight: 1.6 }}>
+                    <Check size={17} style={{ color: GREEN_DEEP, flexShrink: 0, marginTop: 3 }} />
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -398,14 +185,14 @@ export default function PartnersPage({ onContactClick }) {
         </h2>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
-            onClick={onContactClick}
+            onClick={connectBusiness}
             className="px-8 py-3.5 rounded-full bg-white text-sm font-semibold"
             style={{ color: INK }}
           >
             I'm a potential partner
           </button>
           <button
-            onClick={onContactClick}
+            onClick={connectCapital}
             className="px-8 py-3.5 rounded-full text-sm font-semibold text-white border"
             style={{ borderColor: 'rgba(255,255,255,0.6)' }}
           >
