@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import { Menu, X, Mail, Linkedin, Globe } from 'lucide-react';
+import { Menu, X, Mail } from 'lucide-react';
 import HomePage from '../components/HomePage';
 import PlatformSciencePage from '../components/PlatformSciencePage';
 import PartnersPage from '../components/PartnersPage';
@@ -16,8 +16,6 @@ export default function Site() {
   const [contactContext, setContactContext] = useState(null);
   const [showVideo, setShowVideo] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
@@ -44,13 +42,6 @@ export default function Site() {
     // Guard against onClick={openContact} passing the DOM click event as `type`.
     setContactContext(typeof type === 'string' ? { type, message: message || '' } : null);
     setShowContactModal(true);
-  };
-
-  const handleNewsletterSubmit = (e) => {
-    e.preventDefault();
-    // No email service is connected yet — this just confirms the signup locally.
-    setNewsletterSubscribed(true);
-    setNewsletterEmail('');
   };
 
   const renderPage = () => {
@@ -252,64 +243,7 @@ export default function Site() {
         }}
       >
         <div className="max-w-7xl mx-auto">
-          {/* Compact newsletter strip */}
-          <div
-            className="flex flex-col md:flex-row items-center md:items-center justify-center md:justify-between text-center md:text-left"
-            style={{
-              flexWrap: 'wrap',
-              gap: '1.5rem',
-              paddingBottom: '1.5rem',
-              marginBottom: '1.5rem',
-              borderBottom: '1px solid rgba(255,255,255,0.2)'
-            }}
-          >
-            <div>
-              <div style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Stay Inspired</div>
-              <p style={{ fontSize: 13, opacity: 0.75 }}>Get regular insights and updates from Seco Bio</p>
-            </div>
-
-            {newsletterSubscribed ? (
-              <p style={{ fontSize: 14, fontWeight: 600, flexShrink: 0 }}>Thanks — you're on the list.</p>
-            ) : (
-              <form onSubmit={handleNewsletterSubmit} style={{ display: 'flex', width: '100%', maxWidth: 320 }}>
-                <input
-                  type="email"
-                  required
-                  value={newsletterEmail}
-                  onChange={(e) => setNewsletterEmail(e.target.value)}
-                  placeholder="Your email"
-                  style={{
-                    flex: '1 1 100px',
-                    minWidth: 0,
-                    padding: '9px 16px',
-                    borderRadius: '20px 0 0 20px',
-                    border: 'none',
-                    outline: 'none',
-                    fontSize: 13,
-                    color: '#3D4654'
-                  }}
-                />
-                <button
-                  type="submit"
-                  style={{
-                    flexShrink: 0,
-                    padding: '9px 20px',
-                    borderRadius: '0 20px 20px 0',
-                    border: 'none',
-                    backgroundColor: '#0D2A1B',
-                    color: 'white',
-                    fontSize: 13,
-                    fontWeight: 600,
-                    cursor: 'pointer'
-                  }}
-                >
-                  Subscribe
-                </button>
-              </form>
-            )}
-          </div>
-
-          {/* Logo · nav links · contact — single row */}
+          {/* Logo · contact — single row */}
           <div
             className="flex flex-col md:flex-row items-center md:items-center justify-center md:justify-between text-center md:text-left"
             style={{
@@ -328,37 +262,18 @@ export default function Site() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center" style={{ gap: 8, fontSize: 13, textAlign: 'center' }}>
-              <div>
-                <div style={{ fontWeight: 700 }}>Joe Collura</div>
-                <div style={{ opacity: 0.65, fontSize: 12 }}>CEO / Founder</div>
-              </div>
-              <div className="flex flex-wrap items-center justify-center" style={{ gap: '1.25rem' }}>
-                <a
-                  href="mailto:joe@seco.bio"
-                  className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity"
-                >
-                  <Mail size={14} strokeWidth={1.8} />
-                  joe@seco.bio
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/jvcollura/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity"
-                >
-                  <Linkedin size={14} strokeWidth={1.8} />
-                  LinkedIn
-                </a>
-              </div>
-            </div>
+            <a
+              href="mailto:info@seco.bio"
+              className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity"
+              style={{ fontSize: 13 }}
+            >
+              <Mail size={14} strokeWidth={1.8} />
+              info@seco.bio
+            </a>
           </div>
 
           <div className="text-xs text-center" style={{ opacity: 0.5 }}>
             © 2026 Seco Bio. Privacy · Terms
-          </div>
-          <div className="text-xs text-center" style={{ opacity: 0.4, marginTop: 8, maxWidth: 640, marginLeft: 'auto', marginRight: 'auto' }}>
-            References to investors or investment on this site concern securities offered only under Rule 506(b) of Regulation D to accredited investors, and do not constitute an offer to sell or a solicitation of an offer to buy any security.
           </div>
         </div>
       </footer>

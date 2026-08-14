@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Languages } from 'lucide-react';
 
 // Google Translate widget.
 // Covers the markets Joe flagged: Brazil (pt), Germany (de), Switzerland (de/fr/it),
@@ -29,5 +30,32 @@ export default function Translate() {
     document.body.appendChild(script);
   }, []);
 
-  return <div id="google_translate_element" className="translate-widget" />;
+  return (
+    <div className="translate-widget" style={{ position: 'relative', display: 'inline-block' }}>
+      {/* Google's own gadget renders here, full-size and clickable. */}
+      <div id="google_translate_element" />
+      {/* This label paints on top of it purely for legibility — Google's own
+          "Select Language" text was too easy to miss. Clicks pass through
+          (pointerEvents: none) to the real widget underneath. */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 6,
+          pointerEvents: 'none',
+          fontSize: 13,
+          fontWeight: 600,
+          color: '#3d4654',
+          fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif'
+        }}
+      >
+        <Languages size={14} strokeWidth={2} />
+        Translate
+      </div>
+    </div>
+  );
 }

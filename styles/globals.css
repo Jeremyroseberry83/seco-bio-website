@@ -85,10 +85,10 @@ a {
   text-decoration: none !important;
 }
 .translate-widget .goog-te-gadget-simple a span {
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-  color: #3d4654 !important;
+  /* Text is rendered by our own always-visible overlay label instead —
+     Google's own "Select Language" text was too easy to miss/mis-render. */
+  color: transparent !important;
+  font-size: 0 !important;
 }
 body {
   top: 0 !important; /* cancel Google's injected banner offset */

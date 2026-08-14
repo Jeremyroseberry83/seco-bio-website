@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Mail, Linkedin } from 'lucide-react';
+import { X, Mail } from 'lucide-react';
 
 const BLUE = '#3B60E4';
 const BLUE_DEEP = '#2F4FC9';
@@ -92,12 +92,9 @@ export default function ContactForm({ onClose, initialType, initialMessage }) {
           </div>
         ) : (
           <>
-            <h2 className="font-bold mb-2" style={{ color: SLATE, fontSize: 24, letterSpacing: '-0.02em' }}>
+            <h2 className="font-bold mb-8" style={{ color: SLATE, fontSize: 24, letterSpacing: '-0.02em' }}>
               Let's talk.
             </h2>
-            <p className="mb-8" style={{ color: MUTED, fontSize: 15, lineHeight: 1.7 }}>
-              Three fields. We'll come back to you within two business days.
-            </p>
 
             <form
               name="seco-contact"
@@ -120,7 +117,6 @@ export default function ContactForm({ onClose, initialType, initialMessage }) {
                 </label>
                 <select name="type" value={form.type} onChange={change} style={field}>
                   <option>Partnership</option>
-                  <option>Investment</option>
                   <option>Press</option>
                   <option>Other</option>
                 </select>
@@ -158,8 +154,8 @@ export default function ContactForm({ onClose, initialType, initialMessage }) {
               {state === 'error' && (
                 <p style={{ color: '#B4232B', fontSize: 14 }}>
                   Something went wrong. Email{' '}
-                  <a href="mailto:joe@seco.bio" style={{ textDecoration: 'underline' }}>
-                    joe@seco.bio
+                  <a href="mailto:info@seco.bio" style={{ textDecoration: 'underline' }}>
+                    info@seco.bio
                   </a>{' '}
                   directly and we'll pick it up.
                 </p>
@@ -181,32 +177,17 @@ export default function ContactForm({ onClose, initialType, initialMessage }) {
 
             {/* Direct line, for people who won't fill in a form */}
             <div className="mt-8 pt-7" style={{ borderTop: '1px solid #E4E8F2' }}>
-              <p className="font-bold mb-1" style={{ color: SLATE, fontSize: 15 }}>
-                Joe Collura
-              </p>
               <p className="mb-4" style={{ color: MUTED, fontSize: 13 }}>
-                CEO &amp; Founder, Seco Bio
+                Prefer email?
               </p>
-              <div className="flex flex-col gap-3">
-                <a
-                  href="mailto:joe@seco.bio"
-                  className="inline-flex items-center gap-2.5"
-                  style={{ color: BLUE, fontSize: 14 }}
-                >
-                  <Mail size={15} strokeWidth={1.8} />
-                  joe@seco.bio
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/jvcollura/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5"
-                  style={{ color: BLUE, fontSize: 14 }}
-                >
-                  <Linkedin size={15} strokeWidth={1.8} />
-                  LinkedIn
-                </a>
-              </div>
+              <a
+                href="mailto:info@seco.bio"
+                className="inline-flex items-center gap-2.5"
+                style={{ color: BLUE, fontSize: 14 }}
+              >
+                <Mail size={15} strokeWidth={1.8} />
+                info@seco.bio
+              </a>
             </div>
           </>
         )}
