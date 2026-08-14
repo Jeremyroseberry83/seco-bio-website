@@ -31,31 +31,31 @@ export default function Translate() {
   }, []);
 
   return (
-    // The pill chrome lives here, on our own wrapper — not on Google's
-    // .goog-te-gadget-simple, which only exists once its script has loaded
-    // and previously left the button looking like bare unstyled text until
-    // (or unless) that happened.
+    // Icon-only, deliberately secondary to "Get in touch" — a language
+    // switcher is a utility, not the primary action. The chrome lives on our
+    // own wrapper, not on Google's .goog-te-gadget-simple, which only exists
+    // once its script has loaded (and previously left the button looking
+    // like bare unstyled text until, or unless, that happened).
     <div
       className="translate-widget"
+      aria-label="Translate this page"
       style={{
         position: 'relative',
         display: 'inline-flex',
         alignItems: 'center',
-        gap: 6,
+        justifyContent: 'center',
+        width: 36,
+        height: 36,
+        flexShrink: 0,
         background: '#f1f3fb',
         border: '1px solid #dce3f7',
-        borderRadius: 999,
-        padding: '7px 14px',
-        fontSize: 13,
-        fontWeight: 600,
-        color: '#3d4654',
-        fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif'
+        borderRadius: '50%',
+        color: '#3d4654'
       }}
     >
-      {/* Google's own gadget renders here, invisible but clickable, filling the pill. */}
+      {/* Google's own gadget renders here, invisible but clickable, filling the button. */}
       <div id="google_translate_element" style={{ position: 'absolute', inset: 0 }} />
-      <Languages size={14} strokeWidth={2} style={{ pointerEvents: 'none' }} />
-      <span style={{ pointerEvents: 'none' }}>Translate</span>
+      <Languages size={16} strokeWidth={2} style={{ pointerEvents: 'none' }} />
     </div>
   );
 }
