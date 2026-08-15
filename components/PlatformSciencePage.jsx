@@ -137,19 +137,20 @@ export default function PlatformSciencePage({ onNavigate }) {
         <div className="max-w-6xl mx-auto">
           <h2 style={{ fontSize: 'clamp(1.7rem, 5vw, 2.25rem)', fontWeight: 700, color: SLATE, marginBottom: '2.5rem', lineHeight: 1.2 }}>Seco's technology provides a protective coat of safe ingredients <span style={{ color: BLUE, fontStyle: 'italic' }}>wrapped around every living cell.</span></h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', marginBottom: '2rem' }}>
-            <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', minHeight: '340px' }}>
-              <img src="/images/science/bacteria.jpg" alt="Live probiotic cell" style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }} />
-              <div style={{ position: 'absolute', top: '8%', right: '5%', backgroundColor: 'white', border: `2px solid ${BLUE}`, borderRadius: '8px', padding: '10px 16px', maxWidth: 200 }}>
-                <div style={{ fontSize: '12px', fontWeight: 700, color: BLUE }}>LIVE CELL</div>
-                <div style={{ fontSize: '12px', color: SLATE }}>The probiotic bacterium</div>
-              </div>
-              <div style={{ position: 'absolute', bottom: '6%', left: '5%', backgroundColor: 'white', border: `2px solid ${BLUE}`, borderRadius: '8px', padding: '10px 16px', maxWidth: 220 }}>
-                <div style={{ fontSize: '12px', fontWeight: 700, color: BLUE }}>SAFE COATING</div>
-                <div style={{ fontSize: '12px', color: SLATE }}>Proprietary GRAS / FDA approved ingredients</div>
-              </div>
-            </div>
+          {/* Joe's own deck image — LIVE CELL / SAFE COATING callouts are baked
+              into the photo itself (with pointer lines to exact spots on the
+              cell), so it replaces the separate code-drawn boxes we used to
+              overlay on a plain stock photo. Shown at its native ~1.95:1
+              ratio, full width, so nothing near the edges gets cropped. */}
+          <div style={{ borderRadius: '12px', overflow: 'hidden', marginBottom: '2rem', aspectRatio: '1906 / 978' }}>
+            <img
+              src="/images/science/bacteria-coating-deck.jpg"
+              alt="Live probiotic cell with protective safe coating, annotated"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
+          </div>
 
+          <div style={{ maxWidth: 480, margin: '0 auto 2rem' }}>
             <div style={{ backgroundColor: BLUE_BG_LIGHT, borderRadius: '12px', borderTop: `4px solid ${BLUE}`, padding: '2rem' }}>
               <h4 style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: BLUE, marginBottom: '1.5rem' }}>How It Works</h4>
               <div style={{ backgroundColor: 'rgba(59,96,228,0.15)', border: `1px solid ${BLUE}`, borderRadius: '999px', padding: '14px 10px', textAlign: 'center' }}>
