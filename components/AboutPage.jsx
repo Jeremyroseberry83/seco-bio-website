@@ -90,7 +90,7 @@ export default function AboutPage({ onContactClick }) {
       </section>
 
       {/* Origin */}
-      <section className="pt-12 pb-24 px-6" style={{ backgroundColor: 'white' }}>
+      <section className="pt-8 pb-12 md:pt-12 md:pb-24 px-6" style={{ backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div
             className="rounded-2xl overflow-hidden"
@@ -117,10 +117,11 @@ export default function AboutPage({ onContactClick }) {
               <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: MUTED, marginBottom: '0.85rem' }}>
                 Backed &amp; Published By
               </div>
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5">
+              <div className="grid grid-cols-2 justify-items-center md:flex md:flex-wrap md:justify-items-none md:justify-start md:items-center gap-2.5">
                 {['NASA', 'DARPA', 'MIT', 'Nature Materials'].map((name) => (
                   <div
                     key={name}
+                    className="w-full text-center md:w-auto md:text-left"
                     style={{
                       backgroundColor: '#EEF2FE',
                       borderRadius: '999px',
@@ -151,7 +152,7 @@ export default function AboutPage({ onContactClick }) {
       </section>
 
       {/* Founders */}
-      <section className="py-28 px-6">
+      <section className="py-16 md:py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mb-16">
             <h2
@@ -200,7 +201,7 @@ export default function AboutPage({ onContactClick }) {
       </section>
 
       {/* Executive Advisory Board */}
-      <section className="pt-28 pb-12 px-6" style={{ backgroundColor: '#F7F8FA' }}>
+      <section className="pt-16 pb-8 md:pt-28 md:pb-12 px-6" style={{ backgroundColor: '#F7F8FA' }}>
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mb-16">
             <h2
@@ -249,7 +250,7 @@ export default function AboutPage({ onContactClick }) {
       </section>
 
       {/* Where We Focus */}
-      <section className="pt-12 pb-28 px-6" style={{ backgroundColor: '#F7F8FA' }}>
+      <section className="pt-8 pb-16 md:pt-12 md:pb-28 px-6" style={{ backgroundColor: '#F7F8FA' }}>
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mb-16">
             <Eyebrow>Where we focus</Eyebrow>
@@ -321,7 +322,7 @@ export default function AboutPage({ onContactClick }) {
 
       {/* CTA */}
       <section
-        className="py-28 px-6 text-center"
+        className="py-16 md:py-28 px-6 text-center"
         style={{ backgroundColor: INK }}
       >
         <span
