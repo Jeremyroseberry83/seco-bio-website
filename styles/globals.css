@@ -53,6 +53,8 @@ a {
 .translate-widget .goog-te-gadget {
   font-size: 0 !important;
   color: transparent !important;
+  position: absolute !important;
+  inset: 0 !important;
 }
 .translate-widget .goog-te-gadget .goog-te-combo {
   font-size: 13px;
@@ -62,16 +64,18 @@ a {
   padding: 6px 8px;
   background: #fff;
 }
-.translate-widget .goog-logo-link,
-.translate-widget .goog-te-gadget span {
+.translate-widget .goog-logo-link {
   display: none !important;
 }
 .translate-widget .goog-te-gadget-simple {
   /* Invisible — our own wrapper (Translate.jsx) draws the pill now, so this
-     just needs to sit there and be clickable across its full area. */
+     just needs to sit there and be clickable across its full area. Uses
+     position:absolute/inset:0 at every layer rather than width/height:100%,
+     because Google's own span wrapper collapses to 0-height content, which
+     breaks percentage-based sizing on the anchor below it. */
+  position: absolute !important;
+  inset: 0 !important;
   display: block !important;
-  width: 100% !important;
-  height: 100% !important;
   background: transparent !important;
   border: none !important;
   padding: 0 !important;
@@ -80,10 +84,15 @@ a {
 .translate-widget .goog-te-gadget-icon {
   display: none !important;
 }
-.translate-widget .goog-te-gadget-simple a {
+.translate-widget .goog-te-gadget-simple > span {
+  position: absolute !important;
+  inset: 0 !important;
   display: block !important;
-  width: 100% !important;
-  height: 100% !important;
+}
+.translate-widget .goog-te-gadget-simple a {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
   text-decoration: none !important;
 }
 .translate-widget .goog-te-gadget-simple a span {
