@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mail, Linkedin } from 'lucide-react';
-import { PageHero, Accent } from './ui';
+import { PageTopBand } from './ui';
 
 const BLUE = '#3B60E4';
 const BLUE_DEEP = '#2F4FC9';
@@ -76,14 +76,21 @@ function Person({ name, title, bio, photo, accent, linkedin, category }) {
 export default function AboutPage({ onContactClick }) {
   return (
     <div>
-      <PageHero
-        eyebrow="About"
-        image="/images/stills/lab-blue.jpg"
-        title={<>Eight years of science. <Accent>Six months as a company.</Accent></>}
-      />
+      <PageTopBand image="/images/stills/lab-blue.jpg" />
+
+      {/* Opening headline — merges the old hero title with Origin's own
+          headline below, moved into the page's normal flow for consistency
+          with the other pages. */}
+      <section className="pt-16 pb-4 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <h1 style={{ fontSize: 'clamp(1.7rem, 5vw, 2.25rem)', fontWeight: 700, color: SLATE, lineHeight: 1.25 }}>
+            Eight years of science. <span style={{ color: BLUE, fontStyle: 'italic' }}>Built to keep bacteria alive where nothing else could.</span>
+          </h1>
+        </div>
+      </section>
 
       {/* Origin */}
-      <section className="py-24 px-6" style={{ backgroundColor: 'white' }}>
+      <section className="pt-12 pb-24 px-6" style={{ backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div
             className="rounded-2xl overflow-hidden"
@@ -97,17 +104,6 @@ export default function AboutPage({ onContactClick }) {
           </div>
           <div>
             <Eyebrow>Where this came from</Eyebrow>
-            <h2
-              className="font-bold mb-7"
-              style={{
-                color: SLATE,
-                fontSize: 'clamp(1.7rem, 3vw, 2.5rem)',
-                lineHeight: 1.12,
-                letterSpacing: '-0.025em'
-              }}
-            >
-              Built to keep bacteria alive where nothing else could.
-            </h2>
             <p className="mb-6" style={{ color: MUTED, fontSize: '17px', lineHeight: 1.75 }}>
               From 2017 to 2024, NASA and DARPA funded research at MIT aimed at keeping bacteria
               alive for soldiers in the field and astronauts on long missions. The findings were
@@ -340,17 +336,11 @@ export default function AboutPage({ onContactClick }) {
           }}
         />
         <h2
-          className="text-white font-bold mb-6"
+          className="text-white font-bold mb-10"
           style={{ fontSize: 'clamp(1.9rem, 3.6vw, 2.8rem)', letterSpacing: '-0.03em' }}
         >
           Talk to the people who built it.
         </h2>
-        <p
-          className="text-white mb-10 mx-auto"
-          style={{ maxWidth: '40ch', fontSize: '17px', opacity: 0.9, lineHeight: 1.7 }}
-        >
-          Partnership, investment, or press — start here.
-        </p>
         <button
           onClick={onContactClick}
           className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-white text-sm font-semibold"

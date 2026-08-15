@@ -178,6 +178,28 @@ export function PageHero({ eyebrow, title, subtitle, image, video, videoOpacity 
   );
 }
 
+/**
+ * PageTopBand — slim decorative image strip, no overlaid copy. Replaces the
+ * heavy colour-washed PageHero-with-headline treatment: the real headline
+ * now lives in the page's normal flow just below, so every page opens the
+ * same way instead of each having its own hero style.
+ */
+export function PageTopBand({ image }) {
+  return (
+    <section
+      style={{
+        minHeight: '180px',
+        backgroundImage: `url(${image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        position: 'relative'
+      }}
+    >
+      <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.6)' }} />
+    </section>
+  );
+}
+
 /* ============================================================
    Section patterns. Each maps to one of the reference layouts,
    rebuilt in Seco's palette so they read as one system.

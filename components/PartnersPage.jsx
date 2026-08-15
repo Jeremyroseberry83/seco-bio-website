@@ -1,7 +1,7 @@
 import React from 'react';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check, Mail } from 'lucide-react';
 import {
-  PageHero, Accent, Eyebrow,
+  PageTopBand, Eyebrow,
   SLATE, MUTED, BLUE, GREEN, GREEN_DEEP, INK
 } from './ui';
 
@@ -11,16 +11,23 @@ export default function PartnersPage({ onContactClick }) {
 
   return (
     <div>
-      <PageHero
-        eyebrow="Partners"
-        image="/images/photo/wellness.jpg"
-        tone="green"
-        title={<>Two ways in. <Accent>One conversation to start.</Accent></>}
-        subtitle="Whether you make a living product or you're looking at where this industry goes next, it begins with an NDA and a technical call — with partners in the US and internationally."
-      />
+      <PageTopBand image="/images/photo/wellness.jpg" />
+
+      {/* Opening headline — moved into the page's normal flow instead of a
+          colored hero band, for consistency with the other pages. */}
+      <section className="pt-16 pb-6 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <h1 style={{ fontSize: 'clamp(1.7rem, 5vw, 2.25rem)', fontWeight: 700, color: SLATE, marginBottom: '1rem', lineHeight: 1.2 }}>
+            Two ways in. <span style={{ color: GREEN, fontStyle: 'italic' }}>One conversation to start.</span>
+          </h1>
+          <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8 }}>
+            Whether you make a living product or you're looking at where this industry goes next, it begins with an NDA and a technical call — with partners in the US and internationally.
+          </p>
+        </div>
+      </section>
 
       {/* Two-panel positioning — Capital vs Business, leading with capital per updated flow */}
-      <section className="pt-24 pb-16 px-6">
+      <section className="pt-6 pb-16 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
           <div
             className="rounded-2xl p-10"
@@ -178,27 +185,19 @@ export default function PartnersPage({ onContactClick }) {
           }}
         />
         <h2
-          className="text-white font-bold mb-12"
+          className="text-white font-bold mb-10"
           style={{ fontSize: 'clamp(1.9rem, 3.6vw, 2.8rem)', letterSpacing: '-0.03em' }}
         >
-          For business and capital partners.
+          Let's start the conversation.
         </h2>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            onClick={connectBusiness}
-            className="px-8 py-3.5 rounded-full bg-white text-sm font-semibold"
-            style={{ color: INK }}
-          >
-            I'm a potential partner
-          </button>
-          <button
-            onClick={connectCapital}
-            className="px-8 py-3.5 rounded-full text-sm font-semibold text-white border"
-            style={{ borderColor: 'rgba(255,255,255,0.6)' }}
-          >
-            I'm an investor
-          </button>
-        </div>
+        <button
+          onClick={connectBusiness}
+          className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-white text-sm font-semibold"
+          style={{ color: INK }}
+        >
+          <Mail size={17} />
+          Get in touch
+        </button>
       </section>
     </div>
   );

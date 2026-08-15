@@ -1,5 +1,5 @@
 import React from 'react';
-import { CountUp } from './ui';
+import { CountUp, PageTopBand } from './ui';
 
 const BLUE = '#3B60E4';
 const GREEN = '#1E8E5A';
@@ -25,19 +25,12 @@ const PINK_BG = '#FDECF2';
 export default function PlatformSciencePage({ onNavigate }) {
   return (
     <div>
-      {/* HERO — kept short: the removed headline/paragraph duplicated content
-          the sections below already say more concretely. */}
-      <section style={{ padding: '0', backgroundColor: 'white', minHeight: '220px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundImage: 'url(/images/lab-blue.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
-        <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.65)' }} />
-        <div className="max-w-6xl mx-auto" style={{ position: 'relative', zIndex: 1, textAlign: 'center', color: 'white', padding: '3rem 1.5rem' }}>
-          <h3 style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.9)' }}>Science & Evidence</h3>
-        </div>
-      </section>
+      <PageTopBand image="/images/lab-blue.jpg" />
 
       {/* 1. THE PLATFORM */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: BG }}>
         <div className="max-w-3xl mx-auto">
-          <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1.5rem', lineHeight: 1.2 }}>This is published science, not a marketing pitch.</h2>
+          <h2 style={{ fontSize: 'clamp(1.7rem, 5vw, 2.25rem)', fontWeight: 700, color: SLATE, marginBottom: '1.5rem', lineHeight: 1.2 }}>This is published science, not a marketing pitch.</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2rem' }}>
             <div style={{ display: 'flex', gap: '1rem' }}>
               <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: GREEN, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 700, flexShrink: 0 }}>✓</div>
@@ -75,21 +68,23 @@ export default function PlatformSciencePage({ onNavigate }) {
       {/* 2. THE PROBLEM */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto">
-          <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1rem', lineHeight: 1.2, textAlign: 'center' }}>Today's probiotic <span style={{ color: GREEN, fontStyle: 'italic' }}>consumer products represent</span> a tiny fraction of what actually lives in a healthy gut.</h2>
+          <h2 style={{ fontSize: 'clamp(1.7rem, 5vw, 2.25rem)', fontWeight: 700, color: SLATE, marginBottom: '1rem', lineHeight: 1.2, textAlign: 'center' }}>Today's probiotic <span style={{ color: GREEN, fontStyle: 'italic' }}>consumer products represent</span> a tiny fraction of what actually lives in a healthy gut.</h2>
           <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2.5rem', fontStyle: 'italic', textAlign: 'center', maxWidth: '60ch', marginLeft: 'auto', marginRight: 'auto' }}>The bacteria linked to long-term gut health go far beyond the handful of strains that survive today's manufacturing process.</p>
 
-          {/* Bubble comparison — sized proportionally, not just stated as numbers */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2.5rem', flexWrap: 'wrap', padding: '1rem 0 2.5rem' }}>
+          {/* Bubble comparison — sized proportionally, not just stated as numbers.
+              Circle sizes scale with viewport width so they stay proportioned
+              (rather than overflowing/overlapping) on narrow phones. */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'clamp(1rem, 4vw, 2.5rem)', flexWrap: 'wrap', padding: '1rem 0 2.5rem' }}>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ width: 76, height: 76, borderRadius: '50%', backgroundColor: GRAY_BG_LIGHT, border: `2px solid ${MUTED}`, margin: '0 auto 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: '13px', fontWeight: 700, color: MUTED }}>~10–20</span>
+              <div style={{ width: 'clamp(56px, 18vw, 76px)', height: 'clamp(56px, 18vw, 76px)', borderRadius: '50%', backgroundColor: GRAY_BG_LIGHT, border: `2px solid ${MUTED}`, margin: '0 auto 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontSize: 'clamp(11px, 2.6vw, 13px)', fontWeight: 700, color: MUTED }}>~10–20</span>
               </div>
               <div style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.5px', textTransform: 'uppercase', color: MUTED }}>Strains on the<br />shelf today</div>
             </div>
             <div style={{ fontSize: '24px', color: MUTED }}>→</div>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ width: 240, height: 240, borderRadius: '50%', backgroundColor: GREEN_BG_LIGHT, border: `3px solid ${GREEN}`, margin: '0 auto 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: '42px', fontWeight: 700, color: SLATE }}><CountUp end={1000} prefix="~" /></span>
+              <div style={{ width: 'clamp(150px, 55vw, 240px)', height: 'clamp(150px, 55vw, 240px)', borderRadius: '50%', backgroundColor: GREEN_BG_LIGHT, border: `3px solid ${GREEN}`, margin: '0 auto 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontSize: 'clamp(30px, 9vw, 42px)', fontWeight: 700, color: SLATE }}><CountUp end={1000} prefix="~" /></span>
               </div>
               <div style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.5px', textTransform: 'uppercase', color: GREEN }}>Species inside a<br />healthy gut</div>
             </div>
@@ -111,7 +106,7 @@ export default function PlatformSciencePage({ onNavigate }) {
       {/* 3. LIVING PRODUCTS DIE ON THE WAY TO YOU — bumped ahead of The Technology */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: BG }}>
         <div className="max-w-6xl mx-auto">
-          <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '1rem', lineHeight: 1.2 }}>Most of them don't.</h2>
+          <h2 style={{ fontSize: 'clamp(1.7rem, 5vw, 2.25rem)', fontWeight: 700, color: SLATE, marginBottom: '1rem', lineHeight: 1.2 }}>Most of them don't.</h2>
           <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2.5rem' }}>Probiotics are alive. That's the entire point of them — and it's also the problem. Bacteria have to survive being dried, pressed into tablets, sealed in bottles, shipped through heat, and stored for months before anyone opens the package.</p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
@@ -140,7 +135,7 @@ export default function PlatformSciencePage({ onNavigate }) {
       {/* 4. THE TECHNOLOGY */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: 'white' }}>
         <div className="max-w-6xl mx-auto">
-          <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, marginBottom: '2.5rem', lineHeight: 1.2 }}>Seco's technology provides a protective coat of safe ingredients <span style={{ color: BLUE, fontStyle: 'italic' }}>wrapped around every living cell.</span></h2>
+          <h2 style={{ fontSize: 'clamp(1.7rem, 5vw, 2.25rem)', fontWeight: 700, color: SLATE, marginBottom: '2.5rem', lineHeight: 1.2 }}>Seco's technology provides a protective coat of safe ingredients <span style={{ color: BLUE, fontStyle: 'italic' }}>wrapped around every living cell.</span></h2>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', marginBottom: '2rem' }}>
             <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', minHeight: '340px' }}>
@@ -198,7 +193,7 @@ export default function PlatformSciencePage({ onNavigate }) {
       {/* 5. PLATFORM & SCIENCE — Predict / Prove / Scale */}
       <section style={{ padding: '4rem 1.5rem', backgroundColor: DARK_INK_BG }}>
         <div className="max-w-6xl mx-auto">
-          <h2 style={{ fontSize: '36px', fontWeight: 700, color: 'white', marginBottom: '1rem', lineHeight: 1.2 }}>Seco's platform predicts the winning formula <span style={{ color: LIGHT_BLUE_ACCENT, fontStyle: 'italic' }}>before</span> a single cell enters the lab.</h2>
+          <h2 style={{ fontSize: 'clamp(1.7rem, 5vw, 2.25rem)', fontWeight: 700, color: 'white', marginBottom: '1rem', lineHeight: 1.2 }}>Seco's platform predicts the winning formula <span style={{ color: LIGHT_BLUE_ACCENT, fontStyle: 'italic' }}>before</span> a single cell enters the lab.</h2>
           <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.8)', lineHeight: 1.8, marginBottom: '2rem' }}>AI-native formulation. Autonomous wet-lab. Every strain we solve trains the platform — and the platform gets faster with every loop.</p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
@@ -223,7 +218,7 @@ export default function PlatformSciencePage({ onNavigate }) {
       {/* WHERE DO YOU FIT IN */}
       <section style={{ backgroundColor: 'white', padding: '4rem 1.5rem 5rem' }}>
         <div className="max-w-4xl mx-auto text-center" style={{ marginBottom: '2.5rem' }}>
-          <h2 style={{ fontSize: '36px', fontWeight: 700, color: SLATE, lineHeight: 1.2 }}>Where do you fit in?</h2>
+          <h2 style={{ fontSize: 'clamp(1.7rem, 5vw, 2.25rem)', fontWeight: 700, color: SLATE, lineHeight: 1.2 }}>Where do you fit in?</h2>
         </div>
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
           <div
@@ -240,7 +235,7 @@ export default function PlatformSciencePage({ onNavigate }) {
             style={{ cursor: 'pointer', border: '2px solid rgba(30,142,90,0.2)', borderTop: `3px solid ${GREEN}`, borderRadius: '12px', padding: '2rem' }}
           >
             <h3 style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: GREEN, marginBottom: '0.75rem' }}>Capital Partners</h3>
-            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.7 }}>Investors scaling the platform's compounding IP toward a strategic exit.</p>
+            <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.7 }}>Scale the platform with us.</p>
           </div>
         </div>
       </section>
