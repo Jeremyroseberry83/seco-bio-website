@@ -4,38 +4,53 @@ import { Languages } from 'lucide-react';
 // Google Translate widget.
 // Covers the markets Joe flagged: Brazil (pt), Germany (de), Switzerland (de/fr/it),
 // Japan (ja), SEA (id/th/vi/ms), MENA (ar). Full language list is available in the dropdown.
-export default function Translate() {
-  useEffect(() => {
-    if (document.getElementById('google-translate-script')) return;
+const INCLUDED_LANGUAGES = 'ar,de,en,es,fr,id,it,ja,ko,ms,pt,th,vi,zh-CN';
 
-    window.googleTranslateElementInit = () => {
-      if (!window.google || !window.google.translate) return;
+// This component renders twice (desktop nav + mobile menu). Google's script
+// only ever populates the FIRST DOM element with a given id — so if both
+// instances shared one hardcoded id, the second (whichever is actually
+// visible on mobile) would sit there empty and unclickable while the other
+// quietly worked. Each instance gets its own id, and the script-load is a
+// shared promise so both instances can independently initialize once it's
+// ready, regardless of mount order.
+let scriptLoadPromise = null;
+function loadGoogleTranslateScript() {
+  if (scriptLoadPromise) return scriptLoadPromise;
+  scriptLoadPromise = new Promise((resolve) => {
+    window.googleTranslateElementInit = resolve;
+    const script = document.createElement('script');
+    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.async = true;
+    document.body.appendChild(script);
+  });
+  return scriptLoadPromise;
+}
+
+export default function Translate({ instanceId = 'default' }) {
+  const elementId = `google_translate_element_${instanceId}`;
+
+  useEffect(() => {
+    let cancelled = false;
+    loadGoogleTranslateScript().then(() => {
+      if (cancelled || !window.google || !window.google.translate) return;
       new window.google.translate.TranslateElement(
         {
           pageLanguage: 'en',
-          includedLanguages:
-            'ar,de,en,es,fr,id,it,ja,ko,ms,pt,th,vi,zh-CN',
+          includedLanguages: INCLUDED_LANGUAGES,
           layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
           autoDisplay: false
         },
-        'google_translate_element'
+        elementId
       );
-    };
-
-    const script = document.createElement('script');
-    script.id = 'google-translate-script';
-    script.src =
-      '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
+    });
+    return () => { cancelled = true; };
+  }, [elementId]);
 
   return (
     // Icon-only, deliberately secondary to "Get in touch" — a language
     // switcher is a utility, not the primary action. The chrome lives on our
     // own wrapper, not on Google's .goog-te-gadget-simple, which only exists
-    // once its script has loaded (and previously left the button looking
-    // like bare unstyled text until, or unless, that happened).
+    // once its script has loaded.
     <div
       className="translate-widget"
       aria-label="Translate this page"
@@ -54,7 +69,7 @@ export default function Translate() {
       }}
     >
       {/* Google's own gadget renders here, invisible but clickable, filling the button. */}
-      <div id="google_translate_element" style={{ position: 'absolute', inset: 0 }} />
+      <div id={elementId} style={{ position: 'absolute', inset: 0 }} />
       <Languages size={16} strokeWidth={2} style={{ pointerEvents: 'none' }} />
     </div>
   );

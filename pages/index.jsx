@@ -166,7 +166,7 @@ export default function Site() {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <Translate />
+            <Translate instanceId="desktop" />
             <button
               onClick={openContact}
               className="px-6 py-2.5 text-sm font-semibold text-white rounded-full"
@@ -199,7 +199,7 @@ export default function Site() {
                   {item.name}
                 </button>
               ))}
-              <Translate />
+              <Translate instanceId="mobile" />
               <button
                 onClick={() => { openContact(); setMobileMenuOpen(false); }}
                 className="px-4 py-2.5 text-sm font-semibold text-white rounded-full w-full"

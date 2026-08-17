@@ -72,16 +72,21 @@ export default function PlatformSciencePage({ onNavigate }) {
           <p style={{ fontSize: '16px', color: MUTED, lineHeight: 1.8, marginBottom: '2.5rem', fontStyle: 'italic', textAlign: 'center', maxWidth: '60ch', marginLeft: 'auto', marginRight: 'auto' }}>The bacteria linked to long-term gut health go far beyond the handful of strains that survive today's manufacturing process.</p>
 
           {/* Bubble comparison — sized proportionally, not just stated as numbers.
-              Circle sizes scale with viewport width so they stay proportioned
-              (rather than overflowing/overlapping) on narrow phones. */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'clamp(1rem, 4vw, 2.5rem)', flexWrap: 'wrap', padding: '1rem 0 2.5rem' }}>
+              Direction is a deterministic column-on-mobile/row-on-desktop
+              switch (not flex-wrap auto-detection) so the arrow's orientation
+              always matches the actual flow instead of staying horizontal
+              even when the circles have stacked vertically. */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8" style={{ padding: '1rem 0 2.5rem' }}>
             <div style={{ textAlign: 'center' }}>
               <div style={{ width: 'clamp(56px, 18vw, 76px)', height: 'clamp(56px, 18vw, 76px)', borderRadius: '50%', backgroundColor: GRAY_BG_LIGHT, border: `2px solid ${MUTED}`, margin: '0 auto 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <span style={{ fontSize: 'clamp(11px, 2.6vw, 13px)', fontWeight: 700, color: MUTED }}>~10–20</span>
               </div>
               <div style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.5px', textTransform: 'uppercase', color: MUTED }}>Strains on the<br />shelf today</div>
             </div>
-            <div style={{ fontSize: '24px', color: MUTED }}>→</div>
+            <div style={{ fontSize: '24px', color: MUTED }}>
+              <span className="sm:hidden">↓</span>
+              <span className="hidden sm:inline">→</span>
+            </div>
             <div style={{ textAlign: 'center' }}>
               <div style={{ width: 'clamp(150px, 55vw, 240px)', height: 'clamp(150px, 55vw, 240px)', borderRadius: '50%', backgroundColor: GREEN_BG_LIGHT, border: `3px solid ${GREEN}`, margin: '0 auto 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <span style={{ fontSize: 'clamp(30px, 9vw, 42px)', fontWeight: 700, color: SLATE }}><CountUp end={1000} prefix="~" /></span>
