@@ -165,25 +165,33 @@ export default function Site() {
             })}
           </div>
 
-          <div className="hidden md:flex items-center gap-4">
-            <Translate instanceId="desktop" />
+          {/* Single Translate instance, always rendered — Google's widget
+              doesn't support being initialized twice on one page (confirmed:
+              a second new TranslateElement() call silently does nothing,
+              even targeting a distinct element id), so there can only ever
+              be one on the page regardless of viewport. It sits between the
+              nav and the Get in touch/hamburger, visible at every width —
+              those two stay one-or-the-other via hidden/md:hidden so the
+              visual order (Translate, then the trailing action) matches on
+              both desktop and mobile. */}
+          <div className="flex items-center gap-3 md:gap-4">
+            <Translate />
             <button
               onClick={openContact}
-              className="px-6 py-2.5 text-sm font-semibold text-white rounded-full"
+              className="hidden md:inline-flex px-6 py-2.5 text-sm font-semibold text-white rounded-full"
               style={{ background: 'linear-gradient(90deg, #3B60E4 0%, #2F4FC9 100%)' }}
             >
               Get in touch
             </button>
+            <button
+              className="md:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              style={{ color: overHero ? '#FFFFFF' : '#3D4654' }}
+              aria-label="Menu"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
-
-          <button
-            className="md:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            style={{ color: overHero ? '#FFFFFF' : '#3D4654' }}
-            aria-label="Menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
 
         {mobileMenuOpen && (
@@ -199,7 +207,6 @@ export default function Site() {
                   {item.name}
                 </button>
               ))}
-              <Translate instanceId="mobile" />
               <button
                 onClick={() => { openContact(); setMobileMenuOpen(false); }}
                 className="px-4 py-2.5 text-sm font-semibold text-white rounded-full w-full"
