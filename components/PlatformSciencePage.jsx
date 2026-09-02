@@ -43,7 +43,7 @@ export default function PlatformSciencePage({ onNavigate }) {
               <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: GREEN, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 700, flexShrink: 0 }}>✓</div>
               <div>
                 <div style={{ fontSize: '18px', fontWeight: 700, color: SLATE, marginBottom: '0.25rem' }}><CountUp end={6.5} decimals={1} suffix=" months" /></div>
-                <div style={{ fontSize: '14px', color: MUTED }}>at body temperature, and still alive</div>
+                <div style={{ fontSize: '14px', color: MUTED }}>sustained viability at body temperature. Demonstrated under sustained high-temperature conditions (37°C).</div>
               </div>
             </div>
             <div style={{ display: 'flex', gap: '1rem' }}>
@@ -54,6 +54,15 @@ export default function PlatformSciencePage({ onNavigate }) {
               </div>
             </div>
           </div>
+
+          {/* Overage callout — the commercial takeaway from the viability-retention
+              result, worded to hedge correctly: "may reduce," not a claim that
+              overage has already been demonstrated as reduced. */}
+          <div style={{ backgroundColor: BLUE_BG_LIGHT, borderRadius: '12px', borderLeft: `4px solid ${BLUE}`, padding: '1.5rem', marginBottom: '2rem' }}>
+            <h4 style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.5px', textTransform: 'uppercase', color: BLUE, marginBottom: '0.5rem' }}>Potential to reduce formulation overage</h4>
+            <p style={{ fontSize: '14px', color: SLATE, lineHeight: 1.7 }}>Greater viability retention may reduce the initial CFU overage required to meet target viability specifications over shelf life.</p>
+          </div>
+
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
             <a href="https://www.nature.com/articles/s41563-024-01937-6" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', backgroundColor: BLUE, color: 'white', padding: '12px 24px', borderRadius: '24px', textDecoration: 'none', fontSize: '14px', fontWeight: 600 }}>
               Read the research in Nature Materials →

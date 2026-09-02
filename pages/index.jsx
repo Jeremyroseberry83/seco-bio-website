@@ -6,7 +6,6 @@ import PlatformSciencePage from '../components/PlatformSciencePage';
 import PartnersPage from '../components/PartnersPage';
 import AboutPage from '../components/AboutPage';
 import ContactForm from '../components/ContactForm';
-import VideoModal from '../components/VideoModal';
 import Translate from '../components/Translate';
 
 export default function Site() {
@@ -14,7 +13,6 @@ export default function Site() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [contactContext, setContactContext] = useState(null);
-  const [showVideo, setShowVideo] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -49,7 +47,7 @@ export default function Site() {
       case 'platform-science': return <PlatformSciencePage onNavigate={handleNavClick} />;
       case 'partners':   return <PartnersPage onContactClick={openContact} />;
       case 'about':      return <AboutPage onContactClick={openContact} />;
-      default:           return <HomePage onContactClick={openContact} onWatchFilm={() => setShowVideo(true)} onNavigate={handleNavClick} />;
+      default:           return <HomePage onContactClick={openContact} onNavigate={handleNavClick} />;
     }
   };
 
@@ -113,25 +111,11 @@ export default function Site() {
                 style={{ position: 'absolute', inset: 0, height: 34, width: 28, display: 'block', opacity: overHero ? 0 : 1, transition: 'opacity 250ms ease' }}
               />
             </div>
-            <div>
-              <div
-                className="text-lg font-bold"
-                style={{ color: overHero ? '#FFFFFF' : '#3B60E4', letterSpacing: '0.08em', lineHeight: 1 }}
-              >
-                SECO BIO
-              </div>
-              <div
-                style={{ 
-                  fontSize: '9px', 
-                  fontWeight: 600, 
-                  letterSpacing: '1.2px',
-                  textTransform: 'uppercase',
-                  color: overHero ? 'rgba(255,255,255,0.8)' : '#3D4654',
-                  lineHeight: 1
-                }}
-              >
-                Protecting What Matters
-              </div>
+            <div
+              className="text-lg font-bold"
+              style={{ color: overHero ? '#FFFFFF' : '#3B60E4', letterSpacing: '0.08em', lineHeight: 1 }}
+            >
+              SECO BIO
             </div>
           </button>
         </div>
@@ -239,8 +223,6 @@ export default function Site() {
           initialMessage={contactContext?.message}
         />
       )}
-      {showVideo && <VideoModal onClose={() => setShowVideo(false)} />}
-
       <footer
         className="py-10 px-6"
         style={{
