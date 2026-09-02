@@ -93,7 +93,7 @@ export default function HomePage({ onContactClick, onNavigate }) {
               onClick={() => setFilmPlaying(false)}
               aria-label="Close video"
               className="inline-flex items-center gap-2 pl-4 pr-3 py-2.5 rounded-full font-semibold transition-opacity hover:opacity-80"
-              style={{ position: 'absolute', top: 16, right: 16, color: '#fff', backgroundColor: 'rgba(255,255,255,0.16)', fontSize: 14 }}
+              style={{ position: 'absolute', top: 84, right: 16, color: '#fff', backgroundColor: 'rgba(255,255,255,0.16)', fontSize: 14, zIndex: 3 }}
             >
               Close
               <X size={18} />
