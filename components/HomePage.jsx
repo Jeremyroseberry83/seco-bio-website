@@ -14,6 +14,15 @@ const BG = '#FAFBFD';
 // section heading half-hidden underneath it.
 const ANCHOR_OFFSET = { scrollMarginTop: 96 };
 
+// Native href="#id" anchor scrolling doesn't reliably fire in every context
+// (confirmed: even a direct location.hash assignment sometimes updates the
+// URL without scrolling) — so anchor links here scroll explicitly via JS
+// instead of depending on default browser fragment-navigation behavior.
+function scrollToId(e, id) {
+  e.preventDefault();
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+}
+
 export default function HomePage({ onContactClick, onNavigate }) {
   const [videoReady, setVideoReady] = React.useState(false);
   const [filmPlaying, setFilmPlaying] = React.useState(false);
@@ -51,6 +60,7 @@ export default function HomePage({ onContactClick, onNavigate }) {
               <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '2rem' }}>
                 <a
                   href="#platform"
+                  onClick={(e) => scrollToId(e, 'platform')}
                   style={{ display: 'inline-block', padding: '14px 28px', borderRadius: '999px', background: `linear-gradient(90deg, ${BLUE} 0%, ${BLUE_DEEP} 100%)`, color: 'white', fontSize: '15px', fontWeight: 600, textDecoration: 'none' }}
                 >
                   Learn more
